@@ -380,17 +380,6 @@
   .tone p{font-size:.93rem;line-height:1.45;color:#3B3533}
 
   /* ─────────── điều khoản thuê ─────────── */
-  .terms{
-    display:grid;grid-template-columns:repeat(3,minmax(0,1fr));
-    gap:0;border-top:1px solid var(--ink);
-  }
-  .term{padding:24px clamp(16px,2vw,30px) 28px;border-right:1px solid var(--hair);border-bottom:1px solid var(--hair)}
-  .term:nth-child(3n){border-right:0}
-  .term .n{font-family:var(--didone);font-size:1.6rem;color:var(--accent);display:block;margin-bottom:8px}
-  .term h3{margin-bottom:10px}
-  .term ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}
-  .term li{font-size:.95rem;line-height:1.45;color:#3B3533;padding-left:15px;position:relative}
-  .term li::before{content:"";position:absolute;left:0;top:.65em;width:7px;height:1px;background:var(--accent)}
   .quote{
     border-left:2px solid var(--accent);
     padding:4px 0 4px 22px;margin:22px 0 0;
@@ -511,17 +500,6 @@
   .tone p{font-size:.93rem;color:#3B3533}
 
   /* ─────────── điều khoản thuê ─────────── */
-  .terms{
-    display:grid;grid-template-columns:repeat(3,minmax(0,1fr));
-    gap:0;border-top:1px solid var(--ink);
-  }
-  .term{padding:24px clamp(16px,2vw,30px) 28px;border-right:1px solid var(--hair);border-bottom:1px solid var(--hair)}
-  .term:nth-child(3n){border-right:0}
-  .term .n{font-family:var(--didone);font-size:1.6rem;color:var(--accent);display:block;margin-bottom:8px}
-  .term h3{margin-bottom:10px}
-  .term ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}
-  .term li{font-size:.95rem;color:#3B3533;padding-left:15px;position:relative}
-  .term li::before{content:"";position:absolute;left:0;top:.65em;width:7px;height:1px;background:var(--accent)}
   .quote{
     border-left:2px solid var(--accent);
     padding:4px 0 4px 22px;margin:26px 0 0;
@@ -655,28 +633,39 @@
   }
   .picked.on{display:block}
 
-  /* ─────────── lộ trình cẩm nang ─────────── */
-  .cam-head{max-width:62ch}
-  .timeline{margin-top:clamp(26px,4vw,48px);border-top:1px solid var(--ink)}
-  .milestone{
-    display:grid;grid-template-columns:minmax(0,.28fr) minmax(0,1fr);
-    gap:clamp(18px,3vw,46px);
-    padding:26px 0;border-bottom:1px solid var(--hair);
+  /* ─────────── khối bấm mở (lộ trình & điều khoản) ─────────── */
+  .cam-head{max-width:52ch}
+  .timeline{margin-top:clamp(20px,3vw,34px);border-top:1px solid var(--ink)}
+  .acc{border-bottom:1px solid var(--hair)}
+  .acc summary{
+    display:flex;align-items:baseline;gap:clamp(12px,2vw,22px);
+    padding:15px 0;cursor:pointer;list-style:none;
+    transition:color .25s ease;
   }
-  .milestone .when{display:flex;flex-direction:column;gap:6px}
-  .milestone .num{font-size:1.7rem;color:var(--accent);line-height:1}
-  .milestone .lbl{
-    font-family:var(--sans);font-size:var(--t-meta);letter-spacing:.2em;
-    text-transform:uppercase;color:var(--ink-soft);
+  .acc summary::-webkit-details-marker{display:none}
+  .acc summary::after{
+    content:"+";margin-left:auto;
+    font-family:var(--sans);font-size:1rem;color:var(--ink-soft);
+    transition:transform .3s ease,color .25s ease;
   }
-  .milestone h3{margin-bottom:12px}
-  .milestone ul{list-style:none;margin:0;padding:0;display:grid;gap:9px;max-width:72ch}
-  .milestone li{font-size:.98rem;line-height:1.45;color:#3B3533;padding-left:16px;position:relative}
-  .milestone li::before{content:"";position:absolute;left:0;top:.68em;width:8px;height:1px;background:var(--accent)}
+  .acc[open] summary::after{content:"–";color:var(--accent)}
+  .acc summary:hover .atxt{color:var(--accent)}
+  .anum{font-size:1.05rem;color:var(--accent);line-height:1}
+  .atxt{font-family:var(--serif);font-size:clamp(1.05rem,1.9vw,1.28rem);line-height:1.25}
+  .awhen{
+    font-family:var(--sans);font-size:var(--t-meta);letter-spacing:.18em;
+    text-transform:uppercase;color:var(--ink-soft);white-space:nowrap;
+  }
+  .acc ul{
+    list-style:none;margin:0;padding:0 0 18px clamp(30px,4.4vw,54px);
+    display:grid;gap:7px;max-width:72ch;
+  }
+  .acc li{font-size:.97rem;line-height:1.45;color:#3B3533;padding-left:15px;position:relative}
+  .acc li::before{content:"";position:absolute;left:0;top:.68em;width:8px;height:1px;background:var(--accent)}
   .cam-cta{
-    margin-top:clamp(26px,4vw,44px);background:var(--accent-wash);
-    padding:clamp(22px,3vw,34px);
-    display:flex;flex-wrap:wrap;gap:18px 30px;align-items:center;justify-content:space-between;
+    margin-top:clamp(24px,3.4vw,38px);background:var(--accent-wash);
+    padding:clamp(20px,2.6vw,30px);
+    display:flex;flex-wrap:wrap;gap:16px 26px;align-items:center;justify-content:space-between;
   }
 
   /* ─────────── pricing ─────────── */
@@ -793,7 +782,6 @@
     }
     .portrait-wrap figcaption{order:-1;padding-bottom:4px}
     .house .portrait{aspect-ratio:3/4}
-    .milestone{grid-template-columns:1fr;gap:12px}
     .fgrid{grid-template-columns:1fr 1fr}
     .rlooks{grid-template-columns:1fr 1fr}
     .services{grid-template-columns:1fr 1fr}
@@ -802,14 +790,13 @@
     .tiers{grid-template-columns:1fr;border-top:0}
     .tones{grid-template-columns:1fr 1fr}
     .tone:nth-child(2n){border-right:0}
-    .terms{grid-template-columns:1fr;border-top:0}
-    .term{border-right:0;border-top:1px solid var(--ink);border-bottom:0}
     .tier{border-right:0;border-top:1px solid var(--ink)}
     .channels{grid-template-columns:1fr}
     .ch{border-right:0;border-bottom:1px solid var(--hair)}
     .foot{grid-template-columns:1fr 1fr}
   }
   @media (max-width:640px){
+    .awhen{display:none}
     .bar{grid-template-columns:auto 1fr;row-gap:10px}
     .bar .mark{grid-column:1/-1;grid-row:2;justify-self:center}
     .bar .left{grid-row:1}
@@ -907,10 +894,10 @@
       <div class="sec-body house rise">
         <div class="story">
           <h2 class="title" data-en="Born in 2017, out of one mother’s love.">Ra đời năm 2017, từ tình yêu của một người mẹ.</h2>
-          <p style="margin-top:26px" data-en="Dolinhanh Bridal was built on a personal conviction: a love of beauty, care taken over every detail, and an attachment to the image of a happy bride.">Dolinhanh Bridal ra đời từ năm 2017, mang đậm dấu ấn cá nhân — được tạo nên từ sự say mê với cái đẹp, sự chỉn chu trong từng chi tiết và tình yêu với hình ảnh cô dâu hạnh phúc.</p>
-          <p data-en="It has been through a lot — the pandemic years, a change of name, a change of hands — and has kept the same spirit throughout: sincere, understated, full of feeling.">Trải qua nhiều thăng trầm — từ biến cố mùa dịch đến việc đổi tên, chuyển nhượng thương hiệu — Dolinhanh vẫn giữ nguyên tinh thần ban đầu: chân thành, tinh tế và đầy cảm xúc.</p>
-          <p data-en="Today Dolinhanh is part of Nupakachi, a wedding photography house of more than fifteen years founded by photographer Đỗ Xuân Cường, with branches in several countries. From the photographs to the gowns, both pursue the same thing: the bride’s real beauty, said in the simplest way.">Dolinhanh hiện là một bộ phận trực thuộc Nupakachi — thương hiệu ảnh cưới hơn 15 năm, được sáng lập bởi nhiếp ảnh gia Đỗ Xuân Cường, có hơn 3 chi nhánh và dấu chân đã in qua nhiều quốc gia. Từ chất lượng hình ảnh đến thiết kế váy cưới, hai bên theo đuổi cùng một mục tiêu: tôn vinh vẻ đẹp thật của cô dâu qua những điều giản dị nhưng sâu sắc nhất.</p>
-          <blockquote class="quote" data-en="“Dolinhanh is what drives me to weave this dream of wedding dresses. I hope the house outlives me and grows up alongside the little girl I am raising — so that it truly becomes the happiness I hand to young women.”<cite>The founder</cite>">“Dolinhanh là nguồn động lực mãnh liệt để mình dệt nên ước mơ ‘váy cưới’. Mình mong thương hiệu này sẽ tồn tại mãi theo sự trưởng thành của cô gái nhỏ mình đang nuôi dạy. Để thực sự, đây sẽ là hoài bão hạnh phúc mình mang tới cho các cô gái trẻ.”<cite>Người sáng lập</cite></blockquote>
+          <p style="margin-top:26px" data-en="Dolinhanh Bridal began in 2017, out of a love of beauty and of the image of a happy bride.">Dolinhanh Bridal ra đời năm 2017, từ sự say mê cái đẹp và tình yêu với hình ảnh cô dâu hạnh phúc.</p>
+          <p data-en="Through the pandemic, a change of name and a change of hands, the spirit held: sincere, understated, full of feeling.">Qua mùa dịch, qua đổi tên và chuyển nhượng, tinh thần vẫn vậy: chân thành, tinh tế, đầy cảm xúc.</p>
+          <p data-en="Dolinhanh is now part of Nupakachi, the wedding photography house of Đỗ Xuân Cường, fifteen years old. One aim: the bride’s real beauty.">Nay Dolinhanh thuộc Nupakachi — nhà ảnh cưới hơn 15 năm của nhiếp ảnh gia Đỗ Xuân Cường. Cùng một mục tiêu: tôn vinh vẻ đẹp thật của cô dâu.</p>
+          <blockquote class="quote" data-en="“I hope this house grows up alongside the little girl I am raising — and becomes the happiness I hand to young women.”<cite>The founder</cite>">“Mình mong thương hiệu này lớn lên cùng cô gái nhỏ mình đang nuôi dạy — để thành hoài bão hạnh phúc mình mang tới cho các cô gái trẻ.”<cite>Người sáng lập</cite></blockquote>
         </div>
         <aside>
           
@@ -934,27 +921,27 @@
           <article class="svc">
             <div class="ph" style="--tone:#F1E8E6; --img:url('anh/dv-mayo.jpg')"></div>
             <h3 data-en="Bespoke">May đo riêng</h3>
-            <p data-en="The dress is built from the bride’s own measurements: silhouette, fabric, a beading map drawn for her, a calico toile fitted before the real gown is cut. Unlimited adjustments up to the final fitting.">Váy được dựng từ số đo của riêng cô dâu: chọn phom, chọn chất liệu, vẽ sơ đồ đính kết, may mộc thử dáng rồi mới lên váy thật. Sửa không giới hạn cho tới buổi thử cuối.</p>
+            <p data-en="Built from your own measurements, with a toile fitted before the real gown is cut. Altered until it fits.">Váy dựng từ số đo riêng, may mộc thử dáng rồi mới lên váy thật. Sửa đến khi vừa in.</p>
           </article>
           <article class="svc">
             <div class="ph" style="--tone:#EAE7E3; --img:url('anh/dv-thue.jpg')"></div>
             <h3 data-en="Wedding dress rental">Cho thuê váy cưới</h3>
-            <p data-en="Every gown in the showroom is available to rent, taken in at the waist, bust and hem to fit. Each dress is dry-cleaned and checked stone by stone before it goes out.">Toàn bộ mẫu trong showroom đều cho thuê, kèm chỉnh sườn — ngực — gấu theo dáng người. Váy được giặt hấp và kiểm tra từng viên đá trước ngày giao.</p>
+            <p data-en="Every gown is available to rent, taken in to fit, dry-cleaned and checked stone by stone.">Mọi mẫu trong showroom đều cho thuê, chỉnh theo dáng người, giặt hấp và kiểm từng viên đá trước khi giao.</p>
           </article>
           <article class="svc">
             <div class="ph" style="--tone:#EFEAE9; --img:url('anh/dv-chup.jpg')"></div>
             <h3 data-en="Photography">Chụp hình</h3>
-            <p data-en="Photography and film with Nupakachi, the house we come from: pre-wedding sessions, studio portraits in your gown, and documentary coverage of the wedding day. Booked together with a dress, it becomes one schedule instead of two.">Chụp ảnh và quay phim cùng Nupakachi — nhà mà DLA sinh ra: chụp pre-wedding, chụp studio với chính chiếc váy của mình, và phóng sự ngày cưới. Đi kèm gói váy thì thành một lịch duy nhất, khỏi ghép hai bên.</p>
+            <p data-en="Photography and film with Nupakachi: pre-wedding, studio portraits in your own gown, and the wedding day.">Chụp và quay cùng Nupakachi: pre-wedding, studio với chính chiếc váy của mình, phóng sự ngày cưới.</p>
           </article>
         </div>
 
         <div class="sec-body" style="padding-bottom:0">
           <div class="eyebrow" style="margin-bottom:18px" data-en="Four steps, from the first call to the wedding day">Bốn bước, từ lúc hẹn đến ngày cưới</div>
           <div class="journey rise">
-            <div class="step"><span class="n didone">1</span><h3 data-en="Book">Đặt lịch</h3><p data-en="Leave a phone number. A stylist calls back to confirm the time and ask about your date, your style and your budget.">Để lại số điện thoại, stylist gọi lại xác nhận khung giờ và hỏi trước ngày cưới, phong cách, ngân sách.</p></div>
-            <div class="step"><span class="n didone">2</span><h3 data-en="Try on">Thử váy</h3><p data-en="A private fitting at the showroom — 5 to 8 gowns to find the silhouette that suits you. No charge.">Buổi fitting riêng tại showroom, thử 5–8 mẫu để tìm ra phom hợp dáng, không tính phí.</p></div>
-            <div class="step"><span class="n didone">3</span><h3 data-en="Confirm &amp; alter">Chốt &amp; chỉnh</h3><p data-en="Sign, get measured, set the alteration or tailoring schedule. You come back as many times as it takes.">Ký hợp đồng, lấy số đo, lên lịch sửa hoặc lịch may. Cô dâu quay lại thử tới khi vừa in.</p></div>
-            <div class="step"><span class="n didone">4</span><h3 data-en="Collect">Nhận váy</h3><p data-en="The dress arrives before the ceremony with veil, accessories and care notes — plus help on the day if anything goes wrong.">Váy giao trước lễ, kèm voan, phụ kiện và hướng dẫn giữ váy. Có hỗ trợ xử lý sự cố trong ngày cưới.</p></div>
+            <div class="step"><span class="n didone">1</span><h3 data-en="Book">Đặt lịch</h3><p data-en="Leave a number; a stylist calls to confirm the time.">Để lại số, stylist gọi lại xác nhận giờ.</p></div>
+            <div class="step"><span class="n didone">2</span><h3 data-en="Try on">Thử váy</h3><p data-en="A private fitting, 5–8 gowns, no charge.">Fitting riêng, thử 5–8 mẫu, không tính phí.</p></div>
+            <div class="step"><span class="n didone">3</span><h3 data-en="Confirm &amp; alter">Chốt &amp; chỉnh</h3><p data-en="Sign, get measured, set the alteration dates.">Ký hợp đồng, lấy số đo, lên lịch sửa.</p></div>
+            <div class="step"><span class="n didone">4</span><h3 data-en="Collect">Nhận váy</h3><p data-en="Delivered before the ceremony with veil and accessories.">Giao trước lễ kèm voan và phụ kiện.</p></div>
           </div>
         </div>
       </div>
@@ -972,13 +959,13 @@
       <hr class="rule">
       <div class="sec-body">
         <h2 class="title" style="max-width:22ch" data-en="Fabric decides the feel. Colour decides the skin.">Chất liệu quyết định cảm giác. Màu quyết định nước da.</h2>
-        <p class="lede" style="margin-top:20px;max-width:58ch" data-en="Before choosing a shape, most brides settle these two. Everything in the showroom is made in these three fabrics and four shades.">Trước khi chọn phom, phần lớn cô dâu chốt hai thứ này trước. Toàn bộ váy trong showroom đều nằm trong ba chất liệu và bốn sắc dưới đây.</p>
+        <p class="lede" style="margin-top:20px;max-width:58ch" data-en="Everything we make sits in these three fabrics and four shades.">Toàn bộ váy của nhà nằm trong ba chất liệu và bốn sắc dưới đây.</p>
 
         <div class="eyebrow" style="margin:clamp(30px,4vw,50px) 0 16px" data-en="Three fabrics">Ba chất liệu</div>
-        <div class="services rise"><article class="svc"><div class="ph" style="--tone:#EFE9E6; --img:url('anh/cl-tron.jpg')"></div><h3 data-en="Plain">Trơn</h3><p data-en="Satin, mikado, crepe — a flat surface that catches light in broad planes. Sharp silhouette, clean lines, very photogenic.">Satin, mikado, crepe — mặt vải phẳng, bắt sáng thành từng mảng lớn. Phom rõ, đường cắt sạch, lên ảnh sang và gọn.</p></article><article class="svc"><div class="ph" style="--tone:#EFE9E6; --img:url('anh/cl-ren.jpg')"></div><h3 data-en="Lace">Ren</h3><p data-en="Chantilly and corded lace — soft, with depth; up close you read every motif. For a bride who wants something classic and feminine.">Ren Chantilly, ren hoa nổi — mềm, có chiều sâu, nhìn gần thấy từng nét hoa. Hợp cô dâu thích nữ tính, cổ điển.</p></article><article class="svc"><div class="ph" style="--tone:#EFE9E6; --img:url('anh/cl-dinhket.jpg')"></div><h3 data-en="Beaded">Đính kết</h3><p data-en="Stones and crystals set by hand to a map drawn for the dress. It catches every light in the room and reads from across it.">Đá và pha lê đính tay từng viên theo sơ đồ riêng. Váy bắt sáng lấp lánh dưới đèn tiệc, đứng xa vẫn nổi.</p></article></div>
+        <div class="services rise"><article class="svc"><div class="ph" style="--tone:#EFE9E6; --img:url('anh/cl-tron.jpg')"></div><h3 data-en="Plain">Trơn</h3><p data-en="Satin, mikado, crepe — flat surface, sharp silhouette, very photogenic.">Satin, mikado, crepe — mặt vải phẳng, phom rõ, lên ảnh sang và gọn.</p></article><article class="svc"><div class="ph" style="--tone:#EFE9E6; --img:url('anh/cl-ren.jpg')"></div><h3 data-en="Lace">Ren</h3><p data-en="Soft, with depth; up close you read every motif. Classic and feminine.">Mềm, có chiều sâu, nhìn gần thấy từng nét hoa. Hợp gu nữ tính, cổ điển.</p></article><article class="svc"><div class="ph" style="--tone:#EFE9E6; --img:url('anh/cl-dinhket.jpg')"></div><h3 data-en="Beaded">Đính kết</h3><p data-en="Stones set by hand. It catches every light and reads from across the room.">Đá pha lê đính tay từng viên. Bắt sáng dưới đèn tiệc, đứng xa vẫn nổi.</p></article></div>
 
         <div class="eyebrow" style="margin:clamp(30px,4vw,50px) 0 16px" data-en="Four shades of white">Bốn sắc trắng</div>
-        <div class="tones rise"><div class="tone"><span class="dot" style="background:#FFFFFF"></span><h3 data-en="Pure white">Trắng</h3><p data-en="Clean and crisp. Made for studio light, indoor receptions and dark backdrops.">Trắng tinh, sạch và rõ nét. Ăn đèn studio, hợp tiệc trong nhà và ảnh nền tối.</p></div><div class="tone"><span class="dot" style="background:#E8D6C3"></span><h3 data-en="Nude">Nude</h3><p data-en="A warm beige that sits close to the skin and makes it look healthier. The safest choice for warm skin tones.">Ngả be ấm, ôm sát tông da nên da nhìn hồng hào hơn. An toàn nhất cho da vàng.</p></div><div class="tone"><span class="dot" style="background:#F2DCDA"></span><h3 data-en="Blush">Hồng</h3><p data-en="A blush so pale it only shows up close. Soft and youthful — good for a daytime outdoor party.">Hồng phấn rất nhạt, chỉ hiện lên khi đứng gần. Mềm, trẻ, hợp tiệc ngoài trời ban ngày.</p></div><div class="tone"><span class="dot" style="background:#DCD5CC"></span><h3 data-en="Champagne grey">Ghi</h3><p data-en="A muted grey leaning to champagne. It never glares under warm lighting and reads expensive.">Ghi ngả champagne, trầm và tiết chế. Không bị chói dưới đèn vàng, nhìn rất đắt.</p></div></div>
+        <div class="tones rise"><div class="tone"><span class="dot" style="background:#FFFFFF"></span><h3 data-en="Pure white">Trắng</h3><p data-en="Clean and crisp. Made for studio light and indoor receptions.">Sạch, rõ nét. Ăn đèn studio và tiệc trong nhà.</p></div><div class="tone"><span class="dot" style="background:#E8D6C3"></span><h3 data-en="Nude">Nude</h3><p data-en="A warm beige that flatters the skin. Safest for warm tones.">Ngả be ấm, làm da nhìn hồng hào. An toàn nhất cho da vàng.</p></div><div class="tone"><span class="dot" style="background:#F2DCDA"></span><h3 data-en="Blush">Hồng</h3><p data-en="So pale it only shows up close. Good for daytime outdoors.">Rất nhạt, chỉ hiện khi đứng gần. Hợp tiệc ngoài trời ban ngày.</p></div><div class="tone"><span class="dot" style="background:#DCD5CC"></span><h3 data-en="Champagne grey">Ghi</h3><p data-en="Muted, restrained, never glares under warm light.">Trầm, tiết chế, không chói dưới đèn vàng.</p></div></div>
       </div>
     </div>
   </section>
@@ -996,7 +983,7 @@
         <div class="finder-intro rise">
           <div>
             <h2 class="title" style="max-width:22ch" data-en="Tell us about the day. We’ll tell you which dresses to try.">Kể cho nhà nghe về ngày của bạn, nhà nói bạn nên thử váy nào.</h2>
-            <p style="margin-top:18px;max-width:56ch" data-en="Nine questions — measurements, taste, fabric, silhouette, colour, date, venue, how many dresses. Nothing is shown until you finish; the suggestion is built from your own answers, not from a list of bestsellers.">Chín câu hỏi — số đo, sở thích, chất liệu, phom váy, màu sắc, ngày tiệc, địa điểm, số váy bạn định mặc. Nhà không gợi ý gì trước khi bạn điền xong; gợi ý dựng từ chính câu trả lời của bạn, không phải danh sách mẫu bán chạy.</p>
+            <p style="margin-top:18px;max-width:56ch" data-en="Nine questions about your measurements, taste, date and venue. The suggestion is built from your answers, not from a bestseller list.">Chín câu hỏi về số đo, gu, ngày tiệc và địa điểm. Gợi ý dựng từ câu trả lời của bạn, không phải danh sách mẫu bán chạy.</p>
             <button class="fit-open" type="button" id="finderOpen" data-en="Start — 9 questions">Bắt đầu thử phom — 9 câu hỏi</button>
           </div>
           <div class="ph" style="--tone:#EFE9E6; --img:url('anh/look-03.jpg')"></div>
@@ -1063,43 +1050,43 @@
       <hr class="rule">
       <div class="sec-body">
         <div class="cam-head rise">
-          <h2 class="title" data-en="The whole road, laid out — so nothing arrives late.">Toàn bộ lộ trình, bày sẵn ra đây — để không việc nào tới muộn.</h2>
-          <p style="margin-top:18px" data-en="This is the timeline our stylists walk every bride through, from the conversation where you decide to marry to the week after the party. Read it in five minutes; it saves months of guessing.">Đây đúng là lộ trình stylist của nhà đi cùng mỗi cô dâu — từ cuộc nói chuyện quyết định cưới cho tới tuần sau đám tiệc. Đọc hết mất năm phút, đỡ được mấy tháng mò mẫm.</p>
+          <h2 class="title" data-en="The whole road, in nine stages.">Toàn bộ lộ trình, chín chặng.</h2>
+          <p style="margin-top:14px" data-en="Tap a stage to open it.">Bấm vào từng chặng để mở ra.</p>
         </div>
         <div class="timeline rise">
-          <div class="milestone">
-            <div class="when"><span class="num didone">01</span><span class="lbl" data-en="12+ months out">Trước 12 tháng</span></div>
-            <div class="what"><h3 data-en="Decide to marry">Quyết định cưới</h3><ul><li data-en="Talk plainly about budget, size, and who pays for what — before you tell either family.">Nói chuyện thẳng với nhau về ngân sách, quy mô, và ai chi phần nào — trước khi báo hai bên gia đình.</li><li data-en="Settle on a season and a rough date; avoid the rainy months if you want an outdoor party.">Chốt mùa cưới và khoảng ngày; tránh mùa mưa nếu định làm tiệc ngoài trời.</li><li data-en="Open a separate account for the wedding and put something in it every month.">Mở một khoản riêng cho đám cưới, mỗi tháng bỏ vào một ít.</li></ul></div>
-          </div><div class="milestone">
-            <div class="when"><span class="num didone">02</span><span class="lbl" data-en="9–12 months">9–12 tháng</span></div>
-            <div class="what"><h3 data-en="The families meet">Hai nhà gặp nhau</h3><ul><li data-en="The first formal visit; agree the engagement and wedding dates with both sides.">Lễ dạm ngõ, thống nhất ngày ăn hỏi và ngày cưới theo cả hai bên.</li><li data-en="Estimate the number of tables — this one number drives almost every other cost.">Chốt số mâm ước lượng — con số này quyết định gần như mọi khoản còn lại.</li><li data-en="Put a deposit on the venue; the good ones are booked a year ahead.">Đặt cọc địa điểm tiệc, vì chỗ đẹp thường kín trước cả năm.</li></ul></div>
-          </div><div class="milestone">
-            <div class="when"><span class="num didone">03</span><span class="lbl" data-en="6–9 months">6–9 tháng</span></div>
-            <div class="what"><h3 data-en="Choose the team">Chọn ekip</h3><ul><li data-en="Book photography and film first — their calendars fill up soonest.">Chọn ekip ảnh và phim trước, vì lịch của họ kín sớm nhất.</li><li data-en="Go for a first fitting just to learn which silhouette suits you. No need to commit.">Đi thử váy lần đầu cho biết mình hợp phom nào — chưa cần chốt.</li><li data-en="If you want a made-to-measure gown, this is the latest you can start (we need 8–12 weeks).">Nếu muốn may đo riêng thì đây là hạn cuối để bắt đầu (nhà cần 8–12 tuần).</li></ul></div>
-          </div><div class="milestone">
-            <div class="when"><span class="num didone">04</span><span class="lbl" data-en="4–6 months">4–6 tháng</span></div>
-            <div class="what"><h3 data-en="Dress and pre-wedding photos">Chốt váy và ảnh cưới</h3><ul><li data-en="Choose the gown, sign, pay the deposit — and keep a photo of the contract on your phone.">Chốt váy cưới, ký hợp đồng và đặt cọc; giữ lại bản chụp hợp đồng trong điện thoại.</li><li data-en="Shoot the pre-wedding session; pick a different dress from the wedding one so the albums differ.">Chụp pre-wedding — chọn váy chụp khác váy cưới để album không trùng.</li><li data-en="Settle the invitations and build the guest list, side by side.">Chốt thiệp mời và lên danh sách khách theo từng bên.</li></ul></div>
-          </div><div class="milestone">
-            <div class="when"><span class="num didone">05</span><span class="lbl" data-en="2–3 months">2–3 tháng</span></div>
-            <div class="what"><h3 data-en="Send invitations">Gửi thiệp</h3><ul><li data-en="Paper invitations for relatives, an online one for friends — we give the online card free to our brides.">Gửi thiệp giấy cho họ hàng, thiệp online cho bạn bè — nhà tặng thiệp online cho khách thuê váy.</li><li data-en="Second fitting, once your weight has settled. This is the real alteration session.">Thử váy lần hai sau khi cân nặng đã ổn định; đây là buổi chỉnh chính.</li><li data-en="Confirm hair, make-up, bouquet and cars.">Chốt trang điểm, làm tóc, hoa cầm tay và xe đưa đón.</li></ul></div>
-          </div><div class="milestone">
-            <div class="when"><span class="num didone">06</span><span class="lbl" data-en="1 month">1 tháng</span></div>
-            <div class="what"><h3 data-en="The last month">Chạy nước rút</h3><ul><li data-en="Final fitting, wearing the actual shoes and underwear. Do not change the shoes after this.">Thử váy lần cuối cùng giày và nội y sẽ mặc thật — không đổi giày sau buổi này.</li><li data-en="Call every supplier and confirm times: photographers, venue, cars, MC.">Gọi lại từng đầu mối xác nhận giờ giấc: ekip ảnh, nhà hàng, xe, MC.</li><li data-en="Lock the guest list and the seating plan.">Chốt danh sách khách chính thức và sơ đồ bàn.</li></ul></div>
-          </div><div class="milestone">
-            <div class="when"><span class="num didone">07</span><span class="lbl" data-en="1 week">1 tuần</span></div>
-            <div class="what"><h3 data-en="The final week">Tuần cuối</h3><ul><li data-en="Collect the dress one or two days before. Hang it somewhere dry; never fold it.">Nhận váy trước lễ 1–2 ngày, treo nơi khô ráo, không gấp.</li><li data-en="Pack an emergency kit: matching thread, plasters, cotton pads, safety pins, spare shoes.">Chuẩn bị túi cấp cứu: kim chỉ cùng màu, băng cá nhân, bông tẩy trang, kim băng, giày dự phòng.</li><li data-en="Sleep and drink water — the camera sees both.">Ngủ đủ và uống nước — hai thứ ảnh chụp nhìn ra ngay.</li></ul></div>
-          </div><div class="milestone">
-            <div class="when"><span class="num didone">08</span><span class="lbl" data-en="The day">Ngày cưới</span></div>
-            <div class="what"><h3 data-en="Your day">Ngày của bạn</h3><ul><li data-en="Eat breakfast, even if you have no appetite.">Ăn sáng thật, dù không thấy đói.</li><li data-en="Hand your phone to someone you trust and let them answer for you.">Giao một người thân giữ điện thoại và trả lời thay bạn.</li><li data-en="If anything happens to the dress, call us — we walk you through the fix on the spot.">Sự cố váy thì gọi ngay cho nhà — nhà có hướng dẫn xử lý tại chỗ.</li></ul></div>
-          </div><div class="milestone">
-            <div class="when"><span class="num didone">09</span><span class="lbl" data-en="After">Sau cưới</span></div>
-            <div class="what"><h3 data-en="Return and keep">Trả váy và giữ kỷ niệm</h3><ul><li data-en="Return the dress within the three days to get the full deposit back.">Trả váy đúng hạn trong 3 ngày để được hoàn cọc đầy đủ.</li><li data-en="Collect the photographs and film, and choose the album while every moment is still fresh.">Nhận ảnh và phim, chọn ảnh in album trong lúc còn nhớ rõ từng khoảnh khắc.</li><li data-en="Thank the people who came. A short message is enough.">Gửi lời cảm ơn tới khách đã tới — một tin nhắn ngắn cũng đủ.</li></ul></div>
-          </div>
+          <details class="acc" open>
+            <summary><span class="anum didone">01</span><span class="atxt" data-en="Decide to marry">Quyết định cưới</span><span class="awhen" data-en="12+ months">Trước 12 tháng</span></summary>
+            <ul><li data-en="Agree the budget and who pays what, before telling the families.">Thống nhất ngân sách và ai chi phần nào, trước khi báo hai bên.</li><li data-en="Pick a season; avoid the rains if you want an outdoor party.">Chốt mùa cưới; tránh mùa mưa nếu định làm ngoài trời.</li><li data-en="Open a separate wedding account.">Mở một khoản riêng cho đám cưới.</li></ul>
+          </details><details class="acc">
+            <summary><span class="anum didone">02</span><span class="atxt" data-en="The families meet">Hai nhà gặp nhau</span><span class="awhen" data-en="9–12 months">9–12 tháng</span></summary>
+            <ul><li data-en="The first visit; set the engagement and wedding dates.">Dạm ngõ, chốt ngày ăn hỏi và ngày cưới.</li><li data-en="Estimate the tables — that number drives every other cost.">Ước lượng số mâm — con số quyết định mọi khoản còn lại.</li><li data-en="Book the venue; good ones go a year ahead.">Đặt cọc địa điểm, chỗ đẹp kín trước cả năm.</li></ul>
+          </details><details class="acc">
+            <summary><span class="anum didone">03</span><span class="atxt" data-en="Choose the team">Chọn ekip</span><span class="awhen" data-en="6–9 months">6–9 tháng</span></summary>
+            <ul><li data-en="Book photography and film first.">Chốt ekip ảnh và phim trước, lịch họ kín sớm nhất.</li><li data-en="A first fitting, just to learn your silhouette.">Thử váy lần đầu để biết hợp phom nào, chưa cần chốt.</li><li data-en="Made-to-measure has to start now at the latest.">Muốn may đo thì đây là hạn cuối để bắt đầu.</li></ul>
+          </details><details class="acc">
+            <summary><span class="anum didone">04</span><span class="atxt" data-en="Dress and photos">Chốt váy và ảnh cưới</span><span class="awhen" data-en="4–6 months">4–6 tháng</span></summary>
+            <ul><li data-en="Sign for the dress; keep a photo of the contract.">Ký hợp đồng váy, giữ ảnh chụp hợp đồng trong máy.</li><li data-en="Shoot pre-wedding in a different dress.">Chụp pre-wedding bằng váy khác váy cưới.</li><li data-en="Settle invitations and the guest list.">Chốt thiệp và danh sách khách.</li></ul>
+          </details><details class="acc">
+            <summary><span class="anum didone">05</span><span class="atxt" data-en="Send invitations">Gửi thiệp</span><span class="awhen" data-en="2–3 months">2–3 tháng</span></summary>
+            <ul><li data-en="Paper for relatives, online for friends.">Thiệp giấy cho họ hàng, thiệp online cho bạn bè.</li><li data-en="Second fitting once your weight settles.">Thử váy lần hai khi cân nặng đã ổn — buổi chỉnh chính.</li><li data-en="Confirm make-up, bouquet and cars.">Chốt trang điểm, hoa cầm tay, xe.</li></ul>
+          </details><details class="acc">
+            <summary><span class="anum didone">06</span><span class="atxt" data-en="The last month">Chạy nước rút</span><span class="awhen" data-en="1 month">1 tháng</span></summary>
+            <ul><li data-en="Final fitting in the actual shoes.">Thử váy lần cuối cùng đôi giày sẽ đi thật.</li><li data-en="Call every supplier to confirm times.">Gọi lại từng đầu mối xác nhận giờ.</li><li data-en="Lock the guest list and seating.">Chốt danh sách khách và sơ đồ bàn.</li></ul>
+          </details><details class="acc">
+            <summary><span class="anum didone">07</span><span class="atxt" data-en="The final week">Tuần cuối</span><span class="awhen" data-en="1 week">1 tuần</span></summary>
+            <ul><li data-en="Collect the dress; hang it, never fold it.">Nhận váy trước 1–2 ngày, treo nơi khô, không gấp.</li><li data-en="Emergency kit: thread, plasters, pins, spare shoes.">Túi cấp cứu: kim chỉ, băng cá nhân, kim băng, giày dự phòng.</li><li data-en="Sleep, and drink water.">Ngủ đủ và uống nước.</li></ul>
+          </details><details class="acc">
+            <summary><span class="anum didone">08</span><span class="atxt" data-en="Your day">Ngày của bạn</span><span class="awhen" data-en="The day">Ngày cưới</span></summary>
+            <ul><li data-en="Eat breakfast even without appetite.">Ăn sáng, dù không thấy đói.</li><li data-en="Hand your phone to someone you trust.">Giao điện thoại cho một người thân giữ.</li><li data-en="Any trouble with the dress — call us.">Sự cố váy thì gọi nhà, có hướng dẫn xử lý tại chỗ.</li></ul>
+          </details><details class="acc">
+            <summary><span class="anum didone">09</span><span class="atxt" data-en="Return and keep">Trả váy và giữ kỷ niệm</span><span class="awhen" data-en="After">Sau cưới</span></summary>
+            <ul><li data-en="Return within three days for the full deposit.">Trả váy trong 3 ngày để hoàn cọc đầy đủ.</li><li data-en="Collect the photos and choose the album.">Nhận ảnh, chọn ảnh in album khi còn nhớ rõ.</li><li data-en="Thank the people who came.">Gửi lời cảm ơn tới khách.</li></ul>
+          </details>
         </div>
         <div class="cam-cta">
           <div>
             <h3 data-en="Want it as a file you can keep?">Muốn có bản để dành trong máy?</h3>
-            <p style="margin-top:8px" data-en="Leave a phone number and we send the full handbook — this timeline plus checklists for each stage.">Để lại số điện thoại, nhà gửi trọn bộ cẩm nang — lộ trình này kèm checklist từng chặng.</p>
+            <p style="margin-top:8px" data-en="Leave a number and we send the full handbook with checklists.">Để lại số, nhà gửi trọn bộ cẩm nang kèm checklist từng chặng.</p>
           </div>
           <a class="fit-cta" href="#baogia" data-en="Get the handbook">Nhận cẩm nang</a>
         </div>
@@ -1162,7 +1149,7 @@
         <div class="lead rise" style="margin-top:clamp(28px,4vw,52px)">
           <div>
             <h2 class="title" data-en="Leave a phone number and get pricing and the handbook within 24 hours.">Để lại số điện thoại, nhận báo giá và cẩm nang trong 24 giờ.</h2>
-            <p style="margin-top:18px" data-en="A stylist will call to confirm, send full pricing for your wedding date, and include the download link for the handbook. No calls outside working hours, and your number is never shared.">Stylist sẽ gọi lại xác nhận, gửi bảng giá đầy đủ theo đúng ngày cưới của bạn, kèm link tải 9 chương Cẩm nang cưới. Không gọi làm phiền ngoài giờ, không chia sẻ số cho bên thứ ba.</p>
+            <p style="margin-top:18px" data-en="A stylist calls to confirm and sends pricing for your date. No calls out of hours, and your number stays with us.">Stylist gọi lại xác nhận và gửi bảng giá theo đúng ngày cưới của bạn. Không gọi ngoài giờ, không chia sẻ số cho bên thứ ba.</p>
           </div>
           <div>
             <form id="leadForm" novalidate>
@@ -1224,10 +1211,27 @@
       </div>
       <hr class="rule">
       <div class="sec-body">
-        <h2 class="title" style="max-width:24ch" data-en="No hidden line. This is the whole agreement.">Không có dòng nào giấu. Đây là toàn bộ thoả thuận.</h2>
-        <p class="lede" style="margin-top:20px;max-width:58ch" data-en="These are the same terms printed in the handbook we hand every bride at the showroom.">Đây đúng là những điều khoản in trong sổ tay nhà trao tận tay mỗi cô dâu tại showroom.</p>
-        <div class="terms rise" style="margin-top:clamp(26px,4vw,46px)">
-          <div class="term"><span class="n didone">01</span><h3 data-en="Rental period">Thời gian thuê</h3><ul><li data-en="Standard rental period is 3 days, from pick-up to return date.">Thời gian thuê chuẩn là 3 ngày, tính từ ngày nhận đến ngày hoàn trả.</li><li data-en="Late return fee: 1,000,000 VND per day.">Trả trễ tính phí phát sinh 1.000.000đ mỗi ngày.</li></ul></div><div class="term"><span class="n didone">02</span><h3 data-en="Deposit &amp; payment">Cọc và thanh toán</h3><ul><li data-en="A deposit is required, and payment completed before pick-up.">Khách cọc thế chân và thanh toán đủ trước khi nhận váy.</li><li data-en="The deposit is refunded if the dress comes back on time and in its original condition.">Tiền cọc hoàn lại khi váy được trả đúng hạn, đúng hiện trạng ban đầu.</li></ul></div><div class="term"><span class="n didone">03</span><h3 data-en="On pick-up">Tình trạng nhận váy</h3><ul><li data-en="The dress is handed over cleaned and pressed.">Váy được bàn giao trong tình trạng đã làm sạch và là ủi.</li><li data-en="Please inspect it carefully; report anything wrong straight away.">Khách kiểm tra kỹ khi nhận — mọi lỗi cần báo ngay tại chỗ.</li></ul></div><div class="term"><span class="n didone">04</span><h3 data-en="On return">Tình trạng trả váy</h3><ul><li data-en="Torn, missing accessories, or stains that cannot be cleaned to 90%: 100% of the production cost is charged.">Váy rách, thiếu phụ kiện hoặc bẩn không làm sạch được 90%: phụ thu 100% chi phí may của trang phục.</li></ul></div><div class="term"><span class="n didone">05</span><h3 data-en="Wearing &amp; care">Sử dụng và bảo quản</h3><ul><li data-en="Do not wear it in the rain, and keep chemicals off it — stain removers, glue, wine.">Không mặc váy đi mưa, không dùng hoá chất lên váy (thuốc tẩy, keo dán, rượu vang…).</li><li data-en="Do not drag it over rough flooring; it snags and tears.">Không kéo rê váy trên nền gạch nhám để tránh trầy, rách.</li><li data-en="Keep it away from fire, candles and sparklers.">Tránh xa lửa, nến và pháo bông.</li></ul></div><div class="term"><span class="n didone">06</span><h3 data-en="Design copyright">Bản quyền thiết kế</h3><ul><li data-en="Every gown is our own exclusive design.">Mọi mẫu váy thuộc bản quyền thiết kế riêng của nhà.</li><li data-en="Please do not copy a design or send photographs to another workshop to reproduce.">Vui lòng không sao chép mẫu hoặc gửi hình cho bên khác may lại.</li></ul></div>
+        <h2 class="title" style="max-width:24ch" data-en="No hidden line.">Không có dòng nào giấu.</h2>
+        <div class="timeline rise" style="margin-top:clamp(22px,3vw,36px)">
+          <details class="acc">
+            <summary><span class="anum didone">01</span><span class="atxt" data-en="Rental period">Thời gian thuê</span></summary>
+            <ul><li data-en="Three days, pick-up to return.">Thuê chuẩn 3 ngày, từ ngày nhận đến ngày trả.</li><li data-en="Late return: 1,000,000 VND per day.">Trả trễ: 1.000.000đ mỗi ngày.</li></ul>
+          </details><details class="acc">
+            <summary><span class="anum didone">02</span><span class="atxt" data-en="Deposit &amp; payment">Cọc và thanh toán</span></summary>
+            <ul><li data-en="Deposit, and full payment before pick-up.">Cọc thế chân và thanh toán đủ trước khi nhận váy.</li><li data-en="Refunded if returned on time and intact.">Hoàn cọc khi trả đúng hạn, đúng hiện trạng.</li></ul>
+          </details><details class="acc">
+            <summary><span class="anum didone">03</span><span class="atxt" data-en="On pick-up">Tình trạng nhận váy</span></summary>
+            <ul><li data-en="Cleaned and pressed.">Váy giao đã làm sạch và là ủi.</li><li data-en="Check it there; report anything wrong.">Kiểm tra kỹ khi nhận, có lỗi báo ngay.</li></ul>
+          </details><details class="acc">
+            <summary><span class="anum didone">04</span><span class="atxt" data-en="On return">Tình trạng trả váy</span></summary>
+            <ul><li data-en="Torn, missing pieces, or stains under 90% clean: 100% of production cost.">Rách, thiếu phụ kiện hoặc bẩn không sạch được 90%: phụ thu 100% chi phí may.</li></ul>
+          </details><details class="acc">
+            <summary><span class="anum didone">05</span><span class="atxt" data-en="Wearing &amp; care">Sử dụng và bảo quản</span></summary>
+            <ul><li data-en="No rain, no chemicals — bleach, glue, wine.">Không đi mưa, không hoá chất (tẩy, keo, rượu vang).</li><li data-en="No dragging on rough floors; keep away from flame.">Không kéo rê trên nền nhám; tránh lửa, nến, pháo bông.</li></ul>
+          </details><details class="acc">
+            <summary><span class="anum didone">06</span><span class="atxt" data-en="Design copyright">Bản quyền thiết kế</span></summary>
+            <ul><li data-en="Every gown is our own design.">Mẫu váy thuộc bản quyền riêng của nhà.</li><li data-en="Do not copy or send photos for reproduction.">Không sao chép hoặc gửi hình cho bên khác may lại.</li></ul>
+          </details>
         </div>
       </div>
     </div>
