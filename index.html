@@ -151,6 +151,7 @@
   /* tầng 3 — hàng chip */
   .navbar{background:#FAF8F8;border-top:1px solid var(--hair)}
   .navbar .wrap{display:flex;align-items:center;gap:14px}
+  .navbar nav{flex:1;min-width:0;overflow:hidden}
   .nav-label{
     font-family:var(--sans);font-size:var(--t-meta);font-weight:700;
     letter-spacing:.18em;text-transform:uppercase;white-space:nowrap;
@@ -297,15 +298,10 @@
     grid-template-columns:repeat(3,minmax(0,1fr));
     gap:clamp(20px,3vw,42px);
   }
-  .svc{display:flex;flex-direction:column;gap:16px}
-  .svc .ph{aspect-ratio:4/5}
-  .svc h3{border-top:1px solid var(--ink);padding-top:12px}
+  .svc{display:flex;flex-direction:column;gap:9px}
+  .svc .ph{aspect-ratio:4/5;margin-bottom:5px}
+  .svc h3{margin:0}
   .svc p{font-size:.98rem;color:#3B3533}
-  .svc .tags{
-    font-family:var(--sans);font-size:var(--t-meta);
-    letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft);
-    margin-top:auto;padding-top:6px;
-  }
 
   /* ─────────── journey (đúng nghĩa tuần tự nên mới đánh số) ─────────── */
   .journey{
@@ -868,19 +864,16 @@
             <div class="ph" style="--tone:#F1E8E6; --img:url('anh/dv-mayo.jpg')"></div>
             <h3 data-en="Bespoke">May đo riêng</h3>
             <p data-en="The dress is built from the bride’s own measurements: silhouette, fabric, a beading map drawn for her, a calico toile fitted before the real gown is cut. Unlimited adjustments up to the final fitting.">Váy được dựng từ số đo của riêng cô dâu: chọn phom, chọn chất liệu, vẽ sơ đồ đính kết, may mộc thử dáng rồi mới lên váy thật. Sửa không giới hạn cho tới buổi thử cuối.</p>
-            <div class="tags" data-en="3–4 fittings <span class=&quot;sep&quot;>/</span> Book 8–12 weeks ahead">3–4 buổi thử <span class="sep">/</span> Đặt trước 8–12 tuần</div>
           </article>
           <article class="svc">
             <div class="ph" style="--tone:#EAE7E3; --img:url('anh/dv-thue.jpg')"></div>
             <h3 data-en="Wedding dress rental">Cho thuê váy cưới</h3>
             <p data-en="Every gown in the showroom is available to rent, taken in at the waist, bust and hem to fit. Each dress is dry-cleaned and checked stone by stone before it goes out.">Toàn bộ mẫu trong showroom đều cho thuê, kèm chỉnh sườn — ngực — gấu theo dáng người. Váy được giặt hấp và kiểm tra từng viên đá trước ngày giao.</p>
-            <div class="tags" data-en="Delivered 1–2 days before <span class=&quot;sep&quot;>/</span> Veil &amp; accessories included">Giao trước lễ 1–2 ngày <span class="sep">/</span> Kèm voan &amp; phụ kiện</div>
           </article>
           <article class="svc">
             <div class="ph" style="--tone:#EFEAE9; --img:url('anh/dv-chup.jpg')"></div>
             <h3 data-en="Photography">Chụp hình</h3>
             <p data-en="Photography and film with Nupakachi, the house we come from: pre-wedding sessions, studio portraits in your gown, and documentary coverage of the wedding day. Booked together with a dress, it becomes one schedule instead of two.">Chụp ảnh và quay phim cùng Nupakachi — nhà mà DLA sinh ra: chụp pre-wedding, chụp studio với chính chiếc váy của mình, và phóng sự ngày cưới. Đi kèm gói váy thì thành một lịch duy nhất, khỏi ghép hai bên.</p>
-            <div class="tags" data-en="Pre-wedding <span class=&quot;sep&quot;>/</span> Studio <span class=&quot;sep&quot;>/</span> Wedding day">Pre-wedding <span class="sep">/</span> Studio <span class="sep">/</span> Ngày cưới</div>
           </article>
         </div>
 
