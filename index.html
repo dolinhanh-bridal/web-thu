@@ -321,6 +321,29 @@
   .step h3{font-size:1.05rem;margin-bottom:6px}
   .step p{font-size:.93rem;color:#3B3533}
 
+  /* ─────────── điều khoản thuê ─────────── */
+  .terms{
+    display:grid;grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:0;border-top:1px solid var(--ink);
+  }
+  .term{padding:24px clamp(16px,2vw,30px) 28px;border-right:1px solid var(--hair);border-bottom:1px solid var(--hair)}
+  .term:nth-child(3n){border-right:0}
+  .term .n{font-family:var(--didone);font-size:1.6rem;color:var(--accent);display:block;margin-bottom:8px}
+  .term h3{margin-bottom:10px}
+  .term ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+  .term li{font-size:.95rem;color:#3B3533;padding-left:15px;position:relative}
+  .term li::before{content:"";position:absolute;left:0;top:.65em;width:7px;height:1px;background:var(--accent)}
+  .quote{
+    border-left:2px solid var(--accent);
+    padding:4px 0 4px 22px;margin:26px 0 0;
+    font-size:clamp(1.02rem,1.5vw,1.16rem);line-height:1.6;
+  }
+  .quote cite{
+    display:block;margin-top:10px;font-style:normal;
+    font-family:var(--sans);font-size:var(--t-meta);letter-spacing:.18em;
+    text-transform:uppercase;color:var(--ink-soft);
+  }
+
   /* ─────────── catalogue ─────────── */
   .looks{
     display:grid;
@@ -584,6 +607,8 @@
     .looks{grid-template-columns:repeat(2,minmax(0,1fr))}
     .journey{grid-template-columns:1fr 1fr;gap:24px}
     .tiers{grid-template-columns:1fr;border-top:0}
+    .terms{grid-template-columns:1fr;border-top:0}
+    .term{border-right:0;border-top:1px solid var(--ink);border-bottom:0}
     .tier{border-right:0;border-top:1px solid var(--ink)}
     .channels{grid-template-columns:1fr}
     .ch{border-right:0;border-bottom:1px solid var(--hair)}
@@ -643,6 +668,7 @@
           <li><a href="#fitting" data-en="Online fitting">Fitting online</a></li>
           <li><a href="#camnang" data-en="Bride’s handbook">Cẩm nang cưới</a></li>
           <li><a href="#baogia" data-en="Pricing &amp; offers">Báo giá &amp; ưu đãi</a></li>
+          <li><a href="#dieukhoan" data-en="Rental terms">Điều khoản thuê</a></li>
           <li><a href="#kenh" data-en="Channels">Kênh của nhà</a></li>
         </ul>
       </nav>
@@ -673,15 +699,17 @@
       <hr class="rule">
       <div class="sec-body house rise">
         <div class="story">
-          <h2 class="title" data-en="Born out of Nupakachi, so the bride only has to think about being beautiful.">Sinh ra từ Nupakachi, để cô dâu chỉ còn phải lo mỗi việc đẹp.</h2>
-          <p style="margin-top:26px" data-en="Nupakachi has been photographing and filming weddings for years — long enough behind the lens to learn one thing: the dress decides most of how a bride feels on her wedding day, and it is also what worries her most, from months before the ceremony to the minute she steps out the door.">Nupakachi làm ảnh và phim cưới nhiều năm, đứng sau ống kính đủ lâu để biết một điều: chiếc váy quyết định phần lớn cảm giác của cô dâu trong ngày cưới — và cũng là thứ khiến các cô dâu lo lắng nhất, từ trước lễ vài tháng cho tới phút bước ra cửa.</p>
-          <p data-en="Dolinhanh Bridal grew out of that: the bridal arm of the house. We don’t chase seasons. Restrained silhouettes, honest fabrics, clean seams, beading set by hand stone by stone — a language we call <em>quiet minimal luxury</em>: intricate up close, effortless from across the room.">Dolinhanh Bridal ra đời từ đó, là nhánh váy cưới của nhà. Chúng tôi không chạy theo mùa mốt. Phom dáng tiết chế, chất liệu thật, đường may sạch, đính kết làm tay từng viên — thứ ngôn ngữ chúng tôi gọi là <em>quiet minimal luxury</em>: đứng gần thấy tinh xảo, đứng xa thấy nhẹ nhõm.</p>
-          <p data-en="Every bride who visits is paired with one stylist, from the first fitting to the moment the dress goes on. No rushing. No pressure to sign.">Mỗi cô dâu tới showroom đều được một stylist đi cùng từ buổi thử váy đầu tiên đến khi váy lên người trong ngày cưới. Không bán vội. Không ép chốt.</p>
+          <h2 class="title" data-en="Born in 2017, out of one mother’s love.">Ra đời năm 2017, từ tình yêu của một người mẹ.</h2>
+          <p style="margin-top:26px" data-en="Dolinhanh Bridal was built on a personal conviction: a love of beauty, care taken over every detail, and an attachment to the image of a happy bride.">Dolinhanh Bridal ra đời từ năm 2017, mang đậm dấu ấn cá nhân — được tạo nên từ sự say mê với cái đẹp, sự chỉn chu trong từng chi tiết và tình yêu với hình ảnh cô dâu hạnh phúc.</p>
+          <p data-en="It has been through a lot — the pandemic years, a change of name, a change of hands — and has kept the same spirit throughout: sincere, understated, full of feeling.">Trải qua nhiều thăng trầm — từ biến cố mùa dịch đến việc đổi tên, chuyển nhượng thương hiệu — Dolinhanh vẫn giữ nguyên tinh thần ban đầu: chân thành, tinh tế và đầy cảm xúc.</p>
+          <p data-en="Today Dolinhanh is part of Nupakachi, a wedding photography house of more than fifteen years founded by photographer Đỗ Xuân Cường, with branches in several countries. From the photographs to the gowns, both pursue the same thing: the bride’s real beauty, said in the simplest way.">Dolinhanh hiện là một bộ phận trực thuộc Nupakachi — thương hiệu ảnh cưới hơn 15 năm, được sáng lập bởi nhiếp ảnh gia Đỗ Xuân Cường, có hơn 3 chi nhánh và dấu chân đã in qua nhiều quốc gia. Từ chất lượng hình ảnh đến thiết kế váy cưới, hai bên theo đuổi cùng một mục tiêu: tôn vinh vẻ đẹp thật của cô dâu qua những điều giản dị nhưng sâu sắc nhất.</p>
+          <blockquote class="quote" data-en="“Dolinhanh is what drives me to weave this dream of wedding dresses. I hope the house outlives me and grows up alongside the little girl I am raising — so that it truly becomes the happiness I hand to young women.”<cite>The founder</cite>">“Dolinhanh là nguồn động lực mãnh liệt để mình dệt nên ước mơ ‘váy cưới’. Mình mong thương hiệu này sẽ tồn tại mãi theo sự trưởng thành của cô gái nhỏ mình đang nuôi dạy. Để thực sự, đây sẽ là hoài bão hạnh phúc mình mang tới cho các cô gái trẻ.”<cite>Người sáng lập</cite></blockquote>
         </div>
         <aside>
           <div class="facts">
             <dl>
-              <dt data-en="Part of">Thuộc</dt><dd data-en="Nupakachi — wedding film &amp; photography">Nupakachi — nhà làm phim &amp; ảnh cưới</dd>
+              <dt data-en="Founded">Thành lập</dt><dd>2017</dd>
+              <dt data-en="Part of">Thuộc</dt><dd data-en="Nupakachi — wedding photography, 15+ years, founded by Đỗ Xuân Cường">Nupakachi — ảnh cưới hơn 15 năm, sáng lập bởi NAG Đỗ Xuân Cường</dd>
               <dt data-en="Showrooms">Showroom</dt><dd data-en="Hanoi — 91 Nguyễn Hy Quang, Ô Chợ Dừa, Đống Đa, Hà Nội<br>Ho Chi Minh City — 2 Tân Canh, Phường 1, Tân Bình, TP. Hồ Chí Minh">Hà Nội — 91 Nguyễn Hy Quang, Ô Chợ Dừa, Đống Đa, Hà Nội<br>TP.HCM — 2 Tân Canh, Phường 1, Tân Bình, TP. Hồ Chí Minh</dd>
               <dt data-en="Opening hours">Giờ mở cửa</dt><dd data-en="9:00 – 19:00, by appointment">9:00 – 19:00, đặt hẹn trước</dd>
               <dt data-en="We do">Chuyên</dt><dd data-en="Bespoke · Wedding dress rental · Photography">May đo riêng · Cho thuê váy cưới · Chụp hình</dd>
@@ -1008,13 +1036,32 @@
     </div>
   </section>
 
+  <!-- ══════════ ĐIỀU KHOẢN ══════════ -->
+  <section id="dieukhoan">
+    <div class="wrap">
+      <hr class="rule">
+      <div class="sec-head">
+        <div class="eyebrow"><strong data-en="Rental terms">Điều khoản thuê váy</strong><span class="sep">/</span><span data-en="Everything written down before you sign">Nói rõ hết trước khi ký</span></div>
+        <div class="eyebrow">07</div>
+      </div>
+      <hr class="rule">
+      <div class="sec-body">
+        <h2 class="title" style="max-width:24ch" data-en="No hidden line. This is the whole agreement.">Không có dòng nào giấu. Đây là toàn bộ thoả thuận.</h2>
+        <p class="lede" style="margin-top:20px;max-width:58ch" data-en="These are the same terms printed in the handbook we hand every bride at the showroom.">Đây đúng là những điều khoản in trong sổ tay nhà trao tận tay mỗi cô dâu tại showroom.</p>
+        <div class="terms rise" style="margin-top:clamp(26px,4vw,46px)">
+          <div class="term"><span class="n didone">01</span><h3 data-en="Rental period">Thời gian thuê</h3><ul><li data-en="Standard rental period is 3 days, from pick-up to return date.">Thời gian thuê chuẩn là 3 ngày, tính từ ngày nhận đến ngày hoàn trả.</li><li data-en="Late return fee: 1,000,000 VND per day.">Trả trễ tính phí phát sinh 1.000.000đ mỗi ngày.</li></ul></div><div class="term"><span class="n didone">02</span><h3 data-en="Deposit &amp; payment">Cọc và thanh toán</h3><ul><li data-en="A deposit is required, and payment completed before pick-up.">Khách cọc thế chân và thanh toán đủ trước khi nhận váy.</li><li data-en="The deposit is refunded if the dress comes back on time and in its original condition.">Tiền cọc hoàn lại khi váy được trả đúng hạn, đúng hiện trạng ban đầu.</li></ul></div><div class="term"><span class="n didone">03</span><h3 data-en="On pick-up">Tình trạng nhận váy</h3><ul><li data-en="The dress is handed over cleaned and pressed.">Váy được bàn giao trong tình trạng đã làm sạch và là ủi.</li><li data-en="Please inspect it carefully; report anything wrong straight away.">Khách kiểm tra kỹ khi nhận — mọi lỗi cần báo ngay tại chỗ.</li></ul></div><div class="term"><span class="n didone">04</span><h3 data-en="On return">Tình trạng trả váy</h3><ul><li data-en="Torn, missing accessories, or stains that cannot be cleaned to 90%: 100% of the production cost is charged.">Váy rách, thiếu phụ kiện hoặc bẩn không làm sạch được 90%: phụ thu 100% chi phí may của trang phục.</li></ul></div><div class="term"><span class="n didone">05</span><h3 data-en="Wearing &amp; care">Sử dụng và bảo quản</h3><ul><li data-en="Do not wear it in the rain, and keep chemicals off it — stain removers, glue, wine.">Không mặc váy đi mưa, không dùng hoá chất lên váy (thuốc tẩy, keo dán, rượu vang…).</li><li data-en="Do not drag it over rough flooring; it snags and tears.">Không kéo rê váy trên nền gạch nhám để tránh trầy, rách.</li><li data-en="Keep it away from fire, candles and sparklers.">Tránh xa lửa, nến và pháo bông.</li></ul></div><div class="term"><span class="n didone">06</span><h3 data-en="Design copyright">Bản quyền thiết kế</h3><ul><li data-en="Every gown is our own exclusive design.">Mọi mẫu váy thuộc bản quyền thiết kế riêng của nhà.</li><li data-en="Please do not copy a design or send photographs to another workshop to reproduce.">Vui lòng không sao chép mẫu hoặc gửi hình cho bên khác may lại.</li></ul></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ══════════ KÊNH ══════════ -->
   <section id="kenh">
     <div class="wrap">
       <hr class="rule">
       <div class="sec-head">
         <div class="eyebrow"><strong data-en="Channels">Kênh của nhà</strong><span class="sep">/</span><span data-en="Where brides see the dresses every day">Nơi cô dâu xem váy mỗi ngày</span></div>
-        <div class="eyebrow">07</div>
+        <div class="eyebrow">08</div>
       </div>
       <hr class="rule">
       <div class="sec-body">
