@@ -283,6 +283,11 @@
     padding:.06em .12em 0 0;
     color:var(--accent);
   }
+  .portrait-wrap{margin:0;display:flex;flex-direction:column;gap:10px}
+  .portrait-wrap figcaption{
+    font-family:var(--sans);font-size:var(--t-meta);letter-spacing:.14em;
+    text-transform:uppercase;color:var(--ink-soft);line-height:1.5;max-width:34ch;
+  }
   .house .portrait{aspect-ratio:4/5}
 
   /* ─────────── services ─────────── */
@@ -719,6 +724,12 @@
   /* ─────────── responsive ─────────── */
   @media (max-width:1000px){
     .house,.lead,.finder-intro{grid-template-columns:1fr}
+    .portrait-wrap{
+      width:100%;display:grid;grid-template-columns:1fr minmax(0,430px);
+      gap:0 clamp(16px,3vw,34px);align-items:end;
+    }
+    .portrait-wrap figcaption{order:-1;padding-bottom:4px}
+    .house .portrait{aspect-ratio:3/4}
     .milestone{grid-template-columns:1fr;gap:12px}
     .fgrid{grid-template-columns:1fr 1fr}
     .rlooks{grid-template-columns:1fr 1fr}
@@ -746,7 +757,6 @@
     .looks{grid-template-columns:1fr 1fr}
     .row{grid-template-columns:1fr}
     .foot{grid-template-columns:1fr}
-    .house .portrait{aspect-ratio:4/5}
     .toc li{grid-template-columns:auto 1fr;row-gap:4px}
     .toc .tag{grid-column:2}
     .fgrid{grid-template-columns:1fr}
@@ -802,9 +812,8 @@
     <div class="ph" style="--tone:#2A2422; --img:url('anh/bia.jpg')"></div>
     <div class="veil"></div>
     <div class="copy">
-      <h1 class="didone">Crafted with<br>a mother’s love</h1>
-      <div class="tagline" data-en="Bespoke · Rental · Photography — Hanoi &amp; Ho Chi Minh City">Váy cưới hạnh phúc dệt từ tình yêu của mẹ</div>
-    </div>
+      <h1 class="didone">Quiet Minimal<br>Luxury</h1>
+      <div class="tagline">Crafted with a mother’s love</div>
   </section>
 
   <!-- ══════════ THƯƠNG HIỆU ══════════ -->
@@ -826,7 +835,7 @@
         </div>
         <aside>
           
-          <div class="ph portrait" style="--tone:#EDE7E4; --img:url('anh/story.jpg')"></div>
+          <figure class="portrait-wrap"><div class="ph portrait" style="--tone:#EDE7E4; --img:url('anh/story.jpg')"></div><figcaption data-en="Wide off-shoulder in plain satin — one of the three fabrics the house works in.">Phom trễ vai bản to, chất satin trơn — một trong ba chất liệu của nhà.</figcaption></figure>
         </aside>
       </div>
     </div>
