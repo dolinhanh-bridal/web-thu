@@ -633,7 +633,62 @@
   }
   .picked.on{display:block}
 
-  /* ─────────── khối bấm mở (lộ trình & điều khoản) ─────────── */
+  /* ─────────── sơ đồ lộ trình ─────────── */
+  .roadmap{margin-top:clamp(22px,3vw,38px)}
+  .rail{
+    display:flex;position:relative;
+    overflow-x:auto;scrollbar-width:none;
+    padding-bottom:6px;
+  }
+  .rail::-webkit-scrollbar{display:none}
+  .rail::before{
+    content:"";position:absolute;left:0;right:0;top:36px;height:1px;
+    background:var(--hair);
+  }
+  .stop{
+    flex:1 1 0;min-width:0;
+    display:grid;grid-template-rows:24px 20px auto auto;
+    justify-items:center;gap:4px;
+    padding:0 6px 4px;text-align:center;
+    position:relative;
+  }
+  .rwhen{
+    font-family:var(--sans);font-size:.6rem;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--ink-soft);line-height:1.3;
+    align-self:start;transition:color .25s;
+  }
+  .rdot{
+    width:9px;height:9px;border-radius:50%;
+    background:var(--paper);border:1px solid var(--ink-soft);
+    align-self:center;transition:all .28s ease;
+  }
+  .rnum{font-size:.95rem;color:var(--ink-soft);line-height:1;transition:color .25s}
+  .rname{
+    font-family:var(--serif);font-size:.9rem;line-height:1.22;
+    color:var(--ink-soft);transition:color .25s;
+  }
+  .stop:hover .rdot{border-color:var(--ink);transform:scale(1.2)}
+  .stop:hover .rname,.stop:hover .rnum{color:var(--ink)}
+  .stop[aria-selected="true"] .rdot{background:var(--accent);border-color:var(--accent);transform:scale(1.5)}
+  .stop[aria-selected="true"] .rnum{color:var(--accent)}
+  .stop[aria-selected="true"] .rname{color:var(--ink)}
+  .stop[aria-selected="true"] .rwhen{color:var(--ink)}
+  .stage-panel{
+    margin-top:clamp(20px,2.6vw,32px);
+    border-top:1px solid var(--ink);padding-top:20px;
+    display:grid;gap:14px;
+  }
+  .sp-head{display:flex;gap:16px;align-items:baseline}
+  .sp-num{font-size:2rem;color:var(--accent);line-height:1}
+  .sp-when{
+    font-family:var(--sans);font-size:var(--t-meta);letter-spacing:.18em;
+    text-transform:uppercase;color:var(--ink-soft);margin-top:5px;
+  }
+  #spList{list-style:none;margin:0;padding:0;display:grid;gap:8px;max-width:74ch}
+  #spList li{font-size:1rem;line-height:1.45;color:#3B3533;padding-left:16px;position:relative}
+  #spList li::before{content:"";position:absolute;left:0;top:.68em;width:8px;height:1px;background:var(--accent)}
+
+  /* ─────────── khối bấm mở (điều khoản) ─────────── */
   .cam-head{max-width:52ch}
   .timeline{margin-top:clamp(20px,3vw,34px);border-top:1px solid var(--ink)}
   .acc{border-bottom:1px solid var(--hair)}
@@ -775,6 +830,8 @@
     .menu{display:none!important}
   }
   @media (max-width:1000px){
+    .stop{flex:0 0 clamp(104px,26vw,140px)}
+    .rail{padding-right:20px}
     .house,.lead,.finder-intro{grid-template-columns:1fr}
     .portrait-wrap{
       width:100%;display:grid;grid-template-columns:1fr minmax(0,430px);
@@ -797,6 +854,9 @@
   }
   @media (max-width:640px){
     .awhen{display:none}
+    .rwhen{display:none}
+    .stop{grid-template-rows:20px auto auto}
+    .rail::before{top:10px}
     .bar{grid-template-columns:auto 1fr;row-gap:10px}
     .bar .mark{grid-column:1/-1;grid-row:2;justify-self:center}
     .bar .left{grid-row:1}
@@ -1051,37 +1111,68 @@
       <div class="sec-body">
         <div class="cam-head rise">
           <h2 class="title" data-en="The whole road, in nine stages.">Toàn bộ lộ trình, chín chặng.</h2>
-          <p style="margin-top:14px" data-en="Tap a stage to open it.">Bấm vào từng chặng để mở ra.</p>
+          <p style="margin-top:14px" data-en="Tap a milestone to see what to do.">Bấm vào từng mốc để xem việc cần làm.</p>
         </div>
-        <div class="timeline rise">
-          <details class="acc" open>
-            <summary><span class="anum didone">01</span><span class="atxt" data-en="Decide to marry">Quyết định cưới</span><span class="awhen" data-en="12+ months">Trước 12 tháng</span></summary>
-            <ul><li data-en="Agree the budget and who pays what, before telling the families.">Thống nhất ngân sách và ai chi phần nào, trước khi báo hai bên.</li><li data-en="Pick a season; avoid the rains if you want an outdoor party.">Chốt mùa cưới; tránh mùa mưa nếu định làm ngoài trời.</li><li data-en="Open a separate wedding account.">Mở một khoản riêng cho đám cưới.</li></ul>
-          </details><details class="acc">
-            <summary><span class="anum didone">02</span><span class="atxt" data-en="The families meet">Hai nhà gặp nhau</span><span class="awhen" data-en="9–12 months">9–12 tháng</span></summary>
-            <ul><li data-en="The first visit; set the engagement and wedding dates.">Dạm ngõ, chốt ngày ăn hỏi và ngày cưới.</li><li data-en="Estimate the tables — that number drives every other cost.">Ước lượng số mâm — con số quyết định mọi khoản còn lại.</li><li data-en="Book the venue; good ones go a year ahead.">Đặt cọc địa điểm, chỗ đẹp kín trước cả năm.</li></ul>
-          </details><details class="acc">
-            <summary><span class="anum didone">03</span><span class="atxt" data-en="Choose the team">Chọn ekip</span><span class="awhen" data-en="6–9 months">6–9 tháng</span></summary>
-            <ul><li data-en="Book photography and film first.">Chốt ekip ảnh và phim trước, lịch họ kín sớm nhất.</li><li data-en="A first fitting, just to learn your silhouette.">Thử váy lần đầu để biết hợp phom nào, chưa cần chốt.</li><li data-en="Made-to-measure has to start now at the latest.">Muốn may đo thì đây là hạn cuối để bắt đầu.</li></ul>
-          </details><details class="acc">
-            <summary><span class="anum didone">04</span><span class="atxt" data-en="Dress and photos">Chốt váy và ảnh cưới</span><span class="awhen" data-en="4–6 months">4–6 tháng</span></summary>
-            <ul><li data-en="Sign for the dress; keep a photo of the contract.">Ký hợp đồng váy, giữ ảnh chụp hợp đồng trong máy.</li><li data-en="Shoot pre-wedding in a different dress.">Chụp pre-wedding bằng váy khác váy cưới.</li><li data-en="Settle invitations and the guest list.">Chốt thiệp và danh sách khách.</li></ul>
-          </details><details class="acc">
-            <summary><span class="anum didone">05</span><span class="atxt" data-en="Send invitations">Gửi thiệp</span><span class="awhen" data-en="2–3 months">2–3 tháng</span></summary>
-            <ul><li data-en="Paper for relatives, online for friends.">Thiệp giấy cho họ hàng, thiệp online cho bạn bè.</li><li data-en="Second fitting once your weight settles.">Thử váy lần hai khi cân nặng đã ổn — buổi chỉnh chính.</li><li data-en="Confirm make-up, bouquet and cars.">Chốt trang điểm, hoa cầm tay, xe.</li></ul>
-          </details><details class="acc">
-            <summary><span class="anum didone">06</span><span class="atxt" data-en="The last month">Chạy nước rút</span><span class="awhen" data-en="1 month">1 tháng</span></summary>
-            <ul><li data-en="Final fitting in the actual shoes.">Thử váy lần cuối cùng đôi giày sẽ đi thật.</li><li data-en="Call every supplier to confirm times.">Gọi lại từng đầu mối xác nhận giờ.</li><li data-en="Lock the guest list and seating.">Chốt danh sách khách và sơ đồ bàn.</li></ul>
-          </details><details class="acc">
-            <summary><span class="anum didone">07</span><span class="atxt" data-en="The final week">Tuần cuối</span><span class="awhen" data-en="1 week">1 tuần</span></summary>
-            <ul><li data-en="Collect the dress; hang it, never fold it.">Nhận váy trước 1–2 ngày, treo nơi khô, không gấp.</li><li data-en="Emergency kit: thread, plasters, pins, spare shoes.">Túi cấp cứu: kim chỉ, băng cá nhân, kim băng, giày dự phòng.</li><li data-en="Sleep, and drink water.">Ngủ đủ và uống nước.</li></ul>
-          </details><details class="acc">
-            <summary><span class="anum didone">08</span><span class="atxt" data-en="Your day">Ngày của bạn</span><span class="awhen" data-en="The day">Ngày cưới</span></summary>
-            <ul><li data-en="Eat breakfast even without appetite.">Ăn sáng, dù không thấy đói.</li><li data-en="Hand your phone to someone you trust.">Giao điện thoại cho một người thân giữ.</li><li data-en="Any trouble with the dress — call us.">Sự cố váy thì gọi nhà, có hướng dẫn xử lý tại chỗ.</li></ul>
-          </details><details class="acc">
-            <summary><span class="anum didone">09</span><span class="atxt" data-en="Return and keep">Trả váy và giữ kỷ niệm</span><span class="awhen" data-en="After">Sau cưới</span></summary>
-            <ul><li data-en="Return within three days for the full deposit.">Trả váy trong 3 ngày để hoàn cọc đầy đủ.</li><li data-en="Collect the photos and choose the album.">Nhận ảnh, chọn ảnh in album khi còn nhớ rõ.</li><li data-en="Thank the people who came.">Gửi lời cảm ơn tới khách.</li></ul>
-          </details>
+        <div class="roadmap rise">
+          <div class="rail" role="tablist" aria-label="Sơ đồ lộ trình cưới">
+            <button class="stop" type="button" role="tab" aria-selected="true" data-i="0">
+            <span class="rwhen" data-en="12+ months">Trước 12 tháng</span>
+            <span class="rdot"></span>
+            <span class="rnum didone">01</span>
+            <span class="rname" data-en="Decide to marry">Quyết định cưới</span>
+          </button><button class="stop" type="button" role="tab" aria-selected="false" data-i="1">
+            <span class="rwhen" data-en="9–12 months">9–12 tháng</span>
+            <span class="rdot"></span>
+            <span class="rnum didone">02</span>
+            <span class="rname" data-en="The families meet">Hai nhà gặp nhau</span>
+          </button><button class="stop" type="button" role="tab" aria-selected="false" data-i="2">
+            <span class="rwhen" data-en="6–9 months">6–9 tháng</span>
+            <span class="rdot"></span>
+            <span class="rnum didone">03</span>
+            <span class="rname" data-en="Choose the team">Chọn ekip</span>
+          </button><button class="stop" type="button" role="tab" aria-selected="false" data-i="3">
+            <span class="rwhen" data-en="4–6 months">4–6 tháng</span>
+            <span class="rdot"></span>
+            <span class="rnum didone">04</span>
+            <span class="rname" data-en="Dress and photos">Chốt váy và ảnh cưới</span>
+          </button><button class="stop" type="button" role="tab" aria-selected="false" data-i="4">
+            <span class="rwhen" data-en="2–3 months">2–3 tháng</span>
+            <span class="rdot"></span>
+            <span class="rnum didone">05</span>
+            <span class="rname" data-en="Send invitations">Gửi thiệp</span>
+          </button><button class="stop" type="button" role="tab" aria-selected="false" data-i="5">
+            <span class="rwhen" data-en="1 month">1 tháng</span>
+            <span class="rdot"></span>
+            <span class="rnum didone">06</span>
+            <span class="rname" data-en="The last month">Chạy nước rút</span>
+          </button><button class="stop" type="button" role="tab" aria-selected="false" data-i="6">
+            <span class="rwhen" data-en="1 week">1 tuần</span>
+            <span class="rdot"></span>
+            <span class="rnum didone">07</span>
+            <span class="rname" data-en="The final week">Tuần cuối</span>
+          </button><button class="stop" type="button" role="tab" aria-selected="false" data-i="7">
+            <span class="rwhen" data-en="The day">Ngày cưới</span>
+            <span class="rdot"></span>
+            <span class="rnum didone">08</span>
+            <span class="rname" data-en="Your day">Ngày của bạn</span>
+          </button><button class="stop" type="button" role="tab" aria-selected="false" data-i="8">
+            <span class="rwhen" data-en="After">Sau cưới</span>
+            <span class="rdot"></span>
+            <span class="rnum didone">09</span>
+            <span class="rname" data-en="Return and keep">Trả váy và giữ kỷ niệm</span>
+          </button>
+          </div>
+          <div class="stage-panel" role="tabpanel">
+            <div class="sp-head">
+              <span class="sp-num didone" id="spNum">01</span>
+              <div>
+                <h3 id="spTitle"></h3>
+                <div class="sp-when" id="spWhen"></div>
+              </div>
+            </div>
+            <ul id="spList"></ul>
+          </div>
+        </div>
         </div>
         <div class="cam-cta">
           <div>
@@ -1443,6 +1534,31 @@ $("rSend").addEventListener("click", ()=>{
   p.classList.add("on");
 });
 
+const CHANG = [{"vi": "Quyết định cưới", "en": "Decide to marry", "whenVi": "Trước 12 tháng", "whenEn": "12+ months", "lsVi": ["Thống nhất ngân sách và ai chi phần nào, trước khi báo hai bên.", "Chốt mùa cưới; tránh mùa mưa nếu định làm ngoài trời.", "Mở một khoản riêng cho đám cưới."], "lsEn": ["Agree the budget and who pays what, before telling the families.", "Pick a season; avoid the rains if you want an outdoor party.", "Open a separate wedding account."]}, {"vi": "Hai nhà gặp nhau", "en": "The families meet", "whenVi": "9–12 tháng", "whenEn": "9–12 months", "lsVi": ["Dạm ngõ, chốt ngày ăn hỏi và ngày cưới.", "Ước lượng số mâm — con số quyết định mọi khoản còn lại.", "Đặt cọc địa điểm, chỗ đẹp kín trước cả năm."], "lsEn": ["The first visit; set the engagement and wedding dates.", "Estimate the tables — that number drives every other cost.", "Book the venue; good ones go a year ahead."]}, {"vi": "Chọn ekip", "en": "Choose the team", "whenVi": "6–9 tháng", "whenEn": "6–9 months", "lsVi": ["Chốt ekip ảnh và phim trước, lịch họ kín sớm nhất.", "Thử váy lần đầu để biết hợp phom nào, chưa cần chốt.", "Muốn may đo thì đây là hạn cuối để bắt đầu."], "lsEn": ["Book photography and film first.", "A first fitting, just to learn your silhouette.", "Made-to-measure has to start now at the latest."]}, {"vi": "Chốt váy và ảnh cưới", "en": "Dress and photos", "whenVi": "4–6 tháng", "whenEn": "4–6 months", "lsVi": ["Ký hợp đồng váy, giữ ảnh chụp hợp đồng trong máy.", "Chụp pre-wedding bằng váy khác váy cưới.", "Chốt thiệp và danh sách khách."], "lsEn": ["Sign for the dress; keep a photo of the contract.", "Shoot pre-wedding in a different dress.", "Settle invitations and the guest list."]}, {"vi": "Gửi thiệp", "en": "Send invitations", "whenVi": "2–3 tháng", "whenEn": "2–3 months", "lsVi": ["Thiệp giấy cho họ hàng, thiệp online cho bạn bè.", "Thử váy lần hai khi cân nặng đã ổn — buổi chỉnh chính.", "Chốt trang điểm, hoa cầm tay, xe."], "lsEn": ["Paper for relatives, online for friends.", "Second fitting once your weight settles.", "Confirm make-up, bouquet and cars."]}, {"vi": "Chạy nước rút", "en": "The last month", "whenVi": "1 tháng", "whenEn": "1 month", "lsVi": ["Thử váy lần cuối cùng đôi giày sẽ đi thật.", "Gọi lại từng đầu mối xác nhận giờ.", "Chốt danh sách khách và sơ đồ bàn."], "lsEn": ["Final fitting in the actual shoes.", "Call every supplier to confirm times.", "Lock the guest list and seating."]}, {"vi": "Tuần cuối", "en": "The final week", "whenVi": "1 tuần", "whenEn": "1 week", "lsVi": ["Nhận váy trước 1–2 ngày, treo nơi khô, không gấp.", "Túi cấp cứu: kim chỉ, băng cá nhân, kim băng, giày dự phòng.", "Ngủ đủ và uống nước."], "lsEn": ["Collect the dress; hang it, never fold it.", "Emergency kit: thread, plasters, pins, spare shoes.", "Sleep, and drink water."]}, {"vi": "Ngày của bạn", "en": "Your day", "whenVi": "Ngày cưới", "whenEn": "The day", "lsVi": ["Ăn sáng, dù không thấy đói.", "Giao điện thoại cho một người thân giữ.", "Sự cố váy thì gọi nhà, có hướng dẫn xử lý tại chỗ."], "lsEn": ["Eat breakfast even without appetite.", "Hand your phone to someone you trust.", "Any trouble with the dress — call us."]}, {"vi": "Trả váy và giữ kỷ niệm", "en": "Return and keep", "whenVi": "Sau cưới", "whenEn": "After", "lsVi": ["Trả váy trong 3 ngày để hoàn cọc đầy đủ.", "Nhận ảnh, chọn ảnh in album khi còn nhớ rõ.", "Gửi lời cảm ơn tới khách."], "lsEn": ["Return within three days for the full deposit.", "Collect the photos and choose the album.", "Thank the people who came."]}];
+
+const rail = document.querySelector(".rail");
+const stops = [...document.querySelectorAll(".stop")];
+let chang = 0;
+
+function veChang(){
+  const d = CHANG[chang], en = LANG === "en";
+  document.getElementById("spNum").textContent = String(chang+1).padStart(2,"0");
+  document.getElementById("spTitle").textContent = en ? d.en : d.vi;
+  document.getElementById("spWhen").textContent = en ? d.whenEn : d.whenVi;
+  document.getElementById("spList").innerHTML = (en ? d.lsEn : d.lsVi).map(x=>`<li>${x}</li>`).join("");
+  stops.forEach((b,i)=>b.setAttribute("aria-selected", i === chang));
+}
+stops.forEach((b,i)=>b.addEventListener("click", ()=>{
+  chang = i; veChang();
+  b.scrollIntoView({behavior:"smooth", block:"nearest", inline:"center"});
+}));
+rail.addEventListener("keydown", e=>{
+  if(e.key !== "ArrowLeft" && e.key !== "ArrowRight") return;
+  chang = (chang + (e.key === "ArrowRight" ? 1 : -1) + CHANG.length) % CHANG.length;
+  veChang(); stops[chang].focus();
+});
+veChang();
+
 /* ═══ Chuyển VI / EN ═══
    Mọi câu tiếng Anh nằm ngay trong thẻ, ở thuộc tính data-en. Sửa câu nào
    thì sửa thẳng tại chỗ đó, không phải tìm ở nơi khác. */
@@ -1461,6 +1577,7 @@ function setLang(l){
   document.querySelectorAll(".lang button").forEach(b=>{
     b.setAttribute("aria-pressed", b.dataset.lang === l);
   });
+  if(typeof veChang === "function") veChang();
   try{ localStorage.setItem("dla-lang", l); }catch(_){}
 }
 document.querySelectorAll(".lang button").forEach(b=>{
