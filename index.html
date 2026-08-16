@@ -37,7 +37,7 @@
     --serif:Baskerville,"Baskerville Old Face",Cochin,Georgia,"Iowan Old Style","Times New Roman",serif;
     --sans:"Helvetica Neue",Helvetica,Arial,"Segoe UI",system-ui,sans-serif;
 
-    --t-hero:clamp(2.9rem,10.5vw,9rem);
+    --t-hero:clamp(2.3rem,7.2vw,5.9rem);
     --t-h2:clamp(1.9rem,4.4vw,3.4rem);
     --t-h3:clamp(1.15rem,1.8vw,1.45rem);
     --t-body:1.0625rem;
@@ -205,6 +205,7 @@
     letter-spacing:.02em;
     text-transform:uppercase;
     margin:0;
+    max-width:16ch;
     text-wrap:balance;
   }
   .hero .tagline{
@@ -320,6 +321,145 @@
   }
   .step h3{font-size:1.05rem;margin-bottom:6px}
   .step p{font-size:.93rem;color:#3B3533}
+
+  /* ─────────── sắc trắng ─────────── */
+  .tones{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;border-top:1px solid var(--ink)}
+  .tone{padding:22px clamp(14px,1.8vw,26px) 26px;border-right:1px solid var(--hair)}
+  .tone:last-child{border-right:0}
+  .tone .dot{display:block;width:56px;height:56px;border-radius:50%;border:1px solid var(--hair);margin-bottom:14px}
+  .tone h3{margin-bottom:8px}
+  .tone p{font-size:.93rem;color:#3B3533}
+
+  /* ─────────── điều khoản thuê ─────────── */
+  .terms{
+    display:grid;grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:0;border-top:1px solid var(--ink);
+  }
+  .term{padding:24px clamp(16px,2vw,30px) 28px;border-right:1px solid var(--hair);border-bottom:1px solid var(--hair)}
+  .term:nth-child(3n){border-right:0}
+  .term .n{font-family:var(--didone);font-size:1.6rem;color:var(--accent);display:block;margin-bottom:8px}
+  .term h3{margin-bottom:10px}
+  .term ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+  .term li{font-size:.95rem;color:#3B3533;padding-left:15px;position:relative}
+  .term li::before{content:"";position:absolute;left:0;top:.65em;width:7px;height:1px;background:var(--accent)}
+  .quote{
+    border-left:2px solid var(--accent);
+    padding:4px 0 4px 22px;margin:26px 0 0;
+    font-size:clamp(1.02rem,1.5vw,1.16rem);line-height:1.6;
+  }
+  .quote cite{
+    display:block;margin-top:10px;font-style:normal;
+    font-family:var(--sans);font-size:var(--t-meta);letter-spacing:.18em;
+    text-transform:uppercase;color:var(--ink-soft);
+  }
+
+  /* ─────────── catalogue ─────────── */
+  .looks{
+    display:grid;
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:clamp(14px,2vw,30px) clamp(12px,1.6vw,24px);
+  }
+  .look{
+    display:flex;flex-direction:column;gap:10px;
+    text-align:left;padding:0;
+  }
+  .look .ph{aspect-ratio:4/5;transition:transform .5s cubic-bezier(.2,.7,.3,1),opacity .4s}
+  .look:hover .ph{transform:scale(1.014);opacity:.93}
+  .look .no{
+    font-family:var(--sans);font-size:var(--t-meta);
+    letter-spacing:.2em;text-transform:uppercase;color:var(--ink-soft);
+  }
+  .look .name{font-family:var(--serif);font-size:1rem;line-height:1.3}
+  .cat-note{
+    font-family:var(--sans);font-size:var(--t-meta);letter-spacing:.16em;
+    text-transform:uppercase;color:var(--ink-soft);margin-top:26px;
+  }
+
+  /* ─────────── slideshow ─────────── */
+  .stage{
+    position:fixed;inset:0;z-index:100;
+    background:var(--stage);color:#fff;
+    display:none;
+    grid-template-rows:auto 1fr auto;
+  }
+  .stage[open]{display:grid}
+  .stage-top{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:14px var(--gutter);
+    border-bottom:1px solid rgba(255,255,255,.16);
+  }
+  .stage-top .eyebrow{color:rgba(255,255,255,.72)}
+  .stage-mid{position:relative;display:grid;place-items:center;padding:clamp(14px,3vw,34px);min-height:0}
+  .stage-mid .ph{
+    height:100%;width:min(100%,62vh*0.8);
+    aspect-ratio:4/5;
+    max-height:100%;
+  }
+  .stage-nav{
+    position:absolute;inset:0;
+    display:flex;justify-content:space-between;align-items:stretch;
+  }
+  .stage-nav button{
+    width:clamp(56px,12vw,180px);
+    color:rgba(255,255,255,.55);
+    font-family:var(--sans);font-size:1.4rem;
+    transition:color .25s;
+  }
+  .stage-nav button:hover{color:#fff}
+  .stage-bot{
+    display:flex;flex-wrap:wrap;gap:8px 26px;align-items:baseline;justify-content:space-between;
+    padding:16px var(--gutter) clamp(20px,4vw,34px);
+    border-top:1px solid rgba(255,255,255,.16);
+  }
+  .stage-bot .cap{font-family:var(--serif);font-size:1.15rem}
+  .stage-bot .cta{
+    font-family:var(--sans);font-size:var(--t-meta);letter-spacing:.2em;text-transform:uppercase;
+    border-bottom:1px solid rgba(255,255,255,.5);text-decoration:none;padding-bottom:3px;
+  }
+  .counter{font-family:var(--sans);font-size:var(--t-meta);letter-spacing:.2em;font-variant-numeric:tabular-nums}
+  .x{font-family:var(--sans);font-size:var(--t-meta);letter-spacing:.2em;text-transform:uppercase}
+
+  /* ─────────── thử phom váy ─────────── */
+  .finder-intro{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:clamp(26px,5vw,66px);align-items:center}
+  .finder-intro .ph{aspect-ratio:4/5}
+  .fit-open{
+    margin-top:26px;
+    font-family:var(--sans);font-size:var(--t-meta);letter-spacing:.22em;text-transform:uppercase;
+    background:var(--ink);color:var(--paper);padding:16px 34px;transition:background .25s;
+  }
+  .fit-open:hover{background:var(--accent)}
+  .finder{margin-top:clamp(28px,4vw,52px);background:var(--accent-wash);padding:clamp(24px,4vw,52px)}
+  .finder[hidden]{display:none}
+  .fgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px clamp(18px,2.4vw,34px);margin-bottom:28px}
+  .result{border-top:1px solid var(--accent);margin-top:30px;padding-top:24px}
+  .result[hidden]{display:none}
+  .rtitle{font-size:clamp(1.3rem,2.4vw,1.9rem);margin:10px 0 16px;max-width:34ch}
+  .rlist{list-style:none;margin:0 0 26px;padding:0;display:grid;gap:11px;max-width:70ch}
+  .rlist li{font-size:1rem;padding-left:17px;position:relative}
+  .rlist li::before{content:"";position:absolute;left:0;top:.7em;width:8px;height:1px;background:var(--accent)}
+  .rlooks{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(12px,1.6vw,22px)}
+  .rlooks figure{margin:0;display:flex;flex-direction:column;gap:9px}
+  .rlooks .ph{aspect-ratio:4/5}
+  .rlooks figcaption{font-family:var(--serif);font-size:.95rem}
+  .ract{display:flex;flex-wrap:wrap;gap:16px;align-items:center;margin-top:28px}
+  .rredo{font-family:var(--sans);font-size:var(--t-meta);letter-spacing:.18em;text-transform:uppercase;color:var(--ink-soft);border-bottom:1px solid var(--hair);padding-bottom:3px}
+  .rredo:hover{color:var(--ink);border-bottom-color:var(--ink)}
+  .fit-cta{
+    font-family:var(--sans);font-size:var(--t-meta);letter-spacing:.2em;text-transform:uppercase;
+    background:var(--ink);color:var(--paper);padding:13px 22px;white-space:nowrap;
+    text-decoration:none;transition:background .25s;
+  }
+  .fit-cta:hover{background:var(--accent)}
+  .picked{display:none;margin-top:6px;font-family:var(--sans);font-size:.74rem;letter-spacing:.1em;color:var(--accent)}
+  .picked.on{display:block}
+
+  /* ─────────── sắc trắng ─────────── */
+  .tones{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;border-top:1px solid var(--ink)}
+  .tone{padding:22px clamp(14px,1.8vw,26px) 26px;border-right:1px solid var(--hair)}
+  .tone:last-child{border-right:0}
+  .tone .dot{display:block;width:56px;height:56px;border-radius:50%;border:1px solid var(--hair);margin-bottom:14px}
+  .tone h3{margin-bottom:8px}
+  .tone p{font-size:.93rem;color:#3B3533}
 
   /* ─────────── điều khoản thuê ─────────── */
   .terms{
@@ -466,42 +606,29 @@
   }
   .picked.on{display:block}
 
-  /* ─────────── ebook ─────────── */
-  .ebook{
-    display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);
-    gap:clamp(26px,5vw,72px);align-items:start;
+  /* ─────────── lộ trình cẩm nang ─────────── */
+  .cam-head{max-width:62ch}
+  .timeline{margin-top:clamp(26px,4vw,48px);border-top:1px solid var(--ink)}
+  .milestone{
+    display:grid;grid-template-columns:minmax(0,.28fr) minmax(0,1fr);
+    gap:clamp(18px,3vw,46px);
+    padding:26px 0;border-bottom:1px solid var(--hair);
   }
-  .ebook-cover{
-    background:var(--stage);color:#fff;
-    aspect-ratio:3/4;
-    padding:clamp(22px,3vw,38px);
-    display:flex;flex-direction:column;justify-content:space-between;
+  .milestone .when{display:flex;flex-direction:column;gap:6px}
+  .milestone .num{font-size:1.7rem;color:var(--accent);line-height:1}
+  .milestone .lbl{
+    font-family:var(--sans);font-size:var(--t-meta);letter-spacing:.2em;
+    text-transform:uppercase;color:var(--ink-soft);
   }
-  .ebook-cover .t{
-    font-family:var(--didone);font-size:clamp(2rem,4vw,3.2rem);
-    line-height:.94;text-transform:uppercase;letter-spacing:.02em;
+  .milestone h3{margin-bottom:12px}
+  .milestone ul{list-style:none;margin:0;padding:0;display:grid;gap:9px;max-width:72ch}
+  .milestone li{font-size:.98rem;color:#3B3533;padding-left:16px;position:relative}
+  .milestone li::before{content:"";position:absolute;left:0;top:.68em;width:8px;height:1px;background:var(--accent)}
+  .cam-cta{
+    margin-top:clamp(26px,4vw,44px);background:var(--accent-wash);
+    padding:clamp(22px,3vw,34px);
+    display:flex;flex-wrap:wrap;gap:18px 30px;align-items:center;justify-content:space-between;
   }
-  .ebook-cover .vn{font-family:var(--serif);font-size:1.05rem;color:rgba(255,255,255,.78);margin-top:14px}
-  .toc{list-style:none;margin:0;padding:0;counter-reset:ch}
-  .toc li{
-    display:grid;grid-template-columns:auto 1fr auto;
-    gap:16px;align-items:baseline;
-    padding:13px 0;border-bottom:1px solid var(--hair);
-  }
-  .toc li::before{
-    counter-increment:ch;
-    content:counter(ch,decimal-leading-zero);
-    font-family:var(--sans);font-size:var(--t-meta);letter-spacing:.14em;color:var(--ink-soft);
-    font-variant-numeric:tabular-nums;
-  }
-  .toc .tag{
-    font-family:var(--sans);font-size:var(--t-meta);letter-spacing:.16em;text-transform:uppercase;
-    color:var(--ink-soft);
-  }
-  .toc li.locked{background:var(--accent-wash);padding-inline:14px;border-bottom-color:var(--accent)}
-  .toc li.locked .tag{color:var(--accent)}
-  .toc li.locked span:nth-child(2){color:var(--accent)}
-  .ebook-note{font-size:.95rem;color:#3B3533;margin-top:20px}
 
   /* ─────────── pricing ─────────── */
   .tiers{
@@ -602,11 +729,16 @@
 
   /* ─────────── responsive ─────────── */
   @media (max-width:1000px){
-    .house,.ebook,.lead,.fitting{grid-template-columns:1fr}
+    .house,.lead,.finder-intro{grid-template-columns:1fr}
+    .milestone{grid-template-columns:1fr;gap:12px}
+    .fgrid{grid-template-columns:1fr 1fr}
+    .rlooks{grid-template-columns:1fr 1fr}
     .services{grid-template-columns:1fr 1fr}
     .looks{grid-template-columns:repeat(2,minmax(0,1fr))}
     .journey{grid-template-columns:1fr 1fr;gap:24px}
     .tiers{grid-template-columns:1fr;border-top:0}
+    .tones{grid-template-columns:1fr 1fr}
+    .tone:nth-child(2n){border-right:0}
     .terms{grid-template-columns:1fr;border-top:0}
     .term{border-right:0;border-top:1px solid var(--ink);border-bottom:0}
     .tier{border-right:0;border-top:1px solid var(--ink)}
@@ -630,8 +762,8 @@
     .facts dt{margin-top:10px}
     .toc li{grid-template-columns:auto 1fr;row-gap:4px}
     .toc .tag{grid-column:2}
-    .fit-sum{flex-direction:column;align-items:stretch}
-    .fit-cta{text-align:center}
+    .fgrid{grid-template-columns:1fr}
+    .rlooks{grid-template-columns:1fr}
   }
 </style>
 
@@ -662,11 +794,11 @@
       <span class="nav-label">Dolinhanh Bridal</span>
       <nav aria-label="Mục chính">
         <ul>
-          <li><a href="#thuonghieu" data-en="Story">Story</a></li>
+          <li><a href="#thuonghieu" data-en="About">Giới thiệu</a></li>
           <li><a href="#dichvu" data-en="Services">Dịch vụ</a></li>
-          <li><a href="#catalogue" data-en="Catalogue">Catalogue</a></li>
-          <li><a href="#fitting" data-en="Online fitting">Fitting online</a></li>
-          <li><a href="#camnang" data-en="Bride’s handbook">Cẩm nang cưới</a></li>
+          <li><a href="#catalogue" data-en="Fabric &amp; colour">Chất liệu &amp; màu</a></li>
+          <li><a href="#fitting" data-en="Find your dress">Thử phom váy</a></li>
+          <li><a href="#camnang" data-en="The road to the wedding">Cẩm nang cưới</a></li>
           <li><a href="#baogia" data-en="Pricing &amp; offers">Báo giá &amp; ưu đãi</a></li>
           <li><a href="#dieukhoan" data-en="Rental terms">Điều khoản thuê</a></li>
           <li><a href="#kenh" data-en="Channels">Kênh của nhà</a></li>
@@ -693,7 +825,7 @@
     <div class="wrap">
       <hr class="rule">
       <div class="sec-head">
-        <div class="eyebrow"><strong data-en="Story">Story</strong><span class="sep">/</span><span data-en="The house &amp; the showrooms">Nhà may &amp; showroom</span></div>
+        <div class="eyebrow"><strong data-en="About">Giới thiệu</strong><span class="sep">/</span><span data-en="The house &amp; the showrooms">Nhà may &amp; showroom</span></div>
         <div class="eyebrow">01</div>
       </div>
       <hr class="rule">
@@ -708,7 +840,6 @@
         <aside>
           <div class="facts">
             <dl>
-              <dt data-en="Founded">Thành lập</dt><dd>2017</dd>
               <dt data-en="Part of">Thuộc</dt><dd data-en="Nupakachi — wedding photography, 15+ years, founded by Đỗ Xuân Cường">Nupakachi — ảnh cưới hơn 15 năm, sáng lập bởi NAG Đỗ Xuân Cường</dd>
               <dt data-en="Showrooms">Showroom</dt><dd data-en="Hanoi — 91 Nguyễn Hy Quang, Ô Chợ Dừa, Đống Đa, Hà Nội<br>Ho Chi Minh City — 2 Tân Canh, Phường 1, Tân Bình, TP. Hồ Chí Minh">Hà Nội — 91 Nguyễn Hy Quang, Ô Chợ Dừa, Đống Đa, Hà Nội<br>TP.HCM — 2 Tân Canh, Phường 1, Tân Bình, TP. Hồ Chí Minh</dd>
               <dt data-en="Opening hours">Giờ mở cửa</dt><dd data-en="9:00 – 19:00, by appointment">9:00 – 19:00, đặt hẹn trước</dd>
@@ -766,123 +897,93 @@
     </div>
   </section>
 
-  <!-- ══════════ CATALOGUE ══════════ -->
+  <!-- ══════════ CHẤT LIỆU & MÀU ══════════ -->
   <section id="catalogue">
     <div class="wrap">
       <hr class="rule">
       <div class="sec-head">
-        <div class="eyebrow"><strong data-en="Catalogue">Catalogue</strong><span class="sep">/</span><span data-en="The core collection">Bộ sưu tập cơ bản</span></div>
+        <div class="eyebrow"><strong data-en="Fabric &amp; colour">Chất liệu &amp; màu sắc</strong><span class="sep">/</span><span data-en="Two choices made before any silhouette">Hai thứ chọn trước cả phom váy</span></div>
         <div class="eyebrow">03</div>
       </div>
       <hr class="rule">
       <div class="sec-body">
-        <h2 class="title" style="max-width:20ch" data-en="Six silhouettes the house is built on.">Sáu phom váy nền tảng của nhà.</h2>
-        <p class="lede" style="margin-top:20px;max-width:58ch" data-en="These are the shapes brides choose most, kept in stock at both showrooms. Tap any look to see it full screen.">Đây là những phom được cô dâu chọn nhiều nhất và luôn có sẵn tại cả hai showroom. Bấm vào một mẫu để xem toàn màn hình.</p>
+        <h2 class="title" style="max-width:22ch" data-en="Fabric decides the feel. Colour decides the skin.">Chất liệu quyết định cảm giác. Màu quyết định nước da.</h2>
+        <p class="lede" style="margin-top:20px;max-width:58ch" data-en="Before choosing a shape, most brides settle these two. Everything in the showroom is made in these three fabrics and four shades.">Trước khi chọn phom, phần lớn cô dâu chốt hai thứ này trước. Toàn bộ váy trong showroom đều nằm trong ba chất liệu và bốn sắc dưới đây.</p>
 
-        <div class="looks rise" style="margin-top:clamp(28px,4vw,52px)" id="looks"></div>
-        <div class="cat-note" data-en="Placeholder images and names — replace with the house’s own photographs before publishing">Ảnh và tên mẫu là bản dựng mẫu — thay bằng ảnh thật của nhà trước khi phát hành</div>
+        <div class="eyebrow" style="margin:clamp(30px,4vw,50px) 0 16px" data-en="Three fabrics">Ba chất liệu</div>
+        <div class="services rise"><article class="svc"><div class="ph" style="--tone:#EFE9E6; --img:url('anh/cl-tron.jpg')"></div><h3 data-en="Plain">Trơn</h3><p data-en="Satin, mikado, crepe — a flat surface that catches light in broad planes. Sharp silhouette, clean lines, very photogenic.">Satin, mikado, crepe — mặt vải phẳng, bắt sáng thành từng mảng lớn. Phom rõ, đường cắt sạch, lên ảnh sang và gọn.</p></article><article class="svc"><div class="ph" style="--tone:#EFE9E6; --img:url('anh/cl-ren.jpg')"></div><h3 data-en="Lace">Ren</h3><p data-en="Chantilly and corded lace — soft, with depth; up close you read every motif. For a bride who wants something classic and feminine.">Ren Chantilly, ren hoa nổi — mềm, có chiều sâu, nhìn gần thấy từng nét hoa. Hợp cô dâu thích nữ tính, cổ điển.</p></article><article class="svc"><div class="ph" style="--tone:#EFE9E6; --img:url('anh/cl-dinhket.jpg')"></div><h3 data-en="Beaded">Đính kết</h3><p data-en="Stones and crystals set by hand to a map drawn for the dress. It catches every light in the room and reads from across it.">Đá và pha lê đính tay từng viên theo sơ đồ riêng. Váy bắt sáng lấp lánh dưới đèn tiệc, đứng xa vẫn nổi.</p></article></div>
+
+        <div class="eyebrow" style="margin:clamp(30px,4vw,50px) 0 16px" data-en="Four shades of white">Bốn sắc trắng</div>
+        <div class="tones rise"><div class="tone"><span class="dot" style="background:#FFFFFF"></span><h3 data-en="Pure white">Trắng</h3><p data-en="Clean and crisp. Made for studio light, indoor receptions and dark backdrops.">Trắng tinh, sạch và rõ nét. Ăn đèn studio, hợp tiệc trong nhà và ảnh nền tối.</p></div><div class="tone"><span class="dot" style="background:#E8D6C3"></span><h3 data-en="Nude">Nude</h3><p data-en="A warm beige that sits close to the skin and makes it look healthier. The safest choice for warm skin tones.">Ngả be ấm, ôm sát tông da nên da nhìn hồng hào hơn. An toàn nhất cho da vàng.</p></div><div class="tone"><span class="dot" style="background:#F2DCDA"></span><h3 data-en="Blush">Hồng</h3><p data-en="A blush so pale it only shows up close. Soft and youthful — good for a daytime outdoor party.">Hồng phấn rất nhạt, chỉ hiện lên khi đứng gần. Mềm, trẻ, hợp tiệc ngoài trời ban ngày.</p></div><div class="tone"><span class="dot" style="background:#DCD5CC"></span><h3 data-en="Champagne grey">Ghi</h3><p data-en="A muted grey leaning to champagne. It never glares under warm lighting and reads expensive.">Ghi ngả champagne, trầm và tiết chế. Không bị chói dưới đèn vàng, nhìn rất đắt.</p></div></div>
       </div>
     </div>
   </section>
 
-  <!-- ══════════ FITTING ONLINE ══════════ -->
+  <!-- ══════════ THỬ PHOM VÁY ══════════ -->
   <section id="fitting">
     <div class="wrap">
       <hr class="rule">
       <div class="sec-head">
-        <div class="eyebrow"><strong data-en="Online fitting">Fitting online</strong><span class="sep">/</span><span data-en="Try being the bride">Thử làm cô dâu</span></div>
+        <div class="eyebrow"><strong data-en="Find your dress">Thử phom váy</strong><span class="sep">/</span><span data-en="Answer nine questions, get a shortlist">Trả lời chín câu, nhận gợi ý riêng</span></div>
         <div class="eyebrow">04</div>
       </div>
       <hr class="rule">
       <div class="sec-body">
-        <h2 class="title" style="max-width:22ch" data-en="Try a silhouette here, before you come to the showroom.">Thử phom váy ngay tại đây, trước khi tới showroom.</h2>
-        <p class="lede" style="margin-top:20px;max-width:58ch" data-en="Choose the silhouette, sleeves, fabric, veil and shade of white — the dress changes with every choice. Send the one you like to a stylist and those are the gowns waiting for you.">Chọn phom, tay áo, chất liệu, voan và sắc trắng — chiếc váy đổi theo từng lựa chọn. Ưng phom nào, gửi thẳng cho stylist để hôm tới thử đúng những mẫu đó.</p>
-
-        <div class="fitting rise" style="margin-top:clamp(26px,4vw,46px)">
-          <div class="atelier">
-            <svg viewBox="0 0 400 660" role="img" aria-labelledby="fitTitle">
-              <title id="fitTitle">Hình phác chiếc váy cưới theo lựa chọn của bạn</title>
-              <defs>
-                <linearGradient id="sheen" x1="0" y1="0" x2="1" y2="0">
-                  <stop offset="0%"  stop-color="#fff" stop-opacity="0"/>
-                  <stop offset="34%" stop-color="#fff" stop-opacity=".55"/>
-                  <stop offset="58%" stop-color="#fff" stop-opacity="0"/>
-                  <stop offset="100%" stop-color="#000" stop-opacity=".18"/>
-                </linearGradient>
-                <linearGradient id="veilFade" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%"   stop-color="#fff" stop-opacity=".1"/>
-                  <stop offset="45%"  stop-color="#fff" stop-opacity=".05"/>
-                  <stop offset="100%" stop-color="#fff" stop-opacity="0"/>
-                </linearGradient>
-                <pattern id="lace" width="19" height="19" patternUnits="userSpaceOnUse">
-                  <g fill="none" stroke="#8E5A5F" stroke-width=".8" stroke-opacity=".5">
-                    <circle cx="9.5" cy="9.5" r="3"/>
-                    <path d="M9.5 3.2 q2.6 3.2 0 6.3 q-2.6-3.1 0-6.3M9.5 15.8 q2.6-3.2 0-6.3 q-2.6 3.1 0 6.3"/>
-                    <circle cx="0" cy="0" r="1.6"/><circle cx="19" cy="19" r="1.6"/>
-                  </g>
-                </pattern>
-                <clipPath id="dressClip">
-                  <path id="clipSkirt" d=""/>
-                  <path id="clipBodice" d=""/>
-                </clipPath>
-              </defs>
-
-              <!-- voan -->
-              <g id="veil" fill="none" stroke="#fff" stroke-opacity=".3" stroke-width=".9">
-                <path id="veilPath" d="" fill="url(#veilFade)"/>
-                <g id="veilFolds" stroke-opacity=".16"></g>
-              </g>
-
-              <!-- người -->
-              <g stroke="#E8DFD9" stroke-opacity=".5" fill="none" stroke-width="1.4" stroke-linecap="round">
-                <path d="M200 40 c17 0 27 14 27 32 0 20-12 34-27 34s-27-14-27-34c0-18 10-32 27-32Z"/>
-                <path d="M188 104 v18 M212 104 v18"/>
-                <path id="armL" d="M156 148 c-16 26-22 62-20 96"/>
-                <path id="armR" d="M244 148 c16 26 22 62 20 96"/>
-              </g>
-
-              <!-- váy -->
-              <g id="dress">
-                <path id="skirt" d="" fill="#F6EFE6"/>
-                <path id="bodice" d="" fill="#F6EFE6"/>
-                <g clip-path="url(#dressClip)">
-                  <rect id="laceLayer" x="0" y="0" width="400" height="660" fill="url(#lace)" opacity="0"/>
-                  <rect id="sheenLayer" x="0" y="0" width="400" height="660" fill="url(#sheen)" opacity=".2"/>
-                </g>
-                <g id="sleeves" fill="#F6EFE6" fill-opacity=".82" stroke="#EFE4DB" stroke-width="1.1" stroke-opacity=".5" stroke-linecap="round"></g>
-                <path id="waistline" d="M152 252 C176 261 224 261 248 252" fill="none" stroke="#C9B3A8" stroke-width="1.1" stroke-opacity=".65"/>
-              </g>
-            </svg>
+        <div class="finder-intro rise">
+          <div>
+            <h2 class="title" style="max-width:22ch" data-en="Tell us about the day. We’ll tell you which dresses to try.">Kể cho nhà nghe về ngày của bạn, nhà nói bạn nên thử váy nào.</h2>
+            <p style="margin-top:18px;max-width:56ch" data-en="Nine questions — measurements, taste, fabric, silhouette, colour, date, venue, how many dresses. Nothing is shown until you finish; the suggestion is built from your own answers, not from a list of bestsellers.">Chín câu hỏi — số đo, sở thích, chất liệu, phom váy, màu sắc, ngày tiệc, địa điểm, số váy bạn định mặc. Nhà không gợi ý gì trước khi bạn điền xong; gợi ý dựng từ chính câu trả lời của bạn, không phải danh sách mẫu bán chạy.</p>
+            <button class="fit-open" type="button" id="finderOpen" data-en="Start — 9 questions">Bắt đầu thử phom — 9 câu hỏi</button>
           </div>
+          <div class="ph" style="--tone:#EFE9E6; --img:url('anh/look-03.jpg')"></div>
+        </div>
 
-          <div class="dressing">
-            <div class="opt">
-              <span class="k" data-en="Silhouette">Phom váy</span>
-              <div class="chips" data-group="phom"></div>
+        <div class="finder" id="finder" hidden>
+          <form id="finderForm" novalidate>
+            <div class="fgrid">
+              <div class="field"><label for="q_cao" data-en="Height (cm)">Chiều cao (cm)</label><input id="q_cao" type="number" min="130" max="200" placeholder="160"></div>
+              <div class="field"><label for="q_nang" data-en="Weight (kg)">Cân nặng (kg)</label><input id="q_nang" type="number" min="30" max="150" placeholder="48"></div>
+              <div class="field"><label for="q_so" data-en="Bust / waist / hip (cm)">Vòng 1 / 2 / 3 (cm)</label><input id="q_so" type="text" placeholder="84 / 62 / 90"></div>
+              <div class="field"><label for="q_dang" data-en="What you want to show off">Bạn muốn khoe nhất điều gì</label>
+                <select id="q_dang">
+                  <option data-en="Waist">Vòng eo</option>
+                  <option data-en="Shoulders and collarbone">Vai và xương quai xanh</option>
+                  <option data-en="Back">Lưng</option>
+                  <option data-en="Height">Chiều cao</option>
+                  <option data-en="Prefer to cover more">Muốn che nhiều hơn khoe</option>
+                </select>
+              </div>
+              <div class="field"><label for="q_chat" data-en="Fabric you lean toward">Chất liệu bạn nghiêng về</label>
+                <select id="q_chat"><option data-en="Plain">Trơn</option><option data-en="Lace">Ren</option><option data-en="Beaded">Đính kết</option><option data-en="Not sure yet">Chưa biết, nhờ nhà tư vấn</option></select>
+              </div>
+              <div class="field"><label for="q_phom" data-en="Silhouette you picture">Phom váy bạn hình dung</label>
+                <select id="q_phom"><option data-en="Ballgown">Xoè bồng</option><option data-en="A-line">Chữ A</option><option data-en="Mermaid">Đuôi cá</option><option data-en="Sheath">Suông ôm</option><option data-en="Not sure yet">Chưa biết, nhờ nhà tư vấn</option></select>
+              </div>
+              <div class="field"><label for="q_mau" data-en="Shade">Màu váy</label>
+                <select id="q_mau"><option data-en="Pure white">Trắng</option><option data-en="Nude">Nude</option><option data-en="Blush">Hồng</option><option data-en="Champagne grey">Ghi</option><option data-en="Not sure yet">Chưa biết, nhờ nhà tư vấn</option></select>
+              </div>
+              <div class="field"><label for="q_ngay" data-en="Date of the party">Ngày tiệc</label><input id="q_ngay" type="date"></div>
+              <div class="field"><label for="q_diadiem" data-en="Venue">Địa điểm tiệc</label>
+                <select id="q_diadiem"><option data-en="Indoor banquet hall">Trung tâm tiệc cưới trong nhà</option><option data-en="Outdoor / garden / beach">Ngoài trời, sân vườn, biển</option><option data-en="Restaurant or hotel">Nhà hàng, khách sạn</option><option data-en="At home / countryside">Tại gia, ở quê</option></select>
+              </div>
+              <div class="field"><label for="q_sovay" data-en="How many dresses">Số váy bạn định mặc</label>
+                <select id="q_sovay"><option data-en="One">1 váy</option><option data-en="Two">2 váy</option><option data-en="Three or more">3 váy trở lên</option></select>
+              </div>
             </div>
-            <div class="opt">
-              <span class="k" data-en="Sleeves &amp; neckline">Tay áo &amp; cổ</span>
-              <div class="chips" data-group="tay"></div>
-            </div>
-            <div class="opt">
-              <span class="k" data-en="Fabric">Chất liệu</span>
-              <div class="chips" data-group="chat"></div>
-            </div>
-            <div class="opt">
-              <span class="k" data-en="Veil">Voan</span>
-              <div class="chips" data-group="voan"></div>
-            </div>
-            <div class="opt">
-              <span class="k" data-en="Shade of white">Sắc trắng</span>
-              <div class="swatches" data-group="mau"></div>
-            </div>
-            <div class="fit-sum">
-              <div class="txt"><span data-en="You’re trying:">Bạn đang thử:</span> <em id="fitText"></em></div>
-              <a class="fit-cta" href="#baogia" id="fitSend" data-en="Send this to a stylist">Gửi phom này cho stylist</a>
+            <button class="submit" type="submit" data-en="See my suggestions">Xem gợi ý cho tôi</button>
+          </form>
+
+          <div class="result" id="finderResult" hidden>
+            <div class="eyebrow" data-en="Suggested for you">Gợi ý riêng cho bạn</div>
+            <h3 class="rtitle" id="rTitle"></h3>
+            <ul class="rlist" id="rList"></ul>
+            <div class="rlooks" id="rLooks"></div>
+            <div class="ract">
+              <a class="fit-cta" href="#baogia" id="rSend" data-en="Send this to a stylist">Gửi gợi ý này cho stylist</a>
+              <button class="rredo" type="button" id="rRedo" data-en="Answer again">Điền lại</button>
             </div>
           </div>
         </div>
-        <div class="cat-note" data-en="An illustration of proportion, not a product photograph. Every real gown is fitted to the bride’s own measurements.">Hình minh hoạ phom dáng, không phải ảnh sản phẩm. Váy thật luôn được chỉnh theo số đo của từng cô dâu.</div>
       </div>
     </div>
   </section>
@@ -892,38 +993,51 @@
     <div class="wrap">
       <hr class="rule">
       <div class="sec-head">
-        <div class="eyebrow"><strong data-en="Bride’s handbook">Cẩm nang cưới</strong><span class="sep">/</span><span data-en="Ebook">Ebook</span> <span class="sep">/</span> <span data-en="10 chapters">10 chương</span></div>
+        <div class="eyebrow"><strong data-en="The road to the wedding">Cẩm nang cưới</strong><span class="sep">/</span><span data-en="Nine stages, from “let’s get married” to the day after">Chín chặng, từ lúc quyết định cưới tới hôm sau đám cưới</span></div>
         <div class="eyebrow">05</div>
       </div>
       <hr class="rule">
-      <div class="sec-body ebook rise">
-        <div>
-          <div class="ebook-cover">
-            <div class="eyebrow" style="color:rgba(255,255,255,.7)">Dolinhanh Bridal <span class="sep">/</span> <span data-en="2026 edition">Ấn bản 2026</span></div>
-            <div>
-              <div class="t">The Bride’s<br>Handbook</div>
-              <div class="vn" data-en="Ten chapters answering nearly everything a bride worries about before the wedding day.">Cẩm nang cưới — 10 chương trả lời gần hết những gì cô dâu lo trước ngày cưới.</div>
-            </div>
-          </div>
-          <p class="ebook-note" data-en="The first nine chapters download free once you leave a phone number. The last one is what we’ve learned from hundreds of real contracts — sold on its own.">Chín chương đầu tải miễn phí sau khi để lại số điện thoại. Chương cuối là phần chúng tôi rút ra từ hàng trăm hợp đồng thật — bán riêng, không tặng kèm.</p>
+      <div class="sec-body">
+        <div class="cam-head rise">
+          <h2 class="title" data-en="The whole road, laid out — so nothing arrives late.">Toàn bộ lộ trình, bày sẵn ra đây — để không việc nào tới muộn.</h2>
+          <p style="margin-top:18px" data-en="This is the timeline our stylists walk every bride through, from the conversation where you decide to marry to the week after the party. Read it in five minutes; it saves months of guessing.">Đây đúng là lộ trình stylist của nhà đi cùng mỗi cô dâu — từ cuộc nói chuyện quyết định cưới cho tới tuần sau đám tiệc. Đọc hết mất năm phút, đỡ được mấy tháng mò mẫm.</p>
         </div>
-        <div>
-          <ol class="toc">
-            <li><span data-en="A 12-month timeline: what to settle, and when">Timeline 12 tháng: lúc nào phải chốt việc gì</span><span class="tag" data-en="Free">Miễn phí</span></li>
-            <li><span data-en="Choosing a silhouette for your body, not for the photo you saved">Chọn phom váy theo dáng người, không theo ảnh mạng</span><span class="tag" data-en="Free">Miễn phí</span></li>
-            <li><span data-en="Rent or make to measure — compared in money and in time">Thuê hay may đo — so sánh thẳng bằng tiền và thời gian</span><span class="tag" data-en="Free">Miễn phí</span></li>
-            <li><span data-en="Fabrics: how lace, mikado, tulle and satin actually differ">Chất liệu: ren, mikado, tulle, satin khác nhau chỗ nào</span><span class="tag" data-en="Free">Miễn phí</span></li>
-            <li><span data-en="Veil, gloves, shoes, jewellery: how to keep it uncluttered">Voan, găng, giày, trang sức: chọn sao cho không rối</span><span class="tag" data-en="Free">Miễn phí</span></li>
-            <li><span data-en="At the fitting: what to bring, who to bring, what to ask">Đi thử váy: chuẩn bị gì, đi với ai, hỏi những câu nào</span><span class="tag" data-en="Free">Miễn phí</span></li>
-            <li><span data-en="Dresses for the engagement party, the reception, and for mothers">Váy cho ăn hỏi, tiệc cưới và váy cho mẹ</span><span class="tag" data-en="Free">Miễn phí</span></li>
-            <li><span data-en="Pick-up and return dates, cleaning, keeping the dress safe">Lịch nhận – trả váy, giặt hấp, giữ váy trước ngày cưới</span><span class="tag" data-en="Free">Miễn phí</span></li>
-            <li><span data-en="Wedding-day emergencies: torn lace, a stuck zip, lipstick — fixed on the spot">Sự cố ngày cưới: rách ren, tuột khoá, dính son — xử lý tại chỗ</span><span class="tag" data-en="Free">Miễn phí</span></li>
-            <li class="locked"><span data-en="Real costs &amp; how to read a rental contract: the add-ons that get hidden, what is fair to negotiate, a checklist before you sign">Bảng chi phí thật &amp; cách đọc hợp đồng thuê váy: các khoản phát sinh hay bị giấu, mức thương lượng hợp lý, checklist trước khi ký</span><span class="tag" data-en="Paid">Trả phí</span></li>
-          </ol>
-          <div style="display:flex;flex-wrap:wrap;gap:14px;margin-top:26px">
-            <a class="btn-book" href="#baogia" data-en="Get the free chapters">Nhận 9 chương miễn phí</a>
-            <a class="btn-book" style="border-color:var(--accent);color:var(--accent)" href="#baogia" data-en="Buy chapter 10 <span class=&quot;fill&quot; style=&quot;margin-left:6px&quot;>add price</span>">Mua chương 10 <span class="fill" style="margin-left:6px">điền giá</span></a>
+        <div class="timeline rise">
+          <div class="milestone">
+            <div class="when"><span class="num didone">01</span><span class="lbl" data-en="12+ months out">Trước 12 tháng</span></div>
+            <div class="what"><h3 data-en="Decide to marry">Quyết định cưới</h3><ul><li data-en="Talk plainly about budget, size, and who pays for what — before you tell either family.">Nói chuyện thẳng với nhau về ngân sách, quy mô, và ai chi phần nào — trước khi báo hai bên gia đình.</li><li data-en="Settle on a season and a rough date; avoid the rainy months if you want an outdoor party.">Chốt mùa cưới và khoảng ngày; tránh mùa mưa nếu định làm tiệc ngoài trời.</li><li data-en="Open a separate account for the wedding and put something in it every month.">Mở một khoản riêng cho đám cưới, mỗi tháng bỏ vào một ít.</li></ul></div>
+          </div><div class="milestone">
+            <div class="when"><span class="num didone">02</span><span class="lbl" data-en="9–12 months">9–12 tháng</span></div>
+            <div class="what"><h3 data-en="The families meet">Hai nhà gặp nhau</h3><ul><li data-en="The first formal visit; agree the engagement and wedding dates with both sides.">Lễ dạm ngõ, thống nhất ngày ăn hỏi và ngày cưới theo cả hai bên.</li><li data-en="Estimate the number of tables — this one number drives almost every other cost.">Chốt số mâm ước lượng — con số này quyết định gần như mọi khoản còn lại.</li><li data-en="Put a deposit on the venue; the good ones are booked a year ahead.">Đặt cọc địa điểm tiệc, vì chỗ đẹp thường kín trước cả năm.</li></ul></div>
+          </div><div class="milestone">
+            <div class="when"><span class="num didone">03</span><span class="lbl" data-en="6–9 months">6–9 tháng</span></div>
+            <div class="what"><h3 data-en="Choose the team">Chọn ekip</h3><ul><li data-en="Book photography and film first — their calendars fill up soonest.">Chọn ekip ảnh và phim trước, vì lịch của họ kín sớm nhất.</li><li data-en="Go for a first fitting just to learn which silhouette suits you. No need to commit.">Đi thử váy lần đầu cho biết mình hợp phom nào — chưa cần chốt.</li><li data-en="If you want a made-to-measure gown, this is the latest you can start (we need 8–12 weeks).">Nếu muốn may đo riêng thì đây là hạn cuối để bắt đầu (nhà cần 8–12 tuần).</li></ul></div>
+          </div><div class="milestone">
+            <div class="when"><span class="num didone">04</span><span class="lbl" data-en="4–6 months">4–6 tháng</span></div>
+            <div class="what"><h3 data-en="Dress and pre-wedding photos">Chốt váy và ảnh cưới</h3><ul><li data-en="Choose the gown, sign, pay the deposit — and keep a photo of the contract on your phone.">Chốt váy cưới, ký hợp đồng và đặt cọc; giữ lại bản chụp hợp đồng trong điện thoại.</li><li data-en="Shoot the pre-wedding session; pick a different dress from the wedding one so the albums differ.">Chụp pre-wedding — chọn váy chụp khác váy cưới để album không trùng.</li><li data-en="Settle the invitations and build the guest list, side by side.">Chốt thiệp mời và lên danh sách khách theo từng bên.</li></ul></div>
+          </div><div class="milestone">
+            <div class="when"><span class="num didone">05</span><span class="lbl" data-en="2–3 months">2–3 tháng</span></div>
+            <div class="what"><h3 data-en="Send invitations">Gửi thiệp</h3><ul><li data-en="Paper invitations for relatives, an online one for friends — we give the online card free to our brides.">Gửi thiệp giấy cho họ hàng, thiệp online cho bạn bè — nhà tặng thiệp online cho khách thuê váy.</li><li data-en="Second fitting, once your weight has settled. This is the real alteration session.">Thử váy lần hai sau khi cân nặng đã ổn định; đây là buổi chỉnh chính.</li><li data-en="Confirm hair, make-up, bouquet and cars.">Chốt trang điểm, làm tóc, hoa cầm tay và xe đưa đón.</li></ul></div>
+          </div><div class="milestone">
+            <div class="when"><span class="num didone">06</span><span class="lbl" data-en="1 month">1 tháng</span></div>
+            <div class="what"><h3 data-en="The last month">Chạy nước rút</h3><ul><li data-en="Final fitting, wearing the actual shoes and underwear. Do not change the shoes after this.">Thử váy lần cuối cùng giày và nội y sẽ mặc thật — không đổi giày sau buổi này.</li><li data-en="Call every supplier and confirm times: photographers, venue, cars, MC.">Gọi lại từng đầu mối xác nhận giờ giấc: ekip ảnh, nhà hàng, xe, MC.</li><li data-en="Lock the guest list and the seating plan.">Chốt danh sách khách chính thức và sơ đồ bàn.</li></ul></div>
+          </div><div class="milestone">
+            <div class="when"><span class="num didone">07</span><span class="lbl" data-en="1 week">1 tuần</span></div>
+            <div class="what"><h3 data-en="The final week">Tuần cuối</h3><ul><li data-en="Collect the dress one or two days before. Hang it somewhere dry; never fold it.">Nhận váy trước lễ 1–2 ngày, treo nơi khô ráo, không gấp.</li><li data-en="Pack an emergency kit: matching thread, plasters, cotton pads, safety pins, spare shoes.">Chuẩn bị túi cấp cứu: kim chỉ cùng màu, băng cá nhân, bông tẩy trang, kim băng, giày dự phòng.</li><li data-en="Sleep and drink water — the camera sees both.">Ngủ đủ và uống nước — hai thứ ảnh chụp nhìn ra ngay.</li></ul></div>
+          </div><div class="milestone">
+            <div class="when"><span class="num didone">08</span><span class="lbl" data-en="The day">Ngày cưới</span></div>
+            <div class="what"><h3 data-en="Your day">Ngày của bạn</h3><ul><li data-en="Eat breakfast, even if you have no appetite.">Ăn sáng thật, dù không thấy đói.</li><li data-en="Hand your phone to someone you trust and let them answer for you.">Giao một người thân giữ điện thoại và trả lời thay bạn.</li><li data-en="If anything happens to the dress, call us — we walk you through the fix on the spot.">Sự cố váy thì gọi ngay cho nhà — nhà có hướng dẫn xử lý tại chỗ.</li></ul></div>
+          </div><div class="milestone">
+            <div class="when"><span class="num didone">09</span><span class="lbl" data-en="After">Sau cưới</span></div>
+            <div class="what"><h3 data-en="Return and keep">Trả váy và giữ kỷ niệm</h3><ul><li data-en="Return the dress within the three days to get the full deposit back.">Trả váy đúng hạn trong 3 ngày để được hoàn cọc đầy đủ.</li><li data-en="Collect the photographs and film, and choose the album while every moment is still fresh.">Nhận ảnh và phim, chọn ảnh in album trong lúc còn nhớ rõ từng khoảnh khắc.</li><li data-en="Thank the people who came. A short message is enough.">Gửi lời cảm ơn tới khách đã tới — một tin nhắn ngắn cũng đủ.</li></ul></div>
           </div>
+        </div>
+        <div class="cam-cta">
+          <div>
+            <h3 data-en="Want it as a file you can keep?">Muốn có bản để dành trong máy?</h3>
+            <p style="margin-top:8px" data-en="Leave a phone number and we send the full handbook — this timeline plus checklists for each stage.">Để lại số điện thoại, nhà gửi trọn bộ cẩm nang — lộ trình này kèm checklist từng chặng.</p>
+          </div>
+          <a class="fit-cta" href="#baogia" data-en="Get the handbook">Nhận cẩm nang</a>
         </div>
       </div>
     </div>
@@ -1090,31 +1204,6 @@
   </section>
 </main>
 
-<!-- ══════════ SLIDESHOW ══════════ -->
-<div class="stage" id="stage" role="dialog" aria-modal="true" aria-label="Xem mẫu váy toàn màn hình">
-  <div class="stage-top">
-    <div class="eyebrow"><strong>Dolinhanh Bridal</strong><span class="sep">/</span><span data-en="The core collection">Catalogue cơ bản</span></div>
-    <button class="x" id="close" aria-label="Đóng" data-en="Close ✕">Đóng ✕</button>
-  </div>
-  <div class="stage-mid">
-    <div class="ph" id="stageImg"></div>
-    <div class="stage-nav">
-      <button id="prev" aria-label="Mẫu trước">←</button>
-      <button id="next" aria-label="Mẫu sau">→</button>
-    </div>
-  </div>
-  <div class="stage-bot">
-    <div>
-      <div class="eyebrow" id="stageNo">Mẫu 01</div>
-      <div class="cap" id="stageCap"></div>
-    </div>
-    <div style="display:flex;gap:26px;align-items:baseline">
-      <span class="counter" id="stageCount">1 / 12</span>
-      <a class="cta" href="#baogia" id="stageCta" data-en="Book to try this one">Đặt lịch thử mẫu này</a>
-    </div>
-  </div>
-</div>
-
 <footer>
   <div class="wrap">
     <div class="foot">
@@ -1145,193 +1234,144 @@ const FORM_FIELDS  = {             // và điền mã entry.xxx tương ứng c�
   ten:"", sdt:"", ngay:"", coso:"", quantam:"", phom:""
 };
 
-/* ═══ Catalogue ═══
-   Thay tên mẫu + đường dẫn ảnh ở đây (img: "anh/look-01.jpg") */
-const LOOKS = [
-  {name:"Xoè bồng ren đính kết, trễ vai", en:"Beaded lace ballgown, off-shoulder", tone:"#F1E8E6", img:"anh/look-01.jpg"},
-  {name:"Cúp ngực, thân kim sa, tùng xoè", en:"Strapless, sequinned bodice, full skirt", tone:"#EFE9E6", img:"anh/look-02.jpg"},
-  {name:"Cúp ngực ren, tùng xoè, voan dài", en:"Strapless lace, full skirt, long veil", tone:"#F3EEEC", img:"anh/look-03.jpg"},
-  {name:"Trễ vai bản to, tùng vén nếp",     en:"Wide off-shoulder, draped skirt",       tone:"#EAE7E3", img:"anh/look-04.jpg"},
-  {name:"Cúp ngực, nơ eo, chân váy xẻ",     en:"Strapless, bow at the waist, front slit", tone:"#EDEAE6", img:"anh/look-05.jpg"},
-  {name:"Corset nhún, tùng vén nhiều lớp",  en:"Ruched corset, layered draped skirt",   tone:"#F0E8E7", img:"anh/look-06.jpg"}
-];
-
 /* ═══ Ngôn ngữ ═══ */
 let LANG = "vi";
-const t = o => LANG === "en" && o.en ? o.en : o.n || o.name;
 
-const pad = n => String(n).padStart(2,"0");
-const grid = document.getElementById("looks");
-
-LOOKS.forEach((l,i)=>{
-  const b = document.createElement("button");
-  b.className = "look";
-  b.type = "button";
-  b.innerHTML =
-    `<div class="ph" style="--tone:${l.tone}${l.img?`; --img:url('${l.img}')`:""}"></div>` +
-    `<div class="no"></div><div class="name"></div>`;
-  b.addEventListener("click",()=>openStage(i));
-  grid.appendChild(b);
-});
-
-function paintLooks(){
-  [...grid.children].forEach((b,i)=>{
-    const l = LOOKS[i];
-    b.querySelector(".no").textContent = (LANG === "en" ? "Look " : "Mẫu ") + pad(i+1);
-    b.querySelector(".name").textContent = t(l);
-    b.setAttribute("aria-label", (LANG === "en" ? "View look " : "Xem mẫu ") + pad(i+1) + " — " + t(l));
-  });
-}
-
-/* ═══ Slideshow ═══ */
-const stage = document.getElementById("stage");
-const sImg = document.getElementById("stageImg");
-const sNo = document.getElementById("stageNo");
-const sCap = document.getElementById("stageCap");
-const sCount = document.getElementById("stageCount");
-let cur = 0, lastFocus = null;
-
-function paint(){
-  const l = LOOKS[cur];
-  sImg.style.setProperty("--tone", l.tone);
-  if(l.img) sImg.style.setProperty("--img", `url('${l.img}')`);
-  else sImg.style.removeProperty("--img");
-  sNo.textContent = (LANG === "en" ? "Look " : "Mẫu ") + pad(cur+1);
-  sCap.textContent = t(l);
-  sCount.textContent = `${cur+1} / ${LOOKS.length}`;
-}
-function openStage(i){
-  cur = i; paint();
-  lastFocus = document.activeElement;
-  stage.setAttribute("open","");
-  document.body.style.overflow = "hidden";
-  document.getElementById("next").focus();
-}
-function closeStage(){
-  stage.removeAttribute("open");
-  document.body.style.overflow = "";
-  if(lastFocus) lastFocus.focus();
-}
-const step = d => { cur = (cur + d + LOOKS.length) % LOOKS.length; paint(); };
-
-document.getElementById("close").addEventListener("click",closeStage);
-document.getElementById("prev").addEventListener("click",()=>step(-1));
-document.getElementById("next").addEventListener("click",()=>step(1));
-document.getElementById("stageCta").addEventListener("click",closeStage);
-document.addEventListener("keydown",e=>{
-  if(!stage.hasAttribute("open")) return;
-  if(e.key==="Escape") closeStage();
-  if(e.key==="ArrowLeft") step(-1);
-  if(e.key==="ArrowRight") step(1);
-});
-
-/* ═══ Fitting online ═══
-   Mỗi lựa chọn chỉ là hình phác vector — sửa tên gọi thoải mái ở đây. */
-const FIT = {
-  phom:[
-    {n:"Chữ A", en:"A-line",     d:"M152 252 C132 360 118 470 92 600 L308 600 C282 470 268 360 248 252 Z"},
-    {n:"Đuôi cá", en:"Mermaid",   d:"M152 252 C150 322 168 402 170 456 C172 524 142 572 116 600 L284 600 C258 572 228 524 230 456 C232 402 250 322 248 252 Z"},
-    {n:"Xoè bồng", en:"Ballgown",  d:"M152 252 C96 330 66 470 54 600 L346 600 C334 470 304 330 248 252 Z"},
-    {n:"Suông ôm", en:"Sheath",  d:"M152 252 C146 360 140 470 132 600 L268 600 C260 470 254 360 248 252 Z"}
-  ],
-  tay:[
-    {n:"Hai dây", en:"Straps",
-     bod:"M152 252 L159 182 C176 172 224 172 241 182 L248 252 Z",
-     sl:'<path d="M170 176 L177 122" stroke-width="2.6" stroke-opacity=".85" fill="none"/><path d="M230 176 L223 122" stroke-width="2.6" stroke-opacity=".85" fill="none"/>'},
-    {n:"Cúp ngực", en:"Strapless",
-     bod:"M152 252 L158 184 C170 172 188 176 200 189 C212 176 230 172 242 184 L248 252 Z",
-     sl:""},
-    {n:"Tay dài ren", en:"Lace sleeves",
-     bod:"M152 252 L157 160 C180 148 220 148 243 160 L248 252 Z",
-     sl:'<path d="M157 155 c-19 27-25 63-23 97 l15 2 c-2-33 4-68 21-93 Z"/><path d="M243 155 c19 27 25 63 23 97 l-15 2 c2-33-4-68-21-93 Z"/>'},
-    {n:"Tay bồng", en:"Puff sleeves",
-     bod:"M152 252 L158 176 C178 165 222 165 242 176 L248 252 Z",
-     sl:'<path d="M160 170 c-23 5-30 23-25 40 10 8 23 9 32 1 Z"/><path d="M240 170 c23 5 30 23 25 40 -10 8-23 9-32 1 Z"/>'},
-    {n:"Cổ thuyền", en:"Bateau",
-     bod:"M152 252 L153 166 C180 158 220 158 247 166 L248 252 Z",
-     sl:'<path d="M153 163 c-15 3-20 15-16 27 l20 5 3-31 Z"/><path d="M247 163 c15 3 20 15 16 27 l-20 5-3-31 Z"/>'}
-  ],
-  chat:[
-    {n:"Ren Chantilly", en:"Chantilly lace", lace:.5,  sheen:.1},
-    {n:"Satin mikado", en:"Mikado satin", lace:0,   sheen:.5},
-    {n:"Tulle", en:"Tulle", lace:.16, sheen:.12},
-    {n:"Crepe lụa", en:"Silk crepe", lace:0,   sheen:.16}
-  ],
-  voan:[
-    {n:"Không voan", en:"No veil", d:"", f:""},
-    {n:"Voan ngắn", en:"Short veil", d:"M200 36 C172 36 156 62 152 104 C146 164 136 232 124 300 L276 300 C264 232 254 164 248 104 C244 62 228 36 200 36 Z",
-     f:'<path d="M182 52 C172 130 164 220 152 298"/><path d="M218 52 C228 130 236 220 248 298"/><path d="M200 46 C199 140 199 226 200 298"/>'},
-    {n:"Voan dài", en:"Cathedral veil", d:"M200 36 C170 36 152 64 148 112 C138 258 116 452 88 640 L312 640 C284 452 262 258 252 112 C248 64 230 36 200 36 Z",
-     f:'<path d="M180 54 C166 200 148 420 112 636"/><path d="M220 54 C234 200 252 420 288 636"/><path d="M200 46 C198 220 198 440 200 636"/><path d="M190 50 C180 230 168 440 150 636"/><path d="M210 50 C220 230 232 440 250 636"/>'}
-  ],
-  mau:[
-    {n:"Trắng tinh", en:"Pure white", c:"#FFFFFF"},
-    {n:"Trắng ngà", en:"Ivory", c:"#F6EFE6"},
-    {n:"Champagne", en:"Champagne", c:"#EEE0C9"},
-    {n:"Hồng phấn", en:"Blush", c:"#F6E7E5"}
-  ]
-};
-const pick = {phom:0, tay:0, chat:0, voan:1, mau:1};
-
+/* ═══ Thử phom váy — 9 câu hỏi rồi mới ra gợi ý ═══
+   Sửa lời khuyên: xem bảng LOI_KHUYEN và MAU_GOI_Y bên dưới. */
 const $ = id => document.getElementById(id);
+const vn = (v,e) => LANG === "en" ? e : v;
 
-function dressUp(){
-  const p = FIT.phom[pick.phom], tay = FIT.tay[pick.tay],
-        c = FIT.chat[pick.chat], v = FIT.voan[pick.voan], m = FIT.mau[pick.mau];
+const MAU_GOI_Y = {
+  "Xoè bồng": {img:"anh/look-01.jpg", vn:"Xoè bồng ren đính kết, trễ vai", en:"Beaded lace ballgown, off-shoulder"},
+  "Chữ A":    {img:"anh/look-03.jpg", vn:"Chữ A ren, tùng xoè nhẹ, voan dài", en:"A-line lace, soft skirt, long veil"},
+  "Đuôi cá":  {img:"anh/look-05.jpg", vn:"Đuôi cá cúp ngực, nơ eo, chân váy xẻ", en:"Strapless mermaid, bow at the waist, front slit"},
+  "Suông ôm": {img:"anh/look-04.jpg", vn:"Suông ôm trễ vai bản to, tùng vén", en:"Sheath with wide off-shoulder, draped skirt"},
+  "Kim sa":   {img:"anh/look-02.jpg", vn:"Cúp ngực thân kim sa, tùng xoè", en:"Strapless sequinned bodice, full skirt"},
+  "Nhún":     {img:"anh/look-06.jpg", vn:"Corset nhún, tùng vén nhiều lớp", en:"Ruched corset, layered draped skirt"}
+};
 
-  $("skirt").setAttribute("d", p.d);
-  $("clipSkirt").setAttribute("d", p.d);
-  $("bodice").setAttribute("d", tay.bod);
-  $("clipBodice").setAttribute("d", tay.bod);
-  $("sleeves").innerHTML = tay.sl;
-  $("laceLayer").setAttribute("opacity", c.lace);
-  $("sheenLayer").setAttribute("opacity", c.sheen);
-  $("veilPath").setAttribute("d", v.d);
-  $("veilFolds").innerHTML = v.f;
-  $("skirt").setAttribute("fill", m.c);
-  $("bodice").setAttribute("fill", m.c);
-  $("sleeves").setAttribute("fill", m.c);
+function goiY(a){
+  const bmi = (a.cao && a.nang) ? a.nang / Math.pow(a.cao/100, 2) : null;
+  const y = [];            // lời khuyên
+  let phom = a.phom;
 
-  const label = [p, tay, c, v, m].map(t).join(" · ");
-  $("fitText").textContent = label;
-  return label;
+  // phom: nếu khách chưa biết thì suy từ vóc dáng và điều muốn khoe
+  if (phom === "Chưa biết") {
+    if (a.dang === "Chiều cao")       phom = "Suông ôm";
+    else if (a.dang === "Vòng eo")    phom = "Đuôi cá";
+    else if (a.dang === "Muốn che")   phom = "Chữ A";
+    else                              phom = (a.cao && a.cao < 158) ? "Chữ A" : "Xoè bồng";
+    y.push(vn("Bạn chưa chọn phom, nên nhà gợi ý theo dáng người và điều bạn muốn khoe: phom " + phom.toLowerCase() + ".",
+              "You left the silhouette open, so this is picked from your proportions and what you want to show: a " + phom.toLowerCase() + " shape."));
+  }
+  if (a.cao && a.cao < 158 && phom === "Xoè bồng")
+    y.push(vn("Chiều cao dưới 1m58 mà mặc xoè bồng thì nên cắt cạp cao và tùng nhẹ, nếu không váy sẽ nuốt dáng — nhà sẽ chỉnh khi thử.",
+              "Under 1m58 in a ballgown, the waist needs to sit high and the skirt stay light, or the dress swallows you. We fix that at the fitting."));
+  if (bmi && bmi < 18.5 && (phom === "Đuôi cá" || phom === "Suông ôm"))
+    y.push(vn("Dáng bạn mảnh, phom ôm sẽ đẹp nhưng nên có lớp lót tạo phom ở eo và hông cho đầy đặn.",
+              "You are slim, so a fitted shape works — but it wants shaping at the waist and hip so the line stays full."));
+  if (bmi && bmi >= 25)
+    y.push(vn("Nhà ưu tiên chất liệu dày, đứng phom và corset dựng khung để siết dáng, thay vì vải mỏng bám sát.",
+              "We would lean to a heavier, structured fabric with a boned corset rather than anything thin and clingy."));
+
+  // chất liệu
+  let chat = a.chat;
+  if (chat === "Chưa biết") {
+    chat = a.diadiem === "Ngoài trời" ? "Ren" : "Đính kết";
+    y.push(vn("Chất liệu nhà nghiêng về: " + chat.toLowerCase() + " — hợp với địa điểm tiệc bạn chọn.",
+              "Fabric we would start with: " + chat.toLowerCase() + " — it suits the venue you named."));
+  }
+  if (chat === "Đính kết" && a.diadiem === "Ngoài trời")
+    y.push(vn("Tiệc ngoài trời ban ngày thì đính kết dễ chói dưới nắng gắt — nên chọn mật độ đá vừa, tập trung ở thân trên.",
+              "Outdoors in daylight, heavy beading glares. Keep the density moderate and concentrated on the bodice."));
+  if (chat === "Trơn" && a.diadiem === "Trung tâm")
+    y.push(vn("Trong nhà đèn vàng, vải trơn lên hình rất sạch và sang — chỉ cần váy phẳng phiu, không nhăn.",
+              "Under warm indoor light, plain fabric photographs clean and rich — it just has to be perfectly pressed."));
+
+  // màu
+  let mau = a.mau;
+  if (mau === "Chưa biết") {
+    mau = a.diadiem === "Ngoài trời" ? "Hồng" : "Nude";
+    y.push(vn("Sắc trắng nhà gợi ý: " + mau.toLowerCase() + ".", "Shade we suggest: " + mau.toLowerCase() + "."));
+  }
+  if (mau === "Trắng" && a.diadiem === "Ngoài trời")
+    y.push(vn("Trắng tinh dưới nắng dễ bị cháy sáng trong ảnh. Nếu vẫn thích trắng, nhà khuyên chụp vào giờ nắng dịu.",
+              "Pure white blows out in bright sun. If you still want it, shoot in softer light."));
+
+  // ngày tiệc
+  if (a.ngay) {
+    const days = Math.round((new Date(a.ngay) - new Date()) / 86400000);
+    if (days > 0 && days < 56)
+      y.push(vn("Còn " + days + " ngày tới ngày tiệc — không đủ cho may đo (cần 8–12 tuần). Nhà sẽ tập trung vào váy có sẵn và chỉnh theo số đo của bạn.",
+                days + " days to go — not enough for a made-to-measure gown (8–12 weeks). We will work from stock and alter it to your measurements."));
+    else if (days >= 56)
+      y.push(vn("Còn " + days + " ngày — đủ thời gian may đo riêng nếu bạn muốn một chiếc váy chỉ mình bạn có.",
+                days + " days — enough time for a made-to-measure gown if you want one that is only yours."));
+  }
+
+  // số váy
+  if (a.sovay === "2 váy")
+    y.push(vn("Hai váy thì nên khác hẳn nhau về phom: một chiếc xoè cho lễ, một chiếc ôm gọn cho phần đãi khách để đi lại nhẹ nhàng.",
+              "With two dresses, make them genuinely different: one full skirt for the ceremony, one narrow for the reception so you can move."));
+  if (a.sovay === "3 váy trở lên")
+    y.push(vn("Ba váy trở lên thì gói trọn gói sẽ rẻ hơn thuê lẻ từng chiếc — nhà sẽ báo giá theo gói.",
+              "For three or more, the full package costs less than renting each separately — we will quote it as a package."));
+
+  const chinh = MAU_GOI_Y[phom];
+  const phu = chat === "Đính kết" ? MAU_GOI_Y["Kim sa"] : (chat === "Trơn" ? MAU_GOI_Y["Nhún"] : MAU_GOI_Y["Chữ A"]);
+  const ba = (phom === "Xoè bồng") ? MAU_GOI_Y["Suông ôm"] : MAU_GOI_Y["Xoè bồng"];
+  const looks = [chinh, phu, ba].filter((v,i,arr)=>arr.indexOf(v)===i).slice(0,3);
+
+  return {
+    tieuDe: vn("Phom " + phom.toLowerCase() + ", chất liệu " + chat.toLowerCase() + ", sắc " + mau.toLowerCase() + ".",
+               "A " + phom.toLowerCase() + " shape, in " + chat.toLowerCase() + ", " + mau.toLowerCase() + "."),
+    tomTat: phom + " · " + chat + " · " + mau,
+    y, looks
+  };
 }
 
-Object.keys(FIT).forEach(g=>{
-  const box = document.querySelector(`[data-group="${g}"]`);
-  FIT[g].forEach((o,i)=>{
-    const b = document.createElement("button");
-    b.type = "button";
-    b.className = g === "mau" ? "sw" : "chip";
-    if(g === "mau") b.style.background = o.c;
-    b.setAttribute("aria-pressed", i === pick[g]);
-    b.addEventListener("click",()=>{
-      pick[g] = i;
-      [...box.children].forEach((el,j)=>el.setAttribute("aria-pressed", j === i));
-      dressUp();
-    });
-    box.appendChild(b);
-  });
+$("finderOpen").addEventListener("click", ()=>{
+  $("finder").hidden = false;
+  $("finder").scrollIntoView({behavior:"smooth", block:"start"});
 });
 
-function paintChips(){
-  Object.keys(FIT).forEach(g=>{
-    const box = document.querySelector(`[data-group="${g}"]`);
-    [...box.children].forEach((b,i)=>{
-      const label = t(FIT[g][i]);
-      if(g === "mau"){ b.setAttribute("aria-label", label); b.title = label; }
-      else b.textContent = label;
-    });
-  });
-}
-paintChips();
-dressUp();
+$("finderForm").addEventListener("submit", e=>{
+  e.preventDefault();
+  const val = id => $(id).value.trim();
+  const sel = id => $(id).selectedIndex;
+  const a = {
+    cao:  parseFloat(val("q_cao"))  || null,
+    nang: parseFloat(val("q_nang")) || null,
+    sodo: val("q_so"),
+    dang: ["Vòng eo","Vai","Lưng","Chiều cao","Muốn che"][sel("q_dang")],
+    chat: ["Trơn","Ren","Đính kết","Chưa biết"][sel("q_chat")],
+    phom: ["Xoè bồng","Chữ A","Đuôi cá","Suông ôm","Chưa biết"][sel("q_phom")],
+    mau:  ["Trắng","Nude","Hồng","Ghi","Chưa biết"][sel("q_mau")],
+    ngay: val("q_ngay"),
+    diadiem: ["Trung tâm","Ngoài trời","Nhà hàng","Tại gia"][sel("q_diadiem")],
+    sovay: ["1 váy","2 váy","3 váy trở lên"][sel("q_sovay")]
+  };
+  const r = goiY(a);
+  $("rTitle").textContent = r.tieuDe;
+  $("rList").innerHTML = r.y.map(x=>`<li>${x}</li>`).join("");
+  $("rLooks").innerHTML = r.looks.map(l=>
+    `<figure><div class="ph" style="--tone:#EFE9E6; --img:url('${l.img}')"></div>
+     <figcaption>${LANG === "en" ? l.en : l.vn}</figcaption></figure>`).join("");
+  $("finderResult").hidden = false;
+  $("finderResult").scrollIntoView({behavior:"smooth", block:"start"});
+  window.__phom = r.tomTat + (a.sodo ? " · " + a.sodo : "") + " · " + a.diadiem + " · " + a.sovay;
+});
 
-$("fitSend").addEventListener("click",()=>{
-  const label = dressUp();
-  $("phom").value = label;
+$("rRedo").addEventListener("click", ()=>{
+  $("finderResult").hidden = true;
+  $("finderForm").scrollIntoView({behavior:"smooth", block:"start"});
+});
+
+$("rSend").addEventListener("click", ()=>{
+  $("phom").value = window.__phom || "";
   const p = $("picked");
-  p.textContent = (LANG === "en" ? "The look you tried: " : "Phom bạn vừa thử: ") + label;
+  p.textContent = (LANG === "en" ? "From the finder: " : "Từ phần thử phom: ") + $("phom").value;
   p.classList.add("on");
 });
 
@@ -1353,15 +1393,10 @@ function setLang(l){
   document.querySelectorAll(".lang button").forEach(b=>{
     b.setAttribute("aria-pressed", b.dataset.lang === l);
   });
-  document.getElementById("close").setAttribute("aria-label", l === "en" ? "Close" : "Đóng");
-  paintLooks();
-  paintChips();
-  paint();
-  dressUp();
   try{ localStorage.setItem("dla-lang", l); }catch(_){}
 }
 document.querySelectorAll(".lang button").forEach(b=>{
-  b.addEventListener("click",()=>setLang(b.dataset.lang));
+  b.addEventListener("click", ()=>setLang(b.dataset.lang));
 });
 let saved = "vi";
 try{ saved = localStorage.getItem("dla-lang") || "vi"; }catch(_){}
