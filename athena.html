@@ -1,0 +1,434 @@
+<!--
+  ══════════════════════════════════════════════════════════════
+  DOLINHANH BRIDAL — TRANG CHỦ sao y mẫu Showit "Athena"
+  (athena.aceandwhim.com) — dịch tiếng Việt, nội dung thật của nhà.
+  Từng khúc theo đúng thứ tự mẫu:
+  dải olive → nav kem → hero chữ khổng lồ → Welcome → dải 3 cột
+  ảnh-hộp-ảnh → Browse portfolio → 3 ảnh cao có chữ đè → 2 thẻ
+  nhật ký trắng đè trên ảnh → lời cô dâu → dải ảnh IG → footer olive.
+
+  ⚠️ MỤC "LỜI CÔ DÂU" đang là ô viền hồng "điền lời cô dâu" —
+  em không tự bịa lời khách; chị gửi 1–2 lời nhận xét thật là điền.
+  Sửa trong khối LOI_CO_DAU ở cuối file.
+
+  ẢNH: thư mục "anh" đặt cạnh file. Trang báo giá: bao-gia.html.
+  ══════════════════════════════════════════════════════════════
+-->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Dolinhanh Bridal — váy cưới may đo và cho thuê, hạnh phúc dệt từ tình yêu của mẹ. Hà Nội & TP.HCM.">
+<title>Dolinhanh Bridal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Montserrat:wght@300;400;500&display=swap&subset=vietnamese" rel="stylesheet">
+<script>document.documentElement.classList.add("js");</script>
+
+<style>
+  :root{
+    /* đúng bảng màu mẫu Athena */
+    --kem:#ECEBE8;
+    --trang:#FFFFFF;
+    --kem-nhat:#F5F4F3;
+    --oliu:#B5B7AD;
+    --muc:#4D4D4D;
+    --muc-nhat:#6E6E6C;
+    --ghi:#8A8A87;
+    --hair:#DDDCD8;
+    --hong:#A9757A;
+
+    --display:"Playfair Display","Bodoni 72",Didot,Georgia,"Times New Roman",serif;
+    --sans:Montserrat,"Helvetica Neue",Helvetica,Arial,"Segoe UI",sans-serif;
+
+    --gutter:clamp(20px,5vw,70px);
+    --max:1400px;
+  }
+
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;background:var(--trang);color:var(--muc-nhat);
+    font-family:var(--sans);font-weight:300;font-size:.9rem;line-height:1.9;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;display:block}
+  a{color:inherit}
+  h1,h2,h3{margin:0;font-weight:400;color:var(--muc)}
+  p{margin:0}
+  ul{margin:0;padding:0;list-style:none}
+
+  .wrap{max-width:var(--max);margin:0 auto;padding-inline:var(--gutter)}
+  .nhan{
+    font-family:var(--sans);font-size:.72rem;font-weight:400;
+    letter-spacing:.2em;text-transform:uppercase;color:var(--muc);line-height:1.8;
+  }
+  .nhan-mo{color:var(--ghi)}
+  .tieu-de{
+    font-family:var(--display);font-weight:400;text-transform:uppercase;
+    letter-spacing:.1em;color:var(--muc);
+  }
+
+  /* liên kết chữ gạch chân mảnh kiểu mẫu */
+  .lien-chu{
+    display:inline-block;font-family:var(--sans);font-size:.72rem;letter-spacing:.2em;
+    text-transform:uppercase;text-decoration:none;color:var(--muc);
+    border-bottom:1px solid var(--muc);padding-bottom:5px;transition:color .25s,border-color .25s;
+  }
+  .lien-chu:hover{color:var(--hong);border-color:var(--hong)}
+  a:focus-visible{outline:2px solid var(--hong);outline-offset:4px}
+
+  /* ── dải olive trên cùng ─────────────────────────────── */
+  .bar{
+    background:var(--oliu);display:flex;align-items:center;justify-content:center;
+    gap:18px;padding:9px var(--gutter);
+  }
+  .bar span{font-family:var(--sans);font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:#FFF}
+  .bar a{
+    font-family:var(--sans);font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;
+    background:#FFF;color:var(--muc);text-decoration:none;padding:5px 14px;
+  }
+  .bar a:hover{color:var(--hong)}
+
+  /* ── nav kem ─────────────────────────────────────────── */
+  header{position:sticky;top:0;z-index:40;background:var(--kem)}
+  .hd{
+    display:flex;align-items:center;justify-content:space-between;gap:clamp(16px,4vw,60px);
+    padding-block:clamp(14px,1.6vw,22px);
+  }
+  .wordmark{
+    font-family:var(--display);font-size:clamp(1.3rem,2.2vw,2.25rem);
+    letter-spacing:.1em;color:var(--muc);text-decoration:none;text-transform:uppercase;
+  }
+  .menu{display:none;gap:clamp(20px,3.4vw,58px)}
+  .menu a{text-decoration:none}
+  .menu a:hover{color:var(--hong)}
+  @media(min-width:960px){.menu{display:flex}}
+
+  /* ── hero chữ khổng lồ ───────────────────────────────── */
+  .hero{
+    position:relative;min-height:clamp(420px,86vh,780px);
+    background-size:cover;background-position:72% 30%;
+    display:flex;align-items:center;justify-content:center;text-align:center;
+  }
+  .hero::after{content:"";position:absolute;inset:0;background:rgba(60,52,48,.14)}
+  .hero-chu{position:relative;z-index:1;padding:var(--gutter);width:100%}
+  .hero-chu h1{
+    font-family:var(--display);font-size:clamp(2.1rem,7.6vw,6.4rem);
+    text-transform:uppercase;letter-spacing:.24em;text-indent:.24em;
+    color:rgba(255,255,255,.94);font-weight:400;line-height:1.05;
+    text-shadow:0 0 40px rgba(60,52,48,.18);
+  }
+  .hero-chu .nhan{color:#FFF;margin-top:16px;letter-spacing:.26em}
+  .muiten{
+    position:absolute;left:50%;bottom:clamp(18px,3.5vh,34px);transform:translateX(-50%);
+    z-index:1;color:#FFF;text-decoration:none;font-family:var(--sans);
+    font-size:1.3rem;font-weight:300;line-height:1;
+  }
+
+  /* ── Welcome ─────────────────────────────────────────── */
+  .welcome{padding-block:clamp(54px,8vw,120px);text-align:center}
+  .welcome h2{font-family:var(--display);font-size:clamp(1.3rem,2vw,1.7rem);text-transform:uppercase;letter-spacing:.08em}
+  .welcome p{max-width:62ch;margin:22px auto 0;text-align:center}
+
+  /* ── dải 3 cột: ảnh — hộp kem — ảnh ──────────────────── */
+  .ba-cot{display:grid;min-height:clamp(360px,52vw,640px)}
+  @media(min-width:900px){.ba-cot{grid-template-columns:1fr 1fr 1fr}}
+  .ba-cot .anh{background-size:cover;background-position:50% 30%;min-height:300px}
+  .ba-cot .hop{
+    background:var(--kem-nhat);display:flex;flex-direction:column;
+    align-items:center;justify-content:center;gap:clamp(26px,3vw,44px);
+    padding:clamp(38px,4vw,60px) clamp(24px,3vw,44px);text-align:center;
+  }
+  .hop .o h3{font-family:var(--display);font-size:clamp(1.1rem,1.6vw,1.35rem);text-transform:uppercase;letter-spacing:.1em}
+  .hop .o a{display:block;margin-top:6px;text-decoration:none}
+  .hop .o a:hover{color:var(--hong)}
+  .hop .o .mui{display:block;margin-top:4px;font-size:1.1rem;letter-spacing:0}
+
+  /* ── browse ──────────────────────────────────────────── */
+  .browse{
+    display:flex;flex-wrap:wrap;align-items:baseline;gap:clamp(18px,4vw,64px);
+    padding:clamp(26px,3.5vw,52px) var(--gutter);max-width:var(--max);margin:0 auto;
+  }
+  .browse h2{font-family:var(--display);font-size:clamp(1.15rem,1.9vw,1.55rem);text-transform:uppercase;letter-spacing:.14em}
+  .browse a{text-decoration:none}
+  .browse a:hover{color:var(--hong)}
+
+  /* ── 3 ảnh cao có chữ đè ─────────────────────────────── */
+  .hang-muc{display:grid;gap:1px;background:var(--trang)}
+  @media(min-width:820px){.hang-muc{grid-template-columns:repeat(3,1fr)}}
+  .hm{
+    position:relative;min-height:clamp(380px,52vw,700px);display:flex;
+    align-items:center;justify-content:center;text-align:center;
+    background-size:cover;background-position:50% 25%;text-decoration:none;
+  }
+  .hm::after{content:"";position:absolute;inset:0;background:rgba(60,52,48,.16);transition:background .3s}
+  .hm:hover::after{background:rgba(60,52,48,.32)}
+  .hm div{position:relative;z-index:1;color:#FFF}
+  .hm .nhan{color:#FFF;letter-spacing:.24em}
+  .hm h3{
+    font-family:var(--display);font-size:clamp(1.9rem,3.6vw,3.1rem);
+    text-transform:uppercase;letter-spacing:.06em;color:#FFF;line-height:1.1;
+  }
+
+  /* ── thẻ nhật ký trắng đè trên ảnh ───────────────────── */
+  .the-nen{
+    position:relative;min-height:clamp(480px,64vw,720px);
+    background-size:cover;background-position:50% 28%;
+    display:flex;align-items:center;justify-content:center;
+    padding:clamp(40px,6vw,80px) var(--gutter);
+  }
+  .the-trang{
+    background:var(--trang);width:min(100%,760px);
+    padding:clamp(38px,5vw,74px) clamp(26px,5vw,90px);text-align:center;
+  }
+  .the-trang h3{
+    font-family:var(--display);font-size:clamp(1.3rem,2.4vw,2rem);
+    text-transform:uppercase;letter-spacing:.06em;margin-top:12px;
+  }
+  .the-trang p{margin-top:20px;text-align:center}
+  .the-trang .lien-chu{margin-top:26px}
+
+  /* ── lời cô dâu ──────────────────────────────────────── */
+  .loi{padding-block:clamp(54px,8vw,110px)}
+  .loi .ten{
+    font-family:var(--display);font-size:clamp(1.3rem,2.2vw,1.8rem);
+    text-transform:uppercase;letter-spacing:.08em;color:var(--muc);
+  }
+  .loi .noi{margin-top:2px}
+  .loi-luoi{display:grid;gap:clamp(26px,4vw,60px);align-items:center;margin-top:clamp(26px,3.4vw,46px)}
+  @media(min-width:880px){.loi-luoi{grid-template-columns:1fr 1.1fr}}
+  .loi-luoi .anh{aspect-ratio:4/5;background-size:cover;background-position:50% 30%;background-color:var(--kem-nhat)}
+  .loi-luoi h2{font-family:var(--display);font-size:clamp(1.2rem,1.9vw,1.55rem);text-transform:uppercase;letter-spacing:.14em}
+  .loi-luoi p{margin-top:16px}
+  .loi .them{display:flex;justify-content:flex-end;margin-top:18px}
+  .trong{
+    display:inline-block;font-family:var(--sans);font-size:.66rem;letter-spacing:.18em;
+    text-transform:uppercase;border:1px dashed var(--hong);color:var(--hong);padding:7px 12px;
+  }
+
+  /* ── dải ảnh IG ──────────────────────────────────────── */
+  .ig{position:relative;margin-top:clamp(30px,4vw,60px)}
+  .ig-nhan{
+    position:absolute;left:50%;top:0;transform:translate(-50%,-50%);z-index:1;
+    background:var(--trang);padding:10px 26px;
+  }
+  .ig-nhan a{text-decoration:none}
+  .ig-nhan a:hover{color:var(--hong)}
+  .ig-luoi{display:grid;grid-template-columns:repeat(3,1fr)}
+  @media(min-width:760px){.ig-luoi{grid-template-columns:repeat(6,1fr)}}
+  .ig-luoi a{aspect-ratio:1;background-size:cover;background-position:50% 30%;background-color:var(--kem)}
+  .ig-luoi a:hover{opacity:.85}
+
+  /* ── footer olive ────────────────────────────────────── */
+  footer{background:var(--oliu);color:#FFF;text-align:center;padding-block:clamp(26px,3.5vw,44px) 18px}
+  .ft-menu{display:flex;flex-wrap:wrap;justify-content:center;gap:clamp(16px,3.4vw,56px);margin-top:18px}
+  .ft-menu a{color:#FFF;text-decoration:none;font-family:var(--sans);font-size:.72rem;letter-spacing:.2em;text-transform:uppercase}
+  .ft-menu a:hover{opacity:.75}
+  .ft-mxh{display:flex;justify-content:center;gap:26px}
+  .ft-mxh a{color:#FFF;text-decoration:none;font-family:var(--sans);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase}
+  .ft-cuoi{
+    margin-top:20px;padding-top:14px;font-family:var(--sans);font-size:.62rem;
+    letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.85);
+  }
+
+  /* ── xuất hiện khi cuộn ──────────────────────────────── */
+  html.js .len{opacity:0;transform:translateY(14px);transition:opacity .8s ease,transform .8s ease}
+  html.js .len.hien{opacity:1;transform:none}
+  @media(prefers-reduced-motion:reduce){
+    html.js .len{opacity:1;transform:none;transition:none}
+    html{scroll-behavior:auto}
+  }
+</style>
+
+<!-- ══════════ DẢI OLIVE ══════════ -->
+<div class="bar">
+  <span>Đang nhận lịch cưới 2026 – 2027</span>
+  <a href="bao-gia.html">Giữ lịch</a>
+</div>
+
+<!-- ══════════ NAV ══════════ -->
+<header>
+  <div class="wrap hd">
+    <a class="wordmark" href="#dau">Dolinhanh</a>
+    <nav class="menu nhan">
+      <a href="#dau">Trang chủ</a>
+      <a href="#gioi-thieu">Giới thiệu</a>
+      <a href="#bo-suu-tap">Bộ sưu tập</a>
+      <a href="bao-gia.html">Báo giá</a>
+      <a href="#cam-nang">Cẩm nang</a>
+      <a href="#lien-he">Liên hệ</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ══════════ HERO ══════════ -->
+<section class="hero" id="dau" style="background-image:url('anh/bia.jpg')">
+  <div class="hero-chu">
+    <h1>Dolinhanh</h1>
+    <div class="nhan">Váy cưới hạnh phúc dệt từ tình yêu của mẹ</div>
+  </div>
+  <a class="muiten" href="#gioi-thieu" aria-label="Cuộn xuống">↓</a>
+</section>
+
+<!-- ══════════ WELCOME ══════════ -->
+<section class="welcome" id="gioi-thieu">
+  <div class="wrap len">
+    <h2>Chào mừng đến Dolinhanh</h2>
+    <p>Dolinhanh Bridal ra đời năm 2017, từ sự say mê cái đẹp và tình yêu với hình ảnh cô dâu hạnh phúc. Qua mùa dịch, qua đổi tên và chuyển nhượng, tinh thần vẫn vậy: chân thành, tinh tế, đầy cảm xúc. Nay Dolinhanh thuộc Nupakachi — nhà ảnh cưới hơn 15 năm của nhiếp ảnh gia Đỗ Xuân Cường — cùng một mục tiêu: tôn vinh vẻ đẹp thật của cô dâu.</p>
+  </div>
+</section>
+
+<!-- ══════════ BA CỘT: ảnh — hộp — ảnh ══════════ -->
+<section class="ba-cot len">
+  <div class="anh" style="background-image:url('anh/look-01.jpg')"></div>
+  <div class="hop">
+    <div class="o">
+      <div class="nhan nhan-mo">Ba gói váy cưới &amp; quy trình</div>
+      <h3>Báo giá</h3>
+      <a class="nhan" href="bao-gia.html">Xem ba gói của nhà<span class="mui">⟶</span></a>
+    </div>
+    <div class="o">
+      <div class="nhan nhan-mo">Xem các mẫu váy</div>
+      <h3>Bộ sưu tập</h3>
+      <a class="nhan" href="#bo-suu-tap">Xem bộ sưu tập<span class="mui">⟶</span></a>
+    </div>
+    <div class="o">
+      <div class="nhan nhan-mo">Câu chuyện của nhà</div>
+      <h3>Về Dolinhanh</h3>
+      <a class="nhan" href="#cam-nang">Đọc câu chuyện<span class="mui">⟶</span></a>
+    </div>
+  </div>
+  <div class="anh" style="background-image:url('anh/look-02.jpg')"></div>
+</section>
+
+<!-- ══════════ BROWSE ══════════ -->
+<div class="browse len" id="bo-suu-tap">
+  <h2>Xem theo dịch vụ</h2>
+  <a class="nhan nhan-mo" href="#may-do">May đo</a>
+  <a class="nhan nhan-mo" href="#cho-thue">Cho thuê</a>
+  <a class="nhan nhan-mo" href="#chup-hinh">Chụp hình</a>
+</div>
+
+<!-- ══════════ 3 ẢNH CAO ══════════ -->
+<section class="hang-muc len">
+  <a class="hm" id="may-do" href="bao-gia.html" style="background-image:url('anh/dv-mayo.jpg')">
+    <div><span class="nhan">Xem</span><h3>May đo</h3></div>
+  </a>
+  <a class="hm" id="cho-thue" href="bao-gia.html" style="background-image:url('anh/dv-thue.jpg')">
+    <div><span class="nhan">Xem</span><h3>Cho thuê</h3></div>
+  </a>
+  <a class="hm" id="chup-hinh" href="bao-gia.html" style="background-image:url('anh/dv-chup.jpg')">
+    <div><span class="nhan">Xem</span><h3>Chụp hình</h3></div>
+  </a>
+</section>
+
+<!-- ══════════ THẺ TRẮNG 1 — CẨM NANG ══════════ -->
+<section class="the-nen len" id="cam-nang" style="background-image:url('anh/look-03.jpg')">
+  <div class="the-trang">
+    <div class="nhan nhan-mo">Cẩm nang cưới</div>
+    <h3>Đường đến ngày cưới</h3>
+    <p>Từ lúc nhận lời cầu hôn tới lúc trả váy — mỗi chặng nên làm gì, thử váy trước bao lâu, sửa váy lúc nào. Nhà viết lại thành một cẩm nang, kèm checklist từng chặng cho cô dâu.</p>
+    <a class="lien-chu" href="https://dolinhanh-bridal.github.io/web-thu/#camnang">Đọc cẩm nang ⟶</a>
+  </div>
+</section>
+
+<!-- ══════════ THẺ TRẮNG 2 — ĐIỀU KHOẢN ══════════ -->
+<section class="the-nen len" style="background-image:url('anh/look-05.jpg')">
+  <div class="the-trang">
+    <div class="nhan nhan-mo">Thuê váy ở nhà</div>
+    <h3>Không có dòng nào giấu</h3>
+    <p>Thời gian thuê, cọc, tình trạng nhận – trả váy, cách bảo quản và bản quyền thiết kế — sáu điều khoản nói rõ hết trước khi ký, không phải sau.</p>
+    <a class="lien-chu" href="https://dolinhanh-bridal.github.io/web-thu/#dieukhoan">Đọc điều khoản ⟶</a>
+  </div>
+</section>
+
+<!-- ══════════ LỜI CÔ DÂU ══════════ -->
+<section class="loi">
+  <div class="wrap len">
+    <div style="text-align:center">
+      <div class="ten"><span data-loi="ten1"></span></div>
+      <div class="nhan nhan-mo noi"><span data-loi="noi1"></span></div>
+    </div>
+    <div class="loi-luoi">
+      <div class="anh" style="background-image:url('anh/look-06.jpg')"></div>
+      <div>
+        <h2>Lời cô dâu</h2>
+        <p><span data-loi="loi1"></span></p>
+        <div class="them"><a class="lien-chu" href="https://www.facebook.com/Dolinhanhbridalhcm/reviews">Xem thêm ⟶</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ DẢI ẢNH IG ══════════ -->
+<div class="ig len">
+  <div class="ig-nhan"><a class="nhan" href="https://www.instagram.com/dolinhanh.bridal/" target="_blank" rel="noopener">@dolinhanh.bridal</a></div>
+  <div class="ig-luoi">
+    <a href="https://www.instagram.com/dolinhanh.bridal/" target="_blank" rel="noopener" aria-label="Instagram Dolinhanh" style="background-image:url('anh/look-01.jpg')"></a>
+    <a href="https://www.instagram.com/dolinhanh.bridal/" target="_blank" rel="noopener" aria-label="Instagram Dolinhanh" style="background-image:url('anh/look-02.jpg')"></a>
+    <a href="https://www.instagram.com/dolinhanh.bridal/" target="_blank" rel="noopener" aria-label="Instagram Dolinhanh" style="background-image:url('anh/look-03.jpg')"></a>
+    <a href="https://www.instagram.com/dolinhanh.bridal/" target="_blank" rel="noopener" aria-label="Instagram Dolinhanh" style="background-image:url('anh/look-04.jpg')"></a>
+    <a href="https://www.instagram.com/dolinhanh.bridal/" target="_blank" rel="noopener" aria-label="Instagram Dolinhanh" style="background-image:url('anh/cl-ren.jpg')"></a>
+    <a href="https://www.instagram.com/dolinhanh.bridal/" target="_blank" rel="noopener" aria-label="Instagram Dolinhanh" style="background-image:url('anh/look-05.jpg')"></a>
+  </div>
+</div>
+
+<!-- ══════════ FOOTER OLIVE ══════════ -->
+<footer id="lien-he">
+  <div class="wrap">
+    <div class="ft-mxh">
+      <a href="mailto:dolinhanh.bridal.hochiminh@gmail.com">Email</a>
+      <a href="https://www.facebook.com/Dolinhanhbridalhcm/" target="_blank" rel="noopener">Facebook</a>
+      <a href="https://www.instagram.com/dolinhanh.bridal/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.tiktok.com/@dolinhanh.bridal" target="_blank" rel="noopener">TikTok</a>
+    </div>
+    <div class="ft-menu">
+      <a href="#dau">Trang chủ</a>
+      <a href="#gioi-thieu">Giới thiệu</a>
+      <a href="#bo-suu-tap">Bộ sưu tập</a>
+      <a href="bao-gia.html">Báo giá</a>
+      <a href="#lien-he">Liên hệ</a>
+    </div>
+    <div class="ft-cuoi">
+      Hà Nội — 75 Nguyễn Thị Định, Trung Hoà, Cầu Giấy&nbsp;&nbsp;·&nbsp;&nbsp;TP.HCM — 2 Tân Canh, Phường 1, Tân Bình&nbsp;&nbsp;·&nbsp;&nbsp;035 995 0588<br>
+      Dolinhanh Bridal — một thương hiệu của Nupakachi&nbsp;&nbsp;|&nbsp;&nbsp;Ảnh: Nupakachi Wedd
+    </div>
+  </div>
+</footer>
+
+<script>
+  /* ══════════════════════════════════════════════════════
+     LỜI CÔ DÂU — chị điền lời nhận xét THẬT của khách,
+     em không tự bịa. Để trống thì hiện ô "điền lời cô dâu".
+     ══════════════════════════════════════════════════════ */
+  const LOI_CO_DAU = {
+    ten1: "",   // tên cô dâu (vd "CD Ngọc & chú rể Minh")
+    noi1: "",   // nơi cưới (vd "Hà Nội")
+    loi1: ""    // lời nhận xét thật của cô dâu
+  };
+
+  (function dienLoi(){
+    let thieu = 0;
+    document.querySelectorAll("[data-loi]").forEach(function(o){
+      const gt = (LOI_CO_DAU[o.dataset.loi] || "").trim();
+      if(gt){ o.textContent = gt; }
+      else{ thieu++; o.textContent = "điền lời cô dâu"; o.className = "trong"; }
+    });
+  })();
+
+  /* xuất hiện khi cuộn */
+  (function hienKhiCuon(){
+    const items = document.querySelectorAll(".len");
+    if(!("IntersectionObserver" in window) ||
+       window.matchMedia("(prefers-reduced-motion: reduce)").matches){
+      items.forEach(function(el){ el.classList.add("hien"); });
+      return;
+    }
+    const ob = new IntersectionObserver(function(rows){
+      rows.forEach(function(r){
+        if(r.isIntersecting){ r.target.classList.add("hien"); ob.unobserve(r.target); }
+      });
+    }, {rootMargin:"0px 0px -8% 0px", threshold:.06});
+    items.forEach(function(el){ ob.observe(el); });
+    setTimeout(function(){ items.forEach(function(el){ el.classList.add("hien"); }); }, 3000);
+  })();
+</script>
