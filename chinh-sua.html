@@ -1,0 +1,93 @@
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Chỉnh sửa V2 — Dolinhanh</title>
+<style>
+:root{--bg:#F3F2F0;--ink:#17130F;--grey:#6F6C69;--hair:#DAD7D2;--acc:#8E5A5F}
+*{box-sizing:border-box}body{margin:0;font-family:-apple-system,"Helvetica Neue",Helvetica,Arial,sans-serif;font-size:13px;color:var(--ink);background:var(--bg);height:100vh;display:grid;grid-template-columns:380px 1fr}
+aside{border-right:1px solid var(--hair);overflow:auto;padding:16px 16px 40px;background:#fff}
+h1{font-family:"Bodoni 72",Didot,Georgia,serif;font-weight:400;font-size:22px;margin:0 0 4px}
+.p{color:var(--grey);margin:0 0 14px;line-height:1.5}
+.tabs{display:flex;gap:6px;margin-bottom:12px}.tabs button{flex:1;padding:8px;border:1px solid var(--hair);background:#fff;cursor:pointer;font:inherit}.tabs button.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.slot{border-top:1px solid var(--hair);padding:12px 0}.slot h3{margin:0 0 8px;font-size:12px;letter-spacing:.06em;text-transform:uppercase;font-weight:600}
+.hang{display:grid;grid-template-columns:64px 1fr;gap:10px;align-items:start}.thumb{width:64px;height:64px;background:#ddd center/cover no-repeat;border:1px solid var(--hair)}
+select,input[type=range]{width:100%}select{padding:6px;font:inherit;border:1px solid var(--hair);background:#fff}
+label{display:grid;grid-template-columns:52px 1fr 36px;gap:8px;align-items:center;margin-top:6px;color:var(--grey)}label b{font-weight:500;color:var(--ink);text-align:right}
+.nut{display:inline-block;padding:9px 14px;border:1px solid var(--ink);background:var(--ink);color:#fff;cursor:pointer;font:inherit;margin:4px 4px 4px 0}.nut.vien{background:#fff;color:var(--ink)}.nut.acc{background:var(--acc);border-color:var(--acc)}
+textarea{width:100%;height:120px;font:12px/1.4 Menlo,monospace;border:1px solid var(--hair);padding:8px;margin-top:8px}
+iframe{width:100%;height:100vh;border:0;background:#fff}
+.mode{padding:12px;background:#FBF3F3;border:1px solid #E7CFD0;margin:10px 0;line-height:1.5}
+.hidden{display:none}.ok{color:#2E7D4F}
+</style>
+<aside>
+  <h1>Chỉnh sửa V2</h1>
+  <p class="p">Bên phải là trang thật. Chỉnh xong bấm <b>Sao chép cấu hình</b> rồi gửi em, hoặc <b>Lưu trên máy này</b> để mở lại vẫn thấy.</p>
+  <div class="tabs"><button class="on" data-tab="anh">Ảnh</button><button data-tab="chu">Chữ</button><button data-tab="xuat">Sao chép / Lưu</button></div>
+
+  <div id="tab-anh">
+    <p class="p">Chọn ảnh khác trong kho, kéo <b>Ngang/Dọc</b> để dịch khung nhìn, <b>Phóng</b> để zoom.</p>
+    <div id="slots"></div>
+  </div>
+
+  <div id="tab-chu" class="hidden">
+    <div class="mode">Bật <b>Chế độ sửa chữ</b> rồi bấm thẳng vào bất kỳ dòng chữ nào bên phải và gõ. Xong bấm <b>Ghi lại chữ đã sửa</b>.</div>
+    <button class="nut" id="btnSua">Bật chế độ sửa chữ</button>
+    <button class="nut vien" id="btnGhi">Ghi lại chữ đã sửa</button>
+    <div id="chuKq" class="p" style="margin-top:8px"></div>
+  </div>
+
+  <div id="tab-xuat" class="hidden">
+    <button class="nut acc" id="btnCopy">Sao chép cấu hình</button>
+    <button class="nut" id="btnLuu">Lưu trên máy này</button>
+    <button class="nut vien" id="btnXoa">Đặt lại</button>
+    <p class="p" id="tb"></p>
+    <textarea id="out" readonly placeholder="Cấu hình sẽ hiện ở đây…"></textarea>
+    <p class="p">Gửi đoạn chữ này cho em (dán vào Zalo/Claude) — em áp lên bản chạy cho tất cả mọi người thấy.</p>
+  </div>
+</aside>
+<iframe id="pv" src="bao-gia-v2.html"></iframe>
+<script>
+const IMGS=["anh/bia.jpg", "anh/cl-dinhket.jpg", "anh/cl-ren.jpg", "anh/cl-tron.jpg", "anh/dv-chup.jpg", "anh/dv-mayo.jpg", "anh/dv-thue.jpg", "anh/look-01.jpg", "anh/look-02.jpg", "anh/look-03.jpg", "anh/look-04.jpg", "anh/look-05.jpg", "anh/look-06.jpg", "anh/sc/ariel.jpg", "anh/sc/ballgown-wide.jpg", "anh/sc/ballgown.jpg", "anh/sc/band-elagani.jpg", "anh/sc/blossom.jpg", "anh/sc/claire.jpg", "anh/sc/detail/ballgown-doc.jpg", "anh/sc/detail/ballgown-nho.jpg", "anh/sc/detail/ballgown-satin.jpg", "anh/sc/detail/ballgown-tay.jpg", "anh/sc/detail/ballgown-xa.jpg", "anh/sc/detail/bang-do-ngoc-trai.jpg", "anh/sc/detail/bride-luoi.jpg", "anh/sc/detail/bride-ren-dai.jpg", "anh/sc/detail/bride-sheer.jpg", "anh/sc/detail/bride-xe-ta.jpg", "anh/sc/detail/corset-ren.jpg", "anh/sc/detail/giay-cuoi.jpg", "anh/sc/detail/hoa-vai.jpg", "anh/sc/detail/may-do-keo.jpg", "anh/sc/detail/ren-bodice.jpg", "anh/sc/detail/ren-voan-go.jpg", "anh/sc/detail/satin-cup-nguc.jpg", "anh/sc/detail/satin-hoa.jpg", "anh/sc/detail/satin-rut-nhun.jpg", "anh/sc/detail/tay-ao-dinh.jpg", "anh/sc/detail/tulle-corset.jpg", "anh/sc/detail/tulle-luoi.jpg", "anh/sc/detail/tulle-ngoc.jpg", "anh/sc/detail/voan-co-dau.jpg", "anh/sc/detail/voan-hoa.jpg", "anh/sc/elagani.jpg", "anh/sc/fairy-wide.jpg", "anh/sc/fairy.jpg", "anh/sc/floral.jpg", "anh/sc/hero-blossom.jpg", "anh/sc/mermaid-lace.jpg", "anh/sc/minimalist.jpg", "anh/sc/royal-wide.jpg", "anh/sc/royal.jpg", "anh/story.jpg"];
+const SLOTS=[["hero", "Ảnh đầu trang (hero)"], ["dai", "Dải ảnh 'Be yourself'"], ["vay1", "Gói váy 01 · Bride Care"], ["vay2", "Gói váy 02 · Pretty Dress"], ["vay3", "Gói váy 03 · Two Dresses"], ["vay4", "Gói váy 04 · Full"], ["goi1", "Chương 01 · Pre Wedding"], ["goi2", "Chương 02 · Wedding Day"], ["goi3", "Chương 03 · Wedding Story (ảnh tràn)"], ["goi4", "Chương 04 · Signature (ảnh tràn)"], ["gal1", "Gallery 1"], ["gal2", "Gallery 2"], ["gal3", "Gallery 3"], ["gal4", "Gallery 4"], ["cuoi", "Ảnh cuối · Private fitting"]];
+const pv=document.getElementById("pv"); let cfg={anh:{},chu:{}};
+try{ const c=localStorage.getItem("dla_cfg_v2"); if(c) cfg=JSON.parse(c); }catch(e){}
+function ten(p){return p.replace(/^anh\//,"").replace(/\.jpg$/,"")}
+const host=document.getElementById("slots");
+SLOTS.forEach(([k,label])=>{
+  const c=cfg.anh[k]||{};
+  const d=document.createElement("div"); d.className="slot"; d.innerHTML=`<h3>${label}</h3>
+  <div class="hang"><div class="thumb" id="th-${k}"></div><div>
+    <select id="sel-${k}"><option value="">(giữ ảnh hiện tại)</option>${IMGS.map(i=>`<option value="${i}" ${c.src===i?"selected":""}>${ten(i)}</option>`).join("")}</select>
+    <label>Ngang <input type="range" id="x-${k}" min="0" max="100" value="${c.x??50}"><b id="xv-${k}">${c.x??50}</b></label>
+    <label>Dọc <input type="range" id="y-${k}" min="0" max="100" value="${c.y??50}"><b id="yv-${k}">${c.y??50}</b></label>
+    <label>Phóng <input type="range" id="z-${k}" min="100" max="200" value="${c.zoom??100}"><b id="zv-${k}">${c.zoom??100}%</b></label>
+  </div></div>`;
+  host.appendChild(d);
+  const upd=()=>{
+    const src=d.querySelector(`#sel-${k}`).value, x=+d.querySelector(`#x-${k}`).value, y=+d.querySelector(`#y-${k}`).value, z=+d.querySelector(`#z-${k}`).value;
+    d.querySelector(`#xv-${k}`).textContent=x; d.querySelector(`#yv-${k}`).textContent=y; d.querySelector(`#zv-${k}`).textContent=z+"%";
+    cfg.anh[k]={...(src?{src}:{}),x,y,zoom:z};
+    if(src) d.querySelector(`#th-${k}`).style.backgroundImage=`url('${src}')`;
+    guiCfg();
+  };
+  d.querySelectorAll("select,input").forEach(el=>el.addEventListener("input",upd));
+  if(c.src) d.querySelector(`#th-${k}`).style.backgroundImage=`url('${c.src}')`;
+});
+function guiCfg(){ pv.contentWindow.postMessage({dlaCfg:cfg},"*"); }
+pv.addEventListener("load",()=>{ guiCfg(); pv.contentWindow.postMessage({dlaLayAnh:1},"*"); });
+window.addEventListener("message",ev=>{
+  const d=ev.data||{};
+  if(d.dlaAnh){ Object.keys(d.dlaAnh).forEach(k=>{ const th=document.getElementById("th-"+k); if(th&&!th.style.backgroundImage) th.style.backgroundImage=`url('${d.dlaAnh[k]}')`; }); }
+  if(d.dlaChu){ cfg.chu=Object.assign(cfg.chu||{},d.dlaChu); document.getElementById("chuKq").innerHTML=`<span class="ok">Đã ghi ${Object.keys(d.dlaChu).length} chỗ chữ vừa sửa.</span> Sang thẻ <b>Sao chép / Lưu</b> để gửi em.`; xuat(); }
+});
+document.querySelectorAll(".tabs button").forEach(b=>b.addEventListener("click",()=>{
+  document.querySelectorAll(".tabs button").forEach(x=>x.classList.toggle("on",x===b));
+  ["anh","chu","xuat"].forEach(t=>document.getElementById("tab-"+t).classList.toggle("hidden",t!==b.dataset.tab));
+  if(b.dataset.tab==="xuat") xuat();
+}));
+let sua=false;
+document.getElementById("btnSua").addEventListener("click",e=>{ sua=!sua; pv.contentWindow.postMessage({dlaSua:sua},"*"); e.target.textContent=sua?"Tắt chế độ sửa chữ":"Bật chế độ sửa chữ"; e.target.classList.toggle("acc",sua); });
+document.getElementById("btnGhi").addEventListener("click",()=>pv.contentWindow.postMessage({dlaLayChu:1},"*"));
+function xuat(){ document.getElementById("out").value=JSON.stringify(cfg,null,1); }
+document.getElementById("btnCopy").addEventListener("click",()=>{ xuat(); const o=document.getElementById("out"); o.select(); navigator.clipboard.writeText(o.value).then(()=>tb("Đã sao chép — dán gửi em là xong.")); });
+document.getElementById("btnLuu").addEventListener("click",()=>{ localStorage.setItem("dla_cfg_v2",JSON.stringify(cfg)); tb("Đã lưu trên máy này. Mở bao-gia-v2.html trên máy này sẽ thấy đúng bản chị chỉnh."); });
+document.getElementById("btnXoa").addEventListener("click",()=>{ if(!confirm("Bỏ hết chỉnh sửa trên máy này?")) return; localStorage.removeItem("dla_cfg_v2"); cfg={anh:{},chu:{}}; location.reload(); });
+function tb(m){ document.getElementById("tb").innerHTML='<span class="ok">'+m+'</span>'; }
+</script>
