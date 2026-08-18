@@ -110,7 +110,7 @@
 
   /* ── hero ────────────────────────────────────────────── */
   .hero{
-    position:relative;min-height:min(100svh,920px);color:#fff;
+    position:relative;min-height:min(88svh,780px);color:#fff;
     background:var(--charcoal) url('anh/bia.jpg') center 22%/cover no-repeat;
     display:flex;align-items:flex-end;
   }
@@ -125,7 +125,7 @@
 
   /* ── mục chung ───────────────────────────────────────── */
   section{position:relative}
-  .muc{padding-block:clamp(64px,10vw,140px)}
+  .muc{padding-block:clamp(48px,7vw,96px)}
   .muc.sat{padding-block:clamp(48px,7vw,96px)}
   .h-lon{font-size:var(--t-h1);letter-spacing:-.015em}
   .h-vua{font-size:var(--t-h2);letter-spacing:-.01em}
@@ -138,7 +138,7 @@
 
   /* dải ảnh full-width có câu ngắn */
   .dai{
-    position:relative;min-height:clamp(380px,62vh,700px);color:#fff;
+    position:relative;min-height:clamp(300px,46vh,480px);color:#fff;
     background-position:center 24%;background-size:cover;display:flex;align-items:center;justify-content:center;text-align:center;
   }
   .dai::after{content:"";position:absolute;inset:0;background:rgba(23,19,15,.32)}
@@ -147,13 +147,13 @@
   .dai .eyebrow{color:rgba(255,255,255,.75);margin-bottom:16px}
 
   /* ── THE DOLINHANH EXPERIENCE: hàng editorial ─────────── */
-  .exp-dau{display:grid;gap:14px;margin-bottom:clamp(30px,5vw,64px)}
+  .exp-dau{display:grid;gap:14px;margin-bottom:clamp(22px,3.5vw,44px)}
   @media(min-width:900px){.exp-dau{grid-template-columns:1fr 1fr;align-items:end}}
   .exp-dau h2{font-size:var(--t-h1);letter-spacing:-.012em;text-transform:none;line-height:1.06}
   .exp-dau .phu{font-family:var(--serif);font-size:clamp(1.4rem,2.6vw,2.2rem);font-style:italic;color:var(--ink)}
   .hang{
-    display:grid;grid-template-columns:1fr;gap:20px;
-    padding-block:clamp(28px,4vw,52px);border-top:1px solid var(--hair);
+    display:grid;grid-template-columns:1fr;gap:18px;
+    padding-block:clamp(18px,2.6vw,30px);border-top:1px solid var(--hair);
   }
   .hang:last-of-type{border-bottom:1px solid var(--hair)}
   @media(min-width:900px){
@@ -164,14 +164,14 @@
   .hang .so{font-family:var(--didone);font-size:var(--t-num);line-height:.85;color:var(--ink);letter-spacing:-.02em}
   .hang .ten{font-family:var(--serif);font-size:clamp(1.6rem,2.8vw,2.4rem);line-height:1.05;letter-spacing:-.01em;color:var(--ink)}
   .hang .gia{font-family:var(--didone);font-size:var(--t-price);color:var(--ink);margin-top:8px;font-variant-numeric:tabular-nums}
-  .hang .mo{color:var(--ink-2);margin-top:12px;max-width:34ch;font-size:.95rem;line-height:1.45}
+  .hang .mo{color:var(--ink-2);margin:0 0 16px;max-width:36ch;font-size:.95rem;line-height:1.5}
   .hang .quyen{display:grid;gap:5px;font-size:.95rem;color:var(--ink-2)}
   .hang .quyen li{display:flex;gap:12px;line-height:1.4}
   .hang .quyen li::before{content:"";flex:none;width:18px;height:1px;background:var(--ink);margin-top:.75em}
   .hang .quyen .nhan-quyen{margin-bottom:6px}
-  .hang .cta{margin-top:22px}
-  .hang .anh{aspect-ratio:4/5;background:var(--stone) center 18%/cover no-repeat;max-height:420px;width:100%}
-  @media(min-width:900px){.hang .anh{aspect-ratio:3/4;max-height:none}}
+  .hang .cta{margin-top:20px}
+  .hang .anh{aspect-ratio:4/5;background:var(--stone) center 18%/cover no-repeat;max-height:360px;width:100%}
+  @media(min-width:900px){.hang .anh{aspect-ratio:4/3;max-height:200px;justify-self:end;width:min(100%,270px)}}
   .hang .anh.trong{display:grid;place-items:center;text-align:center;font-family:var(--sans);font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--grey-2);border:1px dashed var(--hair);background:none}
   .hang .ghichu{font-size:.8rem;color:var(--grey-2);margin-top:12px;max-width:34ch}
 
@@ -183,7 +183,7 @@
   @media(min-width:900px){.toi-luoi{grid-template-columns:1.2fr 1fr;align-items:end}}
   .toi h2{font-size:var(--t-hero);letter-spacing:-.015em;text-transform:none;line-height:1.02}
   .toi p{max-width:44ch;color:rgba(255,255,255,.78);line-height:1.5}
-  .tien-trinh{display:grid;grid-template-columns:repeat(2,1fr);gap:22px 0;margin-top:clamp(36px,5vw,64px);border-top:1px solid var(--hair-dark)}
+  .tien-trinh{display:grid;grid-template-columns:repeat(2,1fr);gap:22px 0;margin-top:clamp(28px,4vw,48px);border-top:1px solid var(--hair-dark)}
   .tien-trinh div{padding:22px 0 0;border-right:1px solid var(--hair-dark);padding-right:14px;margin-right:14px;min-width:0}
   .tien-trinh div:nth-child(2n){border-right:0;margin-right:0;padding-right:0}
   @media(min-width:760px){
@@ -198,13 +198,13 @@
   .tien-trinh div:last-child .g{color:var(--champagne)}
 
   /* ── CHƯƠNG (chapters) ───────────────────────────────── */
-  .chuong{display:grid;gap:clamp(24px,4vw,64px);align-items:center;padding-block:clamp(56px,8vw,120px)}
+  .chuong{display:grid;gap:clamp(24px,4vw,64px);align-items:center;padding-block:clamp(32px,4.5vw,60px)}
   @media(min-width:900px){
     .chuong{grid-template-columns:1fr 1fr}
     .chuong.dao .c-anh{order:2}
   }
   .c-anh{aspect-ratio:4/5;background:var(--stone) center 16%/cover no-repeat;width:100%}
-  @media(min-width:900px){.c-anh{aspect-ratio:3/4;max-height:86vh}}
+  @media(min-width:900px){.c-anh{aspect-ratio:4/5;max-height:460px;width:min(100%,380px);justify-self:center}}
   .c-so{font-family:var(--didone);font-size:var(--t-num);line-height:.85;letter-spacing:-.02em;color:var(--ink)}
   .c-ten{font-family:var(--serif);font-size:clamp(2rem,4vw,3.6rem);letter-spacing:-.012em;line-height:1.04;margin-top:14px;text-transform:none}
   .c-gia{font-family:var(--didone);font-size:var(--t-price);margin-top:14px;font-variant-numeric:tabular-nums;color:var(--ink)}
@@ -216,7 +216,7 @@
   .chuong.nen{background:var(--paper)}
   /* chương 03: ảnh tràn ngang, chữ đè góc dưới */
   .chuong-band{
-    position:relative;min-height:clamp(520px,92vh,880px);color:#fff;
+    position:relative;min-height:clamp(440px,64vh,620px);color:#fff;
     background:var(--charcoal) url('anh/look-03.jpg') center 18%/cover no-repeat;display:flex;align-items:flex-end;
   }
   .chuong-band::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(23,19,15,.08) 20%,rgba(23,19,15,.5) 55%,rgba(23,19,15,.82) 100%)}
@@ -228,11 +228,11 @@
   .chuong-band .c-quyen li::before{background:#fff}
   /* chương 04: signature — ảnh cao nhất, chữ giữa */
   .chuong-sig{
-    position:relative;min-height:clamp(640px,104vh,980px);color:#fff;text-align:center;
+    position:relative;min-height:clamp(500px,74vh,680px);color:#fff;text-align:center;
     background:var(--charcoal) url('anh/look-05.jpg') center 14%/cover no-repeat;display:flex;align-items:center;justify-content:center;
   }
   .chuong-sig::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(23,19,15,.2) 0%,rgba(23,19,15,.6) 70%,rgba(23,19,15,.8) 100%)}
-  .chuong-sig .wrap{position:relative;z-index:1;display:grid;justify-items:center;gap:14px;padding-block:clamp(60px,10vh,120px)}
+  .chuong-sig .wrap{position:relative;z-index:1;display:grid;justify-items:center;gap:12px;padding-block:clamp(48px,7vh,80px)}
   .chuong-sig .nhan-sig{font-family:var(--sans);font-size:.66rem;letter-spacing:.34em;text-transform:uppercase;color:var(--champagne)}
   .chuong-sig .c-so{color:#fff}
   .chuong-sig .c-ten{color:#fff;font-size:clamp(2rem,5.6vw,5rem);overflow-wrap:anywhere}
@@ -250,13 +250,13 @@
   .up h2{font-size:var(--t-h1);letter-spacing:-.012em;text-transform:none;line-height:1.06}
   .up p{margin-top:20px;max-width:44ch;color:var(--ink-2);line-height:1.5}
   .flow{display:grid;gap:0}
-  .flow li{display:grid;grid-template-columns:auto 1fr auto;align-items:baseline;gap:18px;padding:18px 0;border-bottom:1px solid var(--hair)}
+  .flow li{display:grid;grid-template-columns:auto 1fr auto;align-items:baseline;gap:18px;padding:12px 0;border-bottom:1px solid var(--hair)}
   .flow li:first-child{border-top:1px solid var(--hair)}
   .flow .so{font-family:var(--didone);font-size:1.6rem;color:var(--grey-2);width:2.2ch}
   .flow .ten{font-family:var(--serif);font-size:clamp(1.3rem,2.2vw,1.9rem);color:var(--ink);letter-spacing:-.01em}
   .flow .chenh{font-family:var(--sans);font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--grey);white-space:nowrap}
   .flow .mui{grid-column:1/-1;font-family:var(--sans);color:var(--grey-2);font-size:.9rem;padding-left:calc(2.2ch + 18px);line-height:1}
-  .flow li.mui-hang{padding:6px 0;border:0}
+  .flow li.mui-hang{padding:2px 0;border:0}
   .flow li:last-child .ten{color:var(--ink)}
   .up .chinh-sach{font-size:.85rem;color:var(--grey-2);margin-top:22px}
 
@@ -267,20 +267,20 @@
   .rb a{display:block;background:var(--stone) center 14%/cover no-repeat;aspect-ratio:4/5;transition:opacity .35s}
   .rb a:hover{opacity:.9}
   @media(min-width:760px){
-    .rb{grid-template-columns:repeat(12,1fr);grid-auto-rows:clamp(300px,36vw,560px)}
+    .rb{grid-template-columns:repeat(12,1fr);grid-auto-rows:clamp(260px,28vw,400px)}
     .rb a{aspect-ratio:auto;height:100%}
-    .rb a:nth-child(1){grid-column:span 5}
-    .rb a:nth-child(2){grid-column:span 4}
-    .rb a:nth-child(3){grid-column:span 3}
-    .rb a:nth-child(4){grid-column:span 4}
-    .rb a:nth-child(5){grid-column:span 8;background-position:center 20%}
+    .rb a:nth-child(1){grid-column:span 4}
+    .rb a:nth-child(2){grid-column:span 3}
+    .rb a:nth-child(3){grid-column:span 2}
+    .rb a:nth-child(4){grid-column:span 3}
+    .rb a:nth-child(5){display:none}
   }
   @media(max-width:759px){.rb a:nth-child(5){display:none}}
   .rb-chu{margin-top:14px;font-size:.78rem;color:var(--grey-2);letter-spacing:.08em}
 
   /* ── CTA cuối ────────────────────────────────────────── */
   .cuoi{
-    position:relative;min-height:clamp(520px,86vh,820px);color:#fff;text-align:center;
+    position:relative;min-height:clamp(440px,64vh,600px);color:#fff;text-align:center;
     background:var(--charcoal) url('anh/story.jpg') center 22%/cover no-repeat;display:flex;align-items:center;justify-content:center;
   }
   .cuoi::after{content:"";position:absolute;inset:0;background:rgba(23,19,15,.5)}
@@ -304,7 +304,15 @@
 
   /* ── bổ sung cho bản copy mới ─────────────────────────── */
   .hero .tag{font-family:var(--serif);text-transform:none;letter-spacing:0;font-size:clamp(1rem,1.4vw,1.15rem);max-width:44ch;line-height:1.45}
-  @media(min-width:900px){.hang.hanh-trinh{grid-template-columns:1.1fr 3fr 7fr}}
+  .ht-luoi{display:grid;gap:0}
+  @media(min-width:900px){
+    .ht-luoi{grid-template-columns:1fr 1fr;column-gap:clamp(30px,5vw,80px);border-top:1px solid var(--hair)}
+    .hang.hanh-trinh{grid-template-columns:auto 1fr;grid-template-areas:"so ten" "so van";column-gap:22px;row-gap:6px;padding-block:clamp(22px,3vw,34px);border-top:0;border-bottom:1px solid var(--hair)}
+    .hang.hanh-trinh .so{grid-area:so;font-size:clamp(2.6rem,5vw,4.4rem)}
+    .hang.hanh-trinh > div{grid-area:ten}
+    .hang.hanh-trinh .van{grid-area:van}
+    .hang.hanh-trinh:last-of-type{border-bottom:1px solid var(--hair)}
+  }
   .hang.hanh-trinh .ten{font-style:italic}
   .hang.hanh-trinh .van{color:var(--ink-2);max-width:52ch;line-height:1.5}
   .gia-nhan{font-family:var(--sans);font-size:.62rem;letter-spacing:.26em;text-transform:uppercase;color:var(--grey-2);margin-top:12px}
@@ -368,6 +376,7 @@
       <div class="phu">A way of being cared for.</div>
     </div>
 
+    <div class="ht-luoi">
     <div class="hang hanh-trinh len">
       <div class="so">01</div>
       <div><div class="ten">We listen</div></div>
@@ -388,6 +397,7 @@
       <div><div class="ten">We stay</div></div>
       <p class="van">Từ lần thử váy đầu tiên đến khi nàng bước vào lễ cưới, Dolinhanh ở đó để chăm những điều nhỏ nhất.</p>
     </div>
+    </div>
   </div>
 </section>
 
@@ -404,12 +414,11 @@
       <div class="so">01</div>
       <div>
         <div class="ten">Bride Care</div>
-        <div class="gia-nhan">Investment</div>
         <div class="gia" data-gia="vay1"></div>
-        <p class="mo">Dù chiếc váy của nàng ở nơi khác, Dolinhanh vẫn muốn ngày cưới của nàng được chăm chút.</p>
         <div class="cta"><a class="lien" href="#fitting">Begin here</a></div>
       </div>
       <div>
+        <p class="mo">Dù chiếc váy của nàng ở nơi khác, Dolinhanh vẫn muốn ngày cưới của nàng được chăm chút.</p>
         <div class="eyebrow nhan-quyen">Included</div>
         <ul class="quyen" data-quyen="vay1"></ul>
       </div>
@@ -421,12 +430,11 @@
       <div class="so">02</div>
       <div>
         <div class="ten">Pretty Dress</div>
-        <div class="gia-nhan">Investment</div>
         <div class="gia" data-gia="vay2"></div>
-        <p class="mo">Một chiếc váy chọn lọc, dành cho lần đầu nàng đến với Dolinhanh.</p>
         <div class="cta"><a class="lien" href="#fitting">Begin here</a></div>
       </div>
       <div>
+        <p class="mo">Một chiếc váy chọn lọc, dành cho lần đầu nàng đến với Dolinhanh.</p>
         <div class="eyebrow nhan-quyen">Included</div>
         <ul class="quyen" data-quyen="vay2"></ul>
       </div>
@@ -438,12 +446,11 @@
       <div class="so">03</div>
       <div>
         <div class="ten">Two Dresses</div>
-        <div class="gia-nhan">Investment</div>
         <div class="gia" data-gia="vay3"></div>
-        <p class="mo">Hai chiếc váy cho hai khoảnh khắc trong ngày — và những chi tiết chỉ nàng mới có.</p>
         <div class="cta"><a class="lien" href="#fitting">Begin here</a></div>
       </div>
       <div>
+        <p class="mo">Hai chiếc váy cho hai khoảnh khắc trong ngày — và những chi tiết chỉ nàng mới có.</p>
         <div class="eyebrow nhan-quyen">Included</div>
         <ul class="quyen" data-quyen="vay3"></ul>
       </div>
@@ -455,12 +462,11 @@
       <div class="so">04</div>
       <div>
         <div class="ten" data-ten="vay4"></div>
-        <div class="gia-nhan">Investment</div>
         <div class="gia" data-gia="vay4"></div>
-        <p class="mo">Ba chiếc váy, áo dài đôi và ba giờ bên stylist — để trong ngày ấy, nàng chỉ cần là chính mình.</p>
         <div class="cta"><a class="lien" href="#fitting">Begin here</a></div>
       </div>
       <div>
+        <p class="mo">Ba chiếc váy, áo dài đôi và ba giờ take care cùng stylist — để trong ngày ấy, nàng chỉ cần là chính mình.</p>
         <div class="eyebrow nhan-quyen">Included</div>
         <ul class="quyen" data-quyen="vay4"></ul>
       </div>
@@ -496,7 +502,6 @@
       <div class="c-so">01</div>
       <h3 class="c-ten">Pre Wedding</h3>
       <div class="c-tag">For the beginning of your story.</div>
-      <div class="gia-nhan">Investment</div>
       <div class="c-gia" data-gia="goi1"></div>
       <p class="c-mo">Một buổi chụp pre-wedding nhẹ nhàng, nơi nàng làm quen với chiếc váy, với máy ảnh và với chính mình trước ngày cưới.</p>
       <ul class="c-quyen" data-quyen="goi1"></ul>
@@ -513,7 +518,6 @@
       <div class="c-so">02</div>
       <h3 class="c-ten">Wedding Day</h3>
       <div class="c-tag">For the day you’ve been waiting for.</div>
-      <div class="gia-nhan">Investment</div>
       <div class="c-gia" data-gia="goi2"></div>
       <p class="c-mo">Những chiếc váy được chuẩn bị theo từng khoảnh khắc của ngày cưới, cùng sự chăm sóc cần thiết để nàng có thể tận hưởng ngày của mình.</p>
       <ul class="c-quyen" data-quyen="goi2"></ul>
@@ -529,7 +533,6 @@
       <div class="c-so">03</div>
       <h3 class="c-ten">Wedding Story</h3>
       <div class="c-tag">For everything worth remembering.</div>
-      <div class="gia-nhan">Investment</div>
       <div class="c-gia" data-gia="goi3"></div>
     </div>
     <div>
@@ -547,7 +550,6 @@
     <div class="c-so">04</div>
     <h3 class="c-ten">Wedding Signature</h3>
     <div class="c-tag">For the complete experience.</div>
-    <div class="gia-nhan">Investment</div>
     <div class="c-gia" data-gia="goi4"></div>
     <ul class="c-quyen" data-quyen="goi4"></ul>
     <div class="khep">Từ những ngày đầu chuẩn bị đến những ký ức được giữ lại sau cùng.</div>
@@ -643,10 +645,10 @@
      ══════════════════════════════════════════════════════ */
   const BANG_GIA = {
     /* A. Bridal experiences (giá V1 chị Linh duyệt 18/08/2026) */
-    vay1: { gia:"1.888.000 VND",  quyen:["Chăm sóc 1h cùng stylist","Mannequin","Phác thảo váy","Thiệp cưới online"] },
+    vay1: { gia:"1.888.000 VND",  quyen:["Take care 1h cùng stylist","Mannequin","Sketch váy","Thiệp cưới online"] },
     vay2: { gia:"6.888.000 VND",  quyen:["1 váy chọn lọc","Dành cho lần đặt lịch đầu tiên","1 vest","Thiệp cưới online"] },
-    vay3: { gia:"15.888.000 VND", quyen:["2 váy","1 vest hoặc voan thêu tên / thêu quotes","Trang điểm cô dâu tại studio","Thiệp cưới online","Phác thảo váy"] },
-    vay4: { ten:"Full", gia:"28.800.000 VND", quyen:["3 váy","Áo dài đôi","1 vest hoặc voan thêu tên / thêu quotes","Trang điểm cô dâu","Chăm sóc 3 tiếng","Mannequin","Thiệp cưới online","Phác thảo váy"] },
+    vay3: { gia:"15.888.000 VND", quyen:["2 váy","1 vest hoặc voan thêu tên / thêu quotes","Trang điểm cô dâu tại studio","Thiệp cưới online","Sketch váy"] },
+    vay4: { ten:"Full", gia:"28.800.000 VND", quyen:["3 váy","Áo dài đôi","1 vest hoặc voan thêu tên / thêu quotes","Trang điểm cô dâu","Take care 3 tiếng","Mannequin","Thiệp cưới online","Sketch váy"] },
 
     /* B. Wedding experience — số triệu để tính chênh */
     goi1: { ten:"Pre Wedding",       trieu:14.8, quyen:["Chụp pre-wedding studio","1 váy tiệc"] },
