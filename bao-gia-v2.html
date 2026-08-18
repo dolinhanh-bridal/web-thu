@@ -21,7 +21,7 @@
 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Dolinhanh Bridal Experience 2026 — bridal experiences và wedding packages: váy cưới, chụp pre-wedding, chụp và quay ngày cưới cùng Nupakachi. Hà Nội & TP.HCM.">
+<meta name="description" content="Dolinhanh Bridal Experience 2026 — quiet minimal luxury, crafted by Mother Love. Một trải nghiệm bridal riêng tư tại Hà Nội & TP.HCM.">
 <title>Dolinhanh Bridal Experience 2026</title>
 <script>document.documentElement.classList.add("js");</script>
 
@@ -103,6 +103,7 @@
   .hd .eyebrow{color:rgba(255,255,255,.75);display:none}
   @media(min-width:760px){.hd .eyebrow{display:block}}
   .hd .lien.sang{font-size:.66rem;border-bottom-color:transparent;white-space:nowrap}
+  @media(max-width:520px){.hd .dai-chu{display:none}}
   .hd .lien.sang:hover{border-bottom-color:#fff}
 
   /* ── hero ────────────────────────────────────────────── */
@@ -299,6 +300,18 @@
   .ft .wm{font-family:var(--serif);font-size:1.4rem;letter-spacing:.3em;text-transform:uppercase;color:var(--ink)}
   .ft-cuoi{padding-block:18px;border-top:1px solid var(--hair);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--grey-2);display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-between}
 
+  /* ── bổ sung cho bản copy mới ─────────────────────────── */
+  .hero .tag{text-transform:none;letter-spacing:.02em;font-size:clamp(.95rem,1.3vw,1.1rem);max-width:44ch;line-height:1.55}
+  @media(min-width:900px){.hang.hanh-trinh{grid-template-columns:1.1fr 3fr 7fr}}
+  .hang.hanh-trinh .ten{font-style:italic}
+  .hang.hanh-trinh .van{color:var(--ink-2);max-width:52ch;line-height:1.75}
+  .gia-nhan{font-family:var(--sans);font-size:.62rem;letter-spacing:.26em;text-transform:uppercase;color:var(--grey-2);margin-top:12px}
+  .toi .gia-nhan,.chuong-band .gia-nhan,.chuong-sig .gia-nhan{color:rgba(255,255,255,.55)}
+  .c-tag{font-family:var(--serif);font-style:italic;font-size:clamp(1.15rem,1.8vw,1.5rem);color:var(--ink);margin-top:14px}
+  .chuong-band .c-tag,.chuong-sig .c-tag{color:rgba(255,255,255,.9)}
+  .rb-cau{font-family:var(--serif);font-style:italic;font-size:clamp(1.15rem,1.8vw,1.5rem);color:var(--ink);margin-top:-6px;max-width:34ch}
+  .cuoi .quote{font-family:var(--serif);font-style:italic;font-size:clamp(1.15rem,1.9vw,1.6rem);color:rgba(255,255,255,.88);line-height:1.5;max-width:30ch}
+
   /* ── reveal khi cuộn (rất nhẹ) ───────────────────────── */
   html.js .len{opacity:0;transform:translateY(18px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
   html.js .len.hien{opacity:1;transform:none}
@@ -313,7 +326,7 @@
   <div class="wrap hd">
     <a class="wordmark" href="#top">Dolinhanh</a>
     <span class="eyebrow">Bridal Experience 2026 · Hà Nội &amp; TP.HCM</span>
-    <a class="lien sang" href="#fitting">Đặt lịch thử váy</a>
+    <a class="lien sang" href="#fitting"><span class="dai-chu">Book a </span>Private Fitting</a>
   </div>
 </header>
 
@@ -325,34 +338,65 @@
       <span class="eyebrow">Bridal Experience</span>
       <span class="eyebrow">2026</span>
     </div>
-    <h1>Quiet luxury,<br><em>thoughtfully made.</em></h1>
-    <div class="tag">Your wedding, your way</div>
+    <h1>Quiet luxury,<br><em>made personal.</em></h1>
+    <p class="tag">Một chiếc váy được chọn không chỉ vì nó đẹp — mà vì nó hợp với người mặc.</p>
   </div>
 </section>
 
 <!-- ══════════ BRAND ══════════ -->
 <section class="brand">
   <div class="wrap muc len">
-    <div class="eyebrow" style="margin-bottom:22px">Dolinhanh Bridal · since 2017</div>
-    <h2>Quiet luxury.<br>Made personal.</h2>
-    <p class="dan" style="text-align:center">Váy cưới may và đính kết tại xưởng của Dolinhanh, ảnh và phim cùng ê-kíp Nupakachi. Ít lời, nhiều tay nghề — mỗi cô dâu một cách riêng để đẹp trong ngày của mình.</p>
+    <div class="eyebrow" style="margin-bottom:22px">Crafted by Mother Love</div>
+    <h2>Made by hand.<br>Made with patience.<br>Made for her.</h2>
+    <p class="dan" style="text-align:center">Dolinhanh tin rằng vẻ đẹp của cô dâu không cần được tạo ra từ đầu — nó đã ở đó. Chiếc váy chỉ giúp nàng nhìn thấy nó rõ hơn. Tay nghề thủ công, chất liệu và phom dáng được chọn để phục vụ người mặc, không phải ngược lại.</p>
   </div>
 </section>
 
 <!-- ══════════ DẢI ẢNH ══════════ -->
 <section class="dai len" style="background-image:url('anh/look-02.jpg')">
   <div class="wrap">
-    <div class="eyebrow">Hà Nội · TP.HCM</div>
-    <h2>More than a dress.</h2>
+    <div class="eyebrow">Quiet minimal luxury</div>
+    <h2>You are seen. You are heard.</h2>
   </div>
 </section>
 
-<!-- ══════════ THE DOLINHANH EXPERIENCE ══════════ -->
+<!-- ══════════ EXPERIENCE — hành trình được chăm sóc ══════════ -->
 <section id="experience">
   <div class="wrap muc">
     <div class="exp-dau len">
-      <h2>The Dolinhanh<br>Experience</h2>
-      <div class="phu">More than a dress.</div>
+      <h2>More than<br>a dress.</h2>
+      <div class="phu">A way of being cared for.</div>
+    </div>
+
+    <div class="hang hanh-trinh len">
+      <div class="so">01</div>
+      <div><div class="ten">We listen</div></div>
+      <p class="van">Trước khi chọn váy, Dolinhanh dành thời gian để hiểu nàng: ngày cưới, không gian, vóc dáng, điều nàng yêu thích — và cả những điều nàng chưa biết cách gọi tên.</p>
+    </div>
+    <div class="hang hanh-trinh len">
+      <div class="so">02</div>
+      <div><div class="ten">We understand</div></div>
+      <p class="van">Không ép nàng vào một silhouette có sẵn. Dolinhanh đi tìm chiếc váy khiến nàng thấy: “Đúng, đây là mình.”</p>
+    </div>
+    <div class="hang hanh-trinh len">
+      <div class="so">03</div>
+      <div><div class="ten">We refine</div></div>
+      <p class="van">Từng chi tiết được chỉnh để chiếc váy vừa với nàng — không chỉ về số đo, mà cả cảm giác.</p>
+    </div>
+    <div class="hang hanh-trinh len">
+      <div class="so">04</div>
+      <div><div class="ten">We stay</div></div>
+      <p class="van">Từ lần thử váy đầu tiên đến khi nàng bước vào lễ cưới, Dolinhanh ở đó để chăm những điều nhỏ nhất.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ THE DRESS — bốn cách bắt đầu ══════════ -->
+<section id="dress" style="background:var(--paper)">
+  <div class="wrap muc">
+    <div class="exp-dau len">
+      <h2>The dress.</h2>
+      <div class="phu">Chosen for her — not for the trend.</div>
     </div>
 
     <!-- 01 Bride Care -->
@@ -360,12 +404,13 @@
       <div class="so">01</div>
       <div>
         <div class="ten">Bride Care</div>
+        <div class="gia-nhan">Investment</div>
         <div class="gia" data-gia="vay1"></div>
-        <p class="mo">Chưa có duyên thuê váy ở Dolinhanh — Dolinhanh vẫn chăm để ngày cưới của bạn trọn vẹn.</p>
-        <div class="cta"><a class="lien" href="#fitting">Giữ lịch</a></div>
+        <p class="mo">Dù chiếc váy của nàng ở nơi khác, Dolinhanh vẫn muốn ngày cưới của nàng được chăm chút.</p>
+        <div class="cta"><a class="lien" href="#fitting">Begin here</a></div>
       </div>
       <div>
-        <div class="eyebrow nhan-quyen">Quyền lợi</div>
+        <div class="eyebrow nhan-quyen">Included</div>
         <ul class="quyen" data-quyen="vay1"></ul>
       </div>
       <div class="anh" style="background-image:url('anh/cl-ren.jpg')"></div>
@@ -376,12 +421,13 @@
       <div class="so">02</div>
       <div>
         <div class="ten">Pretty Dress</div>
+        <div class="gia-nhan">Investment</div>
         <div class="gia" data-gia="vay2"></div>
-        <p class="mo">Một chiếc váy chọn lọc trong bộ sưu tập — mức ưu đãi dành cho cô dâu đến với Dolinhanh lần đầu.</p>
-        <div class="cta"><a class="lien" href="#fitting">Giữ lịch</a></div>
+        <p class="mo">Một chiếc váy chọn lọc, dành cho lần đầu nàng đến với Dolinhanh.</p>
+        <div class="cta"><a class="lien" href="#fitting">Begin here</a></div>
       </div>
       <div>
-        <div class="eyebrow nhan-quyen">Quyền lợi</div>
+        <div class="eyebrow nhan-quyen">Included</div>
         <ul class="quyen" data-quyen="vay2"></ul>
       </div>
       <div class="anh" style="background-image:url('anh/cl-tron.jpg')"></div>
@@ -392,12 +438,13 @@
       <div class="so">03</div>
       <div>
         <div class="ten">Two Dresses</div>
+        <div class="gia-nhan">Investment</div>
         <div class="gia" data-gia="vay3"></div>
-        <p class="mo">Hai chiếc váy cho ngày cưới, trang điểm tại studio và những chi tiết riêng — cô dâu chỉ cần tới thử.</p>
-        <div class="cta"><a class="lien" href="#fitting">Giữ lịch</a></div>
+        <p class="mo">Hai chiếc váy cho hai khoảnh khắc trong ngày — và những chi tiết chỉ nàng mới có.</p>
+        <div class="cta"><a class="lien" href="#fitting">Begin here</a></div>
       </div>
       <div>
-        <div class="eyebrow nhan-quyen">Quyền lợi</div>
+        <div class="eyebrow nhan-quyen">Included</div>
         <ul class="quyen" data-quyen="vay3"></ul>
       </div>
       <div class="anh" style="background-image:url('anh/cl-dinhket.jpg')"></div>
@@ -408,12 +455,13 @@
       <div class="so">04</div>
       <div>
         <div class="ten" data-ten="vay4"></div>
+        <div class="gia-nhan">Investment</div>
         <div class="gia" data-gia="vay4"></div>
-        <p class="mo">Ba chiếc váy cho trọn ngày cưới, áo dài đôi, ba tiếng chăm sóc cùng stylist — cô dâu không phải lo gì thêm về váy.</p>
-        <div class="cta"><a class="lien" href="#fitting">Giữ lịch</a></div>
+        <p class="mo">Ba chiếc váy, áo dài đôi và ba giờ bên stylist — để trong ngày ấy, nàng chỉ cần là chính mình.</p>
+        <div class="cta"><a class="lien" href="#fitting">Begin here</a></div>
       </div>
       <div>
-        <div class="eyebrow nhan-quyen">Quyền lợi</div>
+        <div class="eyebrow nhan-quyen">Included</div>
         <ul class="quyen" data-quyen="vay4"></ul>
       </div>
       <div class="anh" style="background-image:url('anh/dv-mayo.jpg')"></div>
@@ -426,10 +474,10 @@
   <div class="wrap muc len">
     <div class="toi-luoi">
       <div>
-        <div class="eyebrow" style="margin-bottom:22px">Wedding Experience · cùng Nupakachi</div>
+        <div class="eyebrow" style="margin-bottom:22px">Wedding Experience · with Nupakachi</div>
         <h2>Your wedding,<br>your way.</h2>
       </div>
-      <p>Bốn cách để đi qua ngày cưới cùng Dolinhanh — từ bộ ảnh pre-wedding tới trọn ảnh và phim ngày cưới. Gói càng cao, trải nghiệm càng đầy đủ; và bắt đầu ở đâu cũng nâng cấp được.</p>
+      <p>Bốn cách để đi qua ngày cưới cùng Dolinhanh — từ bộ ảnh đầu tiên đến những thước phim sau cùng. Không có lựa chọn đúng cho tất cả; chỉ có lựa chọn hợp với nàng, hôm nay.</p>
     </div>
     <div class="tien-trinh">
       <div><div class="g" data-gia-ngan="goi1"></div><div class="n">01 · Pre Wedding</div></div>
@@ -447,10 +495,12 @@
     <div>
       <div class="c-so">01</div>
       <h3 class="c-ten">Pre Wedding</h3>
+      <div class="c-tag">For the beginning of your story.</div>
+      <div class="gia-nhan">Investment</div>
       <div class="c-gia" data-gia="goi1"></div>
-      <p class="c-mo">Bộ ảnh cưới studio trước ngày cưới, đi cùng một chiếc váy tiệc chọn trong bộ sưu tập Dolinhanh.</p>
+      <p class="c-mo">Một buổi chụp pre-wedding nhẹ nhàng, nơi nàng làm quen với chiếc váy, với máy ảnh và với chính mình trước ngày cưới.</p>
       <ul class="c-quyen" data-quyen="goi1"></ul>
-      <div class="c-cta"><a class="lien" href="#fitting">Giữ lịch Pre Wedding</a></div>
+      <div class="c-cta"><a class="lien" href="#fitting">Book a Private Fitting</a></div>
     </div>
   </div>
 </section>
@@ -462,10 +512,12 @@
     <div>
       <div class="c-so">02</div>
       <h3 class="c-ten">Wedding Day</h3>
+      <div class="c-tag">For the day you’ve been waiting for.</div>
+      <div class="gia-nhan">Investment</div>
       <div class="c-gia" data-gia="goi2"></div>
-      <p class="c-mo">Hai chiếc váy cho ngày chính và một nhiếp ảnh gia theo suốt tiệc — từ đón khách tới lúc tàn tiệc.</p>
+      <p class="c-mo">Những chiếc váy được chuẩn bị theo từng khoảnh khắc của ngày cưới, cùng sự chăm sóc cần thiết để nàng có thể tận hưởng ngày của mình.</p>
       <ul class="c-quyen" data-quyen="goi2"></ul>
-      <div class="c-cta"><a class="lien" href="#fitting">Giữ lịch Wedding Day</a></div>
+      <div class="c-cta"><a class="lien" href="#fitting">Book a Private Fitting</a></div>
     </div>
   </div>
 </section>
@@ -476,12 +528,14 @@
     <div>
       <div class="c-so">03</div>
       <h3 class="c-ten">Wedding Story</h3>
+      <div class="c-tag">For everything worth remembering.</div>
+      <div class="gia-nhan">Investment</div>
       <div class="c-gia" data-gia="goi3"></div>
     </div>
     <div>
-      <p class="c-mo">Có cả ảnh lẫn phim của ngày cưới. Nhiếp ảnh và quay phim cùng ê-kíp Nupakachi nên phối hợp ăn ý, không giẫm chân nhau trong tiệc.</p>
+      <p class="c-mo">Ảnh và phim cùng kể lại một ngày — những khoảnh khắc lớn và cả những điều rất nhỏ.</p>
       <ul class="c-quyen" data-quyen="goi3"></ul>
-      <div class="c-cta"><a class="lien sang" href="#fitting">Giữ lịch Wedding Story</a></div>
+      <div class="c-cta"><a class="lien sang" href="#fitting">Book a Private Fitting</a></div>
     </div>
   </div>
 </section>
@@ -492,24 +546,26 @@
     <div class="nhan-sig">Most complete experience</div>
     <div class="c-so">04</div>
     <h3 class="c-ten">Wedding Signature</h3>
+    <div class="c-tag">For the complete experience.</div>
+    <div class="gia-nhan">Investment</div>
     <div class="c-gia" data-gia="goi4"></div>
     <ul class="c-quyen" data-quyen="goi4"></ul>
-    <div class="khep">The complete wedding experience.</div>
-    <div class="c-cta"><a class="nut" href="#fitting">Giữ lịch Signature</a></div>
+    <div class="khep">Từ những ngày đầu chuẩn bị đến những ký ức được giữ lại sau cùng.</div>
+    <div class="c-cta"><a class="nut" href="#fitting">Book a Private Fitting</a></div>
   </div>
 </section>
 
-<p class="eyebrow" style="text-align:center;padding:26px var(--gutter);background:var(--ivory);margin:0">Giá máy chụp / máy quay 9 tiếng áp dụng tiệc tại Hà Nội · TP.HCM và tỉnh khác Dolinhanh báo riêng</p>
+<p class="eyebrow" style="text-align:center;padding:26px var(--gutter);background:var(--ivory);margin:0">Chụp và quay 9 tiếng tính cho tiệc tại Hà Nội · TP.HCM và tỉnh khác, Dolinhanh trao đổi riêng</p>
 
 <!-- ══════════ UPGRADE ══════════ -->
 <section class="up" id="upgrade">
   <div class="wrap muc len">
     <div class="up-luoi">
       <div>
-        <div class="eyebrow" style="margin-bottom:22px">Upgrade</div>
-        <h2>Start where you are.<br>Go further when you're ready.</h2>
-        <p>Cô dâu có thể bắt đầu với một gói và nâng lên gói cao hơn trước ngày cưới — chỉ thanh toán phần chênh lệch giữa hai gói theo chính sách hiện tại, không tính lại từ đầu.</p>
-        <p class="chinh-sach">Phần chênh bên cạnh là hiệu số giữa hai mức giá đang niêm yết.</p>
+        <div class="eyebrow" style="margin-bottom:22px">In your own time</div>
+        <h2>Begin where it feels right.<br>Let the experience grow with you.</h2>
+        <p>Nàng không cần quyết định tất cả ngay từ đầu. Có thể bắt đầu từ điều mình cần hôm nay, rồi thêm vào những điều phù hợp hơn khi ngày cưới đến gần — chỉ với phần chênh giữa hai lựa chọn.</p>
+        <p class="chinh-sach">Phần chênh bên cạnh là hiệu số giữa hai mức đang niêm yết.</p>
       </div>
       <ul class="flow" id="flow"></ul>
     </div>
@@ -520,7 +576,10 @@
 <section id="brides" style="background:var(--paper)">
   <div class="wrap muc len">
     <div class="rb-dau">
-      <h2>Real brides.<br>Real moments.</h2>
+      <div>
+        <h2>Real brides.<br>Real moments.</h2>
+        <p class="rb-cau" style="margin-top:16px">The moments we remember are rarely the ones we planned.</p>
+      </div>
       <a class="lien" href="https://www.instagram.com/dolinhanh.bridal/" target="_blank" rel="noopener">@dolinhanh.bridal</a>
     </div>
     <div class="rb">
@@ -540,9 +599,10 @@
   <div class="wrap">
     <div class="eyebrow sang">Private fitting · Hà Nội &amp; TP.HCM</div>
     <h2>Your dress<br>should feel like yours.</h2>
+    <p class="quote">Not simply beautiful. Not simply perfect.<br>But unmistakably you.</p>
     <div class="nut-hang">
-      <a class="nut dac" href="https://zalo.me/0359950588" target="_blank" rel="noopener">Book your private fitting</a>
-      <a class="nut" href="tel:+84359950588">Đặt lịch thử váy · 035 995 0588</a>
+      <a class="nut dac" href="https://zalo.me/0359950588" target="_blank" rel="noopener">Book a Private Fitting</a>
+      <a class="nut" href="tel:+84359950588">035 995 0588</a>
     </div>
     <div class="lh">Chăm sóc khách hàng · <a href="tel:+84359950588">035 995 0588</a> / <a href="tel:+84385279999">038 527 9999</a></div>
   </div>
@@ -552,7 +612,7 @@
   <div class="wrap ft">
     <div>
       <div class="wm">Dolinhanh</div>
-      <p style="margin-top:12px;max-width:34ch">Một thương hiệu của Nupakachi. Váy cưới may đo, cho thuê và chụp hình tại Hà Nội và TP.HCM.</p>
+      <p style="margin-top:12px;max-width:34ch">Crafted by Mother Love. Một thương hiệu của Nupakachi — váy cưới may đo, cho thuê và chụp hình tại Hà Nội và TP.HCM.</p>
     </div>
     <div>
       <div class="eyebrow">Showroom Hà Nội</div>
@@ -572,7 +632,7 @@
   </div>
   <div class="wrap ft-cuoi">
     <span>Dolinhanh Bridal Experience 2026</span>
-    <span>Giá có thể thay đổi theo mùa cưới · Báo giá chính thức gửi sau buổi thử</span>
+    <span>Mức đầu tư có thể thay đổi theo mùa cưới · Chi tiết được trao đổi trong buổi fitting riêng</span>
   </div>
 </footer>
 
@@ -583,10 +643,10 @@
      ══════════════════════════════════════════════════════ */
   const BANG_GIA = {
     /* A. Bridal experiences (giá V1 chị Linh duyệt 18/08/2026) */
-    vay1: { gia:"1.888.000đ",  quyen:["Chăm sóc 1h cùng stylist","Mannequin","Phác thảo váy","Thiệp cưới online"] },
-    vay2: { gia:"6.888.000đ",  quyen:["1 váy chọn lọc","Ưu đãi khách lần đầu","1 vest","Thiệp cưới online"] },
-    vay3: { gia:"15.888.000đ", quyen:["2 váy","1 vest hoặc voan thêu tên / thêu quotes","Trang điểm cô dâu tại studio","Thiệp cưới online","Phác thảo váy"] },
-    vay4: { ten:"Full", gia:"28.800.000đ", quyen:["3 váy","Combo áo dài đôi","1 vest hoặc voan thêu tên / thêu quotes","Trang điểm cô dâu","Chăm sóc 3 tiếng","Mannequin","Thiệp cưới online","Phác thảo váy"] },
+    vay1: { gia:"1.888.000 VND",  quyen:["Chăm sóc 1h cùng stylist","Mannequin","Phác thảo váy","Thiệp cưới online"] },
+    vay2: { gia:"6.888.000 VND",  quyen:["1 váy chọn lọc","Dành cho lần đặt lịch đầu tiên","1 vest","Thiệp cưới online"] },
+    vay3: { gia:"15.888.000 VND", quyen:["2 váy","1 vest hoặc voan thêu tên / thêu quotes","Trang điểm cô dâu tại studio","Thiệp cưới online","Phác thảo váy"] },
+    vay4: { ten:"Full", gia:"28.800.000 VND", quyen:["3 váy","Áo dài đôi","1 vest hoặc voan thêu tên / thêu quotes","Trang điểm cô dâu","Chăm sóc 3 tiếng","Mannequin","Thiệp cưới online","Phác thảo váy"] },
 
     /* B. Wedding experience — số triệu để tính chênh */
     goi1: { ten:"Pre Wedding",       trieu:14.8, quyen:["Chụp pre-wedding studio","1 váy tiệc"] },
@@ -600,7 +660,7 @@
     const vn = n => n.toLocaleString("vi-VN",{minimumFractionDigits:1,maximumFractionDigits:1});
     document.querySelectorAll("[data-gia]").forEach(o=>{
       const g=BANG_GIA[o.dataset.gia]; if(!g) return;
-      o.textContent = g.gia || (vn(g.trieu)+" triệu");
+      o.textContent = g.gia || (Math.round(g.trieu*1e6).toLocaleString("vi-VN")+" VND");
     });
     document.querySelectorAll("[data-gia-ngan]").forEach(o=>{
       const g=BANG_GIA[o.dataset.giaNgan]; if(!g) return;
@@ -618,7 +678,7 @@
     let html="";
     keys.forEach((k,i)=>{
       const g=BANG_GIA[k];
-      const chenh = i? "+ "+vn(g.trieu-BANG_GIA[keys[i-1]].trieu)+" triệu" : vn(g.trieu)+" triệu";
+      const chenh = i? "+ "+Math.round((g.trieu-BANG_GIA[keys[i-1]].trieu)*1e6).toLocaleString("vi-VN")+" VND" : Math.round(g.trieu*1e6).toLocaleString("vi-VN")+" VND";
       if(i) html+='<li class="mui-hang"><span class="mui">↓</span></li>';
       html+='<li><span class="so">0'+(i+1)+'</span><span class="ten">'+g.ten+'</span><span class="chenh">'+chenh+'</span></li>';
     });
