@@ -110,18 +110,14 @@
 
   /* ── hero ────────────────────────────────────────────── */
   .hero{
-    position:relative;min-height:min(88svh,780px);color:#fff;
+    position:relative;min-height:min(100svh,920px);color:#fff;
     background:var(--charcoal) url('anh/bia.jpg') center 22%/cover no-repeat;
     display:flex;align-items:flex-end;
   }
   .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(23,19,15,.42) 0%,rgba(23,19,15,.05) 30%,rgba(23,19,15,.25) 60%,rgba(23,19,15,.78) 100%)}
   .hero .wrap{position:relative;z-index:1;width:100%;padding-bottom:clamp(40px,7vh,84px);display:grid;gap:clamp(18px,3vh,30px)}
-  .hero .kicker{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center}
-  .hero .kicker .ke{display:inline-block;width:38px;height:1px;background:var(--champagne)}
-  .hero .nhan-mau{color:var(--champagne)}
-  .hero-cta{display:flex;flex-wrap:wrap;align-items:center;gap:14px 26px;margin-top:6px}
-  .hero-cta .eyebrow{color:rgba(255,255,255,.62)}
-  .hero .kicker .eyebrow{color:var(--champagne);letter-spacing:.3em}
+  .hero .kicker{display:flex;flex-wrap:wrap;gap:8px 22px;align-items:baseline}
+  .hero .kicker .eyebrow{color:rgba(255,255,255,.8)}
   .hero h1{font-size:var(--t-hero);color:#fff;max-width:14ch;letter-spacing:-.012em}
   .hero h1 em{font-style:italic;font-weight:400}
   
@@ -340,6 +336,7 @@
 <header>
   <div class="wrap hd">
     <a class="wordmark" href="#top">Dolinhanh</a>
+    <span class="eyebrow">Bridal Experience 2026 · Hà Nội &amp; TP.HCM</span>
     <a class="lien sang" href="#fitting"><span class="dai-chu">Book a </span>Private Fitting</a>
   </div>
 </header>
@@ -348,19 +345,19 @@
 <section class="hero" id="top">
   <div class="wrap">
     <div class="kicker">
-      <span class="ke"></span>
-      <span class="eyebrow">Crafted by Mother Love</span>
+      <span class="eyebrow">Dolinhanh</span>
+      <span class="eyebrow">Bridal Experience</span>
+      <span class="eyebrow">2026</span>
     </div>
     <h1>Quiet luxury,<br><em>made personal.</em></h1>
-    <p class="tag">Ở Dolinhanh, mỗi cô dâu được lắng nghe trước khi được tư vấn.</p>
-    <div class="hero-cta"><a class="nut" href="#fitting">Book a Private Fitting</a><span class="eyebrow">Hà Nội &amp; TP.HCM · 2026</span></div>
+    <p class="tag">Một chiếc váy được chọn không chỉ vì nó đẹp — mà vì nó hợp với người mặc.</p>
   </div>
 </section>
 
 <!-- ══════════ BRAND ══════════ -->
 <section class="brand">
   <div class="wrap muc len">
-    <div class="eyebrow" style="margin-bottom:22px">Dolinhanh · since 2017</div>
+    <div class="eyebrow" style="margin-bottom:22px">Crafted by Mother Love</div>
     <h2>Made by hand.<br>Made with patience.<br>Made for her.</h2>
     <p class="dan" style="text-align:center">Dolinhanh tin rằng vẻ đẹp của cô dâu không cần được tạo ra từ đầu — nó đã ở đó. Chiếc váy chỉ giúp nàng nhìn thấy nó rõ hơn. Tay nghề thủ công, chất liệu và phom dáng được chọn để phục vụ người mặc, không phải ngược lại.</p>
   </div>
