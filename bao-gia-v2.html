@@ -39,7 +39,9 @@
     --hair-dark:rgba(255,255,255,.18);
     --champagne:#CDBBA2;
 
-    --serif:"Bodoni 72","Bodoni MT",Didot,"Didot LT STD",Baskerville,"Cormorant Garamond",Georgia,"Times New Roman",serif;
+    /* bộ chữ = V1: Bodoni cho wordmark/số/giá, Baskerville tiêu đề + thân, Helvetica nhãn nhỏ */
+    --didone:"Bodoni 72","Bodoni MT",Didot,"Didot LT STD","Playfair Display",Georgia,"Times New Roman",serif;
+    --serif:Baskerville,"Baskerville Old Face",Cochin,Georgia,"Iowan Old Style","Times New Roman",serif;
     --sans:"Helvetica Neue",Helvetica,Arial,"Segoe UI",system-ui,sans-serif;
 
     --gutter:clamp(20px,5vw,72px);
@@ -55,12 +57,12 @@
   html{scroll-behavior:smooth}
   body{
     margin:0;background:var(--ivory);color:var(--ink-2);
-    font-family:var(--sans);font-size:1rem;line-height:1.6;
+    font-family:var(--serif);font-size:1rem;line-height:1.45;
     -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
   }
   img{max-width:100%;display:block}
   a{color:inherit}
-  h1,h2,h3{margin:0;font-family:var(--serif);font-weight:400;color:var(--ink);line-height:1.05;text-wrap:balance}
+  h1,h2,h3{margin:0;font-family:var(--serif);font-weight:400;color:var(--ink);line-height:1.06;letter-spacing:-.012em;text-wrap:balance}
   p{margin:0}
   ul{margin:0;padding:0;list-style:none}
 
@@ -99,7 +101,7 @@
     position:absolute;top:0;left:0;right:0;z-index:30;color:#fff;
   }
   .hd{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-block:clamp(18px,2.4vw,30px)}
-  .wordmark{font-family:var(--serif);font-size:clamp(1.15rem,1.8vw,1.5rem);letter-spacing:.34em;text-transform:uppercase;text-decoration:none;color:#fff}
+  .wordmark{font-family:var(--didone);font-size:clamp(1.15rem,1.8vw,1.5rem);letter-spacing:.34em;text-transform:uppercase;text-decoration:none;color:#fff}
   .hd .eyebrow{color:rgba(255,255,255,.75);display:none}
   @media(min-width:760px){.hd .eyebrow{display:block}}
   .hd .lien.sang{font-size:.66rem;border-bottom-color:transparent;white-space:nowrap}
@@ -127,11 +129,11 @@
   .muc.sat{padding-block:clamp(48px,7vw,96px)}
   .h-lon{font-size:var(--t-h1);letter-spacing:-.015em}
   .h-vua{font-size:var(--t-h2);letter-spacing:-.01em}
-  .dan{max-width:56ch;color:var(--grey);font-size:1.02rem;line-height:1.75}
+  .dan{max-width:56ch;color:var(--ink-2);font-size:1rem;line-height:1.5}
 
   /* brand */
   .brand{text-align:center;background:var(--ivory)}
-  .brand h2{font-size:var(--t-h1);letter-spacing:.02em;text-transform:uppercase;line-height:1.02}
+  .brand h2{font-size:var(--t-h1);letter-spacing:-.012em;text-transform:none;line-height:1.06}
   .brand p{margin:26px auto 0;max-width:52ch}
 
   /* dải ảnh full-width có câu ngắn */
@@ -147,7 +149,7 @@
   /* ── THE DOLINHANH EXPERIENCE: hàng editorial ─────────── */
   .exp-dau{display:grid;gap:14px;margin-bottom:clamp(30px,5vw,64px)}
   @media(min-width:900px){.exp-dau{grid-template-columns:1fr 1fr;align-items:end}}
-  .exp-dau h2{font-size:var(--t-h1);letter-spacing:.02em;text-transform:uppercase;line-height:1.02}
+  .exp-dau h2{font-size:var(--t-h1);letter-spacing:-.012em;text-transform:none;line-height:1.06}
   .exp-dau .phu{font-family:var(--serif);font-size:clamp(1.4rem,2.6vw,2.2rem);font-style:italic;color:var(--ink)}
   .hang{
     display:grid;grid-template-columns:1fr;gap:20px;
@@ -159,12 +161,12 @@
     .hang.dao{grid-template-columns:3fr 1.1fr 3fr 4fr}
     .hang.dao .anh{order:-1}
   }
-  .hang .so{font-family:var(--serif);font-size:var(--t-num);line-height:.85;color:var(--ink);letter-spacing:-.02em}
+  .hang .so{font-family:var(--didone);font-size:var(--t-num);line-height:.85;color:var(--ink);letter-spacing:-.02em}
   .hang .ten{font-family:var(--serif);font-size:clamp(1.6rem,2.8vw,2.4rem);line-height:1.05;letter-spacing:-.01em;color:var(--ink)}
-  .hang .gia{font-family:var(--serif);font-size:var(--t-price);color:var(--ink);margin-top:8px;font-variant-numeric:tabular-nums}
-  .hang .mo{color:var(--grey);margin-top:14px;max-width:34ch;font-size:.95rem;line-height:1.7}
-  .hang .quyen{display:grid;gap:10px;font-size:.98rem;color:var(--ink-2)}
-  .hang .quyen li{display:flex;gap:14px;line-height:1.5}
+  .hang .gia{font-family:var(--didone);font-size:var(--t-price);color:var(--ink);margin-top:8px;font-variant-numeric:tabular-nums}
+  .hang .mo{color:var(--ink-2);margin-top:12px;max-width:34ch;font-size:.95rem;line-height:1.45}
+  .hang .quyen{display:grid;gap:5px;font-size:.95rem;color:var(--ink-2)}
+  .hang .quyen li{display:flex;gap:12px;line-height:1.4}
   .hang .quyen li::before{content:"";flex:none;width:18px;height:1px;background:var(--ink);margin-top:.75em}
   .hang .quyen .nhan-quyen{margin-bottom:6px}
   .hang .cta{margin-top:22px}
@@ -179,8 +181,8 @@
   .toi .eyebrow{color:rgba(255,255,255,.6)}
   .toi-luoi{display:grid;gap:clamp(30px,5vw,80px)}
   @media(min-width:900px){.toi-luoi{grid-template-columns:1.2fr 1fr;align-items:end}}
-  .toi h2{font-size:var(--t-hero);letter-spacing:-.015em;text-transform:uppercase;line-height:.98}
-  .toi p{max-width:44ch;color:rgba(255,255,255,.72);line-height:1.75}
+  .toi h2{font-size:var(--t-hero);letter-spacing:-.015em;text-transform:none;line-height:1.02}
+  .toi p{max-width:44ch;color:rgba(255,255,255,.78);line-height:1.5}
   .tien-trinh{display:grid;grid-template-columns:repeat(2,1fr);gap:22px 0;margin-top:clamp(36px,5vw,64px);border-top:1px solid var(--hair-dark)}
   .tien-trinh div{padding:22px 0 0;border-right:1px solid var(--hair-dark);padding-right:14px;margin-right:14px;min-width:0}
   .tien-trinh div:nth-child(2n){border-right:0;margin-right:0;padding-right:0}
@@ -190,7 +192,7 @@
     .tien-trinh div:last-child{border-right:0;margin-right:0;padding-right:0}
   }
   html,body{overflow-x:hidden}
-  .tien-trinh .g{font-family:var(--serif);font-size:clamp(1.3rem,3vw,2.6rem);color:#fff;line-height:1;font-variant-numeric:tabular-nums}
+  .tien-trinh .g{font-family:var(--didone);font-size:clamp(1.3rem,3vw,2.6rem);color:#fff;line-height:1;font-variant-numeric:tabular-nums}
   .tien-trinh .g small{font-size:.5em;letter-spacing:.06em;margin-left:2px}
   .tien-trinh .n{font-family:var(--sans);font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.62);margin-top:10px;line-height:1.5}
   .tien-trinh div:last-child .g{color:var(--champagne)}
@@ -203,12 +205,12 @@
   }
   .c-anh{aspect-ratio:4/5;background:var(--stone) center 16%/cover no-repeat;width:100%}
   @media(min-width:900px){.c-anh{aspect-ratio:3/4;max-height:86vh}}
-  .c-so{font-family:var(--serif);font-size:var(--t-num);line-height:.85;letter-spacing:-.02em;color:var(--ink)}
-  .c-ten{font-family:var(--serif);font-size:clamp(2rem,4vw,3.6rem);letter-spacing:-.012em;line-height:1;margin-top:14px;text-transform:uppercase}
-  .c-gia{font-family:var(--serif);font-size:var(--t-price);margin-top:14px;font-variant-numeric:tabular-nums;color:var(--ink)}
-  .c-mo{color:var(--grey);margin-top:22px;max-width:44ch;line-height:1.75}
-  .c-quyen{margin-top:26px;display:grid;gap:12px;max-width:44ch}
-  .c-quyen li{display:flex;gap:16px;align-items:baseline;font-size:1.02rem;color:var(--ink-2)}
+  .c-so{font-family:var(--didone);font-size:var(--t-num);line-height:.85;letter-spacing:-.02em;color:var(--ink)}
+  .c-ten{font-family:var(--serif);font-size:clamp(2rem,4vw,3.6rem);letter-spacing:-.012em;line-height:1.04;margin-top:14px;text-transform:none}
+  .c-gia{font-family:var(--didone);font-size:var(--t-price);margin-top:14px;font-variant-numeric:tabular-nums;color:var(--ink)}
+  .c-mo{color:var(--ink-2);margin-top:18px;max-width:44ch;line-height:1.5}
+  .c-quyen{margin-top:20px;display:grid;gap:6px;max-width:44ch}
+  .c-quyen li{display:flex;gap:14px;align-items:baseline;font-size:.98rem;color:var(--ink-2);line-height:1.4}
   .c-quyen li::before{content:"";flex:none;width:22px;height:1px;background:var(--ink);transform:translateY(-.35em)}
   .c-cta{margin-top:30px}
   .chuong.nen{background:var(--paper)}
@@ -221,7 +223,7 @@
   .chuong-band .wrap{position:relative;z-index:1;padding-block:clamp(40px,6vw,80px);display:grid;gap:18px}
   @media(min-width:900px){.chuong-band .wrap{grid-template-columns:1fr 1fr;align-items:end}}
   .chuong-band .c-so,.chuong-band .c-ten,.chuong-band .c-gia{color:#fff}
-  .chuong-band .c-mo{color:rgba(255,255,255,.78)}
+  .chuong-band .c-mo{color:rgba(255,255,255,.85)}
   .chuong-band .c-quyen li{color:#fff}
   .chuong-band .c-quyen li::before{background:#fff}
   /* chương 04: signature — ảnh cao nhất, chữ giữa */
@@ -245,12 +247,12 @@
   .up{background:var(--stone)}
   .up-luoi{display:grid;gap:clamp(30px,5vw,80px)}
   @media(min-width:900px){.up-luoi{grid-template-columns:1fr 1fr;align-items:start}}
-  .up h2{font-size:var(--t-h1);letter-spacing:.02em;text-transform:uppercase;line-height:1.04}
-  .up p{margin-top:24px;max-width:44ch;color:var(--grey);line-height:1.75}
+  .up h2{font-size:var(--t-h1);letter-spacing:-.012em;text-transform:none;line-height:1.06}
+  .up p{margin-top:20px;max-width:44ch;color:var(--ink-2);line-height:1.5}
   .flow{display:grid;gap:0}
   .flow li{display:grid;grid-template-columns:auto 1fr auto;align-items:baseline;gap:18px;padding:18px 0;border-bottom:1px solid var(--hair)}
   .flow li:first-child{border-top:1px solid var(--hair)}
-  .flow .so{font-family:var(--serif);font-size:1.6rem;color:var(--grey-2);width:2.2ch}
+  .flow .so{font-family:var(--didone);font-size:1.6rem;color:var(--grey-2);width:2.2ch}
   .flow .ten{font-family:var(--serif);font-size:clamp(1.3rem,2.2vw,1.9rem);color:var(--ink);letter-spacing:-.01em}
   .flow .chenh{font-family:var(--sans);font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--grey);white-space:nowrap}
   .flow .mui{grid-column:1/-1;font-family:var(--sans);color:var(--grey-2);font-size:.9rem;padding-left:calc(2.2ch + 18px);line-height:1}
@@ -260,7 +262,7 @@
 
   /* ── REAL BRIDES ─────────────────────────────────────── */
   .rb-dau{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:16px;margin-bottom:clamp(26px,4vw,48px)}
-  .rb-dau h2{font-size:var(--t-h1);letter-spacing:.02em;text-transform:uppercase;line-height:1.02}
+  .rb-dau h2{font-size:var(--t-h1);letter-spacing:-.012em;text-transform:none;line-height:1.06}
   .rb{display:grid;gap:clamp(10px,1.4vw,20px);grid-template-columns:repeat(2,1fr)}
   .rb a{display:block;background:var(--stone) center 14%/cover no-repeat;aspect-ratio:4/5;transition:opacity .35s}
   .rb a:hover{opacity:.9}
@@ -283,7 +285,7 @@
   }
   .cuoi::after{content:"";position:absolute;inset:0;background:rgba(23,19,15,.5)}
   .cuoi .wrap{position:relative;z-index:1;display:grid;justify-items:center;gap:22px}
-  .cuoi h2{color:#fff;font-size:var(--t-hero);letter-spacing:-.012em;text-transform:uppercase;line-height:.98}
+  .cuoi h2{color:#fff;font-size:var(--t-hero);letter-spacing:-.012em;text-transform:none;line-height:1.02}
   .cuoi .nut-hang{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;margin-top:8px}
   .cuoi .nut.dac{background:#fff;color:var(--ink)}
   .cuoi .nut.dac:hover{background:transparent;color:#fff}
@@ -291,26 +293,26 @@
   .cuoi .lh a{text-decoration:none}
 
   /* ── footer ──────────────────────────────────────────── */
-  footer{background:var(--ivory);color:var(--grey);font-size:.9rem}
+  footer{background:var(--ivory);color:var(--ink-2);font-size:.95rem;line-height:1.45}
   .ft{display:grid;gap:26px;padding-block:clamp(40px,5vw,64px)}
   @media(min-width:820px){.ft{grid-template-columns:1.2fr 1fr 1fr 1fr}}
   .ft .eyebrow{margin-bottom:10px;color:var(--ink)}
   .ft a{text-decoration:none}
   .ft a:hover{color:var(--ink)}
-  .ft .wm{font-family:var(--serif);font-size:1.4rem;letter-spacing:.3em;text-transform:uppercase;color:var(--ink)}
+  .ft .wm{font-family:var(--didone);font-size:1.4rem;letter-spacing:.3em;text-transform:uppercase;color:var(--ink)}
   .ft-cuoi{padding-block:18px;border-top:1px solid var(--hair);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--grey-2);display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-between}
 
   /* ── bổ sung cho bản copy mới ─────────────────────────── */
-  .hero .tag{text-transform:none;letter-spacing:.02em;font-size:clamp(.95rem,1.3vw,1.1rem);max-width:44ch;line-height:1.55}
+  .hero .tag{font-family:var(--serif);text-transform:none;letter-spacing:0;font-size:clamp(1rem,1.4vw,1.15rem);max-width:44ch;line-height:1.45}
   @media(min-width:900px){.hang.hanh-trinh{grid-template-columns:1.1fr 3fr 7fr}}
   .hang.hanh-trinh .ten{font-style:italic}
-  .hang.hanh-trinh .van{color:var(--ink-2);max-width:52ch;line-height:1.75}
+  .hang.hanh-trinh .van{color:var(--ink-2);max-width:52ch;line-height:1.5}
   .gia-nhan{font-family:var(--sans);font-size:.62rem;letter-spacing:.26em;text-transform:uppercase;color:var(--grey-2);margin-top:12px}
   .toi .gia-nhan,.chuong-band .gia-nhan,.chuong-sig .gia-nhan{color:rgba(255,255,255,.55)}
   .c-tag{font-family:var(--serif);font-style:italic;font-size:clamp(1.15rem,1.8vw,1.5rem);color:var(--ink);margin-top:14px}
   .chuong-band .c-tag,.chuong-sig .c-tag{color:rgba(255,255,255,.9)}
   .rb-cau{font-family:var(--serif);font-style:italic;font-size:clamp(1.15rem,1.8vw,1.5rem);color:var(--ink);margin-top:-6px;max-width:34ch}
-  .cuoi .quote{font-family:var(--serif);font-style:italic;font-size:clamp(1.15rem,1.9vw,1.6rem);color:rgba(255,255,255,.88);line-height:1.5;max-width:30ch}
+  .cuoi .quote{font-family:var(--serif);font-style:italic;font-size:clamp(1.15rem,1.9vw,1.6rem);color:rgba(255,255,255,.88);line-height:1.4;max-width:30ch}
 
   /* ── reveal khi cuộn (rất nhẹ) ───────────────────────── */
   html.js .len{opacity:0;transform:translateY(18px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
