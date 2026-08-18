@@ -43,7 +43,7 @@
     --champagne:#CDBBA2;
 
     /* bộ chữ theo mẫu Athena (chị Linh chốt 18/08): Playfair Display tiêu đề/số/giá, Montserrat thân + nhãn */
-    --didone:"Playfair Display","Bodoni 72",Didot,Georgia,"Times New Roman",serif;
+    --didone:"Bodoni 72","Bodoni MT",Didot,"Didot LT STD","Playfair Display",Georgia,"Times New Roman",serif;
     --serif:"Playfair Display","Bodoni 72",Didot,Georgia,"Times New Roman",serif;
     --sans:Montserrat,"Helvetica Neue",Helvetica,Arial,"Segoe UI",system-ui,sans-serif;
 
@@ -125,7 +125,7 @@
   .hero-cta{display:flex;flex-wrap:wrap;align-items:center;gap:14px 26px;margin-top:6px}
   .hero-cta .eyebrow{color:rgba(255,255,255,.62)}
   .hero .kicker .eyebrow{color:var(--champagne);letter-spacing:.3em}
-  .hero h1{font-size:clamp(2rem,5.2vw,4.4rem);color:#fff;max-width:16ch;letter-spacing:.08em;line-height:1.15}
+  .hero h1{font-family:var(--didone);font-size:var(--t-hero);color:#fff;max-width:14ch;letter-spacing:-.012em;line-height:1.02;text-transform:none}
   
   .hero .tag{font-family:var(--sans);font-size:clamp(.78rem,1.1vw,.92rem);letter-spacing:.3em;text-transform:uppercase;color:rgba(255,255,255,.82)}
   @media(max-width:700px){.hero{background-position:70% 20%}}
