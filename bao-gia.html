@@ -154,6 +154,15 @@
     .goi-o:nth-child(2n){border-right:1px solid var(--hair)}
     .goi-o:last-child{border-right:none}
   }
+  /* nhóm 3 gói váy: 3 cột từ 900px */
+  @media(min-width:900px){
+    .goi.ba{grid-template-columns:repeat(3,1fr)}
+    .goi.ba .goi-o{border-bottom:none;border-right:1px solid var(--hair)}
+    .goi.ba .goi-o:nth-child(2n){border-right:1px solid var(--hair)}
+    .goi.ba .goi-o:last-child{border-right:none}
+  }
+  .dau-nhom{text-align:center;padding-top:clamp(50px,7vw,110px);padding-bottom:clamp(22px,3vw,40px);display:flex;flex-direction:column;gap:8px;align-items:center}
+  .dau-nhom h2{font-family:var(--display);font-size:clamp(1.3rem,2vw,1.7rem);text-transform:uppercase;letter-spacing:.12em}
   .goi-o .cong{font-family:var(--sans);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ghi);margin-top:-6px}
   .goi-o .cong b{color:var(--muc);font-weight:500}
   .goi-o h2{
@@ -287,7 +296,7 @@
       <a href="athena.html">Trang chủ</a>
       <a href="athena.html#gioi-thieu">Giới thiệu</a>
       <a href="athena.html#bo-suu-tap">Bộ sưu tập</a>
-      <a href="#goi">Báo giá</a>
+      <a href="#goi-vay">Báo giá</a>
       <a href="#lien-he">Liên hệ</a>
     </nav>
   </div>
@@ -297,14 +306,72 @@
 <section class="hero" id="dau" style="background-image:url('anh/bia.jpg')">
   <div class="hero-chu">
     <h1>Dolinhanh</h1>
-    <div class="nhan">Báo giá · Bốn gói combo váy &amp; ảnh cưới</div>
+    <div class="nhan">Báo giá · Gói váy &amp; gói combo váy – ảnh cưới</div>
   </div>
-  <a class="muiten" href="#goi" aria-label="Cuộn xuống xem bốn gói">↓</a>
+  <a class="muiten" href="#goi-vay" aria-label="Cuộn xuống xem các gói">↓</a>
+</section>
+
+<!-- ══════════ BA GÓI VÁY ══════════ -->
+<section id="goi-vay">
+  <div class="wrap dau-nhom len">
+    <div class="nhan nhan-mo">Chỉ váy</div>
+    <h2>Gói váy</h2>
+  </div>
+  <div class="wrap goi ba len" style="padding-top:0">
+    <div class="goi-o">
+      <div class="nhan nhan-mo">Gói 01</div>
+      <div class="ten">Bride Care</div>
+      <h2><span class="gia"><span data-gia="vay1"></span></span></h2>
+      <div class="cong">Chăm sóc 1h30 &nbsp;+&nbsp; mannequin &nbsp;+&nbsp; phác thảo váy &nbsp;+&nbsp; thiệp online</div>
+      <p>Bước đầu tiên nhẹ nhàng cho cô dâu chưa chốt váy: một buổi 1 tiếng 30 phút cùng stylist, bản phác thảo váy theo dáng và thiệp cưới online của nhà.</p>
+      <ul>
+        <li>Buổi chăm sóc &amp; tư vấn 1h30 cùng stylist</li>
+        <li>Mannequin</li>
+        <li>Phác thảo váy theo dáng cô dâu</li>
+        <li>Thiệp cưới online</li>
+      </ul>
+      <div class="lien"><a class="lien-chu" href="#lien-he">Giữ lịch Bride Care</a></div>
+    </div>
+
+    <div class="goi-o">
+      <div class="nhan nhan-mo">Gói 02</div>
+      <div class="ten">Pretty Dress</div>
+      <h2><span class="gia"><span data-gia="vay2"></span></span></h2>
+      <div class="cong">Váy chọn lọc đồng giá &nbsp;·&nbsp; khách đặt lần đầu</div>
+      <p>Các mẫu váy chọn lọc trong bộ sưu tập, một mức giá duy nhất — dành cho cô dâu đặt lịch với nhà lần đầu.</p>
+      <ul>
+        <li>Váy trong nhóm chọn lọc, đồng giá</li>
+        <li>Áp dụng cho lần đặt đầu tiên</li>
+        <li>Chỉnh sườn – ngực – gấu theo dáng</li>
+        <li>Giặt hấp trước khi giao</li>
+      </ul>
+      <div class="lien"><a class="lien-chu" href="#lien-he">Giữ lịch Pretty Dress</a></div>
+    </div>
+
+    <div class="goi-o noi">
+      <div class="khuyen">Đủ cho ngày cưới</div>
+      <div class="ten">Two Dresses</div>
+      <h2><span class="gia"><span data-gia="vay3"></span></span></h2>
+      <div class="cong"><b>2</b> váy &nbsp;+&nbsp; trang điểm tiệc &nbsp;+&nbsp; phác thảo váy &nbsp;+&nbsp; thiệp online</div>
+      <p>Hai chiếc váy cho ngày cưới, có sẵn trang điểm tiệc, bản phác thảo váy và thiệp cưới online — cô dâu chỉ cần tới thử.</p>
+      <ul>
+        <li>2 váy trong bộ sưu tập showroom</li>
+        <li>Trang điểm tiệc</li>
+        <li>Phác thảo váy theo dáng cô dâu</li>
+        <li>Thiệp cưới online</li>
+      </ul>
+      <div class="lien"><a class="lien-chu" href="#lien-he">Giữ lịch Two Dresses</a></div>
+    </div>
+  </div>
 </section>
 
 <!-- ══════════ BỐN GÓI COMBO ══════════ -->
-<section id="goi">
-  <div class="wrap goi len">
+<section id="goi" style="background:var(--kem-nhat)">
+  <div class="wrap dau-nhom len">
+    <div class="nhan nhan-mo">Váy &amp; ảnh – phim cùng Nupakachi</div>
+    <h2>Gói combo</h2>
+  </div>
+  <div class="wrap goi len" style="padding-top:0">
     <div class="goi-o">
       <div class="nhan nhan-mo">Gói 01</div>
       <div class="ten">Pre Wedding</div>
@@ -558,6 +625,11 @@
      ĐIỀN GIÁ Ở ĐÂY — chỉ sửa phần trong ngoặc kép.
      ══════════════════════════════════════════════════════ */
   const BANG_GIA = {
+    /* 3 gói váy — chị Linh chốt 18/08/2026 */
+    vay1:          "1.888.000đ",   // 01 Bride Care — take care 1h30 + mannequin + dress sketch + online invitation
+    vay2:          "5.888.000đ",   // 02 Pretty Dress — váy chọn lọc đồng giá, khách đặt lần đầu
+    vay3:          "15.888.000đ",  // 03 Two Dresses — 2 váy + party makeup + dress sketch + online invitation
+
     /* 4 gói combo — chị Linh chốt 18/08/2026 */
     goi1:          "14,8 triệu",   // 01 Pre Wedding — 1 váy tiệc + chụp pre studio
     goi2:          "16,8 triệu",   // 02 Wedding Day — 2 váy tiệc + 1 máy chụp tiệc 9h HN
