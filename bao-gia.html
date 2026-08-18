@@ -161,8 +161,10 @@
   }
   .dau-nhom{text-align:center;padding-top:clamp(34px,4.5vw,64px);padding-bottom:clamp(14px,2vw,26px);display:flex;flex-direction:column;gap:8px;align-items:center}
   .dau-nhom h2{font-family:var(--display);font-size:clamp(1.9rem,4.4vw,3.4rem);text-transform:none;letter-spacing:-.012em;font-weight:400;line-height:1.06}
-  .goi-o .cong{font-family:var(--sans);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ghi);margin-top:-2px;line-height:1.6}
-  .goi-o .cong b{color:var(--muc);font-weight:500}
+  .goi-o .cong-ds{display:flex;flex-direction:column;gap:5px;text-align:left;margin-top:4px;padding:0;list-style:none}
+  .goi-o .cong-ds li{font-size:.98rem;color:var(--muc);display:flex;gap:10px;line-height:1.4}
+  .goi-o .cong-ds li::before{content:"—";color:var(--hong);flex:none}
+  .goi-o p{margin-top:2px}
   .goi-o h2{
     font-family:var(--didone);font-size:clamp(1.6rem,2.6vw,2.3rem);
     text-transform:none;letter-spacing:0;font-weight:400;color:var(--muc);line-height:1.1;
@@ -328,14 +330,8 @@
       <div class="nhan nhan-mo">Gói 01</div>
       <div class="ten">Bride Care</div>
       <h2><span class="gia"><span data-gia="vay1"></span></span></h2>
-      <div class="cong">Chăm sóc 1h &nbsp;+&nbsp; mannequin &nbsp;+&nbsp; phác thảo váy &nbsp;+&nbsp; thiệp online</div>
+      <ul class="cong-ds"><li>Chăm sóc 1h</li><li>Mannequin</li><li>Phác thảo váy</li><li>Thiệp online</li></ul>
       <p>Dành cho cô dâu chưa có duyên thuê váy ở Dolinhanh — Dolinhanh vẫn chăm để ngày cưới của bạn trọn vẹn: một giờ cùng stylist, bản phác thảo váy theo dáng và thiệp cưới online của Dolinhanh.</p>
-      <ul>
-        <li>Một giờ chăm sóc &amp; tư vấn cùng stylist</li>
-        <li>Mannequin</li>
-        <li>Phác thảo váy theo dáng cô dâu</li>
-        <li>Thiệp cưới online</li>
-      </ul>
       <div class="lien"><a class="nut-coc" href="https://zalo.me/0359950588" target="_blank" rel="noopener">Cọc tại đây</a></div>
     </div>
 
@@ -343,14 +339,8 @@
       <div class="nhan nhan-mo">Gói 02</div>
       <div class="ten">Pretty Dress</div>
       <h2><span class="gia"><span data-gia="vay2"></span></span></h2>
-      <div class="cong">Váy chọn lọc đồng giá &nbsp;·&nbsp; khách đặt lần đầu</div>
+      <ul class="cong-ds"><li>Váy chọn lọc đồng giá</li><li>Khách đặt lần đầu</li></ul>
       <p>Các mẫu váy chọn lọc trong bộ sưu tập, một mức giá duy nhất — dành cho cô dâu đặt lịch với Dolinhanh lần đầu.</p>
-      <ul>
-        <li>Váy trong nhóm chọn lọc, đồng giá</li>
-        <li>Áp dụng cho lần đặt đầu tiên</li>
-        <li>Chỉnh sườn – ngực – gấu theo dáng</li>
-        <li>Giặt hấp trước khi giao</li>
-      </ul>
       <div class="lien"><a class="nut-coc" href="https://zalo.me/0359950588" target="_blank" rel="noopener">Cọc tại đây</a></div>
     </div>
 
@@ -358,14 +348,8 @@
       <div class="nhan nhan-mo">Gói 03</div>
       <div class="ten">Two Dresses</div>
       <h2><span class="gia"><span data-gia="vay3"></span></span></h2>
-      <div class="cong"><b>2</b> váy &nbsp;+&nbsp; trang điểm tiệc &nbsp;+&nbsp; phác thảo váy &nbsp;+&nbsp; thiệp online</div>
+      <ul class="cong-ds"><li>2 váy tiệc</li><li>Trang điểm tiệc</li><li>Phác thảo váy</li><li>Thiệp online</li></ul>
       <p>Hai chiếc váy cho ngày cưới, có sẵn trang điểm tiệc, bản phác thảo váy và thiệp cưới online — cô dâu chỉ cần tới thử.</p>
-      <ul>
-        <li>2 váy trong bộ sưu tập showroom</li>
-        <li>Trang điểm tiệc</li>
-        <li>Phác thảo váy theo dáng cô dâu</li>
-        <li>Thiệp cưới online</li>
-      </ul>
       <div class="lien"><a class="nut-coc" href="https://zalo.me/0359950588" target="_blank" rel="noopener">Cọc tại đây</a></div>
     </div>
 
@@ -373,15 +357,8 @@
       <div class="khuyen">Trọn vẹn cho cô dâu</div>
       <div class="ten"><span data-ten="vay4"></span></div>
       <h2><span class="gia"><span data-gia="vay4"></span></span></h2>
-      <div class="cong"><b>3</b> váy tiệc &nbsp;+&nbsp; makeup &amp; dặm &nbsp;+&nbsp; chăm sóc 3h &nbsp;+&nbsp; phác thảo váy &nbsp;+&nbsp; thiệp online</div>
+      <ul class="cong-ds"><li>3 váy tiệc</li><li>Trang điểm tiệc + dặm lại trong tiệc</li><li>Chăm sóc 3h</li><li>Phác thảo váy</li><li>Thiệp online</li></ul>
       <p>Ba chiếc váy tiệc cho ngày cưới, trang điểm và dặm lại trong tiệc, ba tiếng chăm sóc cùng stylist, bản phác thảo váy và thiệp cưới online — cô dâu không phải lo gì thêm về váy.</p>
-      <ul>
-        <li>3 váy tiệc trong bộ sưu tập showroom</li>
-        <li>Trang điểm tiệc + dặm lại trong tiệc</li>
-        <li>Chăm sóc &amp; tư vấn 3 tiếng cùng stylist</li>
-        <li>Phác thảo váy theo dáng cô dâu</li>
-        <li>Thiệp cưới online</li>
-      </ul>
       <div class="lien"><a class="nut-coc" href="https://zalo.me/0359950588" target="_blank" rel="noopener">Cọc tại đây</a></div>
     </div>
   </div>
@@ -398,14 +375,8 @@
       <div class="nhan nhan-mo">Gói 01</div>
       <div class="ten">Pre Wedding</div>
       <h2><span class="gia"><span data-gia="goi1"></span></span></h2>
-      <div class="cong"><b>1</b> váy tiệc &nbsp;+&nbsp; chụp pre studio</div>
+      <ul class="cong-ds"><li>1 váy tiệc</li><li>Chụp pre-wedding studio</li></ul>
       <p>Dành cho cặp đôi muốn có bộ ảnh cưới studio trước ngày cưới, đi kèm một chiếc váy tiệc chọn trong bộ sưu tập showroom.</p>
-      <ul>
-        <li>1 váy tiệc trong bộ sưu tập showroom</li>
-        <li>Chụp pre-wedding tại studio Nupakachi</li>
-        <li>Chỉnh sườn – ngực – gấu theo dáng</li>
-        <li>Giặt hấp trước khi giao</li>
-      </ul>
       <div class="lien"><a class="nut-coc" href="https://zalo.me/0359950588" target="_blank" rel="noopener">Cọc tại đây</a></div>
     </div>
 
@@ -413,14 +384,8 @@
       <div class="nhan nhan-mo">Gói 02</div>
       <div class="ten">Wedding Day</div>
       <h2><span class="gia"><span data-gia="goi2"></span></span></h2>
-      <div class="cong"><b>2</b> váy tiệc &nbsp;+&nbsp; 1 máy chụp tiệc 9 tiếng</div>
+      <ul class="cong-ds"><li>2 váy tiệc</li><li>1 máy chụp theo tiệc 9 tiếng</li></ul>
       <p>Dành cho cô dâu cần hai chiếc váy cho ngày chính và một nhiếp ảnh gia theo suốt tiệc — từ đón khách tới lúc tàn tiệc.</p>
-      <ul>
-        <li>2 váy tiệc trong bộ sưu tập showroom</li>
-        <li>1 máy chụp theo tiệc 9 tiếng tại Hà Nội</li>
-        <li>Chỉnh sườn – ngực – gấu theo dáng</li>
-        <li>Giặt hấp trước khi giao</li>
-      </ul>
       <div class="lien"><a class="nut-coc" href="https://zalo.me/0359950588" target="_blank" rel="noopener">Cọc tại đây</a></div>
     </div>
 
@@ -428,14 +393,8 @@
       <div class="nhan nhan-mo">Gói 03</div>
       <div class="ten">Wedding Story</div>
       <h2><span class="gia"><span data-gia="goi3"></span></span></h2>
-      <div class="cong"><b>2</b> váy tiệc &nbsp;+&nbsp; 1 máy chụp &nbsp;+&nbsp; 1 máy quay 9 tiếng</div>
+      <ul class="cong-ds"><li>2 váy tiệc</li><li>1 máy chụp theo tiệc 9 tiếng</li><li>1 máy quay theo tiệc 9 tiếng</li></ul>
       <p>Có cả ảnh lẫn phim của ngày cưới. Nhiếp ảnh và quay phim cùng ê-kíp Nupakachi nên phối hợp ăn ý, không giẫm chân nhau trong tiệc.</p>
-      <ul>
-        <li>2 váy tiệc trong bộ sưu tập showroom</li>
-        <li>1 máy chụp theo tiệc 9 tiếng tại Hà Nội</li>
-        <li>1 máy quay theo tiệc 9 tiếng tại Hà Nội</li>
-        <li>Chỉnh dáng và giặt hấp trước khi giao</li>
-      </ul>
       <div class="lien"><a class="nut-coc" href="https://zalo.me/0359950588" target="_blank" rel="noopener">Cọc tại đây</a></div>
     </div>
 
@@ -443,14 +402,8 @@
       <div class="khuyen">Trọn vẹn nhất</div>
       <div class="ten">Wedding Signature</div>
       <h2><span class="gia"><span data-gia="goi4"></span></span></h2>
-      <div class="cong"><b>2</b> váy tiệc &nbsp;+&nbsp; chụp pre &nbsp;+&nbsp; 1 máy chụp &nbsp;+&nbsp; 1 máy quay 9 tiếng</div>
+      <ul class="cong-ds"><li>2 váy tiệc</li><li>Chụp pre-wedding studio</li><li>1 máy chụp theo tiệc 9 tiếng</li><li>1 máy quay theo tiệc 9 tiếng</li></ul>
       <p>Cả hành trình cưới trong một hợp đồng: bộ ảnh pre-wedding trước ngày cưới, hai váy tiệc, ảnh và phim ngày cưới — một đầu mối, chốt giá một lần.</p>
-      <ul>
-        <li>2 váy tiệc trong bộ sưu tập showroom</li>
-        <li>Chụp pre-wedding tại studio Nupakachi</li>
-        <li>1 máy chụp theo tiệc 9 tiếng tại Hà Nội</li>
-        <li>1 máy quay theo tiệc 9 tiếng tại Hà Nội</li>
-      </ul>
       <div class="lien"><a class="nut-coc" href="https://zalo.me/0359950588" target="_blank" rel="noopener">Cọc tại đây</a></div>
     </div>
   </div>
