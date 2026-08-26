@@ -1,0 +1,466 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Buổi thử váy đầu tiên — Dolinhanh Bridal</title>
+<meta name="description" content="Mười điều cô dâu hay lo trước buổi thử váy cưới đầu tiên và cách hoá giải bằng dáng váy phù hợp. Dolinhanh Bridal — Hà Nội & TP.HCM.">
+<meta property="og:title" content="Buổi thử váy đầu tiên — Dolinhanh Bridal">
+<meta property="og:description" content="Mười điều cô dâu hay lo trước buổi thử váy cưới đầu tiên — và cách hoá giải.">
+<meta property="og:image" content="https://dolinhanh-bridal.github.io/web-thu/anh/bia.jpg">
+<meta property="og:type" content="article">
+<script>document.documentElement.classList.add("js");</script>
+<style>
+  :root{
+    /* bố cục Athena — màu & chữ theo bản Vogue (index.html) chị Linh thích */
+    --kem:#F6EFEE;          /* accent-wash */
+    --trang:#FFFFFF;
+    --kem-nhat:#FAF6F5;
+    --oliu:#141110;         /* dải trên: mực đen như nút ĐẶT LỊCH bản Vogue */
+    --muc:#141110;          /* ink */
+    --muc-nhat:#3A3234;
+    --ghi:#8C8285;          /* ink-soft */
+    --hair:#E2DBDA;
+    --hong:#8E5A5F;         /* accent */
+
+    --didone:"Bodoni 72","Bodoni MT",Didot,"Didot LT STD","Playfair Display",Georgia,"Times New Roman",serif;
+    --display:Baskerville,"Baskerville Old Face",Cochin,Georgia,"Iowan Old Style","Times New Roman",serif;
+    --sans:"Helvetica Neue",Helvetica,Arial,"Segoe UI",system-ui,sans-serif;
+
+    --gutter:clamp(20px,5vw,70px);
+    --max:1400px;
+  }
+
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;background:var(--trang);color:var(--muc-nhat);
+    font-family:var(--display);font-weight:400;font-size:1rem;line-height:1.45;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;display:block}
+  a{color:inherit}
+  h1,h2,h3{margin:0;font-weight:400;color:var(--muc)}
+  p{margin:0}
+  ul{margin:0;padding:0;list-style:none}
+
+  .wrap{max-width:var(--max);margin:0 auto;padding-inline:var(--gutter)}
+
+  /* chữ nhãn nhỏ kiểu Athena: Montserrat hoa, giãn cách rộng */
+  .nhan{
+    font-family:var(--sans);font-size:.67rem;font-weight:500;
+    letter-spacing:.2em;text-transform:uppercase;color:var(--muc);line-height:1.8;
+  }
+  .nhan-mo{color:var(--ghi)}
+  /* tiêu đề Playfair hoa, giãn cách rộng */
+  .tieu-de{
+    font-family:var(--display);font-weight:400;text-transform:uppercase;
+    letter-spacing:.1em;color:var(--muc);line-height:1.3;
+  }
+
+  /* ── dải cảnh báo bản nháp ───────────────────────────── */
+  .nhap{
+    display:none;background:var(--hong);color:#FFF;text-align:center;
+    font-family:var(--sans);font-size:.68rem;letter-spacing:.18em;
+    text-transform:uppercase;padding:9px var(--gutter);
+  }
+  .nhap.hien{display:block}
+
+  /* ── dải thông báo olive trên cùng (như trang chủ Athena) ── */
+  .bar{
+    background:var(--oliu);display:flex;align-items:center;justify-content:center;
+    gap:18px;padding:9px var(--gutter);
+  }
+  .bar span{
+    font-family:var(--sans);font-size:.7rem;letter-spacing:.2em;
+    text-transform:uppercase;color:#FFF;
+  }
+  .bar a{
+    font-family:var(--sans);font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;
+    background:#FFF;color:var(--muc);text-decoration:none;padding:5px 14px;
+  }
+  .bar a:hover{background:var(--hong);color:#FFF}
+
+  /* ── header ──────────────────────────────────────────── */
+  header{
+    position:sticky;top:0;z-index:40;background:var(--trang);border-bottom:1px solid var(--hair);
+  }
+  .hd{
+    display:flex;align-items:center;justify-content:space-between;gap:clamp(16px,4vw,60px);
+    padding-block:clamp(14px,1.6vw,22px);
+  }
+  .wordmark{
+    font-family:var(--didone);font-size:clamp(1.3rem,2.2vw,2.25rem);
+    letter-spacing:.06em;color:var(--muc);text-decoration:none;text-transform:uppercase;
+  }
+  .menu{display:none;gap:clamp(20px,3.4vw,58px)}
+  .menu a{text-decoration:none}
+  .menu a:hover{color:var(--hong)}
+  @media(min-width:960px){.menu{display:flex}}
+
+  /* ── hero: đúng hero bản Vogue (index.html) — chữ trái, veil tối dần xuống ── */
+  .hero{
+    position:relative;background:#0C0A0A;color:#fff;overflow:hidden;
+    min-height:clamp(360px,60vh,600px);
+    background-size:cover;background-position:center 26%;
+    filter:none;
+  }
+  .hero::after{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(180deg,rgba(12,10,10,.44) 0%,rgba(12,10,10,.12) 28%,rgba(12,10,10,.5) 60%,rgba(12,10,10,.8) 100%);
+  }
+  .hero-chu{
+    position:absolute;inset:auto 0 0 0;z-index:1;
+    padding:0 var(--gutter) clamp(28px,5vw,64px);
+    max-width:var(--max);margin:0 auto;width:100%;text-align:left;
+  }
+  .hero-chu h1{
+    font-family:var(--didone);font-weight:400;
+    font-size:clamp(2.3rem,7.2vw,5.9rem);line-height:.86;letter-spacing:.02em;
+    text-transform:uppercase;text-indent:0;color:#fff;max-width:16ch;text-wrap:balance;
+    text-shadow:none;
+  }
+  .hero-chu .tagline{
+    font-family:var(--sans);font-size:clamp(.72rem,1.3vw,.86rem);
+    letter-spacing:.34em;text-transform:uppercase;color:rgba(255,255,255,.8);
+    margin-top:clamp(14px,2vw,22px);
+  }
+  @keyframes up{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+  .hero-chu h1,.hero-chu .tagline{animation:up 1.1s cubic-bezier(.2,.7,.3,1) both}
+  .hero-chu h1{animation-delay:.16s}
+  .hero-chu .tagline{animation-delay:.34s}
+  @media(prefers-reduced-motion:reduce){.hero-chu h1,.hero-chu .tagline{animation:none}}
+  .muiten{display:none}
+
+  /* ── ba gói: 3 cột chia bằng kẻ dọc ──────────────────── */
+  .goi{
+    display:grid;gap:0;padding-block:clamp(30px,4vw,60px);
+  }
+  @media(min-width:640px){.goi{grid-template-columns:repeat(2,1fr)}}
+  @media(min-width:1040px){.goi{grid-template-columns:repeat(4,1fr)}}
+  .goi-o{
+    padding:clamp(26px,3vw,44px) clamp(20px,2.2vw,38px);
+    border-bottom:1px solid var(--hair);text-align:center;
+    display:flex;flex-direction:column;gap:9px;
+  }
+  @media(min-width:640px){
+    .goi-o{border-right:1px solid var(--hair)}
+    .goi-o:nth-child(2n){border-right:none}
+  }
+  @media(min-width:1040px){
+    .goi-o{border-bottom:none;border-right:1px solid var(--hair)}
+    .goi-o:nth-child(2n){border-right:1px solid var(--hair)}
+    .goi-o:last-child{border-right:none}
+  }
+  /* nhóm 3 gói váy: 3 cột từ 900px */
+  @media(min-width:900px){
+    .goi.ba{grid-template-columns:repeat(3,1fr)}
+    .goi.ba .goi-o{border-bottom:none;border-right:1px solid var(--hair)}
+    .goi.ba .goi-o:nth-child(2n){border-right:1px solid var(--hair)}
+    .goi.ba .goi-o:last-child{border-right:none}
+  }
+  .dau-nhom{text-align:center;padding-top:clamp(34px,4.5vw,64px);padding-bottom:clamp(14px,2vw,26px);display:flex;flex-direction:column;gap:8px;align-items:center}
+  .dau-nhom h2{font-family:var(--display);font-size:clamp(1.9rem,4.4vw,3.4rem);text-transform:none;letter-spacing:-.012em;font-weight:400;line-height:1.06}
+  .goi-o .cong-ds{display:flex;flex-direction:column;gap:5px;text-align:left;margin-top:4px;padding:0;list-style:none}
+  .goi-o .cong-ds li{font-size:.98rem;color:var(--muc);display:flex;gap:10px;line-height:1.4}
+  .goi-o .cong-ds li::before{content:"—";color:var(--hong);flex:none}
+  .goi-o p{margin-top:2px}
+  .goi-o h2{
+    font-family:var(--didone);font-size:clamp(1.6rem,2.6vw,2.3rem);
+    text-transform:none;letter-spacing:0;font-weight:400;color:var(--muc);line-height:1.1;
+  }
+  .goi-o .ten{font-family:var(--display);font-size:clamp(1.45rem,2.1vw,1.9rem);letter-spacing:-.01em;text-transform:none;color:var(--muc);font-weight:400;line-height:1.15;text-wrap:balance}
+  .goi-o p{text-align:left;font-size:.95rem;color:var(--muc-nhat)}
+  .goi-o ul{display:flex;flex-direction:column;gap:4px;text-align:left;margin-top:6px}
+  .goi-o li{font-size:.92rem;display:flex;gap:10px;color:var(--muc-nhat);line-height:1.4}
+  .goi-o li::before{content:"—";color:var(--hong);flex:none}
+  .goi-o .lien{margin-top:auto;padding-top:18px}
+  /* gói được khuyên chọn: chỉ khác bằng một nhãn nhỏ (chị Linh bỏ nền hồng 18/08) */
+  .khuyen{
+    font-family:var(--sans);font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;
+    color:#FFF;background:var(--hong);padding:4px 12px;align-self:center;
+  }
+
+  /* liên kết chữ nhỏ có gạch chân mảnh — kiểu "INQUIRE HERE" của mẫu */
+  .lien-chu{
+    display:inline-block;font-family:var(--sans);font-size:.72rem;letter-spacing:.2em;
+    text-transform:uppercase;text-decoration:none;color:var(--muc);
+    border-bottom:1px solid var(--muc);padding-bottom:5px;transition:color .25s,border-color .25s;
+  }
+  .lien-chu:hover{color:var(--hong);border-color:var(--hong)}
+  /* nút đặc "Cọc tại đây" */
+  .nut-coc{
+    display:inline-block;font-family:var(--sans);font-size:.74rem;font-weight:500;letter-spacing:.2em;
+    text-transform:uppercase;text-decoration:none;color:#FFF;background:var(--muc);
+    padding:13px 26px;transition:background .25s;
+  }
+  .nut-coc:hover{background:var(--hong)}
+  .nut-coc.hong{background:var(--hong)}
+  .nut-coc.hong:hover{background:var(--muc)}
+  .goi-o .lien .nut-coc{width:100%}
+  .lien-chu.sang{color:#FFF;border-color:#FFF}
+  .lien-chu.sang:hover{color:#FFF;border-color:rgba(255,255,255,.5)}
+  a:focus-visible,summary:focus-visible{outline:2px solid var(--hong);outline-offset:4px}
+
+  /* ── khối ảnh nửa trang + chữ nửa trang ──────────────── */
+  .doi{display:grid;background:var(--kem-nhat)}
+  @media(min-width:900px){.doi{grid-template-columns:1fr 1fr;align-items:stretch}}
+  .doi .anh{min-height:clamp(260px,40vw,460px);background-size:cover;background-position:50% 40%}
+  .doi .chu{
+    padding:clamp(28px,3.6vw,56px) clamp(24px,4.6vw,80px);
+    display:flex;flex-direction:column;justify-content:center;gap:18px;max-width:640px;
+  }
+  .doi .chu h2{font-family:var(--display);font-size:clamp(1.9rem,4.4vw,3.4rem);text-transform:none;letter-spacing:-.012em;font-weight:400;line-height:1.06}
+  .buoc{display:flex;flex-direction:column;gap:4px}
+  .buoc p{text-align:left}
+  @media(min-width:900px){.doi.dao .anh{order:2}}
+
+  /* ── bảng so sánh ────────────────────────────────────── */
+  .so-sanh{padding-block:clamp(50px,7vw,104px)}
+  .so-sanh .dau{text-align:center;margin-bottom:clamp(26px,3.4vw,50px);display:flex;flex-direction:column;gap:10px;align-items:center}
+  .so-sanh h2{font-family:var(--display);font-size:clamp(1.5rem,2.4vw,2.1rem);text-transform:uppercase;letter-spacing:.08em;font-weight:500}
+  .bang-cuon{overflow-x:auto;-webkit-overflow-scrolling:touch}
+  table{border-collapse:collapse;width:100%;min-width:760px}
+  th,td{padding:10px 16px;border-bottom:1px solid var(--hair);font-size:.82rem;font-weight:300}
+  thead th{
+    font-family:var(--sans);font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;
+    color:var(--ghi);font-weight:400;border-bottom:1px solid var(--muc);
+  }
+  thead th.noi-cot{color:var(--hong)}
+  tbody th{text-align:left;color:var(--muc-nhat);width:40%;letter-spacing:.02em}
+  td{text-align:center;color:var(--muc)}
+  td.khong{color:var(--ghi)}
+  td.tron{background:var(--kem-nhat)}
+
+  /* ── thêm vào gói ────────────────────────────────────── */
+  .them{padding-block:clamp(50px,7vw,104px);background:var(--kem-nhat)}
+  .them .dau{text-align:center;margin-bottom:clamp(26px,3.4vw,50px);display:flex;flex-direction:column;gap:10px;align-items:center}
+  .them h2{font-family:var(--display);font-size:clamp(1.5rem,2.4vw,2.1rem);text-transform:uppercase;letter-spacing:.08em;font-weight:500}
+  .them-luoi{display:grid;gap:clamp(24px,3vw,44px)}
+  @media(min-width:760px){.them-luoi{grid-template-columns:repeat(3,1fr)}}
+  .them-o{display:flex;flex-direction:column;gap:10px;text-align:center;padding-inline:clamp(0px,1.5vw,20px)}
+  .them-o h3{font-family:var(--display);font-size:1.02rem;text-transform:uppercase;letter-spacing:.08em;font-weight:400}
+  .them-o p{text-align:justify}
+
+  /* ── giá ─────────────────────────────────────────────── */
+  .gia{
+    font-family:var(--didone);font-size:clamp(1.15rem,1.8vw,1.5rem);
+    text-transform:none;letter-spacing:0;color:var(--muc);
+    font-variant-numeric:tabular-nums;
+  }
+  .trong{
+    display:inline-block;font-family:var(--sans);font-size:.66rem;letter-spacing:.18em;
+    text-transform:uppercase;border:1px dashed var(--hong);color:var(--hong);padding:7px 12px;
+  }
+
+  /* ── CTA ảnh full-bleed ──────────────────────────────── */
+  .cta{
+    position:relative;min-height:clamp(260px,42vh,400px);
+    background-size:cover;background-position:50% 32%;
+    display:flex;align-items:center;
+  }
+  .cta::after{content:"";position:absolute;inset:0;background:rgba(60,52,48,.22)}
+  .cta-chu{position:relative;z-index:1;padding:var(--gutter);text-align:center;width:min(100%,560px)}
+  .cta-chu h2{
+    font-family:var(--display);font-size:clamp(1.9rem,4vw,3rem);text-transform:none;
+    letter-spacing:-.012em;color:#FFF;font-weight:400;line-height:1.06;
+  }
+  .cta-chu .lien-chu{margin-top:22px}
+
+  /* ── liên hệ + footer ────────────────────────────────── */
+  .lh{padding-block:clamp(30px,4vw,56px)}
+  .lh-luoi{display:grid;gap:clamp(26px,4vw,60px);text-align:center}
+  @media(min-width:820px){.lh-luoi{grid-template-columns:repeat(3,1fr);text-align:left}}
+  .lh-o{display:flex;flex-direction:column;gap:8px}
+  .lh-o a{text-decoration:none;border-bottom:1px solid transparent}
+  .lh-o a:hover{color:var(--hong);border-color:var(--hong)}
+
+  .anh-cuoi{display:grid;grid-template-columns:repeat(3,1fr)}
+  @media(min-width:760px){.anh-cuoi{grid-template-columns:repeat(6,1fr)}}
+  .anh-cuoi div{aspect-ratio:1;background-size:cover;background-position:50% 35%;background-color:var(--kem)}
+
+  footer{background:var(--kem);padding-block:22px;text-align:center}
+  footer .hang{display:flex;flex-wrap:wrap;gap:10px 26px;justify-content:center}
+
+  /* ── xuất hiện khi cuộn ──────────────────────────────── */
+  html.js .len{opacity:0;transform:translateY(14px);transition:opacity .8s ease,transform .8s ease}
+  html.js .len.hien{opacity:1;transform:none}
+  @media(prefers-reduced-motion:reduce){
+    html.js .len{opacity:1;transform:none;transition:none}
+    html{scroll-behavior:auto}
+  }
+</style>
+</head>
+<body>
+<style>
+  /* ── riêng cho trang Nỗi lo ── */
+  .muc{padding-block:clamp(34px,5vw,84px)}
+  @media(max-width:700px){.hero{background-position:74% 22%}}
+  .noilo{display:grid;gap:0;border-top:1px solid var(--hair)}
+  .noilo .o{padding:clamp(26px,3.4vw,46px) 0;border-bottom:1px solid var(--hair);display:grid;gap:clamp(10px,1.6vw,26px)}
+  @media(min-width:900px){.noilo .o{grid-template-columns:1fr 1.35fr;gap:clamp(30px,4vw,70px);align-items:start}}
+  .noilo .so{font-family:var(--sans);font-size:.63rem;letter-spacing:.22em;text-transform:uppercase;color:var(--hong)}
+  .noilo .lo{font-family:var(--display);font-size:clamp(1.25rem,2.4vw,1.75rem);line-height:1.28;color:var(--muc);margin-top:6px}
+  .noilo .giai p{font-size:clamp(.95rem,1.15vw,1.03rem);line-height:1.72;color:var(--muc-nhat)}
+  .noilo .giai p + p{margin-top:12px}
+  .noilo .giai b{font-weight:400;color:var(--hong)}
+  .ds{display:grid;gap:14px;margin-top:22px}
+  .ds li{position:relative;padding-left:28px;font-size:clamp(.95rem,1.1vw,1.02rem);line-height:1.72}
+  .ds li::before{content:"—";position:absolute;left:0;top:0;color:var(--hong)}
+  .ds li b{font-weight:400;color:var(--muc)}
+  .ghi-nho{background:var(--kem);padding:clamp(22px,3vw,40px);margin-top:clamp(26px,3.4vw,46px)}
+  .ghi-nho .nhan{margin-bottom:12px}
+  .ghi-nho p{font-size:clamp(.95rem,1.1vw,1.02rem);line-height:1.72}
+</style>
+
+<div class="bar">
+  <span>Dolinhanh Bridal — Hà Nội &amp; TP.HCM</span>
+  <a href="#dat-lich">Đặt lịch thử váy</a>
+</div>
+
+<header class="hero" style="background-image:url('anh/bia.jpg')">
+  <div class="hero-chu">
+    <p class="wordmark">DOLINHANH BRIDAL</p>
+    <h1>Buổi thử váy đầu tiên</h1>
+    <p class="tagline">Những điều cô dâu hay lo — và cách hoá giải</p>
+  </div>
+</header>
+
+<section class="wrap muc">
+  <div class="dau-nhom">
+    <p class="nhan nhan-mo">Gửi cô dâu</p>
+    <h2>Ai bước vào phòng thử váy cũng mang theo một nỗi lo</h2>
+  </div>
+  <p style="max-width:62ch;margin:0 auto;text-align:center;line-height:1.75;color:var(--muc-nhat)">
+    Có người lo bắp tay, có người lo vòng eo sau sinh, có người chỉ đơn giản là sợ mình không hợp với váy cưới.
+    Đó là điều rất bình thường — và gần như cô dâu nào cũng vậy.
+    Chúng tôi viết trang này để bạn bớt lo trước khi bước vào buổi thử váy đầu tiên:
+    mỗi điều bạn đang băn khoăn đều có một dáng váy giải quyết được.
+  </p>
+</section>
+
+<section class="wrap muc" id="noi-lo">
+  <div class="dau-nhom"><h2>Mười điều cô dâu hay lo</h2></div>
+  <div class="noilo">
+
+    <div class="o"><div><p class="so">01</p><p class="lo">"Tay mình to, chắc không mặc được váy hai dây."</p></div>
+      <div class="giai"><p>Bắp tay là điều được nhắc đến nhiều nhất trong phòng thử — và cũng là điều dễ xử lý nhất.</p>
+      <p>Bạn thử <b>tay bồng nhẹ</b>, <b>tay voan mỏng</b> hoặc <b>trễ vai chữ V</b> — phần vai được kéo dài ra nên tổng thể nhìn thanh hơn hẳn. Nếu vẫn muốn mặc hai dây, có thể khoác thêm một lớp voan ngoài cho phần lễ rồi bỏ ra khi vào tiệc.</p></div></div>
+
+    <div class="o"><div><p class="so">02</p><p class="lo">"Bụng mình chưa phẳng, mình mới sinh xong."</p></div>
+      <div class="giai"><p>Bạn không cần giảm cân trước ngày cưới để mặc vừa một chiếc váy. Váy chạy theo người, không phải người chạy theo váy.</p>
+      <p>Dáng <b>chữ A buông từ chân ngực</b> hoặc <b>empire</b> với chất liệu rũ mềm sẽ giấu phần eo rất tự nhiên mà vẫn tôn dáng. Cô dâu đang mang bầu cũng mặc được — chỉ cần chọn chất co giãn và tránh corset siết.</p></div></div>
+
+    <div class="o"><div><p class="so">03</p><p class="lo">"Ngực mình nhỏ, sợ váy cúp ngực bị tụt."</p></div>
+      <div class="giai"><p>Váy cưới hiếm khi vừa ngay từ lần mặc đầu — phần thân trên gần như luôn được chỉnh lại theo số đo của bạn.</p>
+      <p>Ngực nhỏ hợp <b>cúp ngang có đệm</b>, <b>nhún ngực</b>, <b>cổ vuông</b>. Ngực đầy hợp <b>cổ chữ V</b> và <b>dây bản to đỡ vai</b>. Ở buổi thử luôn có sẵn mút đệm và thợ chỉnh corset tại chỗ.</p></div></div>
+
+    <div class="o"><div><p class="so">04</p><p class="lo">"Hông mình to, đuôi cá chắc không hợp."</p></div>
+      <div class="giai"><p>Không phải không hợp — chỉ là chọn chưa đúng điểm xoè.</p>
+      <p>Dáng <b>chữ A xoè từ eo</b> tôn eo và giấu hông rất khéo. Nếu bạn vẫn mê đuôi cá, hãy chọn mẫu <b>xoè sớm từ giữa đùi</b> thay vì xoè ở đầu gối — dáng vẫn gợi cảm mà đi lại thoải mái hơn nhiều.</p></div></div>
+
+    <div class="o"><div><p class="so">05</p><p class="lo">"Mình thấp, sợ váy dài dìm dáng."</p></div>
+      <div class="giai"><p>Chiều cao không quyết định — tỷ lệ mới quyết định.</p>
+      <p>Chọn <b>eo cao</b> để kéo dài phần chân, <b>váy trơn tối giản</b> thay vì nhiều tầng bèo, thêm <b>xẻ tà nhẹ</b> là dáng người dài ra ngay. Tùng váy cũng nên chọn loại vừa phải để không nuốt mất người mặc.</p></div></div>
+
+    <div class="o"><div><p class="so">06</p><p class="lo">"Da mình không trắng, mặc váy trắng nhìn tối."</p></div>
+      <div class="giai"><p>Bạn cảm nhận đúng: trắng tinh là tông lạnh, dễ làm da ngăm hoặc da vàng trông xỉn khi lên hình.</p>
+      <p>Đó cũng là lý do các thiết kế của Dolinhanh đi theo tông <b>hồng, ghi và champagne</b> — những tông này làm da sáng lên, có chiều sâu và mềm mại hơn hẳn so với trắng tinh thuần tuý.</p></div></div>
+
+    <div class="o"><div><p class="so">07</p><p class="lo">"Lưng mình có vết, không dám mặc váy hở lưng."</p></div>
+      <div class="giai"><p>Bạn không cần nói ra điều này với ai nếu không muốn — chỉ cần nói bạn thích dáng lưng kín hơn.</p>
+      <p><b>Lưng voan mờ</b>, <b>ren phủ lưng</b> hoặc <b>lưng đan dây bản to</b> vừa che được vùng bạn không muốn lộ, vừa giữ được đường lưng đẹp khi lên hình.</p></div></div>
+
+    <div class="o"><div><p class="so">08</p><p class="lo">"Mình không ăn ảnh."</p></div>
+      <div class="giai"><p>Sau hơn mười năm cầm máy, chúng tôi chưa gặp cô dâu nào không ăn ảnh — chỉ có dáng chưa đúng.</p>
+      <p>Và dáng cũng chỉ là 30%. 70% còn lại nằm ở người đứng sau máy: người biết chờ đúng khoảnh khắc bạn cười thật. Trước buổi chụp, bạn sẽ được gửi cẩm nang <b>60 dáng cưới</b> để chọn sẵn những dáng mình thích.</p></div></div>
+
+    <div class="o"><div><p class="so">09</p><p class="lo">"Mặc váy cưới vào sợ nhìn già đi."</p></div>
+      <div class="giai"><p>Cảm giác "già đi" thường đến từ chi tiết rườm rà chứ không đến từ chiếc váy cưới.</p>
+      <p>Hãy thử một mẫu <b>trơn, tối giản</b> đặt cạnh một mẫu nhiều chi tiết — bạn sẽ thấy sự khác biệt ngay trong gương. Tinh thần <b>Quiet Minimal Luxury</b> mà Dolinhanh theo đuổi cũng là vì vậy.</p></div></div>
+
+    <div class="o"><div><p class="so">10</p><p class="lo">"Sợ tới nơi bị mời chốt ngay."</p></div>
+      <div class="giai"><p>Buổi thử váy nên là một buổi dễ chịu, không phải một buổi bị thuyết phục.</p>
+      <p>Ở Dolinhanh, mỗi cô dâu có <b>một phòng thử và một chuyên viên riêng</b> — bạn cứ thử, cứ ngắm, cứ hỏi. Việc của chúng tôi là giúp bạn tìm ra dáng váy hợp nhất, còn quyết định là của bạn.</p></div></div>
+
+  </div>
+</section>
+
+<section class="doi">
+  <div class="anh" style="background-image:url('anh/look-03.jpg')"></div>
+  <div class="chu">
+    <p class="nhan nhan-mo">Trước khi đi</p>
+    <h2>Chuẩn bị gì cho buổi thử váy</h2>
+    <ul class="ds">
+      <li>Mặc <b>áo lót không dây</b> hoặc <b>đồ liền thân màu nude</b>, quần lót không lộ viền. Mút đệm ngực bên tôi có sẵn.</li>
+      <li>Mang theo <b>một đôi giày cao gần bằng giày ngày cưới</b> để canh độ dài váy cho chuẩn.</li>
+      <li>Đi cùng <b>một hoặc hai người</b> thật sự hiểu gu bạn — đi đông quá thường khiến bạn phân vân hơn.</li>
+      <li>Nên đi thử <b>khi đã chốt được ngày cưới</b>, lúc đó việc giữ váy và canh lịch mới chính xác.</li>
+      <li>Xem catalogue trước và <b>chọn sẵn khoảng 5 mẫu</b> bạn thích để được chuẩn bị đúng váy khi tới.</li>
+      <li>Bạn được <b>thử miễn phí 5 mẫu đầu tiên</b>; từ mẫu thứ sáu phụ phí 100.000đ mỗi mẫu.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="doi dao">
+  <div class="chu">
+    <p class="nhan nhan-mo">Tại Dolinhanh</p>
+    <h2>Buổi thử váy diễn ra thế nào</h2>
+    <ul class="ds">
+      <li><b>Private fitting 1:1</b> — mỗi cô dâu một phòng thử riêng và một chuyên viên đi cùng suốt buổi.</li>
+      <li>Chuyên viên sẽ hỏi bạn <b>muốn khoe điều gì và muốn giấu điều gì</b> trước khi chọn dáng — để không phải thử lan man.</li>
+      <li>Ở mỗi mẫu, bạn được <b>quay lại khoảnh khắc first look</b> và chụp ảnh; ảnh chỉnh sửa xong sẽ gửi lại cho bạn.</li>
+      <li>Các thiết kế đi theo tông <b>hồng — ghi — champagne</b>, hợp với sắc da của cô dâu Việt khi lên hình.</li>
+      <li>Hai cơ sở tại <b>Hà Nội</b> và <b>TP.HCM</b>, đều tiếp khách theo lịch hẹn.</li>
+    </ul>
+    <div class="ghi-nho">
+      <p class="nhan">Một điều nhỏ</p>
+      <p>Bạn không cần giảm cân, không cần trắng lên, cũng không cần sửa gì ở mình trước khi bước vào phòng thử.
+      Việc tìm chiếc váy hợp là việc của chúng tôi.</p>
+    </div>
+  </div>
+  <div class="anh" style="background-image:url('anh/story.jpg')"></div>
+</section>
+
+<section class="cta" id="dat-lich" style="background-image:url('anh/look-05.jpg')">
+  <div class="cta-chu">
+    <p class="nhan" style="color:#FFF">Đặt lịch</p>
+    <h2>Hẹn một buổi thử váy</h2>
+    <p class="lien-chu" style="color:#FFF">Nhắn cho chúng tôi ngày cưới của bạn và cơ sở bạn muốn tới, chúng tôi sẽ giữ lịch và chuẩn bị sẵn váy.</p>
+    <p class="lien-chu"><a href="tel:0359950588" style="color:#FFF;border-bottom:1px solid rgba(255,255,255,.6);text-decoration:none">035 995 0588</a></p>
+  </div>
+</section>
+
+<section class="wrap muc">
+  <div class="dau-nhom"><h2>Ghé thăm</h2></div>
+  <div class="lh-luoi" style="grid-template-columns:repeat(auto-fit,minmax(240px,1fr))">
+    <div class="lh-o">
+      <p class="nhan">Hà Nội</p>
+      <p>75 Nguyễn Thị Định<br>Trung Hoà, Cầu Giấy</p>
+      <p><a href="https://www.facebook.com/Dolinhanhbridalhn" target="_blank" rel="noopener">Fanpage Hà Nội</a></p>
+    </div>
+    <div class="lh-o">
+      <p class="nhan">TP. Hồ Chí Minh</p>
+      <p>2 Tân Canh<br>Phường 1, Tân Bình</p>
+      <p><a href="https://www.facebook.com/Dolinhanhbridalhcm/" target="_blank" rel="noopener">Fanpage TP.HCM</a></p>
+    </div>
+    <div class="lh-o">
+      <p class="nhan">Kết nối</p>
+      <p><a href="tel:0359950588">035 995 0588</a></p>
+      <p><a href="https://www.instagram.com/dolinhanh.bridal/" target="_blank" rel="noopener">Instagram</a></p>
+      <p><a href="https://www.tiktok.com/@dolinhanhbridal2019" target="_blank" rel="noopener">TikTok</a></p>
+    </div>
+  </div>
+</section>
+
+<div class="anh-cuoi">
+  <div style="background-image:url('anh/look-01.jpg')"></div>
+  <div style="background-image:url('anh/look-02.jpg')"></div>
+  <div style="background-image:url('anh/look-03.jpg')"></div>
+  <div style="background-image:url('anh/look-04.jpg')"></div>
+  <div style="background-image:url('anh/look-05.jpg')"></div>
+  <div style="background-image:url('anh/look-06.jpg')"></div>
+</div>
+
+</body>
+</html>
