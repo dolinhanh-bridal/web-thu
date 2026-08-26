@@ -12,16 +12,16 @@
 <script>document.documentElement.classList.add("js");</script>
 <style>
   :root{
-    /* bố cục Athena — màu & chữ theo bản Vogue (index.html) chị Linh thích */
-    --kem:#F6EFEE;          /* accent-wash */
-    --trang:#FFFFFF;
-    --kem-nhat:#FAF6F5;
-    --oliu:#141110;         /* dải trên: mực đen như nút ĐẶT LỊCH bản Vogue */
-    --muc:#141110;          /* ink */
-    --muc-nhat:#3A3234;
-    --ghi:#8C8285;          /* ink-soft */
-    --hair:#E2DBDA;
-    --hong:#8E5A5F;         /* accent */
+    /* bố cục Athena — MÀU lấy đúng theo landing đang dùng (phien-ban/v2-26.html) */
+    --kem:#E9E7E4;          /* stone — nền khối nhấn, footer */
+    --trang:#FFFFFF;        /* paper */
+    --kem-nhat:#F3F2F0;     /* ivory — nền nền của landing */
+    --oliu:#1D1C1B;         /* charcoal — dải trên cùng */
+    --muc:#17130F;          /* ink */
+    --muc-nhat:#37342F;     /* ink-2 */
+    --ghi:#6F6C69;          /* grey */
+    --hair:#DAD7D2;
+    --champagne:#CDBBA2;    /* accent duy nhất — dùng cho gạch đầu dòng, viền, nút hover */
 
     --didone:"Bodoni 72","Bodoni MT",Didot,"Didot LT STD","Playfair Display",Georgia,"Times New Roman",serif;
     --display:Baskerville,"Baskerville Old Face",Cochin,Georgia,"Iowan Old Style","Times New Roman",serif;
@@ -60,7 +60,7 @@
 
   /* ── dải cảnh báo bản nháp ───────────────────────────── */
   .nhap{
-    display:none;background:var(--hong);color:#FFF;text-align:center;
+    display:none;background:var(--oliu);color:#FFF;text-align:center;
     font-family:var(--sans);font-size:.68rem;letter-spacing:.18em;
     text-transform:uppercase;padding:9px var(--gutter);
   }
@@ -79,7 +79,7 @@
     font-family:var(--sans);font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;
     background:#FFF;color:var(--muc);text-decoration:none;padding:5px 14px;
   }
-  .bar a:hover{background:var(--hong);color:#FFF}
+  .bar a:hover{background:var(--champagne);color:var(--muc)}
 
   /* ── header ──────────────────────────────────────────── */
   header{
@@ -95,19 +95,19 @@
   }
   .menu{display:none;gap:clamp(20px,3.4vw,58px)}
   .menu a{text-decoration:none}
-  .menu a:hover{color:var(--hong)}
+  .menu a:hover{color:var(--ghi)}
   @media(min-width:960px){.menu{display:flex}}
 
   /* ── hero: đúng hero bản Vogue (index.html) — chữ trái, veil tối dần xuống ── */
   .hero{
-    position:relative;background:#0C0A0A;color:#fff;overflow:hidden;
+    position:relative;background:#17130F;color:#fff;overflow:hidden;
     min-height:clamp(360px,60vh,600px);
     background-size:cover;background-position:center 26%;
     filter:none;
   }
   .hero::after{
     content:"";position:absolute;inset:0;
-    background:linear-gradient(180deg,rgba(12,10,10,.44) 0%,rgba(12,10,10,.12) 28%,rgba(12,10,10,.5) 60%,rgba(12,10,10,.8) 100%);
+    background:linear-gradient(180deg,rgba(23,19,15,.44) 0%,rgba(23,19,15,.12) 28%,rgba(23,19,15,.5) 60%,rgba(23,19,15,.8) 100%);
   }
   .hero-chu{
     position:absolute;inset:auto 0 0 0;z-index:1;
@@ -163,7 +163,7 @@
   .dau-nhom h2{font-family:var(--display);font-size:clamp(1.9rem,4.4vw,3.4rem);text-transform:none;letter-spacing:-.012em;font-weight:400;line-height:1.06}
   .goi-o .cong-ds{display:flex;flex-direction:column;gap:5px;text-align:left;margin-top:4px;padding:0;list-style:none}
   .goi-o .cong-ds li{font-size:.98rem;color:var(--muc);display:flex;gap:10px;line-height:1.4}
-  .goi-o .cong-ds li::before{content:"—";color:var(--hong);flex:none}
+  .goi-o .cong-ds li::before{content:"—";color:var(--champagne);flex:none}
   .goi-o p{margin-top:2px}
   .goi-o h2{
     font-family:var(--didone);font-size:clamp(1.6rem,2.6vw,2.3rem);
@@ -173,12 +173,12 @@
   .goi-o p{text-align:left;font-size:.95rem;color:var(--muc-nhat)}
   .goi-o ul{display:flex;flex-direction:column;gap:4px;text-align:left;margin-top:6px}
   .goi-o li{font-size:.92rem;display:flex;gap:10px;color:var(--muc-nhat);line-height:1.4}
-  .goi-o li::before{content:"—";color:var(--hong);flex:none}
+  .goi-o li::before{content:"—";color:var(--champagne);flex:none}
   .goi-o .lien{margin-top:auto;padding-top:18px}
   /* gói được khuyên chọn: chỉ khác bằng một nhãn nhỏ (chị Linh bỏ nền hồng 18/08) */
   .khuyen{
     font-family:var(--sans);font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;
-    color:#FFF;background:var(--hong);padding:4px 12px;align-self:center;
+    color:#FFF;background:var(--oliu);padding:4px 12px;align-self:center;
   }
 
   /* liên kết chữ nhỏ có gạch chân mảnh — kiểu "INQUIRE HERE" của mẫu */
@@ -187,20 +187,20 @@
     text-transform:uppercase;text-decoration:none;color:var(--muc);
     border-bottom:1px solid var(--muc);padding-bottom:5px;transition:color .25s,border-color .25s;
   }
-  .lien-chu:hover{color:var(--hong);border-color:var(--hong)}
+  .lien-chu:hover{color:var(--ghi);border-color:var(--ghi)}
   /* nút đặc "Cọc tại đây" */
   .nut-coc{
     display:inline-block;font-family:var(--sans);font-size:.74rem;font-weight:500;letter-spacing:.2em;
     text-transform:uppercase;text-decoration:none;color:#FFF;background:var(--muc);
     padding:13px 26px;transition:background .25s;
   }
-  .nut-coc:hover{background:var(--hong)}
-  .nut-coc.hong{background:var(--hong)}
-  .nut-coc.hong:hover{background:var(--muc)}
+  .nut-coc:hover{background:var(--champagne);color:var(--muc)}
+  .nut-coc.hong{background:var(--champagne);color:var(--muc)}
+  .nut-coc.hong:hover{background:var(--muc);color:#FFF}
   .goi-o .lien .nut-coc{width:100%}
   .lien-chu.sang{color:#FFF;border-color:#FFF}
   .lien-chu.sang:hover{color:#FFF;border-color:rgba(255,255,255,.5)}
-  a:focus-visible,summary:focus-visible{outline:2px solid var(--hong);outline-offset:4px}
+  a:focus-visible,summary:focus-visible{outline:2px solid var(--champagne);outline-offset:4px}
 
   /* ── khối ảnh nửa trang + chữ nửa trang ──────────────── */
   .doi{display:grid;background:var(--kem-nhat)}
@@ -226,7 +226,7 @@
     font-family:var(--sans);font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;
     color:var(--ghi);font-weight:400;border-bottom:1px solid var(--muc);
   }
-  thead th.noi-cot{color:var(--hong)}
+  thead th.noi-cot{color:var(--muc)}
   tbody th{text-align:left;color:var(--muc-nhat);width:40%;letter-spacing:.02em}
   td{text-align:center;color:var(--muc)}
   td.khong{color:var(--ghi)}
@@ -250,7 +250,7 @@
   }
   .trong{
     display:inline-block;font-family:var(--sans);font-size:.66rem;letter-spacing:.18em;
-    text-transform:uppercase;border:1px dashed var(--hong);color:var(--hong);padding:7px 12px;
+    text-transform:uppercase;border:1px dashed var(--champagne);color:var(--muc-nhat);padding:7px 12px;
   }
 
   /* ── CTA ảnh full-bleed ──────────────────────────────── */
@@ -259,7 +259,7 @@
     background-size:cover;background-position:50% 32%;
     display:flex;align-items:center;
   }
-  .cta::after{content:"";position:absolute;inset:0;background:rgba(60,52,48,.22)}
+  .cta::after{content:"";position:absolute;inset:0;background:rgba(29,28,27,.26)}
   .cta-chu{position:relative;z-index:1;padding:var(--gutter);text-align:center;width:min(100%,560px)}
   .cta-chu h2{
     font-family:var(--display);font-size:clamp(1.9rem,4vw,3rem);text-transform:none;
@@ -273,7 +273,7 @@
   @media(min-width:820px){.lh-luoi{grid-template-columns:repeat(3,1fr);text-align:left}}
   .lh-o{display:flex;flex-direction:column;gap:8px}
   .lh-o a{text-decoration:none;border-bottom:1px solid transparent}
-  .lh-o a:hover{color:var(--hong);border-color:var(--hong)}
+  .lh-o a:hover{color:var(--ghi);border-color:var(--ghi)}
 
   .anh-cuoi{display:grid;grid-template-columns:repeat(3,1fr)}
   @media(min-width:760px){.anh-cuoi{grid-template-columns:repeat(6,1fr)}}
@@ -299,14 +299,14 @@
   .noilo{display:grid;gap:0;border-top:1px solid var(--hair)}
   .noilo .o{padding:clamp(26px,3.4vw,46px) 0;border-bottom:1px solid var(--hair);display:grid;gap:clamp(10px,1.6vw,26px)}
   @media(min-width:900px){.noilo .o{grid-template-columns:1fr 1.35fr;gap:clamp(30px,4vw,70px);align-items:start}}
-  .noilo .so{font-family:var(--sans);font-size:.63rem;letter-spacing:.22em;text-transform:uppercase;color:var(--hong)}
+  .noilo .so{font-family:var(--sans);font-size:.63rem;letter-spacing:.22em;text-transform:uppercase;color:var(--ghi)}
   .noilo .lo{font-family:var(--display);font-size:clamp(1.25rem,2.4vw,1.75rem);line-height:1.28;color:var(--muc);margin-top:6px}
   .noilo .giai p{font-size:clamp(.95rem,1.15vw,1.03rem);line-height:1.72;color:var(--muc-nhat)}
   .noilo .giai p + p{margin-top:12px}
-  .noilo .giai b{font-weight:400;color:var(--hong)}
+  .noilo .giai b{font-weight:400;color:var(--muc)}
   .ds{display:grid;gap:14px;margin-top:22px}
   .ds li{position:relative;padding-left:28px;font-size:clamp(.95rem,1.1vw,1.02rem);line-height:1.72}
-  .ds li::before{content:"—";position:absolute;left:0;top:0;color:var(--hong)}
+  .ds li::before{content:"—";position:absolute;left:0;top:0;color:var(--champagne)}
   .ds li b{font-weight:400;color:var(--muc)}
   .ghi-nho{background:var(--kem);padding:clamp(22px,3vw,40px);margin-top:clamp(26px,3.4vw,46px)}
   .ghi-nho .nhan{margin-bottom:12px}
