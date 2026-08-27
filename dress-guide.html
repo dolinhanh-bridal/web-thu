@@ -60,7 +60,7 @@
     transition:transform .8s cubic-bezier(.36,.06,.2,1);
   }
   .mat{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;overflow:hidden;background:#fff}
-  .mat img{width:100%;height:100%;display:block;object-fit:cover}
+  .mat img{width:100%;height:100%;display:block;object-fit:cover;-webkit-user-drag:none;user-select:none;pointer-events:none}
   .mat.sau{transform:rotateY(180deg)}
   .mat.truoc::after{content:"";position:absolute;left:0;top:0;bottom:0;width:24px;background:linear-gradient(90deg,rgba(36,27,25,.14),transparent);pointer-events:none}
   .mat.sau::after{content:"";position:absolute;right:0;top:0;bottom:0;width:24px;background:linear-gradient(270deg,rgba(36,27,25,.14),transparent);pointer-events:none}
@@ -68,7 +68,7 @@
 
   /* một trang — điện thoại */
   .don{position:relative;background:#fff;box-shadow:0 16px 44px rgba(36,27,25,.2);overflow:hidden;display:none}
-  .don img{width:100%;height:100%;display:block;object-fit:cover;transition:opacity .28s}
+  .don img{width:100%;height:100%;display:block;object-fit:cover;transition:opacity .28s;-webkit-user-drag:none;user-select:none;pointer-events:none}
   body.mot .sach{display:none}
   body.mot .don{display:block}
 
@@ -102,7 +102,7 @@
     display:grid;transition:transform .18s,border-color .2s;
   }
   .luoi button.trang:hover{transform:translateY(-3px);border-color:var(--hong-chu)}
-  .luoi button.trang img{width:100%;display:block}
+  .luoi button.trang img{width:100%;display:block;-webkit-user-drag:none;user-select:none;pointer-events:none}
   .luoi button.trang span{font-size:.58rem;letter-spacing:.14em;color:var(--ghi);padding:5px 0;background:var(--nen)}
 
 
@@ -155,7 +155,6 @@
   </div>
   <div class="cong-cu">
     <button class="nut-tron" id="nut-luoi" title="Xem tất cả trang" aria-label="Xem tất cả trang">▦</button>
-    <a class="nut-tron" id="tai-pdf" href="the-brides-dress-guide.pdf" download title="Tải bản PDF" aria-label="Tải bản PDF" style="text-decoration:none">↓</a>
     <button class="nut-tron" id="nut-to" title="Toàn màn hình" aria-label="Toàn màn hình">⛶</button>
   </div>
 </div>
@@ -385,6 +384,9 @@
     else if (document.documentElement.requestFullscreen) document.documentElement.requestFullscreen();
   });
 
+  document.addEventListener('contextmenu', function(e){
+    if (e.target.closest('.sach, .don, .luoi')) e.preventDefault();
+  });
   document.getElementById('tong').textContent = N + ' trang';
   if (DIEM.length) document.getElementById('chu-thich').classList.add('hien');
   window.addEventListener('resize', doCo);
