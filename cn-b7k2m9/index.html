@@ -4,10 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
-<script>window.__ANH__=["t01.jpg", "t02.jpg", "t03.jpg", "t04.jpg", "t05.jpg", "t06.jpg", "t07.jpg", "t08.jpg", "t09.jpg", "t10.jpg", "t11.jpg", "t12.jpg", "t13.jpg", "t14.jpg", "t15.jpg", "t16.jpg", "t17.jpg", "t18.jpg", "t19.jpg", "t20.jpg", "t21.jpg", "t22.jpg", "t23.jpg", "t24.jpg", "t25.jpg", "t26.jpg", "t27.jpg", "t28.jpg", "t29.jpg", "t30.jpg", "t31.jpg", "t32.jpg", "t33.jpg", "t34.jpg", "t35.jpg", "t36.jpg", "t37.jpg", "t38.jpg", "t39.jpg", "t40.jpg", "t41.jpg", "t42.jpg", "t43.jpg", "t44.jpg", "t45.jpg", "t46.jpg", "t47.jpg", "t48.jpg", "t49.jpg", "t50.jpg"];window.__DIEM__=[];</script>
+<title>Cẩm nang cưới — Dolinhanh Bridal</title>
+<script>window.__ANH__=["t01.jpg", "t02.jpg", "t03.jpg", "t04.jpg", "t05.jpg", "t06.jpg", "t07.jpg", "t08.jpg", "t09.jpg", "t10.jpg", "t11.jpg", "t12.jpg", "t13.jpg", "t14.jpg", "t15.jpg", "t16.jpg", "t17.jpg", "t18.jpg", "t19.jpg", "t20.jpg", "t21.jpg", "t22.jpg", "t23.jpg", "t24.jpg", "t25.jpg", "t26.jpg", "t27.jpg", "t28.jpg", "t29.jpg", "t30.jpg", "t31.jpg", "t32.jpg", "t33.jpg", "t34.jpg", "t35.jpg", "t36.jpg", "t37.jpg", "t38.jpg", "t39.jpg", "t40.jpg", "t41.jpg", "t42.jpg", "t43.jpg", "t44.jpg", "t45.jpg", "t46.jpg", "t47.jpg", "t48.jpg", "t49.jpg", "t50.jpg", "t51.jpg", "t52.jpg", "t53.jpg", "t54.jpg", "t55.jpg", "t56.jpg", "t57.jpg", "t58.jpg"];window.__DIEM__=[];</script>
 </head>
 <body>
-<title>Cẩm nang cưới — Dolinhanh Bridal</title>
+<title>The Bride's Dress Guide</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400&family=Be+Vietnam+Pro:wght@300;400;500;600&display=swap">
@@ -222,8 +223,8 @@
   for (var k = 0; k < SO_TO; k++){
     var a = ANH[2*k], b = ANH[2*k+1];
     html += '<div class="to" data-k="'+k+'">'
-          +   '<div class="mat truoc"><img src="'+a+'" alt="Trang '+(2*k+1)+'"></div>'
-          +   '<div class="mat sau">' + (b ? '<img src="'+b+'" alt="Trang '+(2*k+2)+'">' : '') + '</div>'
+          +   '<div class="mat truoc"><img data-src="'+a+'" alt="Trang '+(2*k+1)+'"></div>'
+          +   '<div class="mat sau">' + (b ? '<img data-src="'+b+'" alt="Trang '+(2*k+2)+'">' : '') + '</div>'
           + '</div>';
   }
   sach.insertAdjacentHTML('beforeend', html);
@@ -303,7 +304,26 @@
 
   function hai(n){ return n < 10 ? '0' + n : '' + n; }
 
+  /* chỉ tải ảnh của mấy tờ quanh chỗ đang đọc — ảnh nét mà vẫn nhẹ */
+  function taiAnh(el){
+    if (!el) return;
+    [].slice.call(el.querySelectorAll('img[data-src]')).forEach(function(im){
+      im.src = im.getAttribute('data-src');
+      im.removeAttribute('data-src');
+    });
+  }
+  function taiQuanh(){
+    if (mot){
+      for (var q = p - 1; q <= p + 2; q++){
+        if (q >= 0 && q < N && ANH[q]) { var tam = new Image(); tam.src = ANH[q]; }
+      }
+      return;
+    }
+    for (var k = vi - 2; k <= vi + 3; k++) if (k >= 0 && k < SO_TO) taiAnh(to[k]);
+  }
+
   function ve(){
+    taiQuanh();
     if (mot){
       anhDon.src = ANH[p];
       var lop = document.getElementById('don');
@@ -402,7 +422,7 @@
   ANH.forEach(function(src, i){
     var b = document.createElement('button');
     b.className = 'trang';
-    b.innerHTML = '<img src="' + src + '" alt=""><span>' + hai(i + 1) + '</span>';
+    b.innerHTML = '<img loading="lazy" src="' + src + '" alt=""><span>' + hai(i + 1) + '</span>';
     b.addEventListener('click', function(){
       if (mot) p = i; else vi = Math.floor((i + 1) / 2);
       luoi.classList.remove('hien');
