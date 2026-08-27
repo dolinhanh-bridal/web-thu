@@ -65,6 +65,7 @@
   .mat.truoc::after{content:"";position:absolute;left:0;top:0;bottom:0;width:24px;background:linear-gradient(90deg,rgba(36,27,25,.14),transparent);pointer-events:none}
   .mat.sau::after{content:"";position:absolute;right:0;top:0;bottom:0;width:24px;background:linear-gradient(270deg,rgba(36,27,25,.14),transparent);pointer-events:none}
   .bong{position:absolute;inset:0;box-shadow:0 20px 55px rgba(36,27,25,.2);pointer-events:none;z-index:1}
+  .dau-mo{position:absolute;inset:0;pointer-events:none;z-index:3;background-repeat:repeat;background-position:center}
 
   /* một trang — điện thoại */
   .don{position:relative;background:#fff;box-shadow:0 16px 44px rgba(36,27,25,.2);overflow:hidden;display:none}
@@ -228,6 +229,28 @@
   sach.insertAdjacentHTML('beforeend', html);
   var to = [].slice.call(sach.querySelectorAll('.to'));
 
+  /* ── dấu mờ theo tên khách: dress-guide.html?k=Ten%20Khach ── */
+  function locChu(t){
+    return String(t).replace(/[<>&"']/g, ' ').replace(/\s+/g, ' ').trim().slice(0, 60);
+  }
+  var thamSo = new URLSearchParams(location.search);
+  var TEN = locChu(thamSo.get('k') || thamSo.get('ten') || 'Dolinhanh Bridal');
+  function nenDauMo(){
+    var svg = '<svg xmlns="http://www.w3.org/2000/svg" width="340" height="210">'
+            + '<text x="16" y="130" transform="rotate(-26 170 105)" '
+            + 'font-family="Be Vietnam Pro, Helvetica, Arial, sans-serif" font-size="17" '
+            + 'letter-spacing="3.4" fill="#241B19" fill-opacity="0.13">' + TEN + '</text></svg>';
+    return 'url("data:image/svg+xml;utf8,' + encodeURIComponent(svg).replace(/'/g, '%27') + '")';
+  }
+  var NEN_DAU = nenDauMo();
+  function datDauMo(el){
+    if (!el || el.querySelector('.dau-mo')) return;
+    var l = document.createElement('div');
+    l.className = 'dau-mo';
+    l.style.backgroundImage = NEN_DAU;
+    el.appendChild(l);
+  }
+
   /* ── điểm bấm ── */
   var DIEM = window.__DIEM__ || [];
   var hopNen = document.getElementById('hop-nen');
@@ -260,10 +283,13 @@
     });
   }
   to.forEach(function(el, k){
-    datDiem(el.querySelector('.mat.truoc'), 2*k + 1);
+    var truoc = el.querySelector('.mat.truoc');
+    datDauMo(truoc);
+    datDiem(truoc, 2*k + 1);
     var sau = el.querySelector('.mat.sau');
-    if (sau && sau.querySelector('img')) datDiem(sau, 2*k + 2);
+    if (sau && sau.querySelector('img')){ datDauMo(sau); datDiem(sau, 2*k + 2); }
   });
+  datDauMo(document.getElementById('don'));
   document.getElementById('hop-dong').addEventListener('click', function(){ hopNen.classList.remove('hien'); });
   hopNen.addEventListener('click', function(e){ if (e.target === hopNen) hopNen.classList.remove('hien'); });
 
