@@ -147,6 +147,31 @@
     border:1px solid #EEDFDB;background:#fff;color:#241B19;cursor:pointer;font-size:14px;line-height:1;
   }
 
+  /* ── đọc to: phóng trang để đọc trên điện thoại ────── */
+  .phong{position:fixed;inset:0;z-index:140;background:#fff;display:none;flex-direction:column}
+  .phong.hien{display:flex}
+  .phong-cuon{flex:1;overflow:auto;-webkit-overflow-scrolling:touch;background:#EFE9E5}
+  .phong-cuon img{display:block;margin:0 auto;max-width:none;height:auto}
+  .phong-thanh{
+    flex:none;display:flex;align-items:center;justify-content:center;gap:10px;
+    padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:#fff;
+    border-top:1px solid var(--vien);
+  }
+  .phong-thanh button{
+    width:40px;height:40px;border-radius:50%;border:1px solid var(--vien);background:#fff;
+    color:var(--muc);font-size:16px;line-height:1;cursor:pointer;display:grid;place-items:center;
+    font-family:var(--sans);
+  }
+  .phong-thanh button:disabled{opacity:.3}
+  .phong-thanh .so{font-family:var(--serif);font-size:1rem;min-width:64px;text-align:center;color:var(--muc)}
+  .phong-thanh .dong{background:var(--hong);border-color:var(--hong)}
+  .goi-y{
+    position:absolute;left:50%;bottom:14px;transform:translateX(-50%);z-index:70;
+    background:rgba(36,27,25,.82);color:#fff;font-size:.68rem;letter-spacing:.08em;
+    padding:7px 14px;border-radius:999px;white-space:nowrap;pointer-events:none;
+    opacity:0;transition:opacity .4s;
+  }
+  .goi-y.hien{opacity:1}
   @media(prefers-reduced-motion:reduce){.to{transition:none}}
 </style>
 
@@ -156,6 +181,7 @@
     <b>Cẩm nang cưới</b>
   </div>
   <div class="cong-cu">
+    <button class="nut-tron" id="nut-doc" title="Đọc to" aria-label="Đọc to">⌕</button>
     <button class="nut-tron" id="nut-luoi" title="Xem tất cả trang" aria-label="Xem tất cả trang">▦</button>
     <button class="nut-tron" id="nut-to" title="Toàn màn hình" aria-label="Toàn màn hình">⛶</button>
   </div>
@@ -169,6 +195,7 @@
     <div class="don" id="don"><img id="anh-don" alt="Trang sách"></div>
     <button class="mui lui" id="lui" aria-label="Trang trước">‹</button>
     <button class="mui toi" id="toi" aria-label="Trang sau">›</button>
+    <span class="goi-y" id="goi-y">Chạm vào trang để phóng to đọc</span>
   </div>
 </div>
 
@@ -177,6 +204,18 @@
   <span class="thanh"><i id="vach"></i></span>
   <span id="tong"></span>
   <span class="chu-thich" id="chu-thich"><i></i>Bấm để xem thêm</span>
+</div>
+
+<div class="phong" id="phong">
+  <div class="phong-cuon" id="phong-cuon"><img id="phong-anh" alt="Trang sách"></div>
+  <div class="phong-thanh">
+    <button id="ph-lui" aria-label="Trang trước">‹</button>
+    <span class="so" id="ph-so">01</span>
+    <button id="ph-toi" aria-label="Trang sau">›</button>
+    <button id="ph-nho" aria-label="Thu nhỏ">−</button>
+    <button id="ph-to" aria-label="Phóng to">+</button>
+    <button id="ph-dong" class="dong" aria-label="Đóng">✕</button>
+  </div>
 </div>
 
 <div class="hop-nen" id="hop-nen">
@@ -299,6 +338,49 @@
     if (sau && sau.querySelector('img')){ datDauMo(sau); datDiem(sau, 2*k + 2); }
   });
   datDauMo(document.getElementById('don'));
+  /* ── đọc to ── */
+  var phong = document.getElementById('phong');
+  var phCuon = document.getElementById('phong-cuon');
+  var phAnh = document.getElementById('phong-anh');
+  var mucPhong = [1, 1.6, 2.4, 3.4], iPhong = 1, trangPhong = 0;
+
+  function veoPhong(){
+    var w = phCuon.clientWidth || window.innerWidth;
+    phAnh.style.width = Math.round(w * mucPhong[iPhong]) + 'px';
+    document.getElementById('ph-so').textContent = trangPhong === 0 ? 'Bìa' : hai(trangPhong + 1);
+    document.getElementById('ph-lui').disabled = trangPhong === 0;
+    document.getElementById('ph-toi').disabled = trangPhong >= N - 1;
+    document.getElementById('ph-nho').disabled = iPhong === 0;
+    document.getElementById('ph-to').disabled = iPhong === mucPhong.length - 1;
+  }
+  function moPhong(t){
+    trangPhong = Math.max(0, Math.min(N - 1, t));
+    phAnh.src = ANH[trangPhong];
+    phong.classList.add('hien');
+    veoPhong();
+    phCuon.scrollTop = 0; phCuon.scrollLeft = (phAnh.offsetWidth - phCuon.clientWidth) / 2;
+  }
+  function diPhong(b){
+    var t = Math.max(0, Math.min(N - 1, trangPhong + b));
+    if (t === trangPhong) return;
+    trangPhong = t; phAnh.src = ANH[t]; veoPhong(); phCuon.scrollTop = 0;
+  }
+  document.getElementById('nut-doc').addEventListener('click', function(){
+    moPhong(mot ? p : (vi === 0 ? 0 : 2 * vi));
+  });
+  document.getElementById('ph-dong').addEventListener('click', function(){
+    phong.classList.remove('hien');
+    if (mot) { p = trangPhong; } else { vi = Math.floor((trangPhong + 1) / 2); }
+    ve();
+  });
+  document.getElementById('ph-lui').addEventListener('click', function(){ diPhong(-1); });
+  document.getElementById('ph-toi').addEventListener('click', function(){ diPhong(1); });
+  document.getElementById('ph-to').addEventListener('click', function(){
+    if (iPhong < mucPhong.length - 1){ iPhong++; veoPhong(); } });
+  document.getElementById('ph-nho').addEventListener('click', function(){
+    if (iPhong > 0){ iPhong--; veoPhong(); } });
+  window.addEventListener('resize', function(){ if (phong.classList.contains('hien')) veoPhong(); });
+
   document.getElementById('hop-dong').addEventListener('click', function(){ hopNen.classList.remove('hien'); });
   hopNen.addEventListener('click', function(e){ if (e.target === hopNen) hopNen.classList.remove('hien'); });
 
@@ -397,14 +479,16 @@
   bToi.addEventListener('click', function(e){ e.stopPropagation(); di(1); });
   bLui.addEventListener('click', function(e){ e.stopPropagation(); di(-1); });
   khung.addEventListener('click', function(e){
-    if (e.target.closest('.mui')) return;
+    if (e.target.closest('.mui') || e.target.closest('.diem')) return;
+    if (mot){ moPhong(p); return; }          /* điện thoại: chạm để phóng to đọc */
     var r = khung.getBoundingClientRect();
     di(e.clientX - r.left > r.width / 2 ? 1 : -1);
   });
   document.addEventListener('keydown', function(e){
     if (e.key === 'ArrowRight') di(1);
     else if (e.key === 'ArrowLeft') di(-1);
-    else if (e.key === 'Escape'){ luoi.classList.remove('hien'); hopNen.classList.remove('hien'); }
+    else if (e.key === 'Escape'){ luoi.classList.remove('hien'); hopNen.classList.remove('hien');
+      phong.classList.remove('hien'); }
   });
 
   var x0 = null;
@@ -442,7 +526,14 @@
     if (e.target.closest('.sach, .don, .luoi')) e.preventDefault();
   });
   document.getElementById('tong').textContent = N + ' trang';
+  setTimeout(nhacGoiY, 900);
   if (DIEM.length) document.getElementById('chu-thich').classList.add('hien');
+  var goiY = document.getElementById('goi-y');
+  function nhacGoiY(){
+    if (!mot || !goiY) return;
+    goiY.classList.add('hien');
+    setTimeout(function(){ goiY.classList.remove('hien'); }, 4200);
+  }
   window.addEventListener('resize', doCo);
   window.addEventListener('load', doCo);
   window.addEventListener('orientationchange', doCo);
