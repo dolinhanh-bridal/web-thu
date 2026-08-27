@@ -44,6 +44,7 @@ iframe{width:100%;height:calc(100vh - 41px);border:0;background:#fff;display:blo
   <div id="tab-xuat" class="hidden">
     <button class="nut acc" id="btnTai">Tải file cấu hình về máy</button>
     <button class="nut" id="btnCopy">Sao chép cấu hình</button>
+    <button class="nut acc" id="btnLink">Tạo link gửi em</button>
     <button class="nut" id="btnLuu">Lưu trên máy này</button>
     <button class="nut vien" id="btnXoa">Đặt lại</button>
     <p class="p" id="tb"></p>
@@ -74,6 +75,8 @@ const IMGS=["anh/kho/kho-01.jpg", "anh/kho/kho-02.jpg", "anh/kho/kho-03.jpg", "a
 const SLOTS=[["hero", "Ảnh đầu trang (hero)"], ["dai", "Dải ảnh 'Be yourself'"], ["vay1", "Gói váy 01 · Bride Care"], ["vay2", "Gói váy 02 · Pretty Dress"], ["vay3", "Gói váy 03 · Two Dresses"], ["vay4", "Gói váy 04 · Full"], ["goi1", "Chương 01 · Pre Wedding"], ["goi2", "Chương 02 · Wedding Day"], ["goi3", "Chương 03 · Wedding Story (ảnh tràn)"], ["goi4", "Chương 04 · Signature (ảnh tràn)"], ["gal1", "Gallery 1"], ["gal2", "Gallery 2"], ["gal3", "Gallery 3"], ["gal4", "Gallery 4"], ["gal5", "Gallery 5"], ["cuoi", "Ảnh cuối · Private fitting"]];
 const pv=document.getElementById("pv"); let cfg={anh:{},chu:{}};
 try{ const c=localStorage.getItem("dla_cfg_v2"); if(c) cfg=JSON.parse(c); }catch(e){}
+try{ const q=new URLSearchParams(location.search).get("cfg");
+     if(q){ const o=JSON.parse(decodeURIComponent(escape(atob(q)))); if(o&&o.anh) cfg=Object.assign({chu:{}},o); } }catch(e){}
 function ten(p){return p.replace(/^anh\//,"").replace(/\.jpg$/,"")}
 const host=document.getElementById("slots");
 SLOTS.forEach(([k,label])=>{
@@ -152,6 +155,17 @@ document.getElementById("btnSua").addEventListener("click",e=>{ sua=!sua; pv.con
 document.getElementById("btnGhi").addEventListener("click",()=>pv.contentWindow.postMessage({dlaLayChu:1},"*"));
 function xuat(){ document.getElementById("out").value=JSON.stringify(cfg,null,1); }
 document.getElementById("btnCopy").addEventListener("click",()=>{ xuat(); const o=document.getElementById("out"); o.select(); navigator.clipboard.writeText(o.value).then(()=>tb("Đã sao chép — dán gửi em là xong.")); });
+document.getElementById("btnLink").addEventListener("click",()=>{
+  try{
+    const goi={anh:cfg.anh||{},chu:cfg.chu||{}};                    /* bỏ ảnh tải lên cho link ngắn */
+    const ma=btoa(unescape(encodeURIComponent(JSON.stringify(goi))));
+    const url=location.origin+location.pathname+"?cfg="+encodeURIComponent(ma);
+    history.replaceState(null,"",url);
+    if(navigator.clipboard) navigator.clipboard.writeText(url).catch(()=>{});
+    tb("Xong! Đường link trên thanh địa chỉ giờ đã chứa lựa chọn của chị — chị copy đường link đó gửi em.");
+    document.getElementById("out").value=url;
+  }catch(e){ tb("Không tạo được link: "+e.message); }
+});
 document.getElementById("btnLuu").addEventListener("click",()=>{ try{ localStorage.setItem("dla_cfg_v2",JSON.stringify(cfg)); tb("Đã lưu trên máy này. Mở bao-gia-v2.html trên máy này sẽ thấy đúng bản chị chỉnh."); }catch(e){ tb("Nhiều ảnh quá, máy không lưu tạm được — chị dùng nút Tải file cấu hình về máy rồi gửi em nhé."); } });
 document.getElementById("btnXoa").addEventListener("click",()=>{ if(!confirm("Bỏ hết chỉnh sửa trên máy này?")) return; localStorage.removeItem("dla_cfg_v2"); cfg={anh:{},chu:{}}; location.reload(); });
 function tb(m){ document.getElementById("tb").innerHTML='<span class="ok">'+m+'</span>'; }
