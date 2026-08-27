@@ -357,8 +357,12 @@
     trangPhong = Math.max(0, Math.min(N - 1, t));
     phAnh.src = ANH[trangPhong];
     phong.classList.add('hien');
+    /* chọn mức phóng sao cho trang rộng khoảng 900px — cỡ chữ đọc thoải mái */
+    var w = phCuon.clientWidth || window.innerWidth;
+    iPhong = 0;
+    while (iPhong < mucPhong.length - 1 && w * mucPhong[iPhong] < 900) iPhong++;
     veoPhong();
-    phCuon.scrollTop = 0; phCuon.scrollLeft = (phAnh.offsetWidth - phCuon.clientWidth) / 2;
+    phCuon.scrollTop = 0; phCuon.scrollLeft = 0;
   }
   function diPhong(b){
     var t = Math.max(0, Math.min(N - 1, trangPhong + b));
