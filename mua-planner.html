@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Bridal Dress Planner — Dolinhanh Bridal</title>
+<meta name="description" content="Cuốn sổ 13 trang giúp cô dâu chọn váy cưới mà không hối hận. 99.000đ, nhận file ngay trong ngày.">
+<meta property="og:title" content="Bridal Dress Planner — Dolinhanh Bridal">
+<meta property="og:description" content="Cuốn sổ 13 trang để cô dâu điền vào: soi phong cách, hiểu dáng váy, chấm điểm từng chiếc đã thử.">
+<meta property="og:image" content="https://dolinhanh-bridal.github.io/web-thu/planner-anh/p01.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,400&family=Be+Vietnam+Pro:wght@300;400;500;600&display=swap">
+<style>
+  :root{
+    --nen:#FFFFFF; --giay:#FDF7F5; --da:#FBF0ED; --kem:#FCF4EA;
+    --muc:#241B19; --muc-2:#4C3E3B; --ghi:#8B7B77; --hair:#F0DFDB;
+    --hong:#F0BDB8; --hong-chu:#B05A55;
+    --serif:"Playfair Display",Georgia,"Times New Roman",serif;
+    --sans:"Be Vietnam Pro",-apple-system,"Helvetica Neue",Arial,sans-serif;
+    --max:1060px; --le:clamp(20px,5vw,52px); --bo:16px;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --nen:#151110;--giay:#1E1817;--da:#241C1B;--kem:#241C19;
+      --muc:#F5EDEB;--muc-2:#DACDCA;--ghi:#A99A97;
+      --hair:rgba(255,255,255,.13);--hong:#C98D88;--hong-chu:#E7A9A3;
+    }
+  }
+  :root[data-theme="dark"]{
+    --nen:#151110;--giay:#1E1817;--da:#241C1B;--kem:#241C19;
+    --muc:#F5EDEB;--muc-2:#DACDCA;--ghi:#A99A97;
+    --hair:rgba(255,255,255,.13);--hong:#C98D88;--hong-chu:#E7A9A3;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--nen);color:var(--muc-2);font-family:var(--sans);
+       font-weight:300;font-size:1rem;line-height:1.75;-webkit-font-smoothing:antialiased}
+  h1,h2,h3{margin:0;color:var(--muc);line-height:1.16;text-wrap:balance}
+  p{margin:0} ul{margin:0;padding:0;list-style:none} img{display:block;max-width:100%}
+  a{color:inherit}
+  a:focus-visible{outline:2px solid var(--hong);outline-offset:3px}
+  .khung{max-width:var(--max);margin:0 auto;padding-inline:var(--le)}
+  .nhan{font-family:var(--sans);font-size:.66rem;font-weight:600;letter-spacing:.22em;
+        text-transform:uppercase;color:var(--hong-chu)}
+  .nut{display:inline-flex;align-items:center;justify-content:center;gap:10px;font-family:var(--sans);
+       font-size:.72rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;
+       padding:14px 28px;border-radius:999px;background:var(--hong);color:#241B19;transition:transform .2s}
+  .nut:hover{transform:translateY(-2px)}
+
+  /* hero */
+  .hero{padding-block:clamp(40px,6vw,72px) clamp(30px,4vw,48px)}
+  .hero-luoi{display:grid;gap:clamp(24px,4vw,50px);align-items:center}
+  @media(min-width:900px){.hero-luoi{grid-template-columns:1.1fr .9fr}}
+  .hero h1{font-family:var(--serif);font-size:clamp(1.9rem,4.2vw,2.9rem);margin-top:14px}
+  .hero .bay{font-family:var(--serif);font-style:italic;font-size:clamp(1rem,1.7vw,1.2rem);
+       color:var(--muc-2);margin-top:14px;max-width:44ch}
+  .hero .doan{margin-top:18px;max-width:50ch;font-size:.97rem}
+  .gia-hang{display:flex;align-items:baseline;gap:14px;margin-top:26px;flex-wrap:wrap}
+  .gia-hang .so{font-family:var(--serif);font-size:clamp(2rem,4vw,2.6rem);color:var(--muc);line-height:1}
+  .gia-hang span{font-size:.86rem;color:var(--ghi)}
+  .hero .nut{margin-top:22px}
+  .xem{border-radius:var(--bo);overflow:hidden;background:var(--giay);border:1px solid var(--hair)}
+  .xem img{width:100%}
+
+  /* 6 phần */
+  .phan{background:var(--giay);padding-block:clamp(44px,7vw,80px)}
+  .phan h2{font-family:var(--serif);font-size:clamp(1.6rem,3.2vw,2.2rem);margin-top:10px;max-width:24ch}
+  .phan .sub{margin-top:14px;max-width:56ch;color:var(--muc-2);font-size:.97rem}
+  .p-luoi{display:grid;gap:clamp(16px,2.4vw,26px);margin-top:clamp(26px,4vw,40px)}
+  @media(min-width:760px){.p-luoi{grid-template-columns:repeat(3,1fr)}}
+  .p-o{background:var(--nen);border:1px solid var(--hair);border-radius:var(--bo);padding:clamp(18px,2.4vw,26px);
+       display:grid;gap:8px;align-content:start}
+  .p-o b{font-family:var(--serif);font-weight:400;font-size:1.08rem;color:var(--muc)}
+  .p-o b i{font-style:normal;color:var(--hong-chu);font-size:.82rem;margin-right:8px}
+  .p-o span{font-size:.9rem;line-height:1.65;color:var(--ghi)}
+
+  /* xem thử */
+  .thu{padding-block:clamp(44px,7vw,80px)}
+  .thu h2{font-family:var(--serif);font-size:clamp(1.6rem,3.2vw,2.2rem);margin-top:10px}
+  .thu-luoi{display:grid;gap:clamp(14px,2vw,22px);margin-top:clamp(24px,3.4vw,36px)}
+  @media(min-width:760px){.thu-luoi{grid-template-columns:repeat(3,1fr)}}
+  .thu-o{border:1px solid var(--hair);border-radius:var(--bo);overflow:hidden;background:var(--giay)}
+  .thu-o img{width:100%}
+  .thu-o p{font-size:.82rem;color:var(--ghi);padding:10px 14px;background:var(--nen);border-top:1px solid var(--hair)}
+
+  /* cách nhận */
+  .nhan-kh{background:var(--da);padding-block:clamp(44px,7vw,80px)}
+  .nhan-kh h2{font-family:var(--serif);font-size:clamp(1.6rem,3.2vw,2.2rem);margin-top:10px}
+  .buoc{display:grid;gap:clamp(16px,2.4vw,24px);margin-top:clamp(26px,4vw,38px)}
+  @media(min-width:820px){.buoc{grid-template-columns:1fr 1fr 1fr}}
+  .buoc-o{display:grid;gap:8px;align-content:start}
+  .buoc-o .n{font-family:var(--serif);font-size:1.7rem;color:var(--hong-chu);line-height:1}
+  .buoc-o b{font-family:var(--serif);font-weight:400;font-size:1.08rem;color:var(--muc)}
+  .buoc-o span{font-size:.92rem;line-height:1.65;color:var(--muc-2)}
+  .buoc-o code{font-family:var(--sans);font-weight:600;color:var(--hong-chu);background:var(--nen);
+       padding:2px 8px;border-radius:6px;font-size:.86rem}
+
+  .qr-hop{display:grid;gap:clamp(20px,3vw,34px);align-items:center;margin-top:clamp(30px,4vw,44px);
+       background:var(--nen);border:1px solid var(--hair);border-radius:var(--bo);padding:clamp(20px,3vw,32px)}
+  @media(min-width:760px){.qr-hop{grid-template-columns:auto 1fr}}
+  .qr-hop img{width:min(230px,60vw);margin-inline:auto;border-radius:10px}
+  .qr-tt{display:grid;gap:10px}
+  .qr-tt .d{display:flex;justify-content:space-between;gap:16px;border-bottom:1px solid var(--hair);
+       padding-bottom:8px;font-size:.94rem;flex-wrap:wrap}
+  .qr-tt .d b{font-weight:500;color:var(--muc);font-variant-numeric:tabular-nums}
+  .qr-tt .luu{font-size:.86rem;color:var(--ghi);line-height:1.6;margin-top:4px}
+  .qr-tt .nut{margin-top:10px;justify-self:start}
+
+  /* hỏi đáp */
+  .hoi{padding-block:clamp(44px,7vw,76px)}
+  .hoi h2{font-family:var(--serif);font-size:clamp(1.5rem,3vw,2rem);margin-top:10px}
+  .hoi-ds{display:grid;gap:clamp(14px,2vw,20px);margin-top:clamp(22px,3vw,32px)}
+  @media(min-width:760px){.hoi-ds{grid-template-columns:1fr 1fr}}
+  .hoi-o{border-top:1px solid var(--hair);padding-top:14px;display:grid;gap:6px}
+  .hoi-o b{font-family:var(--serif);font-weight:400;font-size:1.02rem;color:var(--muc)}
+  .hoi-o span{font-size:.92rem;line-height:1.65;color:var(--ghi)}
+
+  footer{background:var(--kem);padding-block:clamp(34px,5vw,60px);text-align:center}
+  footer .ten{font-family:var(--serif);font-size:1.05rem;letter-spacing:.28em;text-transform:uppercase;color:var(--muc)}
+  footer p{margin-top:10px;font-size:.9rem;color:var(--ghi)}
+  footer .nut{margin-top:22px}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="khung hero-luoi">
+    <div>
+      <span class="nhan">Bridal Dress Planner</span>
+      <h1>Cuốn sổ giúp bạn chọn váy cưới mà không hối hận</h1>
+      <p class="bay">Mười ba trang để bạn điền vào — không phải sách để đọc.</p>
+      <p class="doan">Soi phong cách cô dâu của mình, hiểu tên từng dáng váy và kiểu cổ, dựng hồ sơ váy riêng, chấm điểm từng chiếc đã thử, và biết phải hỏi gì trước khi đặt cọc.</p>
+      <div class="gia-hang">
+        <span class="so">99.000đ</span>
+        <span>trọn cuốn · nhận file ngay trong ngày</span>
+      </div>
+      <a class="nut" href="#nhan-planner">Nhận cuốn Planner →</a>
+    </div>
+    <div class="xem">
+      <img src="planner-anh/p01.jpg" alt="Trang Find your bridal style trong Bridal Dress Planner">
+    </div>
+  </div>
+</header>
+
+<section class="phan">
+  <div class="khung">
+    <span class="nhan">Bên trong có gì</span>
+    <h2>Sáu phần, làm theo đúng thứ tự của một cô dâu đi chọn váy</h2>
+    <p class="sub">Phần 01 đến 03 làm ở nhà. Phần 04 làm đêm trước buổi thử. Phần 05 làm ngay trong buổi thử. Phần 06 làm trước khi đặt cọc.</p>
+    <div class="p-luoi">
+      <div class="p-o"><b><i>01</i>Find your bridal style</b><span>Sáu kiểu cô dâu, kèm bài trắc nghiệm sáu câu để biết mình thuộc kiểu nào.</span></div>
+      <div class="p-o"><b><i>02</i>Know your dress</b><span>Năm dáng váy, năm kiểu cổ, năm chất liệu — mỗi loại nói rõ hợp với ai, cân nhắc nếu, hợp venue nào, cảm giác ra sao.</span></div>
+      <div class="p-o"><b><i>03</i>Build your dress profile</b><span>Trang điền: ngày cưới, nơi làm tiệc, phong cách, ngân sách, điều muốn khoe, điều muốn giấu.</span></div>
+      <div class="p-o"><b><i>04</i>How to go dress shopping</b><span>Checklist tám việc trước khi đi và năm góc ảnh phải chụp cho mỗi chiếc váy.</span></div>
+      <div class="p-o"><b><i>05</i>The dress scorecard</b><span>Bảng chấm điểm bảy tiêu chí cho sáu chiếc váy, kèm một trang dạy đọc điểm.</span></div>
+      <div class="p-o"><b><i>06</i>Before you pay</b><span>Mười một câu phải hỏi trước khi đặt cọc, để về sau không có gì phải cãi.</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="thu">
+  <div class="khung">
+    <span class="nhan">Xem thử vài trang</span>
+    <h2>Trang nào cũng có chỗ để bạn viết vào</h2>
+    <div class="thu-luoi">
+      <div class="thu-o"><img src="planner-anh/p01.jpg" alt=""><p>01 · Find your bridal style</p></div>
+      <div class="thu-o"><img src="planner-anh/p03.jpg" alt=""><p>03 · Build your dress profile</p></div>
+      <div class="thu-o"><img src="planner-anh/p05.jpg" alt=""><p>05 · The dress scorecard</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="nhan-kh" id="nhan-planner">
+  <div class="khung">
+    <span class="nhan">Cách nhận</span>
+    <h2>Ba bước, xong trong vài phút</h2>
+    <div class="buoc">
+      <div class="buoc-o">
+        <span class="n">01</span>
+        <b>Quét mã và chuyển 99.000đ</b>
+        <span>Mã đã điền sẵn số tiền. Phần nội dung chuyển khoản, bạn ghi <code>PLANNER</code> kèm số điện thoại của mình.</span>
+      </div>
+      <div class="buoc-o">
+        <span class="n">02</span>
+        <b>Nhắn Zalo cho Dolinhanh</b>
+        <span>Gửi ảnh chụp màn hình chuyển khoản tới Zalo <b>035 995 0588</b>.</span>
+      </div>
+      <div class="buoc-o">
+        <span class="n">03</span>
+        <b>Nhận file trong ngày</b>
+        <span>Dolinhanh gửi lại file PDF. Bạn in ra khổ A4 hoặc điền thẳng trên máy, tuỳ bạn.</span>
+      </div>
+    </div>
+
+    <div class="qr-hop">
+      <img src="planner-anh/qr-99k.png" alt="Mã QR chuyển khoản 99.000đ">
+      <div class="qr-tt">
+        <div class="d"><span>Ngân hàng</span><b>BIDV</b></div>
+        <div class="d"><span>Số tài khoản</span><b>8868633669</b></div>
+        <div class="d"><span>Chủ tài khoản</span><b>NGUYEN THI THANH TRANG</b></div>
+        <div class="d"><span>Số tiền</span><b>99.000đ</b></div>
+        <div class="d"><span>Nội dung</span><b>PLANNER + số điện thoại</b></div>
+        <p class="luu">Tài khoản nhận của Dolinhanh Bridal. Chuyển xong nhớ nhắn Zalo kèm ảnh để bên mình gửi file ngay — nếu quá hai tiếng chưa nhận được, bạn nhắn lại giúp, đừng chờ.</p>
+        <a class="nut" href="https://zalo.me/0359950588">Nhắn Zalo 035 995 0588</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hoi">
+  <div class="khung">
+    <span class="nhan">Hỏi nhanh</span>
+    <h2>Vài điều cô dâu hay hỏi</h2>
+    <div class="hoi-ds">
+      <div class="hoi-o"><b>File dạng gì?</b><span>PDF khổ A4. In ra để viết tay, hoặc mở trên máy tính và điền bằng bàn phím đều được.</span></div>
+      <div class="hoi-o"><b>Chưa đi thử váy có dùng được không?</b><span>Được, và nên dùng trước. Phần 01 đến 03 làm ở nhà chính là để bạn bước vào buổi thử đầu tiên không bối rối.</span></div>
+      <div class="hoi-o"><b>Không thuê váy ở Dolinhanh có dùng được không?</b><span>Dùng được ở bất cứ đâu. Riêng phần 06 — mười một câu trước khi đặt cọc — mang đi hỏi studio nào cũng đúng.</span></div>
+      <div class="hoi-o"><b>Mang tới buổi thử váy thì được gì?</b><span>Chuyên viên đọc Dress Profile của bạn trước, chuẩn bị sẵn đúng dáng váy bạn muốn thử — buổi thử ngắn đi một nửa.</span></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="khung">
+    <p class="ten">Dolinhanh Bridal</p>
+    <p>75 Nguyễn Thị Định, Trung Hoà, Cầu Giấy, Hà Nội<br>2 Tân Canh, Phường 1, Tân Bình, TP. Hồ Chí Minh</p>
+    <a class="nut" href="https://zalo.me/0359950588">Nhắn Zalo nhận Planner</a>
+  </div>
+</footer>
+
+</body>
+</html>
