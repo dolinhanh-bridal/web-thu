@@ -23,6 +23,10 @@ iframe{width:100%;height:calc(100vh - 41px);border:0;background:#fff;display:blo
   <p class="p">Bên phải là trang thật. Chỉnh xong bấm <b>Sao chép cấu hình</b> rồi gửi em, hoặc <b>Lưu trên máy này</b> để mở lại vẫn thấy.</p>
   <div class="tabs"><button class="on" data-tab="anh">Ảnh</button><button data-tab="chu">Chữ</button><button data-tab="xuat">Sao chép / Lưu</button></div>
 
+  <div id="nhapCu" style="display:none;background:#FFF6E5;border:1px solid #E3C98F;border-radius:6px;padding:10px 12px;margin:0 0 12px;font-size:14px;line-height:1.5">
+    ⚠️ Trang đang mở <b>bản nháp cũ</b> chị chỉnh từ lần trước (<b><span id="nhapSo"></span> ô ảnh</b>) — nên ảnh xem trước bên phải có thể khác web thật.<br>
+    <button class="nut vien" id="btnXoa2" style="margin-top:8px">🗑 Bỏ bản nháp — lấy đúng ảnh web thật</button>
+  </div>
   <div id="tab-anh">
     <div class="mode" style="background:#F3F2F0;border-color:#DAD7D2">
       <b>Ảnh của chị</b> — chọn ảnh từ máy, ảnh sẽ hiện trong menu của mọi ô bên dưới để chị chọn.<br>
@@ -166,7 +170,14 @@ document.getElementById("btnLink").addEventListener("click",()=>{
     document.getElementById("out").value=url;
   }catch(e){ tb("Không tạo được link: "+e.message); }
 });
-document.getElementById("btnLuu").addEventListener("click",()=>{ try{ localStorage.setItem("dla_cfg_v2",JSON.stringify(cfg)); tb("Đã lưu trên máy này. Mở bao-gia-v2.html trên máy này sẽ thấy đúng bản chị chỉnh."); }catch(e){ tb("Nhiều ảnh quá, máy không lưu tạm được — chị dùng nút Tải file cấu hình về máy rồi gửi em nhé."); } });
+document.getElementById("btnLuu").addEventListener("click",()=>{ try{ localStorage.setItem("dla_cfg_v2",JSON.stringify(cfg)); tb("Đã lưu trên máy này — mở lại trang chỉnh sửa vẫn còn nguyên. Muốn lên web thật thì bấm Tạo link gửi em."); }catch(e){ tb("Nhiều ảnh quá, máy không lưu tạm được — chị dùng nút Tải file cấu hình về máy rồi gửi em nhé."); } });
 document.getElementById("btnXoa").addEventListener("click",()=>{ if(!confirm("Bỏ hết chỉnh sửa trên máy này?")) return; localStorage.removeItem("dla_cfg_v2"); cfg={anh:{},chu:{}}; location.reload(); });
+(function baoNhap(){
+  const n=Object.keys(cfg.anh||{}).length+Object.keys(cfg.chu||{}).length;
+  if(!n) return;
+  document.getElementById("nhapCu").style.display="block";
+  document.getElementById("nhapSo").textContent=Object.keys(cfg.anh||{}).length;
+})();
+document.getElementById("btnXoa2").addEventListener("click",()=>{ localStorage.removeItem("dla_cfg_v2"); cfg={anh:{},chu:{}}; location.reload(); });
 function tb(m){ document.getElementById("tb").innerHTML='<span class="ok">'+m+'</span>'; }
 </script>
