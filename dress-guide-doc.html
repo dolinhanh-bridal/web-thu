@@ -73,15 +73,15 @@
   .dem > b:first-child{display:block;font-family:var(--sans);font-size:7.2pt;font-weight:600;letter-spacing:.18em;
         text-transform:uppercase;color:var(--hong-chu);margin-bottom:2mm}
   .dem b{font-weight:500;color:var(--muc)}
-  .bia{position:relative;width:210mm;height:262.5mm;overflow:hidden;page-break-after:always;background:var(--giay);padding:14mm 16mm 12mm;display:flex;flex-direction:column}
-  .bia img{display:block;width:100%;height:146mm;object-fit:cover;object-position:50% 18%}
+  .bia{position:relative;width:210mm;height:262.5mm;overflow:hidden;page-break-after:always;background:var(--giay)}
+  .bia img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 30%}
   .bia .phu-toi{position:absolute;inset:0;background:linear-gradient(180deg,rgba(36,27,25,.30) 0%,rgba(36,27,25,.04) 34%,rgba(36,27,25,.30) 72%,rgba(36,27,25,.66) 100%)}
-  .bia .noi{padding:9mm 0 0;flex:1;display:flex;flex-direction:column;align-items:center;text-align:center;color:var(--muc)}
+  .bia .noi{position:absolute;inset:0;padding:15mm 16mm 13mm;display:flex;flex-direction:column;align-items:center;text-align:center;color:var(--muc)}
   .bia .tren{font-family:var(--sans);font-size:7.6pt;font-weight:500;letter-spacing:.34em;text-transform:uppercase;color:var(--hong-chu);text-align:center}
-  .bia .giua{margin:auto 0;display:flex;flex-direction:column;align-items:center}
-  .bia h1{font-family:var(--serif);color:var(--muc);font-size:40pt;line-height:1.02;letter-spacing:-.005em}
-  .bia h1 .nho{display:block;font-size:19pt;letter-spacing:.04em;margin-bottom:3mm}
-  .bia .dan{margin-top:6mm;max-width:112mm;font-size:10.6pt;color:var(--muc-2);line-height:1.65;font-weight:300}
+  .bia .giua{display:contents}
+  .bia h1{font-family:var(--serif);color:var(--muc);font-size:52pt;line-height:1;letter-spacing:.03em;margin-top:2mm;white-space:nowrap}
+  .bia h1 .nho{display:block;font-size:16pt;letter-spacing:.14em;margin-bottom:3mm;font-style:italic}
+  .bia .dan{margin-top:auto;max-width:112mm;font-size:10.6pt;color:var(--muc);line-height:1.65;font-weight:400}
   .bia .ke{width:26mm;height:1.5px;background:var(--hong);margin:7mm auto 5mm}
   .bia .th{font-family:var(--serif);font-size:11pt;letter-spacing:.3em;text-transform:uppercase;color:var(--muc)}
 
@@ -276,18 +276,19 @@ body{height:auto!important;overflow:visible!important;background:var(--giay,#fff
        page-break-after:auto!important;padding:34px 20px 30px!important;
        max-width:720px;margin:0 auto;border-bottom:1px solid var(--hair)}
 .trang:last-child{border-bottom:0}
-/* bìa: ảnh trên, chữ dưới */
-.bia{width:auto!important;height:auto!important;max-width:720px;margin:0 auto;padding:0 0 26px!important;
-     position:static!important;display:block!important;text-align:center}
-.bia img{position:static!important;width:100%!important;height:300px!important;object-fit:cover;
-     object-position:50% 22%}
+/* bìa: tạp chí — ảnh full, chữ đè */
+.bia{width:auto!important;height:640px!important;max-width:720px;margin:0 auto;padding:0!important;
+     position:relative!important;display:block!important;overflow:hidden}
+.bia img{position:absolute!important;inset:0;width:100%!important;height:100%!important;object-fit:cover;
+     object-position:50% 30%}
 .bia .phu-toi{display:none!important}
-.bia .noi{position:static!important;padding:24px 20px 0!important;display:block!important;
-     color:var(--muc-2)!important;text-align:center}
-.bia .noi .tren{color:var(--hong-chu)!important}
+.bia .noi{position:absolute!important;inset:0;padding:26px 18px 22px!important;display:flex!important;
+     flex-direction:column;align-items:center;color:var(--muc)!important;text-align:center}
+.bia .giua{display:contents!important}
+.bia .noi .tren{color:var(--muc)!important}
 .bia .noi h1,.bia .noi .th{color:var(--muc)!important}
-.bia .noi .dan{color:var(--muc-2)!important;max-width:none!important;margin-inline:auto}
-.bia .noi .giua{margin-top:20px!important}
+.bia .noi h1{white-space:nowrap;font-size:34px!important}
+.bia .noi .dan{color:var(--muc)!important;max-width:none!important;margin-top:auto!important}
 .bia .noi .ke{margin:20px auto!important}
 .bia h1{margin-top:22px!important;font-size:34px!important}
 .bia .ke{margin:22px auto!important}
@@ -363,7 +364,7 @@ th,td{padding:6px 4px}
   <div class="noi">
     <p class="tren">Dolinhanh Bridal · Cẩm nang tặng cô dâu</p>
     <div class="giua">
-      <h1><span class="nho">The Bride's</span>DRESS<br>GUIDE</h1>
+      <h1><span class="nho">The Bride's</span>DRESS GUIDE</h1>
       <p class="dan">8 điều cô dâu cần biết trước khi quyết định chiếc váy cưới của mình. Đọc trước khi đi thử váy lần đầu.</p>
       <div class="ke"></div>
       <p class="th">Dolinhanh</p>
@@ -474,7 +475,7 @@ th,td{padding:6px 4px}
   </div>
   <div class="hop-nho">
     <b>Chưa gọi tên được style của mình cũng không sao</b>
-    Rất nhiều cô dâu chỉ biết chắc mình muốn gì sau khi đã mặc thử vài mẫu. Bạn cứ mang theo album ảnh đã gom, stylist sẽ nhìn ra điểm chung giúp bạn — đó là việc của studio mà.
+    Rất nhiều cô dâu chỉ biết chắc mình muốn gì sau khi đã mặc thử vài mẫu. Bạn cứ mang theo album ảnh đã gom, stylist sẽ nhìn ra điểm chung giúp bạn — đó là việc của shop mà.
   </div>
   <div class="chan"><span>01 · Đọc vị bản thân</span><span class="so">05</span></div>
 </section>
@@ -484,12 +485,12 @@ th,td{padding:6px 4px}
   <div class="ch-dau"><span class="so">06</span><h2><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8h16l-1.2 12H5.2z"/><path d="M8.5 8V6a3.5 3.5 0 0 1 7 0v2"/></svg></span>Chuẩn bị gì trước buổi thử váy</h2></div>
   <p class="dan-ch">Chỉ cần chuẩn bị đúng, một buổi thử của bạn bằng ba buổi thử vội.</p>
   <ul class="ds">
-    <li>Mặc <b>áo lót không dây</b> hoặc đồ liền thân màu nude, quần lót không lộ viền. Mút đệm ngực thường studio đã có sẵn.</li>
+    <li>Mặc <b>áo lót không dây</b> hoặc đồ liền thân màu nude, quần lót không lộ viền. Mút đệm ngực thường shop đã có sẵn.</li>
     <li>Mang theo <b>giày cưới hoặc một đôi giày có độ cao tương tự</b> để canh độ dài váy cho chuẩn.</li>
     <li>Búi hoặc kẹp tóc gọn, gần giống kiểu tóc bạn định để trong ngày cưới.</li>
     <li>Trang điểm nhẹ, <b>tránh son đậm</b> — son là thứ dây lên váy nhiều nhất.</li>
     <li>Tháo bớt trang sức và đồng hồ để nhìn tổng thể cho sạch.</li>
-    <li>Xem catalogue trước và <b>chọn sẵn khoảng 5 mẫu</b> mình thích, gửi trước cho studio để tới nơi váy đã treo sẵn.</li>
+    <li>Xem catalogue trước và <b>chọn sẵn khoảng 5 mẫu</b> mình thích, gửi trước cho shop để tới nơi váy đã treo sẵn.</li>
     <li>Đi cùng <b>một hoặc hai người thật sự hiểu gu bạn</b>. Đi đông quá thường khiến bạn phân vân hơn.</li>
     <li>Đi thử <b>khi đã chốt được ngày cưới</b> — lúc đó việc giữ váy và canh lịch mới chính xác.</li>
     <li>Biết trước không gian tiệc: trong nhà hay ngoài trời, sân khấu cao hay thấp, có phải đi lại nhiều không.</li>
@@ -506,7 +507,7 @@ th,td{padding:6px 4px}
 <section class="trang">
   <p class="nhan">02 · tiếp theo</p>
   <h2 style="font-size:17pt;margin-top:3mm"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 3h6l-1 5 5 13H5l5-13z"/><path d="M9 8h6"/></svg></span>Đồ lót đi thử váy</h2>
-  <p class="dan-ch" style="margin-top:4mm">Câu hỏi được nhắn tới studio nhiều nhất trước buổi thử đầu tiên. Nguyên tắc chung: <b>màu nude, không quai, không gọng to, không đường viền</b>.</p>
+  <p class="dan-ch" style="margin-top:4mm">Câu hỏi được nhắn tới shop nhiều nhất trước buổi thử đầu tiên. Nguyên tắc chung: <b>màu nude, không quai, không gọng to, không đường viền</b>.</p>
   <div class="dl-luoi"><figure class="dl"><div class="ve"><svg viewBox="-2 14 124 60" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M 8 48 C 8 39 12 35 18 35 C 25 21 47 20 55 35 L 60 37 L 65 35 C 73 20 95 21 102 35 C 108 35 112 39 112 48 L 112 53 C 102 62 84 65 60 65 C 36 65 18 62 8 53 Z" fill="#FBEFEC" stroke="#241B19" stroke-width="1.6" stroke-linejoin="round"/><path d="M 60 37 L 60 64" stroke="#241B19" stroke-width="1.3" opacity=".6"/><path d="M 8 44 L 0 44 M 112 44 L 120 44" stroke="#241B19" stroke-width="1.6" stroke-linecap="round"/></svg></div><b>Áo lót không dây</b><span>Màu nude. Loại phổ biến nhất, gần như mẫu váy nào cũng mặc được.</span></figure><figure class="dl"><div class="ve"><svg viewBox="14 12 92 60" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M 54 24 C 42 17 24 25 21 40 C 18 56 33 68 47 62 C 59 56 62 37 54 24 Z" fill="#FBEFEC" stroke="#241B19" stroke-width="1.6"/><path d="M 66 24 C 78 17 96 25 99 40 C 102 56 87 68 73 62 C 61 56 58 37 66 24 Z" fill="#FBEFEC" stroke="#241B19" stroke-width="1.6"/><path d="M 45 34 C 38 38 34 46 35 54" fill="none" stroke="#241B19" stroke-width="1.2" opacity=".5"/></svg></div><b>Bra dính</b><span>Tiện nhất vì váy cưới hay hở lưng, hở vai. Không gọng, không quai.</span></figure><figure class="dl"><div class="ve"><svg viewBox="16 0 88 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M 36 6 L 84 6 C 90 6 93 12 91 20 C 87 36 87 48 89 60 C 91 72 86 80 76 83 C 70 85 66 88 63 93 C 60 98 56 96 55 90 C 54 84 52 82 46 81 C 34 78 29 71 31 60 C 33 48 33 36 29 20 C 27 12 30 6 36 6 Z" fill="#FBEFEC" stroke="#241B19" stroke-width="1.6" stroke-linejoin="round"/><path d="M 42 6 C 52 18 68 18 78 6" fill="none" stroke="#241B19" stroke-width="1.4" opacity=".7"/><path d="M 32 48 C 46 52 74 52 88 48" fill="none" stroke="#241B19" stroke-width="1.1" opacity=".4"/></svg></div><b>Đồ liền thân nude</b><span>Ôm nhẹ, không gọng. Vừa đỡ ngực vừa gọn bụng, mặc cả buổi vẫn thoải mái.</span></figure><figure class="dl"><div class="ve"><svg viewBox="14 6 92 74" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M 26 16 L 94 16 C 96 34 92 50 78 64 C 70 72 60 74 60 66 C 60 74 50 72 42 64 C 28 50 24 34 26 16 Z" fill="#FBEFEC" stroke="#241B19" stroke-width="1.6" stroke-linejoin="round"/><path d="M 26 26 L 94 26" fill="none" stroke="#241B19" stroke-width="1.4" opacity=".55"/></svg></div><b>Quần lót cạp cao liền</b><span>Màu nude, không đường viền ren. Cạp cao thì không hằn dưới lớp satin.</span></figure></div>
 
   <p class="nhan" style="margin-top:9mm">Nên tránh</p>
@@ -570,7 +571,7 @@ th,td{padding:6px 4px}
   </div>
   <div class="hop-nho">
     <b>Xin ảnh, đừng chỉ soi gương</b>
-    Gương làm bạn đẹp hơn thực tế, ảnh thì không. Mỗi mẫu hãy xin studio quay lại khoảnh khắc bạn nhìn thấy mình trong gương lần đầu và chụp vài kiểu. Tối về xem lại ảnh, bạn sẽ thấy những thứ mà lúc đứng trong phòng thử bạn không nhận ra.
+    Gương làm bạn đẹp hơn thực tế, ảnh thì không. Mỗi mẫu hãy xin shop quay lại khoảnh khắc bạn nhìn thấy mình trong gương lần đầu và chụp vài kiểu. Tối về xem lại ảnh, bạn sẽ thấy những thứ mà lúc đứng trong phòng thử bạn không nhận ra.
   </div>
   <div class="chan"><span>03 · Nên thử bao nhiêu mẫu</span><span class="so">10</span></div>
 </section>
@@ -604,7 +605,7 @@ th,td{padding:6px 4px}
   </div>
   <div class="hop-nho">
     <b>Nhớ giúp Dolinhanh điều này</b>
-    Bạn không cần giảm cân, không cần trắng lên, cũng không cần sửa gì ở mình trước khi bước vào phòng thử. Việc tìm chiếc váy hợp là việc của studio.
+    Bạn không cần giảm cân, không cần trắng lên, cũng không cần sửa gì ở mình trước khi bước vào phòng thử. Việc tìm chiếc váy hợp là việc của shop.
   </div>
   <div class="chan"><span>04 · Form váy hợp dáng người</span><span class="so">12</span></div>
 </section>
@@ -624,11 +625,11 @@ th,td{padding:6px 4px}
 <section class="trang">
   <p class="nhan">04 · tiếp theo</p>
   <h2 style="font-size:17pt;margin-top:3mm"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 3h6l-1 5 5 13H5l5-13z"/><path d="M9 8h6"/></svg></span>Lo phần thân trên — mặc dáng nào</h2>
-  <p class="dan-ch" style="margin-top:4mm">Bốn điều hay được nhắn tới studio nhất, và dáng váy giải quyết được từng điều. Bạn chỉ cần chỉ vào đúng hình khi đi thử là chuyên viên hiểu ngay.</p>
+  <p class="dan-ch" style="margin-top:4mm">Bốn điều hay được nhắn tới shop nhất, và dáng váy giải quyết được từng điều. Bạn chỉ cần chỉ vào đúng hình khi đi thử là chuyên viên hiểu ngay.</p>
   <div class="hinh-luoi bon"><figure class="hinh"><div class="ve"><svg viewBox="-10 -34 140 190" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="60" cy="-22" r="9" fill="none" stroke="#241B19" stroke-width="1.2"/><path d="M 54 -12 L 52.5 0 M 66 -12 L 67.5 0" fill="none" stroke="#241B19" stroke-width="1.2"/><path d="M 35 1 C 25 3 20 12 23 21 C 26 28 35 28 40 21 Z" fill="#FBEFEC" stroke="#241B19" stroke-width="1.2" stroke-linejoin="round"/><path d="M 85 1 C 95 3 100 12 97 21 C 94 28 85 28 80 21 Z" fill="#FBEFEC" stroke="#241B19" stroke-width="1.2" stroke-linejoin="round"/><path d="M 35.0 0.0 L 85.0 0.0 C 84.5 3.0 82.8 11.3 82.0 18.0 C 81.2 24.7 76.3 27.7 80.0 40.0 C 83.7 52.3 96.3 73.7 104.0 92.0 C 111.7 110.3 122.3 140.3 126.0 150.0 L -6.0 150.0 C -2.3 140.3 8.3 110.3 16.0 92.0 C 23.7 73.7 36.3 52.3 40.0 40.0 C 43.7 27.7 38.8 24.7 38.0 18.0 C 37.2 11.3 35.5 3.0 35.0 0.0 Z" fill="#FBEFEC" stroke="#241B19" stroke-width="1.2" stroke-linejoin="round"/><path d="M 42 0 C 49 13 53 19 60 22 C 67 19 71 13 78 0" fill="none" stroke="#241B19" stroke-width="1.2"/></svg></div><figcaption><b>Bắp tay đầy</b><em>Tay bồng · cổ trễ vai</em><span>Tay voan mỏng hoặc bồng nhẹ, cổ trễ vai chữ V. Đường vai được kéo dài ra nên tổng thể trông thanh.</span></figcaption></figure><figure class="hinh"><div class="ve"><svg viewBox="-10 -34 140 190" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="60" cy="-22" r="9" fill="none" stroke="#241B19" stroke-width="1.2"/><path d="M 54 -12 L 52.5 0 M 66 -12 L 67.5 0" fill="none" stroke="#241B19" stroke-width="1.2"/><path d="M 35.0 0.0 L 85.0 0.0 C 84.5 3.0 82.8 11.3 82.0 18.0 C 81.2 24.7 76.3 27.7 80.0 40.0 C 83.7 52.3 96.3 73.7 104.0 92.0 C 111.7 110.3 122.3 140.3 126.0 150.0 L -6.0 150.0 C -2.3 140.3 8.3 110.3 16.0 92.0 C 23.7 73.7 36.3 52.3 40.0 40.0 C 43.7 27.7 38.8 24.7 38.0 18.0 C 37.2 11.3 35.5 3.0 35.0 0.0 Z" fill="#FBEFEC" stroke="#241B19" stroke-width="1.2" stroke-linejoin="round"/><path d="M 37 3.5 L 83 3.5" fill="none" stroke="#241B19" stroke-width="1" opacity="0.5"/><path d="M 47 7 C 52 12 54 15 54 19" fill="none" stroke="#B05A55" stroke-width=".8" opacity=".7"/><path d="M 60 6 C 60 12 60 15 60 20" fill="none" stroke="#B05A55" stroke-width=".8" opacity=".7"/><path d="M 73 7 C 68 12 66 15 66 19" fill="none" stroke="#B05A55" stroke-width=".8" opacity=".7"/></svg></div><figcaption><b>Ngực nhỏ</b><em>Cúp ngang · nhún ngực</em><span>Cúp ngang có đệm, thân trên nhún hoặc xếp ly, cổ vuông. Phần ngực đầy đặn rất tự nhiên.</span></figcaption></figure><figure class="hinh"><div class="ve"><svg viewBox="-10 -34 140 190" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="60" cy="-22" r="9" fill="none" stroke="#241B19" stroke-width="1.2"/><path d="M 54 -12 L 52.5 0 M 66 -12 L 67.5 0" fill="none" stroke="#241B19" stroke-width="1.2"/><path d="M 41 0 L 49 -10 L 56 -8 L 47.5 0 Z" fill="#FBEFEC" stroke="#241B19" stroke-width="1.2" stroke-linejoin="round"/><path d="M 79 0 L 71 -10 L 64 -8 L 72.5 0 Z" fill="#FBEFEC" stroke="#241B19" stroke-width="1.2" stroke-linejoin="round"/><path d="M 35.0 0.0 L 85.0 0.0 C 84.5 3.0 82.8 11.3 82.0 18.0 C 81.2 24.7 76.3 27.7 80.0 40.0 C 83.7 52.3 96.3 73.7 104.0 92.0 C 111.7 110.3 122.3 140.3 126.0 150.0 L -6.0 150.0 C -2.3 140.3 8.3 110.3 16.0 92.0 C 23.7 73.7 36.3 52.3 40.0 40.0 C 43.7 27.7 38.8 24.7 38.0 18.0 C 37.2 11.3 35.5 3.0 35.0 0.0 Z" fill="#FBEFEC" stroke="#241B19" stroke-width="1.2" stroke-linejoin="round"/><path d="M 44 0 C 51 15 56 22 60 25 C 64 22 69 15 76 0" fill="none" stroke="#241B19" stroke-width="1.2"/></svg></div><figcaption><b>Ngực đầy</b><em>Cổ chữ V · dây bản to</em><span>Cổ chữ V mở dáng, dây bản to đỡ vai. Mặc cả buổi vẫn nhẹ vai, không phải chỉnh lại liên tục.</span></figcaption></figure><figure class="hinh"><div class="ve"><svg viewBox="-10 -34 140 190" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="60" cy="-22" r="9" fill="none" stroke="#241B19" stroke-width="1.2"/><path d="M 54 -12 L 52.5 0 M 66 -12 L 67.5 0" fill="none" stroke="#241B19" stroke-width="1.2"/><path d="M 33 2 C 25 7 23 16 26 23 C 30 27 36 25 38 19 Z" fill="#FBEFEC" stroke="#241B19" stroke-width="1.2" stroke-linejoin="round"/><path d="M 87 2 C 95 7 97 16 94 23 C 90 27 84 25 82 19 Z" fill="#FBEFEC" stroke="#241B19" stroke-width="1.2" stroke-linejoin="round"/><path d="M 35.0 0.0 L 85.0 0.0 C 84.5 3.0 82.8 11.3 82.0 18.0 C 81.2 24.7 76.3 27.7 80.0 40.0 C 83.7 52.3 96.3 73.7 104.0 92.0 C 111.7 110.3 122.3 140.3 126.0 150.0 L -6.0 150.0 C -2.3 140.3 8.3 110.3 16.0 92.0 C 23.7 73.7 36.3 52.3 40.0 40.0 C 43.7 27.7 38.8 24.7 38.0 18.0 C 37.2 11.3 35.5 3.0 35.0 0.0 Z" fill="#FBEFEC" stroke="#241B19" stroke-width="1.2" stroke-linejoin="round"/><path d="M 43 0 C 50 17 55 26 60 30 C 65 26 70 17 77 0" fill="none" stroke="#241B19" stroke-width="1.2"/><path d="M 36 3 C 45 11 54 14 60 14 C 66 14 75 11 84 3" fill="none" stroke="#241B19" stroke-width="1" opacity=".55"/></svg></div><figcaption><b>Vai rộng</b><em>Cổ V sâu · trễ vai</em><span>Cổ chữ V sâu và phần trễ vai buông mềm. Tránh tay bồng to bản vì làm vai thêm ngang.</span></figcaption></figure></div>
   <div class="hop-nho">
     <b>Nhớ giúp Dolinhanh điều này</b>
-    Bạn không cần giảm cân, không cần trắng lên, cũng không cần sửa gì ở mình trước khi bước vào phòng thử. Việc tìm chiếc váy hợp là việc của studio.
+    Bạn không cần giảm cân, không cần trắng lên, cũng không cần sửa gì ở mình trước khi bước vào phòng thử. Việc tìm chiếc váy hợp là việc của shop.
   </div>
   <div class="chan"><span>04 · Form váy hợp dáng người</span><span class="so">14</span></div>
 </section>
@@ -715,7 +716,7 @@ th,td{padding:6px 4px}
 <!-- ══ 11 · PHẦN 05 ══ -->
 <section class="trang">
   <div class="ch-dau"><span class="so">20</span><h2><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 3h6l-1 5 5 13H5l5-13z"/><path d="M9 8h6"/></svg></span>Chất liệu — bốn cái tên nên nhớ</h2></div>
-  <p class="dan-ch">Chất liệu quyết định cách chiếc váy rơi, ôm và chuyển động trên cơ thể bạn. Biết tên bốn chất này là đủ để nói chuyện với bất cứ studio nào.</p>
+  <p class="dan-ch">Chất liệu quyết định cách chiếc váy rơi, ôm và chuyển động trên cơ thể bạn. Biết tên bốn chất này là đủ để nói chuyện với bất cứ shop nào.</p>
   <div class="cl-luoi"><figure class="cl"><div class="anh"><img src="anh/sc/detail/ren-voan-go.jpg" alt=""></div><span class="so">20</span><b>Lace</b><i>Lãng mạn và cổ điển.</i><span>Ren là biểu tượng của sự lãng mạn vượt thời gian. Hoạ tiết tinh xảo dệt từ bàn tay tài hoa — nhưng kén màu da, nhớ thử dưới ánh sáng thật.</span></figure><figure class="cl"><div class="anh"><img src="anh/sc/detail/tulle-luoi.jpg" alt=""></div><span class="so">20</span><b>Tulle</b><i>Nhẹ nhàng như mây.</i><span>Mỏng manh, tinh tế và bay bổng, tulle tạo nên những lớp váy bồng bềnh. Giấu dáng tốt, lên ảnh chuyển động rất đẹp.</span></figure><figure class="cl"><div class="anh"><img src="anh/sc/detail/satin-rut-nhun.jpg" alt=""></div><span class="so">20</span><b>Satin</b><i>Sang trọng và tối giản.</i><span>Bề mặt óng mượt, mềm mại, tôn những đường nét tối giản. Ôm sát nên soi rõ đường cơ thể — hợp tiệc trong nhà.</span></figure><figure class="cl"><div class="anh"><img src="anh/sc/detail/voan-hoa.jpg" alt=""></div><span class="so">20</span><b>Organza</b><i>Bay bổng và hiện đại.</i><span>Mỏng nhẹ nhưng đầy phom dáng. Hợp cô dâu muốn dáng bồng mà ngại tùng dày, và hợp tiệc ngoài trời.</span></figure></div>
 
   <p class="nhan" style="margin-top:9mm">Năm điều kiểm tra khi đang mặc trên người</p>
