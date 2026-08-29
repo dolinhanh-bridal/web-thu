@@ -335,14 +335,37 @@ th,td{padding:6px 4px}
 .tim-ds .doan{display:block;margin-top:4px;font-size:13px;color:var(--muc);line-height:1.55}
 .tim-ds .doan mark{background:rgba(176,90,85,.2);color:var(--muc);border-radius:2px;padding:0 1px}
 .tim-ds .rong{padding:16px;font-size:13px;color:#9a938f;text-align:center}
+
+/* hỏi thêm — gửi email + zalo */
+.hoi-lk{display:block;width:100%;max-width:720px;margin:8px auto 0;background:none;border:0;
+  padding:0 16px;font:inherit;font-family:var(--sans);font-size:12.5px;color:var(--hong-chu);
+  text-align:left;cursor:pointer;text-decoration:underline;text-underline-offset:2px}
+.hoi-hop{display:none;max-width:720px;margin:10px auto 0;padding:14px 16px 16px;border:1px solid var(--hair);
+  border-radius:12px;background:var(--phan,#faf6f4)}
+.hoi-hop.mo{display:block}
+.hoi-hop p{font-size:12.5px;color:var(--muc);line-height:1.6;margin-bottom:10px}
+.hoi-hop textarea{width:100%;box-sizing:border-box;font:inherit;font-size:14px;color:var(--muc);
+  padding:9px 12px;border:1px solid var(--hair);border-radius:10px;background:#fff;resize:vertical;
+  min-height:64px;margin-bottom:8px}
+.hoi-hop input{width:100%;box-sizing:border-box;font:inherit;font-size:13.5px;color:var(--muc);
+  padding:8px 12px;border:1px solid var(--hair);border-radius:999px;background:#fff;margin-bottom:10px}
+.hoi-hop textarea:focus,.hoi-hop input:focus{outline:0;border-color:var(--hong-chu)}
+.hoi-nut{display:flex;flex-wrap:wrap;gap:8px}
+.hoi-nut button,.hoi-nut a{font:inherit;font-size:11.5px;font-weight:600;letter-spacing:.06em;
+  text-transform:uppercase;text-decoration:none;padding:9px 16px;border-radius:999px;cursor:pointer;
+  white-space:nowrap;border:1px solid var(--hong-chu)}
+.hoi-nut .gui{background:var(--hong-chu);color:#fff}
+.hoi-nut .gui:disabled{opacity:.6;cursor:default}
+.hoi-nut .zalo{background:#fff;color:var(--hong-chu)}
+.hoi-bao{margin-top:9px;font-size:12px;color:var(--muc)}
 @media(min-width:760px){.trang{padding:44px 34px 38px!important}
   body{font-size:16px!important}
   .the-luoi,.hinh-luoi,.cl-luoi,.gi-luoi,.dl-luoi,.mau-luoi{grid-template-columns:repeat(4,1fr)!important}}
 </style>
 </head>
 <body>
-<div class="thanh-doc"><b>The Bride Journey</b><a class="nut-dien" href="dien.html">✎ Bản điền được</a><a href="./">Xem kiểu lật sách</a></div><div class="thanh-tim"><div class="tim-kq"><input id="tim-o" type="search" autocomplete="off" placeholder="Tìm nội dung… (vd: makeup, tiền, thử váy)"><div class="tim-ds" id="tim-ds"></div></div></div>
-<section class="trang"><div class="bia"><div><p class="th">Dolinhanh Bridal</p><p class="cham">Quiet · Minimal · Timeless</p></div><h1>The Bride<br>Journey</h1><p class="phu">Hành trình trở thành cô dâu — từ một cô gái chuẩn bị kết hôn<br>đến ngày khoác lên mình chiếc váy cưới</p><div class="ke"></div><p class="dan-b"><i style="font-family:var(--serif)">A guide to becoming a bride — and preparing for the life after.</i><br>Một cuốn sổ tay dành cho những ngày trước khi bạn trở thành cô dâu — bảy chương, ba lớp: hiểu mình, chuẩn bị, thực hiện. Cuốn sổ để <b>viết vào</b>, đi cùng bạn qua từng giai đoạn.</p><p class="cuoi">Dolinhanh Bridal gửi tặng cô dâu · Hà Nội &amp; TP. Hồ Chí Minh</p></div></section>
+<div class="thanh-doc"><b>The Bride Journey</b><a class="nut-dien" href="dien.html">✎ Bản điền được</a><a href="./">Xem kiểu lật sách</a></div><div class="thanh-tim"><div class="tim-kq"><input id="tim-o" type="search" autocomplete="off" placeholder="Tìm nội dung… (vd: makeup, tiền, thử váy)"><div class="tim-ds" id="tim-ds"></div></div><button type="button" class="hoi-lk" id="hoi-mo">Không tìm thấy điều bạn cần? Gửi câu hỏi cho Dolinhanh →</button><div class="hoi-hop" id="hoi-hop"><p>Câu hỏi của bạn sẽ gửi thẳng cho Dolinhanh qua email — bạn cũng có thể nhắn Zalo để được trả lời nhanh hơn.</p><textarea id="hoi-noi-dung" placeholder="Câu hỏi của bạn…" maxlength="900"></textarea><input id="hoi-lien-he" type="text" placeholder="Số điện thoại / Zalo của bạn (để được liên hệ lại — không bắt buộc)"><div class="hoi-nut"><button type="button" class="gui" id="hoi-gui">Gửi câu hỏi</button><a class="zalo" href="https://zalo.me/0359950588" target="_blank" rel="noopener">Hoặc nhắn Zalo 035 995 0588</a></div><p class="hoi-bao" id="hoi-bao"></p></div></div>
+<section class="trang"><div class="bia"><div><p class="th">Dolinhanh Bridal</p><p class="cham">Quiet · Minimal Luxury · Timeless</p></div><h1>The Bride<br>Journey</h1><p class="phu">Hành trình trở thành cô dâu — từ một cô gái chuẩn bị kết hôn<br>đến ngày khoác lên mình chiếc váy cưới</p><div class="ke"></div><p class="dan-b"><i style="font-family:var(--serif)">A guide to becoming a bride — and preparing for the life after.</i><br>Một cuốn sổ tay dành cho những ngày trước khi bạn trở thành cô dâu — bảy chương, ba lớp: hiểu mình, chuẩn bị, thực hiện. Cuốn sổ để <b>viết vào</b>, đi cùng bạn qua từng giai đoạn.</p><p class="cuoi">Dolinhanh Bridal gửi tặng cô dâu · Hà Nội &amp; TP. Hồ Chí Minh</p></div></section>
 <section class="trang "><p class="nhan">Gửi bạn</p><h2 style="font-size:21pt;margin-top:4mm"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20s-7-4.6-7-9.4A4 4 0 0 1 12 8a4 4 0 0 1 7 2.6C19 15.4 12 20 12 20z"/><path d="M12 8l-1.6 3.4 3 1.4L12 16"/></svg></span>Đám cưới là một ngày.<br>Hôn nhân là phần còn lại.</h2><div style="margin-top:8mm;max-width:145mm;display:grid;gap:4mm;font-size:10.4pt;line-height:1.8"><p>Gần như mọi cẩm nang cưới đều là một chiếc checklist: tháng một làm gì, tháng hai làm gì, tháng ba làm gì. Cuốn này thì không. Nó được xếp theo <b>hành trình của một cô gái</b> — từ lúc bạn tự hỏi “mình đã thực sự sẵn sàng chưa”, tới ngày khoác lên mình chiếc váy cưới, và cả những ngày dài sau đó.</p><p>Bảy chương trong cuốn xếp thành ba lớp. <b>Hiểu mình</b> — tâm lý, tình yêu, gu và hình ảnh bản thân (chương 01–02). <b>Chuẩn bị</b> — tiền, kế hoạch, hai gia đình và chiếc váy (chương 03–05). <b>Thực hiện</b> — timeline, ngày cưới và sau cưới (chương 06–07).</p><p>Chúng tôi đứng trong phòng thử váy hơn mười năm, nhưng phần váy cũng chỉ là một chương — vì trở thành cô dâu chưa bao giờ chỉ là chuyện chiếc váy.</p></div><div class="hop"><b>Cách dùng</b>Bạn đừng đọc một mạch nhé. Cứ mở đúng chương mình đang đi, làm xong phần đó rồi hãy sang chương sau. Chỗ nào có ô vuông là chỗ để tick, chỗ nào có dòng kẻ là chỗ để viết. <b>Nên viết ra bằng bút thay vì chỉ nghĩ trong đầu</b> — nghĩ trong đầu thì hai người dễ tưởng là đã thống nhất, mà thật ra chưa.</div><div class="chan"><span>The Bride Journey · Dolinhanh Bridal</span><span class="so">02</span></div></section>
 <section class="trang "><p class="nhan">Bên trong cuốn này</p><h2 style="font-size:24pt;margin-top:4mm"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.5l2.5 5.4 5.9.7-4.4 4 1.2 5.8L12 16.5 6.8 19.4 8 13.6 3.6 9.6l5.9-.7z"/></svg></span>Bảy chương, ba lớp</h2><div style="margin-top:6mm;display:grid;gap:3mm"><p style="font-family:var(--sans);font-size:7.2pt;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--ghi);margin:2mm 0 0">Lớp một — Hiểu mình</p><div style="display:grid;grid-template-columns:14mm 1fr;gap:5mm;border-bottom:1px solid var(--hair);padding-bottom:2.6mm"><span style="font-family:var(--serif);font-size:15pt;color:#A4494C">01</span><div><b style="font-family:var(--serif);font-weight:400;font-size:13.5pt;color:var(--muc)">Trước khi trở thành cô dâu</b><p style="font-size:9.2pt;color:var(--ghi);margin-top:.6mm">Sáu khoảng dừng và năm cuộc trò chuyện trước khi bước vào hôn nhân</p></div></div><div style="display:grid;grid-template-columns:14mm 1fr;gap:5mm;border-bottom:1px solid var(--hair);padding-bottom:2.6mm"><span style="font-family:var(--serif);font-size:15pt;color:#9A7B4F">02</span><div><b style="font-family:var(--serif);font-weight:400;font-size:13.5pt;color:var(--muc)">Hiểu mình &amp; hình dung về đám cưới</b><p style="font-size:9.2pt;color:var(--ghi);margin-top:.6mm">Trắc nghiệm cho cả hai · wedding feeling · priorities · bride identity</p></div></div><p style="font-family:var(--sans);font-size:7.2pt;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--ghi);margin:2mm 0 0">Lớp hai — Chuẩn bị</p><div style="display:grid;grid-template-columns:14mm 1fr;gap:5mm;border-bottom:1px solid var(--hair);padding-bottom:2.6mm"><span style="font-family:var(--serif);font-size:15pt;color:#5F7A5C">03</span><div><b style="font-family:var(--serif);font-weight:400;font-size:13.5pt;color:var(--muc)">Tiền</b><p style="font-size:9.2pt;color:var(--ghi);margin-top:.6mm">Đừng để đám cưới bắt đầu cuộc hôn nhân bằng áp lực</p></div></div><div style="display:grid;grid-template-columns:14mm 1fr;gap:5mm;border-bottom:1px solid var(--hair);padding-bottom:2.6mm"><span style="font-family:var(--serif);font-size:15pt;color:#C06534">04</span><div><b style="font-family:var(--serif);font-weight:400;font-size:13.5pt;color:var(--muc)">Bắt đầu chuẩn bị</b><p style="font-size:9.2pt;color:var(--ghi);margin-top:.6mm">Hai gia đình, các lễ, khách mời và mọi nhà cung cấp</p></div></div><div style="display:grid;grid-template-columns:14mm 1fr;gap:5mm;border-bottom:1px solid var(--hair);padding-bottom:2.6mm"><span style="font-family:var(--serif);font-size:15pt;color:#9C8B4E">05</span><div><b style="font-family:var(--serif);font-weight:400;font-size:13.5pt;color:var(--muc)">Trở thành cô dâu</b><p style="font-size:9.2pt;color:var(--ghi);margin-top:.6mm">Trọn bộ chọn váy, phụ kiện, trang điểm và đi thử</p></div></div><p style="font-family:var(--sans);font-size:7.2pt;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--ghi);margin:2mm 0 0">Lớp ba — Thực hiện</p><div style="display:grid;grid-template-columns:14mm 1fr;gap:5mm;border-bottom:1px solid var(--hair);padding-bottom:2.6mm"><span style="font-family:var(--serif);font-size:15pt;color:#2F3B4C">06</span><div><b style="font-family:var(--serif);font-weight:400;font-size:13.5pt;color:var(--muc)">Bride Timeline</b><p style="font-size:9.2pt;color:var(--ghi);margin-top:.6mm">Checklist từ 12 tháng trước tới từng giờ trong ngày cưới</p></div></div><div style="display:grid;grid-template-columns:14mm 1fr;gap:5mm;border-bottom:1px solid var(--hair);padding-bottom:2.6mm"><span style="font-family:var(--serif);font-size:15pt;color:#4F6885">07</span><div><b style="font-family:var(--serif);font-weight:400;font-size:13.5pt;color:var(--muc)">After the Wedding</b><p style="font-size:9.2pt;color:var(--ghi);margin-top:.6mm">48 giờ đầu, sống chung, và phần dài nhất của câu chuyện</p></div></div></div><div class="hop"><b>Nếu bạn chỉ có một buổi tối</b>Hai bạn hãy làm chương 01 trước. Đó là chương ít người chịu ngồi xuống làm nhất, mà cũng là chương giữ được nhiều cuộc hôn nhân nhất.</div><div class="chan"><span>The Bride Journey · Dolinhanh Bridal</span><span class="so">03</span></div></section>
 <section class="trang chang m01"><div class="chang-luoi"><div class="chang-chu"><div class="mo-chang"><span class="so">04</span><h2>Trước khi trở thành cô dâu</h2><div class="ke-chang"></div><p class="dan">Có một điều quan trọng hơn việc chuẩn bị cho một đám cưới: chuẩn bị cho cuộc hôn nhân mà bạn sắp bước vào.</p><ul><li><i>01</i><span>Mình muốn kết hôn, hay mình muốn có một đám cưới?</span></li><li><i>02</i><span>Đừng kết hôn chỉ vì “đến lúc”</span></li><li><i>03</i><span>Mình có được là chính mình trong mối quan hệ này không?</span></li><li><i>04</i><span>Hai người có thể khác nhau không?</span></li><li><i>05</i><span>Năm cuộc trò chuyện nên có trước khi cưới</span></li><li><i>06</i><span>Are we ready?</span></li></ul></div></div><div class="chang-anh"><div class="vach"></div><img src="../anh/up/nu-pre.jpg" alt=""></div></div><div class="chan"><span>Chương 01</span><span class="so">04</span></div></section>
@@ -497,6 +520,41 @@ th,td{padding:6px 4px}
   o.addEventListener('keydown', function(e){
     if (e.key === 'Escape') { o.value = ''; dong(); }
   });
+
+  var HOI_URL = 'https://script.google.com/macros/s/AKfycbwlmpyoY3b-iCmO9ZoVeUhm0wYJb4CrQ6I9ezsadk4UhDx1JS3qAEN7MWNOL_DGgkiV/exec';
+  var hoiMo = document.getElementById('hoi-mo');
+  var hoiHop = document.getElementById('hoi-hop');
+  var hoiND = document.getElementById('hoi-noi-dung');
+  var hoiLH = document.getElementById('hoi-lien-he');
+  var hoiGui = document.getElementById('hoi-gui');
+  var hoiBao = document.getElementById('hoi-bao');
+  if (hoiMo && hoiHop) {
+    hoiMo.addEventListener('click', function(){
+      hoiHop.classList.toggle('mo');
+      if (hoiHop.classList.contains('mo')) hoiND.focus();
+    });
+  }
+  if (hoiGui) {
+    hoiGui.addEventListener('click', function(){
+      var noiDung = (hoiND.value || '').trim();
+      if (!noiDung) { hoiND.focus(); return; }
+      hoiGui.disabled = true;
+      hoiGui.textContent = 'Đang gửi…';
+      var lienHe = (hoiLH.value || '').trim();
+      fetch(HOI_URL + '?hoi=' + encodeURIComponent('[HANH TRINH] ' + noiDung.slice(0, 850)) +
+        '&em=' + encodeURIComponent(lienHe), { mode: 'no-cors' })
+        .then(function(){
+          hoiGui.textContent = 'Đã gửi ✓';
+          hoiBao.textContent = 'Cảm ơn bạn. Dolinhanh sẽ trả lời sớm nhất — nếu cần gấp, bạn nhắn thêm Zalo nhé.';
+          hoiND.value = ''; hoiLH.value = '';
+        })
+        .catch(function(){
+          hoiGui.disabled = false;
+          hoiGui.textContent = 'Gửi câu hỏi';
+          hoiBao.textContent = 'Lỗi mạng — bạn thử gửi lại, hoặc nhắn Zalo cho nhanh.';
+        });
+    });
+  }
 })();
 </script>
 
