@@ -72,11 +72,31 @@
   .phan .sub{margin-top:14px;max-width:56ch;color:var(--muc-2);font-size:.97rem}
   .p-luoi{display:grid;gap:clamp(16px,2.4vw,26px);margin-top:clamp(26px,4vw,40px)}
   @media(min-width:760px){.p-luoi{grid-template-columns:repeat(3,1fr)}}
-  .p-o{background:var(--nen);border:1px solid var(--hair);border-radius:var(--bo);padding:clamp(18px,2.4vw,26px);
-       display:grid;gap:8px;align-content:start}
+  .p-o{background:var(--nen);border:1px solid var(--hair);border-radius:var(--bo);padding:clamp(14px,2vw,20px);
+       display:grid;grid-template-columns:64px 1fr;gap:14px;align-items:start;text-align:left;
+       width:100%;margin:0;appearance:none;font:inherit;color:inherit;cursor:pointer;
+       transition:transform .18s,box-shadow .18s,border-color .18s}
+  .p-o:hover,.p-o:focus-visible{transform:translateY(-3px);box-shadow:0 10px 26px rgba(36,27,25,.09);border-color:var(--hong)}
+  .p-o:focus-visible{outline:2px solid var(--hong);outline-offset:2px}
+  .p-o .p-anh{width:64px;height:82px;border-radius:8px;overflow:hidden;background:var(--giay);flex:none}
+  .p-o .p-anh img{width:100%;height:100%;object-fit:cover}
+  .p-o .p-chu{display:grid;gap:8px;align-content:start}
   .p-o b{font-family:var(--serif);font-weight:400;font-size:1.08rem;color:var(--muc)}
   .p-o b i{font-style:normal;color:var(--hong-chu);font-size:.82rem;margin-right:8px}
   .p-o span{font-size:.9rem;line-height:1.65;color:var(--ghi)}
+  .p-o .p-xem{font-family:var(--sans);font-size:.7rem;font-weight:600;letter-spacing:.08em;
+       text-transform:uppercase;color:var(--hong-chu)}
+
+  /* hộp xem trang mở chương */
+  .cx-nen{position:fixed;inset:0;z-index:220;background:rgba(20,14,13,.72);display:none;
+       align-items:center;justify-content:center;padding:20px}
+  .cx-nen.hien{display:flex}
+  .cx-hop{position:relative;max-width:640px;width:100%;max-height:92vh;display:grid;gap:12px}
+  .cx-hop img{width:100%;border-radius:12px;max-height:78vh;object-fit:contain;background:var(--giay)}
+  .cx-chu{color:#fff;font-family:var(--sans);font-size:.86rem;text-align:center;letter-spacing:.02em}
+  .cx-dong{position:absolute;top:-42px;right:0;width:34px;height:34px;border-radius:50%;
+       border:1px solid rgba(255,255,255,.5);background:rgba(255,255,255,.1);color:#fff;cursor:pointer;font-size:15px}
+  .cx-dong:hover{background:rgba(255,255,255,.25)}
 
   /* xem thử */
   .thu{padding-block:clamp(44px,7vw,80px)}
@@ -174,17 +194,26 @@
     <span class="nhan">Bên trong có gì</span>
     <h2>Bảy chương, xếp thành ba lớp</h2>
     <p class="sub">Hiểu mình trước, rồi mới chuẩn bị, rồi mới thực hiện. Chương 02 mở đầu bằng bài trắc nghiệm tính cách cho cả hai người — biết mình và người kia thuộc kiểu nào rồi, các chương sau đọc mới đúng.</p>
+    <p class="sub" style="margin-top:6px;font-size:.86rem;color:var(--hong-chu)">Bấm vào từng chương để xem trang mở đầu thật trong sách.</p>
     <div class="p-luoi">
-      <div class="p-o"><b><i>01</i>Trước khi trở thành cô dâu</b><span>Sáu khoảng dừng và năm cuộc trò chuyện nên có trước khi cưới. Bảng “điều tôi không chịu được”. Câu hỏi “mình muốn kết hôn, hay mình muốn có một đám cưới?”</span></div>
-      <div class="p-o"><b><i>02</i>Hiểu mình &amp; hình dung về đám cưới</b><span>Trắc nghiệm bốn kiểu người cho cả hai. Wedding feeling, wedding priorities, bride identity — hình dung đúng đám cưới của riêng bạn.</span></div>
-      <div class="p-o"><b><i>03</i>Tiền</b><span>Nói chuyện tiền, tiền cưới, bảng ngân sách, và cách không vỡ ví giữa muốn — cần — nên.</span></div>
-      <div class="p-o"><b><i>04</i>Bắt đầu chuẩn bị</b><span>Trình tự các lễ, chia việc hai nhà, khách mời, giấy tờ đăng ký kết hôn, khám sức khoẻ, chụp ảnh cưới — và một phần riêng cho chú rể.</span></div>
-      <div class="p-o"><b><i>05</i>Trở thành cô dâu</b><span>Trọn phần chọn váy: năm dáng cơ bản, chất liệu, Dress Profile của bạn, đi thử váy, bảng chấm điểm trước khi đặt cọc.</span></div>
-      <div class="p-o"><b><i>06</i>Bride Timeline</b><span>Checklist từ mười hai tháng tới từng giờ trong ngày cưới. Túi cứu hộ cô dâu, ai cầm gì ai lo gì, sự cố hay gặp.</span></div>
-      <div class="p-o"><b><i>07</i>After the Wedding</b><span>Chương dài nhất trong đời thật — thoả thuận sống chung, quy tắc khi cãi nhau, ba mươi ngày đầu ở nhà chồng, và lá thư hai người viết cho nhau.</span></div>
+      <button type="button" class="p-o" data-chuong="01"><span class="p-anh"><img src="planner-anh/chuong/thumb-01.jpg" alt=""></span><span class="p-chu"><b><i>01</i>Trước khi trở thành cô dâu</b><span>Sáu khoảng dừng và năm cuộc trò chuyện nên có trước khi cưới. Bảng “điều tôi không chịu được”. Câu hỏi “mình muốn kết hôn, hay mình muốn có một đám cưới?”</span><span class="p-xem">Xem trang mở chương →</span></span></button>
+      <button type="button" class="p-o" data-chuong="02"><span class="p-anh"><img src="planner-anh/chuong/thumb-02.jpg" alt=""></span><span class="p-chu"><b><i>02</i>Hiểu mình &amp; hình dung về đám cưới</b><span>Trắc nghiệm bốn kiểu người cho cả hai. Wedding feeling, wedding priorities, bride identity — hình dung đúng đám cưới của riêng bạn.</span><span class="p-xem">Xem trang mở chương →</span></span></button>
+      <button type="button" class="p-o" data-chuong="03"><span class="p-anh"><img src="planner-anh/chuong/thumb-03.jpg" alt=""></span><span class="p-chu"><b><i>03</i>Tiền</b><span>Nói chuyện tiền, tiền cưới, bảng ngân sách, và cách không vỡ ví giữa muốn — cần — nên.</span><span class="p-xem">Xem trang mở chương →</span></span></button>
+      <button type="button" class="p-o" data-chuong="04"><span class="p-anh"><img src="planner-anh/chuong/thumb-04.jpg" alt=""></span><span class="p-chu"><b><i>04</i>Bắt đầu chuẩn bị</b><span>Trình tự các lễ, chia việc hai nhà, khách mời, giấy tờ đăng ký kết hôn, khám sức khoẻ, chụp ảnh cưới — và một phần riêng cho chú rể.</span><span class="p-xem">Xem trang mở chương →</span></span></button>
+      <button type="button" class="p-o" data-chuong="05"><span class="p-anh"><img src="planner-anh/chuong/thumb-05.jpg" alt=""></span><span class="p-chu"><b><i>05</i>Trở thành cô dâu</b><span>Trọn phần chọn váy: năm dáng cơ bản, chất liệu, Dress Profile của bạn, đi thử váy, bảng chấm điểm trước khi đặt cọc.</span><span class="p-xem">Xem trang mở chương →</span></span></button>
+      <button type="button" class="p-o" data-chuong="06"><span class="p-anh"><img src="planner-anh/chuong/thumb-06.jpg" alt=""></span><span class="p-chu"><b><i>06</i>Bride Timeline</b><span>Checklist từ mười hai tháng tới từng giờ trong ngày cưới. Túi cứu hộ cô dâu, ai cầm gì ai lo gì, sự cố hay gặp.</span><span class="p-xem">Xem trang mở chương →</span></span></button>
+      <button type="button" class="p-o" data-chuong="07"><span class="p-anh"><img src="planner-anh/chuong/thumb-07.jpg" alt=""></span><span class="p-chu"><b><i>07</i>After the Wedding</b><span>Chương dài nhất trong đời thật — thoả thuận sống chung, quy tắc khi cãi nhau, ba mươi ngày đầu ở nhà chồng, và lá thư hai người viết cho nhau.</span><span class="p-xem">Xem trang mở chương →</span></span></button>
     </div>
   </div>
   </section>
+
+<div class="cx-nen" id="cx-nen">
+  <div class="cx-hop" role="dialog" aria-modal="true" aria-label="Trang mở chương">
+    <button type="button" class="cx-dong" id="cx-dong" aria-label="Đóng">✕</button>
+    <img id="cx-anh" src="" alt="">
+    <p class="cx-chu" id="cx-chu"></p>
+  </div>
+</div>
 
 <section class="thu">
   <div class="khung">
@@ -318,6 +347,43 @@
         form.reset();
       });
     });
+  })();
+
+  (function(){
+    var CHUONG = {
+      '01':{anh:'planner-anh/chuong/full-01.jpg', ten:'Chương 01 · Trước khi trở thành cô dâu'},
+      '02':{anh:'planner-anh/chuong/full-02.jpg', ten:'Chương 02 · Hiểu mình & hình dung về đám cưới'},
+      '03':{anh:'planner-anh/chuong/full-03.jpg', ten:'Chương 03 · Tiền'},
+      '04':{anh:'planner-anh/chuong/full-04.jpg', ten:'Chương 04 · Bắt đầu chuẩn bị'},
+      '05':{anh:'planner-anh/chuong/full-05.jpg', ten:'Chương 05 · Trở thành cô dâu'},
+      '06':{anh:'planner-anh/chuong/full-06.jpg', ten:'Chương 06 · Bride Timeline'},
+      '07':{anh:'planner-anh/chuong/full-07.jpg', ten:'Chương 07 · After the Wedding'}
+    };
+    var nen = document.getElementById('cx-nen');
+    var anh = document.getElementById('cx-anh');
+    var chu = document.getElementById('cx-chu');
+    var dong = document.getElementById('cx-dong');
+
+    function moChuong(so){
+      var d = CHUONG[so];
+      if (!d) return;
+      anh.src = d.anh;
+      anh.alt = d.ten;
+      chu.textContent = d.ten;
+      nen.classList.add('hien');
+      document.body.style.overflow = 'hidden';
+    }
+    function dongChuong(){
+      nen.classList.remove('hien');
+      document.body.style.overflow = '';
+    }
+
+    document.querySelectorAll('.p-o').forEach(function(btn){
+      btn.addEventListener('click', function(){ moChuong(btn.dataset.chuong); });
+    });
+    dong.addEventListener('click', dongChuong);
+    nen.addEventListener('click', function(e){ if (e.target === nen) dongChuong(); });
+    document.addEventListener('keydown', function(e){ if (e.key === 'Escape') dongChuong(); });
   })();
 </script>
 
