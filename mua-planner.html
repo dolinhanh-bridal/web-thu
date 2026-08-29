@@ -105,7 +105,28 @@
        padding-bottom:8px;font-size:.94rem;flex-wrap:wrap}
   .qr-tt .d b{font-weight:500;color:var(--muc);font-variant-numeric:tabular-nums}
   .qr-tt .luu{font-size:.86rem;color:var(--ghi);line-height:1.6;margin-top:4px}
-  .qr-tt .nut{margin-top:10px;justify-self:start}
+  .qr-nut2{display:flex;flex-wrap:wrap;gap:12px;margin-top:10px}
+  .nut-vien{background:none;border:1px solid var(--muc);color:var(--muc);cursor:pointer;font:inherit}
+  .nut-vien:hover{background:var(--muc);color:var(--nen)}
+
+  /* hộp "đã chuyển khoản" */
+  .ck-nen{position:fixed;inset:0;z-index:200;background:rgba(36,27,25,.55);display:none;
+       align-items:center;justify-content:center;padding:20px}
+  .ck-nen.hien{display:flex}
+  .ck-hop{position:relative;background:var(--nen);color:var(--muc-2);border-radius:16px;
+       max-width:420px;width:100%;max-height:88vh;overflow-y:auto;padding:clamp(24px,4vw,32px)}
+  .ck-dong{position:absolute;top:12px;right:12px;width:32px;height:32px;border-radius:50%;
+       border:1px solid var(--hair);background:var(--nen);color:var(--muc);cursor:pointer;font-size:14px}
+  .ck-hop h3{font-family:var(--serif);font-weight:400;font-size:1.3rem;margin-top:8px}
+  .ck-mo{font-size:.88rem;line-height:1.6;color:var(--ghi);margin-top:8px}
+  #ck-form{display:grid;gap:14px;margin-top:20px}
+  #ck-form label{display:grid;gap:6px;font-size:.8rem;color:var(--ghi)}
+  #ck-form input{font:inherit;font-size:.95rem;color:var(--muc);padding:11px 13px;
+       border:1px solid var(--hair);border-radius:8px;background:var(--giay)}
+  #ck-form input:focus{outline:2px solid var(--hong);outline-offset:1px}
+  #ck-form .nut{border:0;width:100%;margin-top:4px;cursor:pointer}
+  #ck-form .nut[disabled]{opacity:.6;cursor:default}
+  .ck-xong{margin-top:20px;background:var(--kem);border-radius:10px;padding:16px 18px;font-size:.92rem;line-height:1.6}
 
   /* hỏi đáp */
   .hoi{padding-block:clamp(44px,7vw,76px)}
@@ -202,11 +223,31 @@
         <div class="d"><span>Số tiền</span><b>99.000đ</b></div>
         <div class="d"><span>Nội dung</span><b>CAMNANG + số điện thoại</b></div>
         <p class="luu">Tài khoản nhận của Dolinhanh Bridal. Chuyển xong nhớ nhắn Zalo kèm ảnh để bên mình gửi file ngay — nếu quá hai tiếng chưa nhận được, bạn nhắn lại giúp, đừng chờ.</p>
-        <a class="nut" href="https://zalo.me/0359950588">Nhắn Zalo 035 995 0588</a>
+        <div class="qr-nut2">
+          <a class="nut" href="https://zalo.me/0359950588">Nhắn Zalo 035 995 0588</a>
+          <button type="button" class="nut nut-vien" id="btn-da-ck">Tôi đã chuyển khoản</button>
+        </div>
       </div>
     </div>
   </div>
 </section>
+
+<div class="ck-nen" id="ck-nen">
+  <div class="ck-hop" role="dialog" aria-modal="true" aria-labelledby="ck-tieu">
+    <button type="button" class="ck-dong" id="ck-dong" aria-label="Đóng">✕</button>
+    <span class="nhan">Báo đã chuyển khoản</span>
+    <h3 id="ck-tieu">Bạn điền giúp Dolinhanh</h3>
+    <p class="ck-mo">Bên mình kiểm tra tài khoản rồi gửi file trong hôm nay. Bạn vẫn có thể nhắn Zalo nếu muốn nhận nhanh hơn.</p>
+    <form id="ck-form">
+      <label>Tên của bạn<input type="text" name="ten" required autocomplete="name"></label>
+      <label>Số điện thoại Zalo<input type="tel" name="sdt" required autocomplete="tel" inputmode="tel"></label>
+      <button type="submit" class="nut" id="ck-gui">Gửi thông báo</button>
+    </form>
+    <div class="ck-xong" id="ck-xong" hidden>
+      <p><b>Đã gửi.</b> Dolinhanh sẽ kiểm tra tài khoản và gửi file cho bạn trong hôm nay.</p>
+    </div>
+  </div>
+</div>
 
 <section class="hoi">
   <div class="khung">
@@ -228,6 +269,51 @@
     <a class="nut" href="https://zalo.me/0359950588">Nhắn Zalo nhận cẩm nang</a>
   </div>
 </footer>
+
+<script>
+  (function(){
+    var FORM_ID = '1FAIpQLSdVCK8VYHc1Sz664Kkd1t5HLnYvhemy5k7PncHdyDczDPcsxQ';
+    var ENTRY_TEN = 'entry.1365408375';
+    var ENTRY_SDT = 'entry.324990690';
+
+    var nen = document.getElementById('ck-nen');
+    var mo = document.getElementById('btn-da-ck');
+    var dong = document.getElementById('ck-dong');
+    var form = document.getElementById('ck-form');
+    var xong = document.getElementById('ck-xong');
+    var nutGui = document.getElementById('ck-gui');
+
+    function moHop(){ nen.classList.add('hien'); form.hidden = false; xong.hidden = true; }
+    function dongHop(){ nen.classList.remove('hien'); }
+
+    mo.addEventListener('click', moHop);
+    dong.addEventListener('click', dongHop);
+    nen.addEventListener('click', function(e){ if (e.target === nen) dongHop(); });
+
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      var ten = form.ten.value.trim();
+      var sdt = form.sdt.value.trim();
+      if (!ten || !sdt) return;
+      nutGui.disabled = true;
+      nutGui.textContent = 'Đang gửi…';
+
+      var fd = new FormData();
+      fd.append(ENTRY_TEN, ten);
+      fd.append(ENTRY_SDT, sdt);
+
+      fetch('https://docs.google.com/forms/d/e/' + FORM_ID + '/formResponse', {
+        method: 'POST', mode: 'no-cors', body: fd
+      }).catch(function(){}).finally(function(){
+        form.hidden = true;
+        xong.hidden = false;
+        nutGui.disabled = false;
+        nutGui.textContent = 'Gửi thông báo';
+        form.reset();
+      });
+    });
+  })();
+</script>
 
 </body>
 </html>
