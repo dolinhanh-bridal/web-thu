@@ -1,6 +1,24 @@
 <!doctype html>
 <html lang="vi">
 <head>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1358640082651240');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1358640082651240&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta charset="utf-8">
 <title>The Bride's Dress Guide — Dolinhanh Bridal</title>
@@ -375,7 +393,7 @@ th,td{padding:6px 4px}
   </div>
 </div>
 <style>
-  .dlg-gate{position:fixed;inset:0;z-index:99999;background:#FCF4EA;display:flex;align-items:center;justify-content:center;padding:24px;font-family:"Be Vietnam Pro",-apple-system,"Helvetica Neue",Arial,sans-serif;transition:opacity .5s ease;}
+  .dlg-gate{position:fixed;inset:0;z-index:99999;background:#FFFFFF;display:flex;align-items:center;justify-content:center;padding:24px;font-family:"Be Vietnam Pro",-apple-system,"Helvetica Neue",Arial,sans-serif;transition:opacity .5s ease;}
   .dlg-gate.dlg-hidden{opacity:0;pointer-events:none;}
   .dlg-card{max-width:380px;width:100%;text-align:center;}
   .dlg-kicker{display:block;font-size:.62rem;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:#B05A55;margin-bottom:8px;}
@@ -425,6 +443,7 @@ th,td{padding:6px 4px}
       fd.append('entry.1111955433', location.pathname.split('/').pop()+' | '+document.referrer);
       fetch('https://docs.google.com/forms/u/0/d/e/1FAIpQLSfEyUNJ6X3egcKJU2uD8vKuwyVnTW_WEbZSrcHwmMyU8q9pXg/formResponse', {method:'POST', mode:'no-cors', body:fd});
     }catch(e){}
+    try{ if(typeof fbq==='function') fbq('track','Lead',{content_name:'Dress Guide Ebook'}); }catch(e){}
     try{ localStorage.setItem(KEY, JSON.stringify({ten:ten,sdt:sdt,ts:Date.now()})); }catch(e){}
     gate.classList.add('dlg-hidden');
     setTimeout(function(){ if(gate.parentNode) gate.parentNode.removeChild(gate); }, 600);
