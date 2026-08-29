@@ -297,17 +297,82 @@ th,td{padding:6px 4px}
 .thanh-doc{position:sticky;top:0;z-index:20;background:#fff;border-bottom:1px solid var(--hair);
   display:flex;align-items:center;justify-content:space-between;gap:12px;padding:11px 16px}
 .thanh-doc b{font-family:var(--serif);font-weight:400;font-size:16px;color:var(--muc)}
-.thanh-doc{flex-wrap:wrap}
 .thanh-doc a{font-family:var(--sans);font-size:11px;font-weight:600;letter-spacing:.1em;
   text-transform:uppercase;color:var(--hong-chu);text-decoration:none;border:1px solid var(--hair);
   padding:7px 12px;border-radius:999px;white-space:nowrap}
 @media(min-width:760px){.trang{padding:44px 34px 38px!important}
   body{font-size:16px!important}
   .the-luoi,.hinh-luoi,.cl-luoi,.gi-luoi,.dl-luoi,.mau-luoi{grid-template-columns:repeat(4,1fr)!important}}
+
+/* ═══ BẢN ĐIỀN — ô tick bấm được, dòng kẻ gõ được ═══ */
+:root{--xanh-luu:#7a8b74}
+.thanh-doc{position:static!important;flex-wrap:wrap}
+.thanh-dien{position:sticky;top:0;z-index:21;background:#fff;border-bottom:1px solid var(--hair);
+  display:flex;align-items:center;gap:10px;padding:9px 16px;flex-wrap:wrap;
+  font-family:var(--sans);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muc)}
+.thanh-dien .tien{color:var(--hong-chu);font-weight:600;white-space:nowrap}
+.thanh-dien .trang-thai{color:#9a938f;text-transform:none;letter-spacing:.02em;font-size:11px}
+.thanh-dien .cach{flex:1}
+.thanh-dien button{font:inherit;text-transform:uppercase;letter-spacing:.1em;font-weight:600;
+  color:var(--hong-chu);background:#fff;border:1px solid var(--hair);padding:7px 12px;
+  border-radius:999px;cursor:pointer;white-space:nowrap}
+.thanh-dien button:hover{background:var(--phan,#faf6f4)}
+.thanh-dien button.phu{color:#9a938f}
+
+/* ô tick trong danh sách */
+ul.tick li.o-chon{cursor:pointer;-webkit-tap-highlight-color:transparent;border-radius:4px;
+  transition:background .15s}
+ul.tick li.o-chon:hover{background:rgba(0,0,0,.03)}
+ul.tick li.o-chon:focus-visible{outline:2px solid var(--hong-chu);outline-offset:2px}
+ul.tick li.o-chon::before{transition:background .15s,border-color .15s}
+ul.tick li.da-chon::before{background:var(--hong-chu);border-color:var(--hong-chu)}
+ul.tick li.da-chon::after{content:"";position:absolute;left:1.15mm;top:3.5mm;width:1.5mm;height:.9mm;
+  border-left:1.5px solid #fff;border-bottom:1.5px solid #fff;transform:rotate(-45deg)}
+ul.tick li.da-chon{color:var(--muc)}
+
+/* ô tick hai cột (bảng điều tôi không chịu được) */
+.doi-tick .o{cursor:pointer;-webkit-tap-highlight-color:transparent;position:relative;
+  transition:background .15s}
+.doi-tick .o:focus-visible{outline:2px solid var(--hong-chu);outline-offset:2px}
+.doi-tick .o.da-chon{background:var(--hong-chu);border-color:var(--hong-chu)}
+.doi-tick .o.da-chon::after{content:"";position:absolute;left:1mm;top:.9mm;width:1.4mm;height:.8mm;
+  border-left:1.4px solid #fff;border-bottom:1.4px solid #fff;transform:rotate(-45deg)}
+
+/* đáp án trắc nghiệm — chọn một trong mỗi câu */
+.quiz .dap div{cursor:pointer;-webkit-tap-highlight-color:transparent;border-radius:4px;
+  padding-top:1px;padding-bottom:1px;transition:background .15s}
+.quiz .dap div:hover{background:rgba(0,0,0,.03)}
+.quiz .dap div.da-chon::before{background:var(--hong-chu);border-color:var(--hong-chu)}
+.quiz .dap div.da-chon{color:var(--muc)}
+
+/* ô gõ chữ */
+textarea.o-viet{display:block;width:100%;box-sizing:border-box;border:0;border-bottom:1px solid var(--hair);
+  background:transparent;resize:none;overflow:hidden;padding:5px 2px 6px;margin:0;
+  font-family:var(--serif);font-size:15.5px;line-height:1.6;color:var(--muc);min-height:34px}
+textarea.o-viet:focus{outline:0;border-bottom-color:var(--hong-chu);background:rgba(214,164,158,.06)}
+textarea.o-viet::placeholder{color:#c9c1bd;font-style:italic;font-size:14px}
+.dem-o .oo textarea.o-viet{border:0;min-height:44px;text-align:center;font-size:14px}
+.dem-o .oo{padding:2px}
+
+/* dải nhắc ở đầu trang */
+.nhac-dien{max-width:720px;margin:0 auto;padding:14px 20px 0}
+.nhac-dien div{border:1px solid var(--hong);background:var(--phan,#faf6f4);border-radius:10px;
+  padding:12px 16px;font-family:var(--sans);font-size:12.5px;line-height:1.6;color:var(--muc)}
+.nhac-dien b{font-weight:600;color:var(--hong-chu)}
+
+@media print{
+  .thanh-doc,.thanh-dien,.nhac-dien{display:none!important}
+  textarea.o-viet{border-bottom:1px solid #ddd}
+  ul.tick li.da-chon::before{background:#8a6a66!important;border-color:#8a6a66!important;
+    -webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .doi-tick .o.da-chon{background:#8a6a66!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .quiz .dap div.da-chon::before{background:#8a6a66!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
 </style>
 </head>
 <body>
-<div class="thanh-doc"><b>The Bride Journey</b><a class="nut-dien" href="dien.html">✎ Bản điền được</a><a href="./">Xem kiểu lật sách</a></div>
+<div class="thanh-doc"><b>The Bride Journey — bản của tôi</b><a href="./">Xem kiểu lật sách</a></div>
+<div class="thanh-dien"><span class="tien" id="tien-do">Đã tick 0/0</span><span class="trang-thai" id="trang-thai">Tự lưu trên máy bạn</span><span class="cach"></span><button type="button" id="nut-in">In / lưu PDF</button><button type="button" class="phu" id="nut-xoa">Xoá hết</button></div><div class="nhac-dien"><div><b>Bản điền được.</b> Chạm vào ô vuông để tick, chạm vào dòng kẻ để gõ chữ. Mọi thứ bạn điền tự lưu trên máy của bạn — đóng ra mở lại vẫn còn, và không ai khác nhìn thấy. Muốn giữ làm kỷ niệm thì bấm <b>In / lưu PDF</b>.</div></div>
 <section class="trang"><div class="bia"><div><p class="th">Dolinhanh Bridal</p><p class="cham">Quiet · Minimal · Timeless</p></div><h1>The Bride<br>Journey</h1><p class="phu">Hành trình trở thành cô dâu — từ một cô gái chuẩn bị kết hôn<br>đến ngày khoác lên mình chiếc váy cưới</p><div class="ke"></div><p class="dan-b"><i style="font-family:var(--serif)">A guide to becoming a bride — and preparing for the life after.</i><br>Một cuốn sổ tay dành cho những ngày trước khi bạn trở thành cô dâu — bảy chương, ba lớp: hiểu mình, chuẩn bị, thực hiện. Cuốn sổ để <b>viết vào</b>, đi cùng bạn qua từng giai đoạn.</p><p class="cuoi">Dolinhanh Bridal gửi tặng cô dâu · Hà Nội &amp; TP. Hồ Chí Minh</p></div></section>
 <section class="trang "><p class="nhan">Gửi bạn</p><h2 style="font-size:21pt;margin-top:4mm"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20s-7-4.6-7-9.4A4 4 0 0 1 12 8a4 4 0 0 1 7 2.6C19 15.4 12 20 12 20z"/><path d="M12 8l-1.6 3.4 3 1.4L12 16"/></svg></span>Đám cưới là một ngày.<br>Hôn nhân là phần còn lại.</h2><div style="margin-top:8mm;max-width:145mm;display:grid;gap:4mm;font-size:10.4pt;line-height:1.8"><p>Gần như mọi cẩm nang cưới đều là một chiếc checklist: tháng một làm gì, tháng hai làm gì, tháng ba làm gì. Cuốn này thì không. Nó được xếp theo <b>hành trình của một cô gái</b> — từ lúc bạn tự hỏi “mình đã thực sự sẵn sàng chưa”, tới ngày khoác lên mình chiếc váy cưới, và cả những ngày dài sau đó.</p><p>Bảy chương trong cuốn xếp thành ba lớp. <b>Hiểu mình</b> — tâm lý, tình yêu, gu và hình ảnh bản thân (chương 01–02). <b>Chuẩn bị</b> — tiền, kế hoạch, hai gia đình và chiếc váy (chương 03–05). <b>Thực hiện</b> — timeline, ngày cưới và sau cưới (chương 06–07).</p><p>Chúng tôi đứng trong phòng thử váy hơn mười năm, nhưng phần váy cũng chỉ là một chương — vì trở thành cô dâu chưa bao giờ chỉ là chuyện chiếc váy.</p></div><div class="hop"><b>Cách dùng</b>Bạn đừng đọc một mạch nhé. Cứ mở đúng chương mình đang đi, làm xong phần đó rồi hãy sang chương sau. Chỗ nào có ô vuông là chỗ để tick, chỗ nào có dòng kẻ là chỗ để viết. <b>Nên viết ra bằng bút thay vì chỉ nghĩ trong đầu</b> — nghĩ trong đầu thì hai người dễ tưởng là đã thống nhất, mà thật ra chưa.</div><div class="chan"><span>The Bride Journey · Dolinhanh Bridal</span><span class="so">02</span></div></section>
 <section class="trang "><p class="nhan">Bên trong cuốn này</p><h2 style="font-size:24pt;margin-top:4mm"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.5l2.5 5.4 5.9.7-4.4 4 1.2 5.8L12 16.5 6.8 19.4 8 13.6 3.6 9.6l5.9-.7z"/></svg></span>Bảy chương, ba lớp</h2><div style="margin-top:6mm;display:grid;gap:3mm"><p style="font-family:var(--sans);font-size:7.2pt;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--ghi);margin:2mm 0 0">Lớp một — Hiểu mình</p><div style="display:grid;grid-template-columns:14mm 1fr;gap:5mm;border-bottom:1px solid var(--hair);padding-bottom:2.6mm"><span style="font-family:var(--serif);font-size:15pt;color:#A4494C">01</span><div><b style="font-family:var(--serif);font-weight:400;font-size:13.5pt;color:var(--muc)">Trước khi trở thành cô dâu</b><p style="font-size:9.2pt;color:var(--ghi);margin-top:.6mm">Sáu khoảng dừng và năm cuộc trò chuyện trước khi bước vào hôn nhân</p></div></div><div style="display:grid;grid-template-columns:14mm 1fr;gap:5mm;border-bottom:1px solid var(--hair);padding-bottom:2.6mm"><span style="font-family:var(--serif);font-size:15pt;color:#9A7B4F">02</span><div><b style="font-family:var(--serif);font-weight:400;font-size:13.5pt;color:var(--muc)">Hiểu mình &amp; hình dung về đám cưới</b><p style="font-size:9.2pt;color:var(--ghi);margin-top:.6mm">Trắc nghiệm cho cả hai · wedding feeling · priorities · bride identity</p></div></div><p style="font-family:var(--sans);font-size:7.2pt;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--ghi);margin:2mm 0 0">Lớp hai — Chuẩn bị</p><div style="display:grid;grid-template-columns:14mm 1fr;gap:5mm;border-bottom:1px solid var(--hair);padding-bottom:2.6mm"><span style="font-family:var(--serif);font-size:15pt;color:#5F7A5C">03</span><div><b style="font-family:var(--serif);font-weight:400;font-size:13.5pt;color:var(--muc)">Tiền</b><p style="font-size:9.2pt;color:var(--ghi);margin-top:.6mm">Đừng để đám cưới bắt đầu cuộc hôn nhân bằng áp lực</p></div></div><div style="display:grid;grid-template-columns:14mm 1fr;gap:5mm;border-bottom:1px solid var(--hair);padding-bottom:2.6mm"><span style="font-family:var(--serif);font-size:15pt;color:#C06534">04</span><div><b style="font-family:var(--serif);font-weight:400;font-size:13.5pt;color:var(--muc)">Bắt đầu chuẩn bị</b><p style="font-size:9.2pt;color:var(--ghi);margin-top:.6mm">Hai gia đình, các lễ, khách mời và mọi nhà cung cấp</p></div></div><div style="display:grid;grid-template-columns:14mm 1fr;gap:5mm;border-bottom:1px solid var(--hair);padding-bottom:2.6mm"><span style="font-family:var(--serif);font-size:15pt;color:#B85578">05</span><div><b style="font-family:var(--serif);font-weight:400;font-size:13.5pt;color:var(--muc)">Trở thành cô dâu</b><p style="font-size:9.2pt;color:var(--ghi);margin-top:.6mm">Trọn bộ chọn váy, phụ kiện, trang điểm và đi thử</p></div></div><p style="font-family:var(--sans);font-size:7.2pt;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--ghi);margin:2mm 0 0">Lớp ba — Thực hiện</p><div style="display:grid;grid-template-columns:14mm 1fr;gap:5mm;border-bottom:1px solid var(--hair);padding-bottom:2.6mm"><span style="font-family:var(--serif);font-size:15pt;color:#85557E">06</span><div><b style="font-family:var(--serif);font-weight:400;font-size:13.5pt;color:var(--muc)">Bride Timeline</b><p style="font-size:9.2pt;color:var(--ghi);margin-top:.6mm">Checklist từ 12 tháng trước tới từng giờ trong ngày cưới</p></div></div><div style="display:grid;grid-template-columns:14mm 1fr;gap:5mm;border-bottom:1px solid var(--hair);padding-bottom:2.6mm"><span style="font-family:var(--serif);font-size:15pt;color:#4F6885">07</span><div><b style="font-family:var(--serif);font-weight:400;font-size:13.5pt;color:var(--muc)">After the Wedding</b><p style="font-size:9.2pt;color:var(--ghi);margin-top:.6mm">48 giờ đầu, sống chung, và phần dài nhất của câu chuyện</p></div></div></div><div class="hop"><b>Nếu bạn chỉ có một buổi tối</b>Hai bạn hãy làm chương 01 trước. Đó là chương ít người chịu ngồi xuống làm nhất, mà cũng là chương giữ được nhiều cuộc hôn nhân nhất.</div><div class="chan"><span>The Bride Journey · Dolinhanh Bridal</span><span class="so">03</span></div></section>
@@ -387,6 +452,180 @@ th,td{padding:6px 4px}
 <section class="trang m07"><div class="ket"><p class="nhan">Và rồi…</p><h2 style="margin-top:8mm;font-size:22pt;max-width:130mm;margin-inline:auto;line-height:1.35">Ngày hôm nay, bạn không còn là<br>cô dâu đang chuẩn bị cưới.<br>Bạn đã trở thành vợ của một người.</h2><div class="ke" style="width:26mm;height:2px;background:var(--hong);margin:10mm auto"></div><div style="max-width:112mm;margin:0 auto;font-family:var(--serif);font-style:italic;font-size:12.5pt;color:var(--muc-2);line-height:1.85"><p>Đám cưới có thể chỉ kéo dài một ngày.</p><p style="margin-top:3mm">Nhưng những ngày sau đó<br>mới là phần dài nhất của câu chuyện.</p></div><p style="margin-top:14mm;font-size:8.4pt;color:var(--ghi)">Chúc hai bạn đi được đường dài.</p></div></section>
 <section class="trang"><div class="ket"><p class="nhan">Hết cuốn</p><h2 style="margin-top:6mm">Chúc hai bạn<br>đi được đường dài</h2><div class="than" style="margin:9mm auto 0;max-width:118mm;font-size:10.4pt;line-height:1.8"><p>Cuốn này viết bởi những người đứng trong phòng thử váy hơn mười năm, đã nhìn thấy rất nhiều cô dâu bước vào ngày cưới — và gặp lại nhiều người trong số họ nhiều năm sau.</p><p style="margin-top:4mm">Chiếc váy chỉ mặc một ngày. Những trang còn lại của cuốn này mới là phần bạn dùng lâu.</p></div><div class="cta"><b>Private Dress Consultation</b><p>Khi tới lúc thử váy, bạn mang theo cuốn này. Chuyên viên đọc Dress Profile của bạn ở chương 05 là chuẩn bị đúng váy — không phải thử lan man.</p><p class="zalo">Đặt lịch: Zalo 035 995 0588 · Hà Nội &amp; TP. Hồ Chí Minh</p></div><p style="margin-top:auto;font-size:8pt;color:var(--ghi)">The Bride Journey · Dolinhanh Bridal · Bản dành riêng cho cô dâu đã đăng ký</p></div></section>
 
+
+
+<script>
+(function(){
+  var KHOA = 'dla-bride-journey-v1';
+  var du = {};
+  try { du = JSON.parse(localStorage.getItem(KHOA) || '{}') || {}; } catch (e) { du = {}; }
+
+  var hen, thoi = document.getElementById('trang-thai');
+  function luu(){
+    clearTimeout(hen);
+    hen = setTimeout(function(){
+      try { localStorage.setItem(KHOA, JSON.stringify(du)); bao('Đã lưu trên máy bạn'); }
+      catch (e) { bao('Máy không cho lưu — bạn hãy in trang này ra để giữ'); }
+      dem();
+    }, 300);
+  }
+  var hen2;
+  function bao(t){
+    if (!thoi) return;
+    thoi.textContent = t;
+    clearTimeout(hen2);
+    hen2 = setTimeout(function(){ thoi.textContent = 'Tự lưu trên máy bạn'; }, 2200);
+  }
+
+  function bam(s){
+    s = (s || '').replace(/\s+/g, ' ').trim().slice(0, 140);
+    var h = 5381;
+    for (var i = 0; i < s.length; i++) h = ((h << 5) + h + s.charCodeAt(i)) | 0;
+    return (h >>> 0).toString(36);
+  }
+  function chu(el){ return el ? (el.textContent || '') : ''; }
+  function tenTrang(el){
+    var t = el.closest ? el.closest('.trang') : null;
+    if (!t) return '';
+    var h = t.querySelector('h1, h2, h3');
+    return chu(h) || chu(t.querySelector('.nhan'));
+  }
+  var dem_khoa = {};
+  function khoa(loai, el, nhan){
+    var g = loai + '-' + bam(tenTrang(el)) + '-' + bam(nhan);
+    dem_khoa[g] = (dem_khoa[g] || 0) + 1;
+    return g + '-' + dem_khoa[g];
+  }
+
+  var o_tick = [], o_viet = [];
+
+  /* 1 · ô vuông trong danh sách */
+  Array.prototype.forEach.call(document.querySelectorAll('ul.tick > li'), function(li){
+    var k = khoa('t', li, chu(li));
+    li.className += ' o-chon';
+    li.setAttribute('role', 'checkbox');
+    li.setAttribute('tabindex', '0');
+    o_tick.push(k);
+    function ve(){
+      var on = !!du[k];
+      li.classList.toggle('da-chon', on);
+      li.setAttribute('aria-checked', on ? 'true' : 'false');
+    }
+    function doi(){ du[k] = !du[k]; if (!du[k]) delete du[k]; ve(); luu(); }
+    li.addEventListener('click', doi);
+    li.addEventListener('keydown', function(e){
+      if (e.key === ' ' || e.key === 'Enter') { e.preventDefault(); doi(); }
+    });
+    ve();
+  });
+
+  /* 2 · bảng tick hai cột */
+  Array.prototype.forEach.call(document.querySelectorAll('.doi-tick'), function(bang){
+    var nhan = '', cot = 0;
+    Array.prototype.forEach.call(bang.children, function(o){
+      if (o.classList.contains('q')) { nhan = chu(o); cot = 0; return; }
+      if (!o.classList.contains('o')) return;
+      cot++;
+      var k = khoa('d', bang, nhan + '#' + cot);
+      o.setAttribute('role', 'checkbox');
+      o.setAttribute('tabindex', '0');
+      o_tick.push(k);
+      function ve(){
+        var on = !!du[k];
+        o.classList.toggle('da-chon', on);
+        o.setAttribute('aria-checked', on ? 'true' : 'false');
+      }
+      function doi(){ du[k] = !du[k]; if (!du[k]) delete du[k]; ve(); luu(); }
+      o.addEventListener('click', doi);
+      o.addEventListener('keydown', function(e){
+        if (e.key === ' ' || e.key === 'Enter') { e.preventDefault(); doi(); }
+      });
+      ve();
+    });
+  });
+
+  /* 3 · trắc nghiệm — mỗi câu chọn một */
+  Array.prototype.forEach.call(document.querySelectorAll('.quiz .cau'), function(cau){
+    var dap = cau.querySelectorAll('.dap > div');
+    if (!dap.length) return;
+    var k = khoa('q', cau, chu(cau.querySelector('b')));
+    o_tick.push(k);
+    function ve(){
+      Array.prototype.forEach.call(dap, function(d, i){
+        d.classList.toggle('da-chon', du[k] === i);
+      });
+    }
+    Array.prototype.forEach.call(dap, function(d, i){
+      d.setAttribute('role', 'radio');
+      d.setAttribute('tabindex', '0');
+      function doi(){
+        if (du[k] === i) delete du[k]; else du[k] = i;
+        ve(); luu();
+      }
+      d.addEventListener('click', doi);
+      d.addEventListener('keydown', function(e){
+        if (e.key === ' ' || e.key === 'Enter') { e.preventDefault(); doi(); }
+      });
+    });
+    ve();
+  });
+
+  /* 4 · dòng kẻ để viết */
+  function cao(t){ t.style.height = 'auto'; t.style.height = (t.scrollHeight + 2) + 'px'; }
+  function thanhOViet(el, nhan, goi){
+    var k = khoa('v', el, nhan);
+    var t = document.createElement('textarea');
+    t.className = 'o-viet';
+    t.rows = 1;
+    t.setAttribute('aria-label', nhan || 'Chỗ viết');
+    if (goi) t.placeholder = goi;
+    t.value = du[k] || '';
+    t.addEventListener('input', function(){
+      cao(t);
+      if (t.value.trim()) du[k] = t.value; else delete du[k];
+      luu();
+    });
+    el.parentNode.replaceChild(t, el);
+    o_viet.push(k);
+    requestAnimationFrame(function(){ cao(t); });
+  }
+  Array.prototype.forEach.call(document.querySelectorAll('.dong .o'), function(o){
+    var i = o.querySelector('i');
+    if (i) thanhOViet(i, chu(o.querySelector('span')) || chu(o.previousElementSibling));
+  });
+  Array.prototype.forEach.call(document.querySelectorAll('.dong-ke'), function(d){
+    thanhOViet(d, 'Lá thư — dòng');
+  });
+  Array.prototype.forEach.call(document.querySelectorAll('.dem-o .oo'), function(o){
+    var b = o.parentNode.querySelector('b');
+    var t = document.createElement('i');
+    o.appendChild(t);
+    thanhOViet(t, chu(b), 'đếm');
+  });
+
+  /* thanh trên */
+  function dem(){
+    var a = 0, b = 0, i;
+    for (i = 0; i < o_tick.length; i++) if (du[o_tick[i]] !== undefined) a++;
+    for (i = 0; i < o_viet.length; i++) if (du[o_viet[i]]) b++;
+    var e = document.getElementById('tien-do');
+    if (e) e.textContent = 'Đã tick ' + a + '/' + o_tick.length + ' · đã viết ' + b + '/' + o_viet.length;
+  }
+  var nut_in = document.getElementById('nut-in');
+  if (nut_in) nut_in.addEventListener('click', function(){ window.print(); });
+  var nut_xoa = document.getElementById('nut-xoa');
+  if (nut_xoa) nut_xoa.addEventListener('click', function(){
+    if (!window.confirm('Xoá hết phần bạn đã tick và đã viết trong cuốn này?')) return;
+    du = {};
+    try { localStorage.removeItem(KHOA); } catch (e) {}
+    window.location.reload();
+  });
+  dem();
+  window.addEventListener('beforeunload', function(){
+    try { localStorage.setItem(KHOA, JSON.stringify(du)); } catch (e) {}
+  });
+})();
+</script>
 
 </body>
 </html>
