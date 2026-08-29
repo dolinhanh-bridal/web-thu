@@ -360,6 +360,78 @@ th,td{padding:6px 4px}
 </style>
 </head>
 <body>
+<div id="dlg-gate" class="dlg-gate">
+  <div class="dlg-card">
+    <span class="dlg-kicker">Dolinhanh Bridal</span>
+    <h2 class="dlg-title">The Bride's Dress Guide</h2>
+    <p class="dlg-sub">Cẩm nang 27 trang tặng miễn phí cho cô dâu — điền thông tin để mở sách ngay.</p>
+    <form id="dlg-form" class="dlg-form" autocomplete="on">
+      <input type="text" id="dlg-ten" placeholder="Họ và tên" autocomplete="name" required>
+      <input type="tel" id="dlg-sdt" placeholder="Số điện thoại (Zalo)" autocomplete="tel" required inputmode="tel">
+      <button type="submit" class="dlg-btn">Mở sách miễn phí</button>
+      <span id="dlg-err" class="dlg-err"></span>
+    </form>
+    <p class="dlg-note">Dolinhanh chỉ dùng để tư vấn chọn váy, không chia sẻ cho bên thứ ba.</p>
+  </div>
+</div>
+<style>
+  .dlg-gate{position:fixed;inset:0;z-index:99999;background:#FCF4EA;display:flex;align-items:center;justify-content:center;padding:24px;font-family:"Be Vietnam Pro",-apple-system,"Helvetica Neue",Arial,sans-serif;transition:opacity .5s ease;}
+  .dlg-gate.dlg-hidden{opacity:0;pointer-events:none;}
+  .dlg-card{max-width:380px;width:100%;text-align:center;}
+  .dlg-kicker{display:block;font-size:.62rem;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:#B05A55;margin-bottom:8px;}
+  .dlg-title{font-family:"Playfair Display",Georgia,serif;font-weight:400;font-size:clamp(1.4rem,5vw,1.9rem);color:#241B19;margin:0 0 10px;}
+  .dlg-sub{font-size:.85rem;color:#8B7B77;line-height:1.55;margin:0 0 22px;}
+  .dlg-form{display:flex;flex-direction:column;gap:10px;}
+  .dlg-form input{border:1px solid #DFD5D0;background:#fff;border-radius:10px;padding:13px 16px;font-size:.95rem;font-family:inherit;color:#241B19;outline:none;}
+  .dlg-form input:focus{border-color:#B05A55;}
+  .dlg-btn{margin-top:4px;border:0;border-radius:999px;background:#B05A55;color:#fff;padding:14px;font-size:.85rem;letter-spacing:.06em;text-transform:uppercase;font-family:inherit;cursor:pointer;transition:opacity .2s;}
+  .dlg-btn:disabled{opacity:.6;cursor:default;}
+  .dlg-btn:hover:not(:disabled){opacity:.9;}
+  .dlg-err{display:block;color:#B0413A;font-size:.78rem;min-height:1.1em;margin-top:6px;}
+  .dlg-note{font-size:.68rem;color:#A2938F;margin-top:20px;line-height:1.5;}
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]) .dlg-gate{background:#191513;}
+    :root:not([data-theme="light"]) .dlg-title{color:#F2EBE8;}
+    :root:not([data-theme="light"]) .dlg-form input{background:#241B19;border-color:#2E2724;color:#F2EBE8;}
+  }
+  :root[data-theme="dark"] .dlg-gate{background:#191513;}
+  :root[data-theme="dark"] .dlg-title{color:#F2EBE8;}
+  :root[data-theme="dark"] .dlg-form input{background:#241B19;border-color:#2E2724;color:#F2EBE8;}
+</style>
+<script>
+(function(){
+  var KEY='dla_lead_dressguide';
+  var gate=document.getElementById('dlg-gate');
+  if(!gate) return;
+  try{
+    if(localStorage.getItem(KEY)){ gate.parentNode.removeChild(gate); document.documentElement.classList.remove('dlg-lock'); return; }
+  }catch(e){}
+  var form=document.getElementById('dlg-form');
+  var err=document.getElementById('dlg-err');
+  var btn=form.querySelector('.dlg-btn');
+  var PHONE_RE=/^(0|\+?84)(3|5|7|8|9)[0-9]{8}$/;
+  form.addEventListener('submit', function(ev){
+    ev.preventDefault();
+    var ten=document.getElementById('dlg-ten').value.trim();
+    var sdt=document.getElementById('dlg-sdt').value.trim().replace(/[.\s-]/g,'');
+    if(ten.length<2){ err.textContent='Nhập tên đầy đủ giúp Dolinhanh nhé.'; return; }
+    if(!PHONE_RE.test(sdt)){ err.textContent='Số điện thoại chưa đúng định dạng.'; return; }
+    err.textContent='';
+    btn.disabled=true; btn.textContent='Đang mở sách…';
+    try{
+      var fd=new FormData();
+      fd.append('entry.692257676', ten);
+      fd.append('entry.45030580', sdt);
+      fd.append('entry.1111955433', location.pathname.split('/').pop()+' | '+document.referrer);
+      fetch('https://docs.google.com/forms/u/0/d/e/1FAIpQLSfEyUNJ6X3egcKJU2uD8vKuwyVnTW_WEbZSrcHwmMyU8q9pXg/formResponse', {method:'POST', mode:'no-cors', body:fd});
+    }catch(e){}
+    try{ localStorage.setItem(KEY, JSON.stringify({ten:ten,sdt:sdt,ts:Date.now()})); }catch(e){}
+    gate.classList.add('dlg-hidden');
+    setTimeout(function(){ if(gate.parentNode) gate.parentNode.removeChild(gate); }, 600);
+  });
+})();
+</script>
+
 <div class="thanh-doc"><b>The Bride's Dress Guide</b><a href="dress-guide.html">Xem kiểu lật sách</a><a href="the-brides-dress-guide.pdf" download>⬇ Tải PDF</a></div>
 <!-- ══ 01 · BÌA ══ -->
 <section class="bia">
