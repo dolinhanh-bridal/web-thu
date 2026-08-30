@@ -27,62 +27,101 @@ src="https://www.facebook.com/tr?id=1358640082651240&ev=PageView&noscript=1"
 <body>
 <div id="dlg-gate" class="dlg-gate">
   <div class="dlg-card">
+    <div class="dlg-hero"><img src="dress-guide/t01.jpg?v=y083220" alt=""></div>
     <span class="dlg-kicker">Dolinhanh Bridal</span>
     <h2 class="dlg-title">The Bride's Dress Guide</h2>
-    <p class="dlg-sub">Cẩm nang 27 trang tặng miễn phí cho cô dâu — điền thông tin để mở sách ngay.</p>
+    <p class="dlg-sub">27 trang giúp bạn chọn đúng dáng váy, đúng chất liệu trước khi đi thử — điền thông tin để mở sách, hoặc xem bảng giá thuê trọn gói luôn.</p>
     <form id="dlg-form" class="dlg-form" autocomplete="on">
       <input type="text" id="dlg-ten" placeholder="Họ và tên" autocomplete="name" required>
       <input type="tel" id="dlg-sdt" placeholder="Số điện thoại (Zalo)" autocomplete="tel" required inputmode="tel">
-      <button type="submit" class="dlg-btn">Mở sách miễn phí</button>
+      <div class="dlg-actions">
+        <button type="submit" class="dlg-btn" data-action="sach">Mở sách miễn phí</button>
+        <button type="submit" class="dlg-btn-outline" data-action="baogia">Xem bảng giá thuê váy</button>
+      </div>
       <span id="dlg-err" class="dlg-err"></span>
     </form>
     <p class="dlg-note">Dolinhanh chỉ dùng để tư vấn chọn váy, không chia sẻ cho bên thứ ba.</p>
   </div>
 </div>
+<div id="dlg-bg-modal" class="dlg-bg-modal">
+  <div class="dlg-bg-inner">
+    <button id="dlg-bg-close" class="dlg-bg-close" aria-label="Đóng">×</button>
+    <iframe id="dlg-bg-frame" class="dlg-bg-frame" src="" title="Bảng giá thuê váy Dolinhanh Bridal"></iframe>
+  </div>
+</div>
 <style>
-  .dlg-gate{position:fixed;inset:0;z-index:99999;background:#FFFFFF;display:flex;align-items:center;justify-content:center;padding:24px;font-family:"Be Vietnam Pro",-apple-system,"Helvetica Neue",Arial,sans-serif;transition:opacity .5s ease;}
+  .dlg-gate{position:fixed;inset:0;z-index:99999;background:#FFFFFF;overflow-y:auto;padding:28px 24px 32px;font-family:"Be Vietnam Pro",-apple-system,"Helvetica Neue",Arial,sans-serif;transition:opacity .5s ease;}
   .dlg-gate.dlg-hidden{opacity:0;pointer-events:none;}
-  .dlg-card{max-width:380px;width:100%;text-align:center;}
+  .dlg-card{max-width:400px;width:100%;margin:0 auto;text-align:center;}
+  .dlg-hero{width:100%;aspect-ratio:16/10;border-radius:14px;overflow:hidden;margin-bottom:20px;background:#EFE9E5;}
+  .dlg-hero img{width:100%;height:100%;object-fit:cover;display:block;object-position:50% 20%;}
   .dlg-kicker{display:block;font-size:.62rem;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:#B05A55;margin-bottom:8px;}
   .dlg-title{font-family:"Playfair Display",Georgia,serif;font-weight:400;font-size:clamp(1.4rem,5vw,1.9rem);color:#241B19;margin:0 0 10px;}
   .dlg-sub{font-size:.85rem;color:#8B7B77;line-height:1.55;margin:0 0 22px;}
   .dlg-form{display:flex;flex-direction:column;gap:10px;}
   .dlg-form input{border:1px solid #DFD5D0;background:#fff;border-radius:10px;padding:13px 16px;font-size:.95rem;font-family:inherit;color:#241B19;outline:none;}
   .dlg-form input:focus{border-color:#B05A55;}
-  .dlg-btn{margin-top:4px;border:0;border-radius:999px;background:#B05A55;color:#fff;padding:14px;font-size:.85rem;letter-spacing:.06em;text-transform:uppercase;font-family:inherit;cursor:pointer;transition:opacity .2s;}
+  .dlg-actions{display:flex;flex-direction:column;gap:10px;margin-top:6px;}
+  .dlg-btn{border:0;border-radius:999px;background:#B05A55;color:#fff;padding:14px;font-size:.85rem;letter-spacing:.06em;text-transform:uppercase;font-family:inherit;cursor:pointer;transition:opacity .2s;}
   .dlg-btn:disabled{opacity:.6;cursor:default;}
   .dlg-btn:hover:not(:disabled){opacity:.9;}
+  .dlg-btn-outline{border:1px solid #B05A55;border-radius:999px;background:transparent;color:#B05A55;padding:14px;font-size:.85rem;letter-spacing:.06em;text-transform:uppercase;font-family:inherit;cursor:pointer;transition:background .2s,color .2s,opacity .2s;}
+  .dlg-btn-outline:disabled{opacity:.6;cursor:default;}
+  .dlg-btn-outline:hover:not(:disabled){background:#B05A55;color:#fff;}
   .dlg-err{display:block;color:#B0413A;font-size:.78rem;min-height:1.1em;margin-top:6px;}
   .dlg-note{font-size:.68rem;color:#A2938F;margin-top:20px;line-height:1.5;}
+  .dlg-bg-modal{position:fixed;inset:0;z-index:100000;background:rgba(36,27,25,.55);display:none;align-items:center;justify-content:center;padding:16px;}
+  .dlg-bg-modal.dlg-bg-open{display:flex;}
+  .dlg-bg-inner{position:relative;width:100%;max-width:480px;height:92vh;background:#FFFFFF;border-radius:16px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.35);}
+  .dlg-bg-frame{width:100%;height:100%;border:0;display:block;}
+  .dlg-bg-close{position:absolute;top:10px;right:10px;z-index:2;width:34px;height:34px;border-radius:50%;border:0;background:#241B19;color:#fff;font-size:1.3rem;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:.85;}
+  .dlg-bg-close:hover{opacity:1;}
   @media (prefers-color-scheme: dark){
     :root:not([data-theme="light"]) .dlg-gate{background:#191513;}
     :root:not([data-theme="light"]) .dlg-title{color:#F2EBE8;}
     :root:not([data-theme="light"]) .dlg-form input{background:#241B19;border-color:#2E2724;color:#F2EBE8;}
+    :root:not([data-theme="light"]) .dlg-bg-inner{background:#191513;}
   }
   :root[data-theme="dark"] .dlg-gate{background:#191513;}
   :root[data-theme="dark"] .dlg-title{color:#F2EBE8;}
   :root[data-theme="dark"] .dlg-form input{background:#241B19;border-color:#2E2724;color:#F2EBE8;}
+  :root[data-theme="dark"] .dlg-bg-inner{background:#191513;}
 </style>
 <script>
 (function(){
   var KEY='dla_lead_dressguide';
   var gate=document.getElementById('dlg-gate');
   if(!gate) return;
+  var modal=document.getElementById('dlg-bg-modal');
+  var frame=document.getElementById('dlg-bg-frame');
+  var closeBtn=document.getElementById('dlg-bg-close');
+  function openBaoGia(){
+    frame.src='bao-gia-v2.html';
+    modal.classList.add('dlg-bg-open');
+  }
+  closeBtn.addEventListener('click', function(){ modal.classList.remove('dlg-bg-open'); });
+  modal.addEventListener('click', function(ev){ if(ev.target===modal) modal.classList.remove('dlg-bg-open'); });
   try{
     if(localStorage.getItem(KEY)){ gate.parentNode.removeChild(gate); document.documentElement.classList.remove('dlg-lock'); return; }
   }catch(e){}
   var form=document.getElementById('dlg-form');
   var err=document.getElementById('dlg-err');
-  var btn=form.querySelector('.dlg-btn');
+  var btns=form.querySelectorAll('button[type="submit"]');
+  var lastAction='sach';
+  for(var i=0;i<btns.length;i++){
+    btns[i].addEventListener('click', function(ev){ lastAction=ev.currentTarget.dataset.action||'sach'; });
+  }
   var PHONE_RE=/^(0|\+?84)(3|5|7|8|9)[0-9]{8}$/;
   form.addEventListener('submit', function(ev){
     ev.preventDefault();
+    var action=(ev.submitter && ev.submitter.dataset.action) || lastAction;
     var ten=document.getElementById('dlg-ten').value.trim();
     var sdt=document.getElementById('dlg-sdt').value.trim().replace(/[.\s-]/g,'');
     if(ten.length<2){ err.textContent='Nhập tên đầy đủ giúp Dolinhanh nhé.'; return; }
     if(!PHONE_RE.test(sdt)){ err.textContent='Số điện thoại chưa đúng định dạng.'; return; }
     err.textContent='';
-    btn.disabled=true; btn.textContent='Đang mở sách…';
+    for(var i=0;i<btns.length;i++){ btns[i].disabled=true; }
+    (ev.submitter||btns[0]).textContent = action==='baogia' ? 'Đang mở…' : 'Đang mở sách…';
     try{
       var fd=new FormData();
       fd.append('entry.692257676', ten);
@@ -94,6 +133,7 @@ src="https://www.facebook.com/tr?id=1358640082651240&ev=PageView&noscript=1"
     try{ localStorage.setItem(KEY, JSON.stringify({ten:ten,sdt:sdt,ts:Date.now()})); }catch(e){}
     gate.classList.add('dlg-hidden');
     setTimeout(function(){ if(gate.parentNode) gate.parentNode.removeChild(gate); }, 600);
+    if(action==='baogia') openBaoGia();
   });
 })();
 </script>
