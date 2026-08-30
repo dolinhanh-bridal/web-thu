@@ -30,16 +30,14 @@ src="https://www.facebook.com/tr?id=1358640082651240&ev=PageView&noscript=1"
     <div class="dlg-hero"><img src="dress-guide/t01.jpg?v=y083220" alt=""></div>
     <span class="dlg-kicker">Dolinhanh Bridal</span>
     <h2 class="dlg-title">The Bride's Dress Guide</h2>
-    <p class="dlg-sub">27 trang giúp bạn chọn đúng dáng váy, đúng chất liệu trước khi đi thử — điền thông tin để mở sách, hoặc xem bảng giá thuê trọn gói luôn.</p>
+    <p class="dlg-sub">27 trang giúp bạn chọn đúng dáng váy, đúng chất liệu trước khi đi thử — điền thông tin để mở sách, hoặc xem bảng giá thuê trọn gói ngay không cần điền gì.</p>
     <form id="dlg-form" class="dlg-form" autocomplete="on">
       <input type="text" id="dlg-ten" placeholder="Họ và tên" autocomplete="name" required>
       <input type="tel" id="dlg-sdt" placeholder="Số điện thoại (Zalo)" autocomplete="tel" required inputmode="tel">
-      <div class="dlg-actions">
-        <button type="submit" class="dlg-btn" data-action="sach">Mở sách miễn phí</button>
-        <button type="submit" class="dlg-btn-outline" data-action="baogia">Xem bảng giá thuê váy</button>
-      </div>
+      <button type="submit" class="dlg-btn">Mở sách miễn phí</button>
       <span id="dlg-err" class="dlg-err"></span>
     </form>
+    <button type="button" id="dlg-baogia-btn" class="dlg-btn-outline">Xem bảng giá thuê váy</button>
     <p class="dlg-note">Dolinhanh chỉ dùng để tư vấn chọn váy, không chia sẻ cho bên thứ ba.</p>
   </div>
 </div>
@@ -61,11 +59,10 @@ src="https://www.facebook.com/tr?id=1358640082651240&ev=PageView&noscript=1"
   .dlg-form{display:flex;flex-direction:column;gap:10px;}
   .dlg-form input{border:1px solid #DFD5D0;background:#fff;border-radius:10px;padding:13px 16px;font-size:.95rem;font-family:inherit;color:#241B19;outline:none;}
   .dlg-form input:focus{border-color:#B05A55;}
-  .dlg-actions{display:flex;flex-direction:column;gap:10px;margin-top:6px;}
-  .dlg-btn{border:0;border-radius:999px;background:#B05A55;color:#fff;padding:14px;font-size:.85rem;letter-spacing:.06em;text-transform:uppercase;font-family:inherit;cursor:pointer;transition:opacity .2s;}
+  .dlg-btn{width:100%;border:0;border-radius:999px;background:#B05A55;color:#fff;padding:14px;font-size:.85rem;letter-spacing:.06em;text-transform:uppercase;font-family:inherit;cursor:pointer;transition:opacity .2s;}
   .dlg-btn:disabled{opacity:.6;cursor:default;}
   .dlg-btn:hover:not(:disabled){opacity:.9;}
-  .dlg-btn-outline{border:1px solid #B05A55;border-radius:999px;background:transparent;color:#B05A55;padding:14px;font-size:.85rem;letter-spacing:.06em;text-transform:uppercase;font-family:inherit;cursor:pointer;transition:background .2s,color .2s,opacity .2s;}
+  .dlg-btn-outline{width:100%;margin-top:10px;border:1px solid #B05A55;border-radius:999px;background:transparent;color:#B05A55;padding:14px;font-size:.85rem;letter-spacing:.06em;text-transform:uppercase;font-family:inherit;cursor:pointer;transition:background .2s,color .2s,opacity .2s;}
   .dlg-btn-outline:disabled{opacity:.6;cursor:default;}
   .dlg-btn-outline:hover:not(:disabled){background:#B05A55;color:#fff;}
   .dlg-err{display:block;color:#B0413A;font-size:.78rem;min-height:1.1em;margin-top:6px;}
@@ -101,27 +98,22 @@ src="https://www.facebook.com/tr?id=1358640082651240&ev=PageView&noscript=1"
   }
   closeBtn.addEventListener('click', function(){ modal.classList.remove('dlg-bg-open'); });
   modal.addEventListener('click', function(ev){ if(ev.target===modal) modal.classList.remove('dlg-bg-open'); });
+  document.getElementById('dlg-baogia-btn').addEventListener('click', openBaoGia);
   try{
     if(localStorage.getItem(KEY)){ gate.parentNode.removeChild(gate); document.documentElement.classList.remove('dlg-lock'); return; }
   }catch(e){}
   var form=document.getElementById('dlg-form');
   var err=document.getElementById('dlg-err');
-  var btns=form.querySelectorAll('button[type="submit"]');
-  var lastAction='sach';
-  for(var i=0;i<btns.length;i++){
-    btns[i].addEventListener('click', function(ev){ lastAction=ev.currentTarget.dataset.action||'sach'; });
-  }
+  var btn=form.querySelector('.dlg-btn');
   var PHONE_RE=/^(0|\+?84)(3|5|7|8|9)[0-9]{8}$/;
   form.addEventListener('submit', function(ev){
     ev.preventDefault();
-    var action=(ev.submitter && ev.submitter.dataset.action) || lastAction;
     var ten=document.getElementById('dlg-ten').value.trim();
     var sdt=document.getElementById('dlg-sdt').value.trim().replace(/[.\s-]/g,'');
     if(ten.length<2){ err.textContent='Nhập tên đầy đủ giúp Dolinhanh nhé.'; return; }
     if(!PHONE_RE.test(sdt)){ err.textContent='Số điện thoại chưa đúng định dạng.'; return; }
     err.textContent='';
-    for(var i=0;i<btns.length;i++){ btns[i].disabled=true; }
-    (ev.submitter||btns[0]).textContent = action==='baogia' ? 'Đang mở…' : 'Đang mở sách…';
+    btn.disabled=true; btn.textContent='Đang mở sách…';
     try{
       var fd=new FormData();
       fd.append('entry.692257676', ten);
@@ -133,7 +125,6 @@ src="https://www.facebook.com/tr?id=1358640082651240&ev=PageView&noscript=1"
     try{ localStorage.setItem(KEY, JSON.stringify({ten:ten,sdt:sdt,ts:Date.now()})); }catch(e){}
     gate.classList.add('dlg-hidden');
     setTimeout(function(){ if(gate.parentNode) gate.parentNode.removeChild(gate); }, 600);
-    if(action==='baogia') openBaoGia();
   });
 })();
 </script>
