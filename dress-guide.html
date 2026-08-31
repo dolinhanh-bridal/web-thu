@@ -116,10 +116,10 @@ src="https://www.facebook.com/tr?id=1358640082651240&ev=PageView&noscript=1"
     btn.disabled=true; btn.textContent='Đang mở sách…';
     try{
       var fd=new FormData();
-      fd.append('entry.692257676', ten);
-      fd.append('entry.45030580', sdt);
-      fd.append('entry.1111955433', location.pathname.split('/').pop()+' | '+document.referrer);
-      fetch('https://docs.google.com/forms/u/0/d/e/1FAIpQLSfEyUNJ6X3egcKJU2uD8vKuwyVnTW_WEbZSrcHwmMyU8q9pXg/formResponse', {method:'POST', mode:'no-cors', body:fd});
+      fd.append('entry.1614276000', ten);
+      fd.append('entry.379034013', sdt);
+      fd.append('entry.541722676', location.pathname.split('/').pop()+' | '+document.referrer);
+      fetch('https://docs.google.com/forms/u/0/d/e/1FAIpQLSchU7uUBZBNfiQZSiVYvHVcUfyEJiJA084SHRNWEcnZ_CyplA/formResponse', {method:'POST', mode:'no-cors', body:fd});
     }catch(e){}
     try{ if(typeof fbq==='function') fbq('track','Lead',{content_name:'Dress Guide Ebook'}); }catch(e){}
     try{ localStorage.setItem(KEY, JSON.stringify({ten:ten,sdt:sdt,ts:Date.now()})); }catch(e){}
