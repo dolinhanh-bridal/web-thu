@@ -164,6 +164,8 @@
   .hang .so{font-family:var(--didone);font-size:var(--t-num);line-height:.85;color:var(--ink);letter-spacing:-.02em}
   .hang .ten{font-family:var(--serif);font-size:24px;line-height:1.15;letter-spacing:.01em;color:var(--ink)}
   .hang .gia{font-family:var(--body);font-size:15px;color:var(--ink);margin-top:6px;font-variant-numeric:tabular-nums}
+  .gia-cu{color:var(--grey-2);text-decoration:line-through;margin-right:8px;font-size:.6em}
+  .gia-moi{color:var(--ink);font-weight:600}
   .hang .mo{color:var(--grey);margin:0 0 14px;max-width:38ch;font-size:15px;line-height:1.5}
   .hang .quyen{display:grid;gap:5px;font-size:15px;color:var(--ink-2)}
   .hang .quyen li{display:flex;gap:12px;line-height:1.4}
@@ -189,6 +191,8 @@
   .tien-trinh .bar{height:var(--h);width:1px;background:var(--hair);justify-self:start;margin-left:2px}
   .tien-trinh .g{font-family:var(--didone);color:var(--ink);line-height:1;font-variant-numeric:tabular-nums;white-space:nowrap}
   .tien-trinh .g small{font-size:.5em;letter-spacing:.06em;margin-left:2px}
+  .tien-trinh .g-cu{font-family:var(--body);font-size:.72rem;color:var(--grey-2);text-decoration:line-through;font-variant-numeric:tabular-nums;white-space:nowrap;margin-bottom:2px}
+  .tien-trinh .g-cu:empty{display:none}
   .tien-trinh .n{font-family:var(--sans);font-size:.55rem;letter-spacing:.1em;text-transform:uppercase;color:var(--grey);line-height:1.4;overflow-wrap:anywhere}
   .tien-trinh > div:nth-child(1) .g{font-size:clamp(1.05rem,2.2vw,1.9rem)}
   .tien-trinh > div:nth-child(2) .g{font-size:clamp(1.2rem,2.6vw,2.3rem)}
@@ -642,10 +646,10 @@
         <a class="lien" style="display:inline-flex;margin-top:18px" href="https://nupakachi.com/collections.html" target="_blank" rel="noopener">Xem bộ sưu tập ảnh cưới Nupakachi</a></p>
     </div>
     <div class="tien-trinh">
-      <div><span class="bar" style="--h:22px"></span><div class="g" data-gia-ngan="goi1"></div><div class="n">01<br>Pre Wedding</div></div>
-      <div><span class="bar" style="--h:40px"></span><div class="g" data-gia-ngan="goi2"></div><div class="n">02<br>Wedding Day</div></div>
-      <div><span class="bar" style="--h:62px"></span><div class="g" data-gia-ngan="goi3"></div><div class="n">03<br>Wedding Story</div></div>
-      <div><span class="bar" style="--h:90px"></span><div class="g" data-gia-ngan="goi4"></div><div class="n">04<br>Wedding Signature</div></div>
+      <div><span class="bar" style="--h:22px"></span><div class="g-cu" data-gia-ngan-cu="goi1"></div><div class="g" data-gia-ngan="goi1"></div><div class="n">01<br>Pre Wedding</div></div>
+      <div><span class="bar" style="--h:40px"></span><div class="g-cu" data-gia-ngan-cu="goi2"></div><div class="g" data-gia-ngan="goi2"></div><div class="n">02<br>Wedding Day</div></div>
+      <div><span class="bar" style="--h:62px"></span><div class="g-cu" data-gia-ngan-cu="goi3"></div><div class="g" data-gia-ngan="goi3"></div><div class="n">03<br>Wedding Story</div></div>
+      <div><span class="bar" style="--h:90px"></span><div class="g-cu" data-gia-ngan-cu="goi4"></div><div class="g" data-gia-ngan="goi4"></div><div class="n">04<br>Wedding Signature</div></div>
     </div>
   </div>
 </section>
@@ -872,29 +876,53 @@
      lấy từ đây; phần chênh nâng gói tự tính.
      ══════════════════════════════════════════════════════ */
   const BANG_GIA = {
-    /* A. Bridal experiences (giá V1 chị Linh duyệt 18/08/2026) */
-    vay1: { gia:"1.888.000 VND",  quyen:["Take care 1h cùng stylist","Mannequin","Sketch váy","Thiệp cưới online"] },
-    vay2: { gia:"6.888.000 VND",  quyen:["1 váy chọn lọc","Dành cho lần đặt lịch đầu tiên","1 vest","Thiệp cưới online"] },
-    vay3: { gia:"14.888.000 VND", quyen:["2 váy","1 vest hoặc voan thêu tên / thêu quotes","Mannequin","Thiệp cưới online","Sketch váy"] },
-    vay4: { ten:"Signature Bride", gia:"28.888.000 VND", quyen:["3 váy","Áo dài đôi","1 vest","Trang điểm cô dâu","Take care 3 tiếng","Mannequin","Thiệp cưới online","Sketch váy"] },
+    /* A. Bridal experiences — giaHn/giaHcm: GIÁ THẬT khách trả, tách riêng theo TP (chị Linh chốt 31/08/2026).
+       cuHn/cuHcm: giá gốc gạch ngang riêng theo thành phố (để so sánh, không phải giá thật).
+       ⚠️ vay1-4: cuHcm hiện là TẠM ĐỀ XUẤT (~20% cao hơn giá thật HCM) — chị Linh CHƯA chốt số này. */
+    vay1: { cuHn:"3.700.000 VND",  cuHcm:"4.500.000 VND",  giaHn:"1.888.000 VND",  giaHcm:"2.888.000 VND",  quyen:["Take care 1h cùng stylist","Mannequin","Sketch váy","Thiệp cưới online"] },
+    vay2: { cuHn:"14.500.000 VND", cuHcm:"17.500.000 VND", giaHn:"6.888.000 VND",  giaHcm:"6.888.000 VND",  quyen:["1 váy chọn lọc","Dành cho lần đặt lịch đầu tiên","1 vest","Thiệp cưới online"] },
+    vay3: { cuHn:"28.500.000 VND", cuHcm:"34.500.000 VND", giaHn:"14.888.000 VND", giaHcm:"16.888.000 VND", quyen:["2 váy","1 vest hoặc voan thêu tên / thêu quotes","Mannequin","Thiệp cưới online","Sketch váy"] },
+    vay4: { ten:"Signature Bride", cuHn:"45.500.000 VND", cuHcm:"55.000.000 VND", giaHn:"26.888.000 VND", giaHcm:"28.888.000 VND", quyen:["3 váy","Áo dài đôi","1 vest","Trang điểm cô dâu","Take care 3 tiếng","Mannequin","Thiệp cưới online","Sketch váy"] },
 
-    /* B. Wedding experience — số triệu để tính chênh */
-    goi1: { ten:"Pre Wedding",       trieu:14.8, quyen:["Chụp pre-wedding studio","1 váy tiệc"] },
-    goi2: { ten:"Wedding Day",       trieu:16.8, quyen:["1 máy chụp theo tiệc 2 lễ tại {TP}","2 váy tiệc"] },
-    goi3: { ten:"Wedding Story",     trieu:25.8, quyen:["1 máy chụp + 1 máy quay (2 lễ tại {TP})","Take care 3 tiếng","2 váy tiệc"] },
-    goi4: { ten:"Wedding Signature", trieu:38.8, quyen:["Chụp pre-wedding studio","1 máy chụp + 1 máy quay (2 lễ tại {TP})","3 váy tiệc"] }
+    /* B. Wedding experience — trieuHn/trieuHcm: GIÁ THẬT (triệu) tách riêng theo TP.
+       cuHn/cuHcm: giá gốc gạch ngang. goi4: chị đồng ý giữ chung 1 giá gốc cho cả 2 TP. */
+    goi1: { ten:"Pre Wedding",       cuHn:"18.000.000 VND", cuHcm:"20.500.000 VND", trieuHn:14.8,   trieuHcm:16.8,   quyen:["Chụp pre-wedding studio","1 váy tiệc"] },
+    goi2: { ten:"Wedding Day",       cuHn:"22.000.000 VND", cuHcm:"25.500.000 VND", trieuHn:16.8,   trieuHcm:18.888, quyen:["1 máy chụp theo tiệc 2 lễ tại {TP}","2 váy tiệc"] },
+    goi3: { ten:"Wedding Story",     cuHn:"32.000.000 VND", cuHcm:"36.500.000 VND", trieuHn:26.8,   trieuHcm:28.8,   quyen:["1 máy chụp + 1 máy quay (2 lễ tại {TP})","Take care 3 tiếng","2 váy tiệc"] },
+    goi4: { ten:"Wedding Signature", cuHn:"42.800.000 VND", cuHcm:"42.800.000 VND", trieuHn:36.8,   trieuHcm:38.8,   quyen:["Chụp pre-wedding studio","1 máy chụp + 1 máy quay (2 lễ tại {TP})","3 váy tiệc"] }
   };
+  function coHienTai(){ return document.documentElement.getAttribute("data-co-so") || "hcm"; }
+  function giaCu(g){ return g && (coHienTai()==="hn" ? g.cuHn : g.cuHcm); }
+  function giaTrieu(g){ if(!g) return 0; if(g.trieuHn!=null) return coHienTai()==="hn" ? g.trieuHn : g.trieuHcm; return null; }
+  function giaThat(g){
+    if(!g) return "";
+    if(g.giaHn!=null) return coHienTai()==="hn" ? g.giaHn : g.giaHcm;
+    const t = giaTrieu(g);
+    return t!=null ? Math.round(t*1e6).toLocaleString("vi-VN")+" VND" : "";
+  }
 
-  (function dien(){
+  function dienGia(){
     const vn = n => n.toLocaleString("vi-VN",{minimumFractionDigits:1,maximumFractionDigits:1});
     document.querySelectorAll("[data-gia]").forEach(o=>{
       const g=BANG_GIA[o.dataset.gia]; if(!g) return;
-      o.textContent = g.gia || (Math.round(g.trieu*1e6).toLocaleString("vi-VN")+" VND");
+      const moi = giaThat(g);
+      const cu = giaCu(g);
+      o.innerHTML = cu ? '<span class="gia-cu">'+cu+'</span><span class="gia-moi">'+moi+'</span>' : moi;
     });
     document.querySelectorAll("[data-gia-ngan]").forEach(o=>{
       const g=BANG_GIA[o.dataset.giaNgan]; if(!g) return;
-      o.innerHTML = vn(g.trieu)+"<small>TR</small>";
+      o.innerHTML = vn(giaTrieu(g))+"<small>TR</small>";
     });
+    document.querySelectorAll("[data-gia-ngan-cu]").forEach(o=>{
+      const g=BANG_GIA[o.dataset.giaNganCu]; const cu=giaCu(g); if(!cu) return;
+      o.textContent = vn(parseInt(cu.replace(/\D/g,""),10)/1e6)+" TR";
+    });
+  }
+  window.__dienGia = dienGia;
+
+  (function dien(){
+    const vn = n => n.toLocaleString("vi-VN",{minimumFractionDigits:1,maximumFractionDigits:1});
+    dienGia();
     document.querySelectorAll("[data-ten]").forEach(o=>{
       const g=BANG_GIA[o.dataset.ten]; if(g&&g.ten) o.textContent=g.ten;
     });
@@ -902,17 +930,21 @@
       const g=BANG_GIA[o.dataset.quyen]; if(!g) return;
       o.innerHTML = g.quyen.map(q=>"<li>"+q.split("{TP}").join("HCM")+"</li>").join("");
     });
-    /* flow nâng gói */
-    const keys=["goi1","goi2","goi3","goi4"], fl=document.getElementById("flow");
+    dienFlow();
+  })();
+
+  function dienFlow(){
+    const keys=["goi1","goi2","goi3","goi4"], fl=document.getElementById("flow"); if(!fl) return;
     let html="";
     keys.forEach((k,i)=>{
-      const g=BANG_GIA[k];
-      const chenh = i? "+ "+Math.round((g.trieu-BANG_GIA[keys[i-1]].trieu)*1e6).toLocaleString("vi-VN")+" VND" : Math.round(g.trieu*1e6).toLocaleString("vi-VN")+" VND";
+      const g=BANG_GIA[k], t=giaTrieu(g), tTruoc=i?giaTrieu(BANG_GIA[keys[i-1]]):0;
+      const chenh = i? "+ "+Math.round((t-tTruoc)*1e6).toLocaleString("vi-VN")+" VND" : Math.round(t*1e6).toLocaleString("vi-VN")+" VND";
       if(i) html+='<li class="mui-hang"><span class="mui">↓</span></li>';
       html+='<li><span class="so">0'+(i+1)+'</span><span class="ten">'+g.ten+'</span><span class="chenh">'+chenh+'</span></li>';
     });
     fl.innerHTML=html;
-  })();
+  }
+  window.__dienFlow = dienFlow;
 
   /* ══ BẢNG ĐẶT HẸN — gửi 3 nơi ══
      1) Form hệ thống "DLA - Đặt hẹn thử váy" → tự lên lịch Google + tin xác nhận về EMAIL CƠ SỞ
@@ -1132,6 +1164,8 @@
     if (window.__henCoSo) window.__henCoSo(g.ma);   /* bảng đặt hẹn chọn sẵn đúng showroom */
 
     document.documentElement.setAttribute("data-co-so", g.ma);
+    if (window.__dienGia) window.__dienGia();     /* giá thật + giá gốc riêng theo TP */
+    if (window.__dienFlow) window.__dienFlow();    /* phần chênh nâng gói tính lại theo giá TP hiện tại */
     apAnh(g.ma);
   }
 
@@ -1222,7 +1256,7 @@
   (function qrCoc(){
     var nen=document.getElementById("qrNen"), than=document.getElementById("qrThan");
     function vnd(n){ return Math.round(n).toLocaleString("vi-VN")+" VND"; }
-    function giaGoi(k){ var g=BANG_GIA[k]; if(!g) return 0; if(g.trieu) return g.trieu*1e6; return parseInt((g.gia||"").replace(/\D/g,""),10)||0; }
+    function giaGoi(k){ var g=BANG_GIA[k]; if(!g) return 0; return parseInt((giaThat(g)||"").replace(/\D/g,""),10)||0; }
     function mo(k){
       var g=BANG_GIA[k]; var ten=(g&&g.ten)||document.querySelector('[data-qr="'+k+'"]')?.closest(".hang")?.querySelector(".ten")?.textContent||k;
       var tong=giaGoi(k); var tien=!TAI_KHOAN.coc?tong:(TAI_KHOAN.coc<1?tong*TAI_KHOAN.coc:TAI_KHOAN.coc);
