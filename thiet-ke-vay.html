@@ -1,0 +1,1190 @@
+<!--
+  ══════════════════════════════════════════════════════════════
+  DOLINHANH BRIDAL — THIẾT KẾ VÁY CƯỚI CỦA RIÊNG BẠN
+  Dress configurator tương tác — bản tiếng Việt
+  ══════════════════════════════════════════════════════════════
+
+  QUY TRÌNH (chốt với chị Linh 02/09/2026 — thay hẳn bản 7 bước cũ):
+   01. Chọn Dáng Váy       — A-Line / Đuôi Cá / Xoè Bồng / Ống Thẳng / Suông Ôm
+   02. Chọn Chất Liệu      — Phi / Đính Kết / Ren
+   03. (chỉ khi Đính Kết)  — chọn vùng đính + up ảnh mẫu đính kết khách thích
+       (chỉ khi Ren)       — up ảnh mẫu ren khách thích
+   04. Chọn Màu Sắc        — Trắng / Hồng Nude / Vàng Nude / Ghi
+   → Ra BẢN SKETCH váy cho khách (không phải ảnh thật, không phải 3D — minh
+     hoạ phác thảo SVG ghép theo lựa chọn, xem kiến trúc trong DRESS_DATA).
+
+  MÀU SẮC/FONT lấy đúng theo :root của bao-gia-v2.html (dolinhanhbridal.com)
+  — cùng token --ivory/--ink/--champagne..., nút dùng kiểu viền mảnh giống
+  trang báo giá (không tô đặc), có dùng --champagne làm điểm nhấn (progress
+  bar, viền lựa chọn) cho khớp gu trang báo giá.
+
+  Ảnh tham khảo khách upload (đính kết/ren): lưu localStorage dạng ảnh đã
+  nén nhỏ (canvas, ~640px), CHƯA có backend nên chưa gửi được ảnh thật qua
+  lead form — khi gửi yêu cầu báo giá, trang nhắc khách gửi kèm ảnh qua Zalo
+  (dùng Web Share API nếu máy hỗ trợ, không thì tự tải ảnh về gửi tay).
+
+  Ảnh dùng trong trang đều lấy từ kho ảnh sẵn có, là PLACEHOLDER — thay dễ
+  dàng qua REAL_PHOTOS ở đầu <script>.
+  ══════════════════════════════════════════════════════════════
+-->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Tự thiết kế chiếc váy cưới của riêng bạn cùng Dolinhanh Bridal — chọn dáng, chất liệu, màu sắc và gửi thiết kế để nhận tư vấn, báo giá.">
+<title>Thiết Kế Váy Cưới Của Riêng Bạn — Dolinhanh Bridal</title>
+<script>document.documentElement.classList.add("js");</script>
+
+<style>
+  :root{
+    --ivory:#F3F2F0;
+    --paper:#FFFFFF;
+    --stone:#E9E7E4;
+    --charcoal:#1D1C1B;
+    --ink:#17130F;
+    --ink-2:#37342F;
+    --grey:#6F6C69;
+    --grey-2:#9E9B97;
+    --hair:#DAD7D2;
+    --champagne:#CDBBA2;
+    --champagne-dark:#A8865F;
+    --warm-1:#F7F1E7;
+    --warm-2:#E9DACB;
+    --skin:#E7C9A6;
+    --line:#B9B5AE;
+
+    --didone:"Bodoni 72","Bodoni MT",Didot,"Didot LT STD","Playfair Display",Georgia,"Times New Roman",serif;
+    --serif:"Bodoni 72","Bodoni MT",Didot,"Didot LT STD",Baskerville,Georgia,"Times New Roman",serif;
+    --body:Baskerville,"Libre Baskerville",Georgia,"Times New Roman",serif;
+    --sans:-apple-system,"Helvetica Neue",Helvetica,Arial,sans-serif;
+
+    --gutter:clamp(20px,5vw,72px);
+    --max:1440px;
+    --t-hero:clamp(2.3rem,7vw,6.2rem);
+    --t-h1:clamp(2.1rem,4.6vw,4rem);
+    --t-h2:clamp(1.5rem,3vw,2.4rem);
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;background:var(--ivory);color:var(--ink-2);
+    font-family:var(--body);font-size:1rem;line-height:1.55;
+    -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+    overflow-x:hidden;
+  }
+  img{max-width:100%;display:block}
+  a{color:inherit}
+  button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;padding:0}
+  h1,h2,h3{margin:0;font-family:var(--serif);font-weight:400;color:var(--ink);line-height:1.12;letter-spacing:.01em;text-wrap:balance}
+  p{margin:0}
+  ul,ol{margin:0;padding:0;list-style:none}
+  .wrap{max-width:var(--max);margin:0 auto;padding-inline:var(--gutter)}
+  .eyebrow{font-family:var(--sans);font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--champagne-dark)}
+  .rule{border:0;border-top:1px solid var(--hair);margin:0}
+  section{position:relative}
+  .muc{padding-block:clamp(56px,8vw,120px)}
+  .h-lon{font-size:var(--t-h1);letter-spacing:-.015em}
+  .h-vua{font-size:var(--t-h2);letter-spacing:-.01em}
+  .dan{max-width:56ch;color:var(--grey);font-size:15px;line-height:1.6}
+  .center{text-align:center;margin-inline:auto}
+
+  .lien{
+    display:inline-flex;align-items:center;gap:12px;
+    font-family:var(--sans);font-size:.7rem;font-weight:500;letter-spacing:.22em;
+    text-transform:uppercase;text-decoration:none;color:var(--ink);
+    padding-bottom:6px;border-bottom:1px solid var(--ink);transition:gap .3s;
+    background:none;border-left:0;border-right:0;border-top:0;
+  }
+  .lien::after{content:"⟶";font-weight:300;letter-spacing:0;font-size:1.1em}
+  .lien:hover{gap:18px}
+  .lien.sang{color:#fff;border-color:rgba(255,255,255,.7)}
+
+  /* nút viền mảnh — đúng kiểu bao-gia-v2.html, không tô đặc */
+  .nut{
+    display:inline-block;font-family:var(--sans);font-size:.7rem;font-weight:500;letter-spacing:.24em;
+    text-transform:uppercase;text-decoration:none;color:var(--ink);background:transparent;border:1px solid var(--ink);
+    padding:15px 28px;transition:background .3s,color .3s,opacity .2s;
+  }
+  .nut:hover{background:var(--ink);color:#fff}
+  .nut.sang{color:#fff;border-color:rgba(255,255,255,.75)}
+  .nut.sang:hover{background:#fff;color:var(--ink)}
+  .nut[disabled]{opacity:.35;cursor:not-allowed;pointer-events:none}
+  a:focus-visible,button:focus-visible{outline:2px solid var(--champagne);outline-offset:3px}
+
+  /* ── nav ─────────────────────────────────────────── */
+  header{position:absolute;top:0;left:0;right:0;z-index:40;color:#fff}
+  .hd{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-block:clamp(18px,2.4vw,28px)}
+  .wordmark{font-family:var(--serif);font-size:clamp(1rem,1.6vw,1.3rem);letter-spacing:.3em;text-transform:uppercase;text-decoration:none;color:#fff}
+  @media(max-width:560px){.wordmark{letter-spacing:.2em;font-size:.92rem}}
+
+  /* ── hero ────────────────────────────────────────── */
+  .hero{
+    position:relative;min-height:min(96svh,880px);color:#fff;
+    background:var(--charcoal) url('anh/look-02.jpg') center 22%/cover no-repeat;
+    display:flex;align-items:flex-end;
+  }
+  .hero::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.15),rgba(0,0,0,.55) 78%,rgba(0,0,0,.7))}
+  .hero .wrap{position:relative;z-index:1;width:100%;padding-bottom:clamp(40px,7vh,80px);display:grid;gap:clamp(16px,2.6vh,24px)}
+  .hero .eyebrow{color:rgba(255,255,255,.8)}
+  .hero h1{font-size:var(--t-hero);color:#fff;max-width:14ch}
+  .hero .sub{font-family:var(--sans);font-size:clamp(.8rem,1.1vw,.95rem);letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.85)}
+  .hero .dan{color:rgba(255,255,255,.82);max-width:46ch;font-size:15px}
+  .hero .cta{display:flex;flex-wrap:wrap;gap:14px 24px;align-items:center;margin-top:8px}
+
+  /* ── why section ─────────────────────────────────── */
+  .why-top{max-width:60ch;margin-bottom:clamp(30px,5vw,56px)}
+  .why-cols{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(24px,4vw,48px);margin-top:clamp(36px,5vw,56px)}
+  .why-cols li{border-top:1px solid var(--champagne);padding-top:20px}
+  .why-cols h3{font-family:var(--sans);font-size:.72rem;font-weight:600;letter-spacing:.16em;color:var(--ink);margin-bottom:10px}
+  .why-cols p{font-size:14.5px;color:var(--grey);max-width:34ch}
+  @media(max-width:760px){.why-cols{grid-template-columns:1fr;gap:22px}}
+
+  /* ── builder ─────────────────────────────────────── */
+  .builder{background:var(--paper);border-top:1px solid var(--hair);border-bottom:1px solid var(--hair)}
+  .start-wrap{text-align:center;padding-block:clamp(40px,7vw,72px)}
+  .start-wrap .dan{margin-inline:auto;margin-top:14px}
+  .start-wrap .nut{margin-top:30px}
+
+  .progress{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:clamp(28px,4vw,40px);flex-wrap:wrap}
+  .progress .num{font-family:var(--sans);font-size:.72rem;letter-spacing:.18em;color:var(--grey)}
+  .steps{display:flex;gap:6px;flex:1;margin-inline:20px}
+  .steps i{flex:1;height:2px;background:var(--hair);display:block;transition:background .3s}
+  .steps i.on{background:var(--champagne)}
+  .step-labels{display:none;gap:16px;font-family:var(--sans);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--grey-2)}
+  @media(min-width:1000px){.step-labels{display:flex}}
+  .step-labels b{color:var(--ink);font-weight:600}
+
+  .rig{display:none}
+  .rig.on{display:grid}
+  .rig{grid-template-columns:300px 1fr 260px;gap:clamp(24px,3vw,48px);align-items:start}
+  @media(max-width:1080px){.rig{grid-template-columns:1fr;}}
+
+  .col-opts{order:1}
+  .col-preview{order:0;display:flex;flex-direction:column;align-items:center;gap:18px}
+  .col-summary{order:2}
+  @media(min-width:1081px){.col-opts{order:0}.col-preview{order:1}.col-summary{order:2}}
+
+  .step-title{font-family:var(--sans);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--grey);margin-bottom:4px}
+  .step-h{font-family:var(--serif);font-size:1.5rem;color:var(--ink);margin-bottom:18px}
+
+  .opciones{display:grid;grid-template-columns:1fr;gap:8px}
+  .op{display:flex;align-items:center;gap:14px;background:var(--paper);border:1px solid var(--hair);border-radius:14px;padding:12px 14px;text-align:left;transition:background .25s,border-color .25s,box-shadow .25s;position:relative}
+  .op:hover{background:var(--warm-1);border-color:var(--champagne)}
+  .op.sel{background:var(--warm-1);border-color:var(--champagne-dark);box-shadow:0 8px 20px -14px rgba(90,70,50,.5)}
+  .op svg,.op img{width:48px;height:64px;flex:none;object-fit:cover;border-radius:8px}
+  .op .txt{display:flex;flex-direction:column;gap:2px;min-width:0}
+  .op .nm{font-family:var(--sans);font-size:.76rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--ink)}
+  .op .ds{font-size:13px;color:var(--grey);line-height:1.35}
+  .op.color-op svg{width:34px;height:34px}
+
+  .preview-frame{width:100%;max-width:340px;aspect-ratio:320/620;background:linear-gradient(180deg,var(--warm-1),var(--warm-2));border-radius:22px;box-shadow:0 18px 40px -20px rgba(90,70,50,.35);display:flex;align-items:center;justify-content:center;position:relative}
+  .preview-frame svg{width:92%;height:92%}
+  .ref-pin{position:absolute;left:12px;bottom:12px;width:64px;height:64px;border-radius:12px;border:3px solid #fff;box-shadow:0 2px 10px rgba(0,0,0,.18);background:#fff center/cover no-repeat;transform:rotate(-4deg)}
+  .nav-btns{display:flex;gap:14px;margin-top:22px}
+  @media(max-width:1080px){.nav-btns{display:none}}
+
+  .summary-h{font-family:var(--sans);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--grey);margin-bottom:16px}
+  .sum-list{display:grid;gap:0}
+  .sum-list li{border-top:1px solid var(--hair);padding-block:11px;display:flex;flex-direction:column;gap:2px}
+  .sum-list li:last-child{border-bottom:1px solid var(--hair)}
+  .sum-list .k{font-family:var(--sans);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--grey-2)}
+  .sum-list .v{font-size:14.5px;color:var(--ink)}
+  .sum-list button{font-family:var(--sans);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--grey);border-bottom:1px solid var(--grey);align-self:flex-start;margin-top:2px}
+  .sum-actions{display:flex;gap:20px;margin-top:20px}
+  .sum-actions button{font-family:var(--sans);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--grey);border-bottom:1px solid var(--grey)}
+
+  /* upload ảnh tham khảo (đính kết / ren) */
+  .upload-box{border:1px dashed var(--champagne);border-radius:16px;background:var(--warm-1);padding:20px;text-align:center;margin-top:18px}
+  .upload-box input[type=file]{display:none}
+  .upload-box .lbl{font-family:var(--sans);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink);border-bottom:1px solid var(--ink);display:inline-block;cursor:pointer}
+  .upload-box p{font-size:12.5px;color:var(--grey-2);margin-top:8px}
+  .upload-preview{display:flex;align-items:center;gap:14px;margin-top:16px}
+  .upload-preview img{width:64px;height:64px;object-fit:cover;border-radius:10px;border:1px solid var(--hair)}
+  .preview-chip{position:absolute;left:14px;top:14px;background:#fff;border-radius:14px;padding:8px 14px;box-shadow:0 8px 20px -10px rgba(90,70,50,.35);max-width:70%}
+  .preview-chip .nm{display:block;font-family:var(--sans);font-size:.78rem;font-weight:700;color:var(--ink)}
+  .preview-chip .ds{display:block;font-size:11.5px;color:var(--grey-2);margin-top:1px}
+  .upload-preview button{font-family:var(--sans);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--grey);border-bottom:1px solid var(--grey)}
+
+  /* mobile builder layout */
+  .m-opts-row{display:none}
+  @media(max-width:1080px){
+    .rig.on{display:flex;flex-direction:column;padding-bottom:80px}
+    .col-opts .opciones{display:none}
+    .m-opts-row{display:flex;gap:10px;overflow-x:auto;padding-bottom:8px;background:none;-webkit-overflow-scrolling:touch}
+    .m-opts-row .op{flex:0 0 auto;width:118px;flex-direction:column;text-align:center;background:var(--warm-1);border:1px solid var(--hair);border-radius:14px;gap:8px;padding:12px 8px}
+    .m-opts-row .op.sel{border-color:var(--champagne-dark)}
+    .m-opts-row .op .ds{display:none}
+    .m-opts-row .op svg,.m-opts-row .op img{width:100%;height:78px;border-radius:8px}
+    .m-sticky{position:fixed;left:0;right:0;bottom:0;z-index:50;background:var(--paper);border-top:1px solid var(--hair);padding:12px var(--gutter);display:flex;gap:12px}
+    .m-sticky .nut{flex:1;text-align:center}
+    .rig:not(.on) + .m-sticky{display:none}
+  }
+  @media(min-width:1081px){.m-sticky{display:none}}
+
+  /* ── result ──────────────────────────────────────── */
+  .result{display:none}
+  .result.on{display:block}
+  .result-top{text-align:center;max-width:60ch;margin:0 auto clamp(30px,5vw,50px)}
+  .result-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,4vw,56px);align-items:center}
+  @media(max-width:860px){.result-grid{grid-template-columns:1fr}}
+  .result-frame{background:linear-gradient(180deg,var(--warm-1),var(--warm-2));border-radius:26px;box-shadow:0 20px 50px -22px rgba(90,70,50,.4);aspect-ratio:320/620;display:flex;align-items:center;justify-content:center;max-width:380px;margin-inline:auto;position:relative}
+  .result-frame svg{width:88%;height:88%}
+  .result-id{font-family:var(--sans);font-size:11px;letter-spacing:.16em;color:var(--grey);margin-top:14px;text-align:center}
+  .result-list{display:grid;gap:0}
+  .result-list li{display:flex;gap:14px;border-top:1px solid var(--hair);padding-block:13px;align-items:baseline}
+  .result-list li:last-child{border-bottom:1px solid var(--hair)}
+  .result-list .n{font-family:var(--serif);font-size:1rem;color:var(--champagne-dark);width:24px;flex:none}
+  .result-list .v{font-size:15.5px;color:var(--ink)}
+  .result-list .k{font-family:var(--sans);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--grey-2);display:block}
+  .result-actions{display:flex;flex-wrap:wrap;gap:16px;margin-top:28px}
+
+  /* ── idea to atelier ─────────────────────────────── */
+  .atelier{background:var(--stone)}
+  .steps3{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(24px,4vw,48px);margin-top:clamp(36px,5vw,56px)}
+  .steps3 li{border-top:1px solid var(--champagne);padding-top:18px}
+  .steps3 .n{font-family:var(--serif);font-size:1.6rem;color:var(--grey-2)}
+  .steps3 h3{font-family:var(--sans);font-size:.72rem;font-weight:600;letter-spacing:.14em;margin:8px 0 8px;color:var(--ink)}
+  .steps3 p{font-size:14px;color:var(--grey);max-width:32ch}
+  @media(max-width:760px){.steps3{grid-template-columns:1fr}}
+
+  /* ── not sure ────────────────────────────────────── */
+  .notsure{text-align:center}
+  .notsure .dan{margin-inline:auto}
+  .notsure .nut{margin-top:26px}
+
+  /* ── dla edit ────────────────────────────────────── */
+  .edit-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:clamp(30px,4vw,48px)}
+  @media(max-width:900px){.edit-grid{grid-template-columns:repeat(2,1fr)}}
+  .edit-card{background:var(--paper);border-radius:18px;box-shadow:0 14px 32px -22px rgba(90,70,50,.4);position:relative;overflow:hidden}
+  .edit-card .ph{aspect-ratio:3/4;background-size:cover;background-position:center 20%;filter:grayscale(.1)}
+  .edit-card .cap{padding:16px}
+  .edit-card h3{font-family:var(--sans);font-size:.78rem;font-weight:600;letter-spacing:.1em;color:var(--ink)}
+  .edit-card p{font-size:12.5px;color:var(--grey);margin-top:4px}
+  .edit-card button{margin-top:12px;font-family:var(--sans);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink);border-bottom:1px solid var(--ink)}
+
+  /* ── social proof ────────────────────────────────── */
+  .proof-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:clamp(28px,4vw,44px)}
+  .proof-grid img{width:100%;height:100%;aspect-ratio:3/4;object-fit:cover}
+  @media(max-width:760px){.proof-grid{grid-template-columns:repeat(2,1fr)}}
+
+  /* ── price ───────────────────────────────────────── */
+  .price{background:var(--charcoal);color:#fff;text-align:center}
+  .price h2{color:#fff}
+  .price .dan{color:rgba(255,255,255,.7);margin-inline:auto}
+  .price .nut{margin-top:26px}
+
+  /* ── faq ─────────────────────────────────────────── */
+  .faq{max-width:820px;margin-inline:auto}
+  .faq-item{border-top:1px solid var(--hair)}
+  .faq-item:last-child{border-bottom:1px solid var(--hair)}
+  .faq-item button{width:100%;display:flex;justify-content:space-between;gap:20px;align-items:center;padding:18px 0;text-align:left;font-family:var(--sans);font-size:13.5px;letter-spacing:.02em;font-weight:600;color:var(--ink)}
+  .faq-item .plus{font-family:var(--serif);font-size:1.1rem;color:var(--champagne);flex:none;transition:transform .25s}
+  .faq-item.on .plus{transform:rotate(45deg)}
+  .faq-a{max-height:0;overflow:hidden;transition:max-height .3s ease}
+  .faq-item.on .faq-a{max-height:220px}
+  .faq-a p{font-size:14px;color:var(--grey);padding-bottom:18px;max-width:62ch}
+
+  /* ── final cta / footer ─────────────────────────── */
+  .final{
+    background:var(--charcoal) url('anh/up/cl-30.jpg') center 30%/cover no-repeat;color:#fff;text-align:center;
+  }
+  .final::before{content:"";position:absolute;inset:0;background:rgba(0,0,0,.55)}
+  .final .wrap{position:relative;z-index:1}
+  .final h2{color:#fff}
+  .final .dan{color:rgba(255,255,255,.82);margin-inline:auto;margin-top:14px}
+  .final .cta{display:flex;flex-wrap:wrap;gap:16px;justify-content:center;margin-top:30px}
+  footer{background:var(--ink);color:rgba(255,255,255,.6);text-align:center;padding-block:36px}
+  footer .wordmark{color:#fff;font-family:var(--serif);letter-spacing:.3em;font-size:.9rem}
+  footer p{font-family:var(--sans);font-size:11px;letter-spacing:.14em;margin-top:10px;text-transform:uppercase}
+
+  /* ── modal form ──────────────────────────────────── */
+  .modal-bg{position:fixed;inset:0;background:rgba(23,19,15,.6);z-index:90;display:none;align-items:center;justify-content:center;padding:20px}
+  .modal-bg.on{display:flex}
+  .modal{background:var(--paper);border-radius:22px;box-shadow:0 30px 70px -30px rgba(0,0,0,.4);max-width:460px;width:100%;max-height:90vh;overflow-y:auto;padding:clamp(28px,4vw,40px);position:relative}
+  .modal .x{position:absolute;top:16px;right:18px;font-size:1.3rem;color:var(--grey);font-family:var(--sans)}
+  .modal h3{font-size:1.4rem;margin-bottom:6px}
+  .modal .dan{font-size:13.5px;margin-bottom:22px}
+  .fld{display:grid;gap:5px;margin-bottom:16px}
+  .fld label{font-family:var(--sans);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--grey)}
+  .fld input,.fld select{font:inherit;font-size:14.5px;padding:10px 0;border:0;border-bottom:1px solid var(--hair);background:none;color:var(--ink)}
+  .fld input:focus,.fld select:focus{outline:0;border-color:var(--champagne)}
+  .modal .design-recap{background:var(--ivory);padding:14px 16px;font-size:12.5px;color:var(--grey);margin-bottom:14px;line-height:1.6}
+  .modal .zalo-hint{display:flex;align-items:center;gap:12px;background:var(--ivory);padding:12px 14px;margin-bottom:18px}
+  .modal .zalo-hint img{width:44px;height:44px;object-fit:cover;flex:none}
+  .modal .zalo-hint p{font-size:12px;color:var(--grey)}
+  .modal .zalo-hint button{font-family:var(--sans);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink);border-bottom:1px solid var(--ink);white-space:nowrap}
+  .modal .nut{width:100%;text-align:center;margin-top:6px}
+  .modal .note{font-size:11.5px;color:var(--grey-2);margin-top:14px;text-align:center}
+  .thanks{display:none;text-align:center;padding:20px 0}
+  .thanks.on{display:block}
+  .thanks h3{margin-bottom:10px}
+</style>
+
+<header>
+  <div class="wrap hd">
+    <a class="wordmark" href="bao-gia-v2.html">Dolinhanh</a>
+    <a class="lien sang" href="bao-gia-v2.html">Xem báo giá</a>
+  </div>
+</header>
+
+<!-- ══════════════ HERO ══════════════ -->
+<section class="hero">
+  <div class="wrap">
+    <p class="eyebrow">Tự thiết kế váy cưới của riêng bạn</p>
+    <h1>THIẾT KẾ<br>CHIẾC VÁY<br>CỦA BẠN</h1>
+    <p class="sub">Váy cưới trong mơ. Theo cách của bạn.</p>
+    <p class="dan">Chọn dáng váy, chất liệu và màu sắc bạn yêu thích — thậm chí gửi kèm ảnh đính kết hay ren bạn thích — để tạo nên bản sketch cho chiếc váy mang dấu ấn riêng của bạn.</p>
+    <div class="cta">
+      <button class="nut sang" data-goto-builder>Bắt Đầu Thiết Kế</button>
+      <a class="lien sang" href="#atelier">Cách Thức Hoạt Động</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ WHY ══════════════ -->
+<section class="muc">
+  <div class="wrap">
+    <div class="why-top">
+      <p class="eyebrow" style="margin-bottom:14px">Không cô dâu nào giống cô dâu nào</p>
+      <h2 class="h-lon">Một chiếc váy nên mang dáng dấp của bạn, không phải một trang catalogue.</h2>
+      <p class="dan" style="margin-top:16px">Có thể bạn thích dáng váy của một chiếc, chất liệu của một chiếc khác, và một mẫu đính kết hay hoạ tiết ren bạn từng thấy đâu đó rất ưng. DLA cho phép bạn bắt đầu từ những gì bạn yêu thích và biến chúng thành một bản sketch dành riêng cho bạn.</p>
+    </div>
+    <ul class="why-cols">
+      <li><h3>Dáng Váy Của Bạn</h3><p>Chọn phom váy phù hợp với vóc dáng và phong cách của bạn.</p></li>
+      <li><h3>Chất Liệu Của Bạn</h3><p>Phi, đính kết hay ren — chọn cảm giác cho chiếc váy.</p></li>
+      <li><h3>Dấu Ấn Của Bạn</h3><p>Gửi kèm ảnh đính kết hoặc ren bạn thích để đội ngũ DLA hiểu đúng ý bạn.</p></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ══════════════ BUILDER ══════════════ -->
+<section class="builder muc" id="builder">
+  <div class="wrap">
+
+    <div id="start-panel" class="start-wrap">
+      <p class="eyebrow">Bước vào atelier</p>
+      <h2 class="h-lon">Cùng thiết kế chiếc váy của bạn.</h2>
+      <p class="dan center">Bạn có thể bắt đầu ngay — không cần đăng nhập, không cần điền form trước.</p>
+      <button class="nut" data-goto-builder>Bắt Đầu Thiết Kế</button>
+    </div>
+
+    <div id="builder-body" style="display:none">
+      <div class="progress">
+        <span class="num" id="prog-num">01 / 03</span>
+        <div class="steps" id="prog-bar"></div>
+        <div class="step-labels" id="prog-labels"></div>
+      </div>
+      <div id="rigs-holder"></div>
+    </div>
+
+    <!-- ═══ RESULT ═══ -->
+    <div class="result" id="result">
+      <div class="result-top">
+        <p class="eyebrow">Bản sketch váy của bạn đã sẵn sàng</p>
+        <h2 class="h-lon">Chiếc váy này thực sự là bạn.</h2>
+      </div>
+      <div class="result-grid">
+        <div>
+          <div class="result-frame"><svg id="result-svg" viewBox="0 0 320 620"></svg></div>
+          <p class="result-id" id="result-id"></p>
+        </div>
+        <div>
+          <p class="summary-h">Thiết Kế Của Bạn</p>
+          <ol class="result-list" id="result-list"></ol>
+          <div class="result-actions">
+            <button class="nut" data-save-design>Lưu Thiết Kế</button>
+            <button class="nut" data-open-form>Nhận Báo Giá</button>
+            <button class="lien" data-edit-design>Sửa</button>
+            <button class="lien" data-reset-design>Làm Lại</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="m-sticky" id="m-sticky">
+  <button class="nut" data-prev>Quay Lại</button>
+  <button class="nut" data-next>Tiếp Theo</button>
+</div>
+
+<!-- ══════════════ LET'S MAKE IT REAL ══════════════ -->
+<section class="muc" style="text-align:center" id="letsmakeitreal">
+  <div class="wrap">
+    <p class="eyebrow">Từ ý tưởng đến hiện thực</p>
+    <h2 class="h-lon">Biến nó thành hiện thực.</h2>
+    <p class="dan center">Thích thiết kế này? Gửi cho DLA để đội ngũ bridal biến ý tưởng của bạn thành một chiếc váy thật.</p>
+    <div class="cta" style="justify-content:center;margin-top:26px">
+      <button class="nut" data-open-form>Nhận Báo Giá</button>
+      <a class="lien" href="https://zalo.me/0359950588" target="_blank" rel="noopener">Đặt Lịch Tư Vấn</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ FROM IDEA TO ATELIER ══════════════ -->
+<section class="muc atelier" id="atelier">
+  <div class="wrap">
+    <p class="eyebrow">Quy trình</p>
+    <h2 class="h-lon">Từ ý tưởng<br>đến xưởng may.</h2>
+    <p class="dan" style="margin-top:16px">Thiết kế trực tuyến của bạn là điểm khởi đầu. Đội ngũ tại atelier của DLA sẽ tinh chỉnh lại form dáng, kỹ thuật may, chất liệu và chi tiết đính kết/ren để đảm bảo chiếc váy cuối cùng đẹp và vừa vặn ngoài đời thật.</p>
+    <ol class="steps3">
+      <li><span class="n">01</span><h3>Thiết Kế</h3><p>Tạo bản sketch váy của bạn ngay trên web.</p></li>
+      <li><span class="n">02</span><h3>Tinh Chỉnh</h3><p>Tư vấn viên bridal xem thiết kế (và ảnh mẫu bạn gửi) để tinh chỉnh từng chi tiết.</p></li>
+      <li><span class="n">03</span><h3>Hoàn Thiện</h3><p>Thiết kế cuối cùng được hoàn thiện cùng DLA.</p></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ══════════════ NOT SURE ══════════════ -->
+<section class="muc notsure">
+  <div class="wrap">
+    <p class="eyebrow">Chưa biết chọn gì phù hợp?</p>
+    <h2 class="h-vua">Bạn không cần biết hết mọi thứ.</h2>
+    <p class="dan center" style="margin-top:14px">Chọn một chiếc váy bạn đã yêu thích, để DLA giúp bạn xây dựng từ đó.</p>
+    <a class="nut" href="https://zalo.me/0359950588" target="_blank" rel="noopener" style="display:inline-block">Hỏi DLA</a>
+  </div>
+</section>
+
+<!-- ══════════════ DLA EDIT ══════════════ -->
+<section class="muc" id="dla-edit">
+  <div class="wrap">
+    <p class="eyebrow">DLA Tuyển Chọn</p>
+    <h2 class="h-lon">Bắt đầu với gợi ý từ DLA.</h2>
+    <div class="edit-grid" id="edit-grid"></div>
+  </div>
+</section>
+
+<!-- ══════════════ SOCIAL PROOF ══════════════ -->
+<section class="muc">
+  <div class="wrap">
+    <p class="eyebrow">Dành cho cô dâu thật</p>
+    <h2 class="h-vua">Từ một ý tưởng trên màn hình<br>đến chiếc váy dành cho một cô dâu thật.</h2>
+    <div class="proof-grid">
+      <img src="anh/up/nu-pre.jpg" alt="" loading="lazy">
+      <img src="anh/up/hn-pre.jpg" alt="" loading="lazy">
+      <img src="anh/up/nu-wedday.jpg" alt="" loading="lazy">
+      <img src="anh/up/hn-wedday.jpg" alt="" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ PRICE ══════════════ -->
+<section class="muc price">
+  <div class="wrap">
+    <p class="eyebrow" style="color:rgba(255,255,255,.65)">Bảng Giá</p>
+    <h2 class="h-lon">Thiết kế theo bạn.<br>Giá theo đúng thiết kế của bạn.</h2>
+    <p class="dan">Giá phụ thuộc vào dáng váy, chất liệu, mức độ đính kết hoặc ren, và kỹ thuật may.</p>
+    <button class="nut sang" data-open-form>Nhận Báo Giá</button>
+  </div>
+</section>
+
+<!-- ══════════════ FAQ ══════════════ -->
+<section class="muc">
+  <div class="wrap">
+    <p class="eyebrow center" style="text-align:center;margin-bottom:8px">Câu Hỏi Thường Gặp</p>
+    <h2 class="h-lon center" style="text-align:center;margin-bottom:30px">Giải đáp thắc mắc.</h2>
+    <div class="faq" id="faq"></div>
+  </div>
+</section>
+
+<!-- ══════════════ FINAL CTA ══════════════ -->
+<section class="muc final">
+  <div class="wrap">
+    <p class="eyebrow" style="color:rgba(255,255,255,.75)">Chiếc váy của bạn. Câu chuyện của bạn.</p>
+    <h2 class="h-lon">Bạn đã hình dung ra nó.<br>Giờ hãy biến nó thành hiện thực.</h2>
+    <div class="cta">
+      <button class="nut sang" data-open-form>Nhận Báo Giá</button>
+      <a class="lien sang" href="https://zalo.me/0359950588" target="_blank" rel="noopener">Đặt Lịch Thử Váy Riêng</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span class="wordmark">Dolinhanh Bridal</span>
+    <p>Hà Nội · TP. Hồ Chí Minh</p>
+  </div>
+</footer>
+
+<!-- ══════════════ FORM MODAL ══════════════ -->
+<div class="modal-bg" id="modal-bg">
+  <div class="modal">
+    <button class="x" data-close-form aria-label="Đóng">×</button>
+    <div id="form-view">
+      <h3>Nhận báo giá</h3>
+      <p class="dan">Gửi thiết kế của bạn cho DLA, đội ngũ bridal sẽ liên hệ tư vấn và báo giá.</p>
+      <div class="design-recap" id="form-recap"></div>
+      <div class="zalo-hint" id="zalo-hint" style="display:none">
+        <img id="zalo-hint-img" src="" alt="">
+        <p>Bạn có ảnh mẫu tham khảo — nhắn kèm ảnh này qua Zalo để tư vấn viên hiểu đúng ý bạn hơn.</p>
+        <button type="button" id="zalo-hint-btn">Gửi Ảnh</button>
+      </div>
+      <form id="lead-form">
+        <div class="fld"><label>Họ và tên</label><input required name="ten" autocomplete="name"></div>
+        <div class="fld"><label>Số điện thoại / Zalo</label><input required name="sdt" inputmode="tel" autocomplete="tel"></div>
+        <div class="fld"><label>Email</label><input type="email" name="email" autocomplete="email"></div>
+        <div class="fld"><label>Ngày cưới</label><input type="date" name="ngayCuoi"></div>
+        <div class="fld"><label>Thành phố tổ chức</label>
+          <select name="city">
+            <option value="Hà Nội">Hà Nội</option>
+            <option value="TP.HCM">TP. Hồ Chí Minh</option>
+            <option value="Khác">Khác</option>
+          </select>
+        </div>
+        <div class="fld"><label>Ngân sách dự kiến</label>
+          <select name="budget">
+            <option value="Dưới 15 triệu">Dưới 15 triệu</option>
+            <option value="15 - 25 triệu">15 – 25 triệu</option>
+            <option value="25 - 40 triệu">25 – 40 triệu</option>
+            <option value="Trên 40 triệu">Trên 40 triệu</option>
+            <option value="Chưa chắc chắn">Chưa chắc chắn</option>
+          </select>
+        </div>
+        <button class="nut" type="submit">Gửi Thiết Kế Cho DLA</button>
+      </form>
+      <p class="note">Không tự động thu phí. Đây chỉ là yêu cầu tư vấn &amp; báo giá.</p>
+    </div>
+    <div class="thanks" id="thanks-view">
+      <h3>Đã gửi thiết kế của bạn.</h3>
+      <p class="dan center">Đội ngũ Dolinhanh Bridal sẽ liên hệ lại sớm nhất để tư vấn chi tiết. Bạn cũng có thể chủ động nhắn Zalo để được phản hồi nhanh hơn.</p>
+      <a class="nut" style="display:inline-block;margin-top:20px" href="https://zalo.me/0359950588" target="_blank" rel="noopener">Nhắn Zalo ngay</a>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+"use strict";
+
+/* ═══════════════════════ 1. DATA ═══════════════════════ */
+
+var DRESS_DATA = {
+  silhouette:[
+    {id:"aline",name:"A-Line",desc:"Mềm mại, thanh lịch và tôn dáng mọi vóc người.",
+      rows:[[94,40],[140,34],[230,32],[270,36],[360,54],[460,74],[540,90],[600,100]]},
+    {id:"mermaid",name:"Đuôi Cá",desc:"Ôm sát, gợi cảm và đầy tự tin.",
+      rows:[[94,40],[140,34],[230,30],[270,32],[340,34],[420,36],[460,40],[520,64],[600,92]]},
+    {id:"ballgown",name:"Xoè Bồng",desc:"Lãng mạn, ấn tượng và vượt thời gian.",
+      rows:[[94,40],[140,34],[230,28],[270,66],[340,92],[440,104],[520,110],[600,114]]},
+    {id:"column",name:"Ống Thẳng",desc:"Gọn gàng, hiện đại và nhẹ nhàng.",
+      rows:[[94,40],[140,34],[230,30],[270,32],[360,32],[460,32],[540,32],[600,34]]},
+    {id:"sheath",name:"Suông Ôm",desc:"Tối giản, mượt mà và tinh tế.",
+      rows:[[94,40],[140,34],[230,30],[270,34],[360,38],[460,42],[540,46],[600,52]]}
+  ],
+  material:[
+    {id:"phi",name:"Phi",desc:"Bề mặt óng mượt, mềm mại — sang trọng và tối giản."},
+    {id:"dinhket",name:"Đính Kết",desc:"Đá, ngọc trai hoặc pha lê kết theo mẫu bạn thích."},
+    {id:"ren",name:"Ren",desc:"Hoạ tiết tinh xảo, lãng mạn và cổ điển."}
+  ],
+  beadzone:[
+    {id:"toanthan",name:"Toàn Thân",desc:"Đính kết trải đều khắp thân váy."},
+    {id:"thantren",name:"Thân Trên",desc:"Tập trung ở phần ngực và eo."},
+    {id:"chanvay",name:"Chân Váy",desc:"Điểm nhấn ở phần chân váy."},
+    {id:"vienco",name:"Viền Cổ",desc:"Một dải mảnh dọc theo cổ váy."}
+  ],
+  color:[
+    {id:"trang",name:"Trắng",hex:"#FDFDFC"},
+    {id:"hongnude",name:"Hồng Nude",hex:"#E9CFC4"},
+    {id:"vangnude",name:"Vàng Nude",hex:"#E3C99A"},
+    {id:"ghi",name:"Ghi",hex:"#C7C4BE"}
+  ]
+};
+
+var STEP_LABEL_BASE = {silhouette:"Dáng Váy",material:"Chất Liệu",color:"Màu Sắc"};
+
+var PRESETS = [
+  {key:"minimalist",name:"Tối Giản",tag:"Gọn gàng / Hiện đại / Vượt thời gian",img:"anh/look-04.jpg",
+    sel:{silhouette:"column",material:"phi",color:"trang"}},
+  {key:"romantic",name:"Lãng Mạn",tag:"Ren mềm / Nữ tính / Tinh tế",img:"anh/look-03.jpg",
+    sel:{silhouette:"aline",material:"ren",color:"hongnude"}},
+  {key:"editorial",name:"Thời Trang",tag:"Đính kết / Hiện đại / Ấn tượng",img:"anh/look-05.jpg",
+    sel:{silhouette:"mermaid",material:"dinhket",beadzone:"toanthan",color:"ghi"}},
+  {key:"classic",name:"Cổ Điển",tag:"Sang trọng / Đính kết / Vượt thời gian",img:"anh/look-01.jpg",
+    sel:{silhouette:"ballgown",material:"dinhket",beadzone:"thantren",color:"vangnude"}}
+];
+
+var FAQ = [
+  {q:"Tôi có thực sự tuỳ chỉnh được mọi chi tiết không?",a:"Bạn có thể chọn tự do dáng váy, chất liệu và màu sắc. Đội ngũ atelier sẽ tư vấn thêm để đảm bảo các lựa chọn kết hợp hài hoà và khả thi khi may thật."},
+  {q:"Tôi có thể đổi thiết kế sau khi gửi không?",a:"Hoàn toàn được. Bản sketch online là điểm khởi đầu để trao đổi với tư vấn viên — bạn có thể điều chỉnh bất cứ lúc nào trong buổi tư vấn."},
+  {q:"Váy thiết kế riêng giá bao nhiêu?",a:"Giá phụ thuộc vào dáng váy, chất liệu và mức độ đính kết hoặc ren bạn chọn. Gửi thiết kế để nhận báo giá phù hợp."},
+  {q:"Mất bao lâu để hoàn thành?",a:"Thời gian may đo tuỳ độ phức tạp của thiết kế — tư vấn viên sẽ báo cụ thể sau khi xem thiết kế và ngày cưới của bạn."},
+  {q:"Tôi có thể gửi kèm ảnh tham khảo của riêng mình không?",a:"Có — nếu chọn chất liệu Đính Kết hoặc Ren, bạn sẽ được gửi kèm ảnh mẫu bạn thích ngay trong lúc thiết kế."},
+  {q:"Sau khi thiết kế online, tôi có đặt lịch thử váy được không?",a:"Có, sau khi gửi thiết kế bạn có thể đặt lịch hẹn thử váy riêng 1:1 tại showroom Hà Nội hoặc TP.HCM."},
+  {q:"Tôi có thể thiết kế từ Hà Nội / TP.HCM không?",a:"Có, Dolinhanh Bridal có showroom tại cả hai thành phố."}
+];
+
+/* ═══════════════════════ 2. SVG DRAWING HELPERS ═══════════════════════ */
+
+function curveThrough(pts){
+  var out="";
+  for(var i=0;i<pts.length-1;i++){
+    var p0=pts[i-1]||pts[i], p1=pts[i], p2=pts[i+1], p3=pts[i+2]||p2;
+    var c1x=p1[0]+(p2[0]-p0[0])/6, c1y=p1[1]+(p2[1]-p0[1])/6;
+    var c2x=p2[0]-(p3[0]-p1[0])/6, c2y=p2[1]-(p3[1]-p1[1])/6;
+    out+=" C "+c1x.toFixed(1)+","+c1y.toFixed(1)+" "+c2x.toFixed(1)+","+c2y.toFixed(1)+" "+p2[0].toFixed(1)+","+p2[1].toFixed(1);
+  }
+  return out;
+}
+function silhouettePathD(rows){
+  var left = rows.map(function(r){ return [160-r[1], r[0]]; });
+  var right = rows.map(function(r){ return [160+r[1], r[0]]; }).slice().reverse();
+  var d = "M "+left[0][0].toFixed(1)+","+left[0][1].toFixed(1)+curveThrough(left);
+  d += " L "+right[0][0].toFixed(1)+","+right[0][1].toFixed(1);
+  d += curveThrough(right);
+  d += " Z";
+  return d;
+}
+function silhouetteInfo(id){
+  var s = DRESS_DATA.silhouette.filter(function(x){return x.id===id})[0];
+  return s || DRESS_DATA.silhouette[0];
+}
+function colorHex(id){
+  var c = DRESS_DATA.color.filter(function(x){return x.id===id})[0];
+  return c ? c.hex : "#F6EFE4";
+}
+
+/* tóc + mặt + cổ — vẽ TRƯỚC lớp váy (croquis tối giản, không vẽ mặt chi tiết) */
+var CROQUIS_HEAD = ''
+  +'<ellipse cx="160" cy="54" rx="27" ry="31" fill="#5A4434"/>'
+  +'<circle cx="160" cy="26" r="10" fill="#5A4434"/>'
+  +'<ellipse cx="160" cy="59" rx="19" ry="23" fill="var(--skin)"/>'
+  +'<path d="M143,72 L143,96 L177,96 L177,72 Q160,84 143,72 Z" fill="var(--skin)"/>'
+  +'<g fill="none" stroke="var(--line)" stroke-width="1">'
+  +'<path d="'+ "M120,94" + curveThrough([[120,94],[100,160],[92,260],[88,360],[90,460],[96,540]]) +'"/>'
+  +'<path d="'+ "M200,94" + curveThrough([[200,94],[220,160],[228,260],[232,360],[230,460],[224,540]]) +'"/>'
+  +'</g>';
+
+/* bó hoa cầm tay — vẽ SAU lớp váy để nằm trước (phía trên) thân váy */
+var CROQUIS_BOUQUET = '<g>'
+  +'<path d="M224,540 L221,566 M224,540 L227,568 M224,540 L216,562" stroke="#7C8A66" stroke-width="1.4" fill="none"/>'
+  +[[214,532],[224,526],[234,532],[218,540],[230,540],[224,536]].map(function(p){
+    return '<circle cx="'+p[0]+'" cy="'+p[1]+'" r="6.4" fill="#fff" stroke="var(--hair)" stroke-width=".6"/>';
+  }).join('')
+  +'<circle cx="224" cy="534" r="4" fill="var(--skin)" opacity=".5"/>'
+  +'</g>';
+
+function patternDefs(){
+  return ''
+  +'<pattern id="pat-phi" width="40" height="40" patternUnits="userSpaceOnUse" patternTransform="rotate(35)">'
+    +'<rect width="40" height="40" fill="transparent"/><line x1="0" y1="0" x2="0" y2="40" stroke="#fff" stroke-width="6" opacity=".1"/>'
+  +'</pattern>'
+  +'<pattern id="pat-ren" width="16" height="16" patternUnits="userSpaceOnUse">'
+    +'<circle cx="4" cy="4" r="1.2" fill="var(--ink)" opacity=".24"/><circle cx="12" cy="11" r="1.2" fill="var(--ink)" opacity=".24"/>'
+    +'<circle cx="11" cy="3" r=".7" fill="var(--ink)" opacity=".16"/>'
+  +'</pattern>'
+  +'<pattern id="pat-dinhket" width="20" height="20" patternUnits="userSpaceOnUse">'
+    +'<circle cx="10" cy="10" r="4.2" fill="#fff" opacity=".55"/>'
+    +'<path d="M10,4 L11,9 L16,10 L11,11 L10,16 L9,11 L4,10 L9,9 Z" fill="var(--ink)" opacity=".62"/>'
+  +'</pattern>';
+}
+
+function optionThumb(step, opt){
+  switch(step){
+    case "silhouette": {
+      var d = silhouettePathD(silhouetteInfo(opt.id).rows);
+      return miniSVG("70 80 180 540",'<path d="'+d+'" fill="none" stroke="var(--ink)" stroke-width="2"/>');
+    }
+    case "material": {
+      var pat = opt.id==="phi"?"pat-phi":opt.id==="ren"?"pat-ren":"pat-dinhket";
+      return miniSVG("0 0 60 60",'<defs>'+patternDefs()+'</defs><rect width="60" height="60" fill="var(--ivory)"/><rect width="60" height="60" fill="url(#'+pat+')"/><rect width="60" height="60" fill="none" stroke="var(--hair)"/>');
+    }
+    case "beadzone": {
+      var full = silhouettePathD(silhouetteInfo("aline").rows);
+      var rect = {toanthan:[80,80,540],thantren:[80,80,150],chanvay:[230,230,380],vienco:[90,90,35]}[opt.id];
+      return miniSVG("70 80 180 540",'<defs><clipPath id="cz-'+opt.id+'"><path d="'+full+'"/></clipPath></defs>'
+        +'<path d="'+full+'" fill="none" stroke="var(--hair)" stroke-width="2"/>'
+        +'<rect x="60" y="'+rect[1]+'" width="200" height="'+rect[2]+'" fill="var(--champagne)" opacity=".55" clip-path="url(#cz-'+opt.id+')"/>');
+    }
+    case "color": {
+      return miniSVG("0 0 40 40",'<circle cx="20" cy="20" r="17" fill="'+opt.hex+'" stroke="var(--hair)" stroke-width="1"/>');
+    }
+  }
+  return "";
+}
+function miniSVG(viewBox, inner){
+  return '<svg viewBox="'+viewBox+'" xmlns="http://www.w3.org/2000/svg">'+inner+'</svg>';
+}
+
+/* Ảnh THẬT đã dùng sẵn ở index.html (quiz "thử phom váy") và ebook Dress
+   Guide (mục Fabric) — dùng lại đúng ảnh đã duyệt cho khớp "gu hình ảnh". */
+var REAL_PHOTOS = {
+  silhouette:{
+    ballgown:"anh/look-01.jpg", aline:"anh/look-03.jpg",
+    mermaid:"anh/look-05.jpg", sheath:"anh/look-04.jpg"
+  },
+  material:{
+    ren:"anh/sc/detail/ren-voan-go.jpg",
+    dinhket:"anh/sc/detail/tay-ao-dinh.jpg",
+    phi:"anh/sc/detail/satin-rut-nhun.jpg"
+  }
+};
+function optionThumbOrPhoto(step, opt){
+  var real = REAL_PHOTOS[step] && REAL_PHOTOS[step][opt.id];
+  if(real) return '<img src="'+real+'" alt="'+opt.name+'" loading="lazy">';
+  return optionThumb(step, opt);
+}
+
+/* Compose bản sketch (SVG) theo lựa chọn hiện tại */
+function buildDressSVG(sel){
+  var sil = silhouetteInfo(sel.silhouette || "aline");
+  var hex = colorHex(sel.color || "trang");
+  var dPath = silhouettePathD(sil.rows);
+  var svg = '<defs>'+patternDefs()+'<clipPath id="clipDress"><path d="'+dPath+'"/></clipPath></defs>';
+  svg += CROQUIS_HEAD;
+  svg += '<path d="'+dPath+'" fill="'+hex+'" stroke="var(--ink)" stroke-width="1"/>';
+
+  if(sel.material==="phi"){
+    svg += '<rect x="60" y="80" width="200" height="540" fill="url(#pat-phi)" clip-path="url(#clipDress)"/>';
+  } else if(sel.material==="ren"){
+    svg += '<rect x="60" y="80" width="200" height="540" fill="url(#pat-ren)" clip-path="url(#clipDress)"/>';
+  } else if(sel.material==="dinhket"){
+    var zone = {toanthan:[80,540],thantren:[80,150],chanvay:[230,380],vienco:[90,35]}[sel.beadzone] || [80,540];
+    svg += '<rect x="60" y="'+zone[0]+'" width="200" height="'+zone[1]+'" fill="url(#pat-dinhket)" clip-path="url(#clipDress)"/>';
+  }
+  svg += CROQUIS_BOUQUET;
+  return svg;
+}
+
+/* ═══════════════════════ 3. STATE ═══════════════════════ */
+
+var LS_DRAFT = "dla_dressDesign_v2";
+var LS_SAVED = "dla_savedDesigns_v2";
+
+var state = {
+  step: 0,
+  selections: {silhouette:null,material:null,beadzone:null,refPhoto:null,color:null},
+  started:false,
+  resultView:false
+};
+
+function getSteps(){
+  var s = ["silhouette","material"];
+  if(state.selections.material==="dinhket" || state.selections.material==="ren") s.push("reference");
+  s.push("color");
+  return s;
+}
+function stepLabel(step){
+  if(step==="reference") return state.selections.material==="dinhket" ? "Vùng Đính Kết" : "Ảnh Ren Mẫu";
+  return STEP_LABEL_BASE[step];
+}
+
+function loadDraft(){
+  try{
+    var raw = localStorage.getItem(LS_DRAFT);
+    if(raw){
+      var d = JSON.parse(raw);
+      if(d && d.selections) state.selections = Object.assign(state.selections, d.selections);
+    }
+  }catch(e){}
+}
+function saveDraft(){
+  try{ localStorage.setItem(LS_DRAFT, JSON.stringify({selections:state.selections})); }catch(e){}
+}
+function isComplete(step){
+  if(step==="reference"){
+    if(state.selections.material==="dinhket") return !!state.selections.beadzone;
+    return true; /* ren: ảnh không bắt buộc */
+  }
+  return !!state.selections[step];
+}
+function allComplete(){ return getSteps().every(isComplete); }
+
+/* ═══════════════════════ 4. RENDER ═══════════════════════ */
+
+var $ = function(s,r){ return (r||document).querySelector(s); };
+var $$ = function(s,r){ return Array.prototype.slice.call((r||document).querySelectorAll(s)); };
+
+function renderProgressBar(){
+  var steps = getSteps();
+  var bar = $("#prog-bar"); bar.innerHTML = "";
+  steps.forEach(function(k,i){
+    var el = document.createElement("i");
+    if(i<=state.step) el.className="on";
+    bar.appendChild(el);
+  });
+  $("#prog-num").textContent = ("0"+(state.step+1)).slice(-2)+" / 0"+steps.length;
+  var lb = $("#prog-labels"); lb.innerHTML="";
+  steps.forEach(function(k,i){
+    var s=document.createElement("span");
+    if(i===state.step){ var b=document.createElement("b"); b.textContent=stepLabel(k); s.appendChild(b); }
+    else s.textContent = stepLabel(k);
+    lb.appendChild(s);
+  });
+}
+
+function optionRowHTML(step, opt){
+  var sel = state.selections[step];
+  var isSel = sel===opt.id;
+  var cls = "op"+(isSel?" sel":"")+(step==="color"?" color-op":"");
+  var thumb = (step==="silhouette"||step==="material") ? optionThumbOrPhoto(step,opt) : optionThumb(step,opt);
+  return '<button type="button" class="'+cls+'" data-step="'+step+'" data-id="'+opt.id+'">'
+    + thumb
+    + '<span class="txt"><span class="nm">'+opt.name+'</span><span class="ds">'+opt.desc+'</span></span>'
+    + '</button>';
+}
+
+function refUploadHTML(){
+  var isDinhKet = state.selections.material==="dinhket";
+  var zoneHTML = isDinhKet ? (
+    '<p class="step-title" style="margin-top:22px">Chọn vùng đính kết</p>'
+    + '<div class="opciones">'+DRESS_DATA.beadzone.map(function(o){return optionRowHTML("beadzone",o);}).join("")+'</div>'
+    + '<div class="m-opts-row">'+DRESS_DATA.beadzone.map(function(o){return optionRowHTML("beadzone",o);}).join("")+'</div>'
+  ) : "";
+  var uploadLabel = isDinhKet ? "Tải ảnh mẫu đính kết bạn thích" : "Tải ảnh ren bạn thích";
+  var photo = state.selections.refPhoto;
+  var uploadHTML = '<div class="upload-box" id="upload-box">'
+    + (photo
+        ? '<div class="upload-preview"><img src="'+photo+'"><button type="button" id="ref-remove">Xoá ảnh</button></div>'
+        : '<label class="lbl" for="ref-input">'+uploadLabel+'</label><input type="file" id="ref-input" accept="image/*"><p>Không bắt buộc — có thể mô tả thêm khi tư vấn trực tiếp.</p>')
+    + '</div>';
+  return zoneHTML + '<p class="step-title" style="margin-top:22px">'+(isDinhKet?"Ảnh mẫu đính kết":"Ảnh mẫu ren")+'</p>' + uploadHTML;
+}
+
+function renderRigs(){
+  var steps = getSteps();
+  var holder = $("#rigs-holder");
+  var keySig = steps.join(",")+"|"+state.step;
+  holder.innerHTML = "";
+  var step = steps[state.step];
+  var rig = document.createElement("div");
+  rig.className = "rig on";
+  rig.dataset.step = step;
+
+  var leftHTML;
+  if(step==="reference"){
+    leftHTML = '<p class="step-title">Bước '+("0"+(state.step+1)).slice(-2)+'</p>'
+      +'<h3 class="step-h">'+stepLabel(step)+'</h3>'
+      + refUploadHTML();
+  } else {
+    var opts = DRESS_DATA[step];
+    var optsHTML = opts.map(function(o){ return optionRowHTML(step,o); }).join("");
+    leftHTML = '<p class="step-title">Bước '+("0"+(state.step+1)).slice(-2)+'</p>'
+      +'<h3 class="step-h">Chọn '+stepLabel(step)+'</h3>'
+      +'<div class="opciones">'+optsHTML+'</div>'
+      +'<div class="m-opts-row">'+optsHTML+'</div>';
+  }
+
+  rig.innerHTML =
+    '<div class="col-opts">'+leftHTML+'</div>'
+    +'<div class="col-preview">'
+      +'<div class="preview-frame">'
+        +(state.selections.silhouette ? '<div class="preview-chip"><span class="nm">'+fmtValue("silhouette")+'</span><span class="ds">'+(state.selections.material?fmtValue("material"):"Chưa chọn chất liệu")+'</span></div>' : '')
+        +'<svg viewBox="0 0 320 620" class="live-svg"></svg>'
+        +(state.selections.refPhoto ? '<div class="ref-pin" style="background-image:url(\''+state.selections.refPhoto+'\')"></div>' : '')
+      +'</div>'
+      +'<div class="nav-btns"><button class="nut" type="button" data-prev>Quay Lại</button><button class="nut" type="button" data-next>Tiếp Theo</button></div>'
+    +'</div>'
+    +'<div class="col-summary">'
+      +'<p class="summary-h">Thiết Kế Của Bạn</p>'
+      +'<ol class="sum-list" id="sum-list-live"></ol>'
+      +'<div class="sum-actions"><button type="button" data-reset-design>Làm Lại</button></div>'
+    +'</div>';
+
+  holder.appendChild(rig);
+
+  rig.addEventListener("click", function(e){
+    var opBtn = e.target.closest(".op");
+    if(opBtn){
+      var st = opBtn.dataset.step, id = opBtn.dataset.id;
+      state.selections[st] = id;
+      if(st==="material"){ state.selections.beadzone=null; state.selections.refPhoto=null; }
+      saveDraft();
+      renderAll();
+      return;
+    }
+    if(e.target.id==="ref-remove"){
+      state.selections.refPhoto = null; saveDraft(); renderAll();
+    }
+  });
+
+  var fileInput = rig.querySelector("#ref-input");
+  if(fileInput){
+    fileInput.addEventListener("change", function(ev){
+      var file = ev.target.files[0];
+      if(!file) return;
+      readAndResizeImage(file, function(dataUrl){
+        state.selections.refPhoto = dataUrl;
+        saveDraft();
+        renderAll();
+      });
+    });
+  }
+}
+
+function readAndResizeImage(file, cb){
+  var reader = new FileReader();
+  reader.onload = function(e){
+    var img = new Image();
+    img.onload = function(){
+      var maxW = 640;
+      var scale = Math.min(1, maxW/img.width);
+      var w = Math.round(img.width*scale), h = Math.round(img.height*scale);
+      var canvas = document.createElement("canvas");
+      canvas.width = w; canvas.height = h;
+      canvas.getContext("2d").drawImage(img,0,0,w,h);
+      cb(canvas.toDataURL("image/jpeg", 0.75));
+    };
+    img.src = e.target.result;
+  };
+  reader.readAsDataURL(file);
+}
+
+function fmtValue(step){
+  var v = state.selections[step];
+  if(!v) return "—";
+  var o = DRESS_DATA[step].filter(function(x){return x.id===v;})[0];
+  return o ? o.name : v;
+}
+
+function renderLiveSummary(){
+  var list = $("#sum-list-live");
+  if(!list) return;
+  var rows = [
+    ["silhouette","Dáng Váy"], ["material","Chất Liệu"]
+  ];
+  if(state.selections.material==="dinhket") rows.push(["beadzone","Vùng Đính Kết"]);
+  rows.push(["color","Màu Sắc"]);
+  list.innerHTML = rows.map(function(r){
+    return '<li><span class="k">'+r[1]+'</span><span class="v">'+fmtValue(r[0])+'</span></li>';
+  }).join("") + (state.selections.refPhoto ? '<li><span class="k">Ảnh Mẫu</span><span class="v">Đã đính kèm</span></li>' : "");
+}
+
+function renderLivePreview(){
+  var svg = $('.rig .live-svg');
+  if(!svg) return;
+  svg.innerHTML = buildDressSVG(state.selections);
+}
+
+function renderNavButtons(){
+  var step = getSteps()[state.step];
+  $$("[data-next]").forEach(function(b){ b.disabled = !isComplete(step); });
+}
+
+function renderResult(){
+  var on = state.resultView;
+  $("#result").classList.toggle("on", on);
+  $("#builder-body").style.display = on ? "none" : (state.started ? "block":"none");
+  $("#start-panel").style.display = (!state.started && !on) ? "block" : "none";
+  $("#m-sticky").style.display = (!on && state.started) ? "" : "none";
+  if(!on) return;
+  var svg = $("#result-svg");
+  svg.innerHTML = buildDressSVG(state.selections);
+  var frame = svg.closest(".result-frame");
+  var existingChip = frame.querySelector(".preview-chip");
+  if(existingChip) existingChip.remove();
+  var chip = document.createElement("div");
+  chip.className = "preview-chip";
+  chip.innerHTML = '<span class="nm">'+fmtValue("silhouette")+'</span><span class="ds">'+fmtValue("material")+'</span>';
+  frame.insertBefore(chip, svg);
+  var rows = [["silhouette","Dáng Váy"],["material","Chất Liệu"]];
+  if(state.selections.material==="dinhket") rows.push(["beadzone","Vùng Đính Kết"]);
+  rows.push(["color","Màu Sắc"]);
+  var list = $("#result-list");
+  list.innerHTML = rows.map(function(r,i){
+    return '<li><span class="n">'+("0"+(i+1)).slice(-2)+'</span><span><span class="k">'+r[1]+'</span><span class="v">'+fmtValue(r[0])+'</span></span></li>';
+  }).join("") + (state.selections.refPhoto
+    ? '<li><span class="n">'+("0"+(rows.length+1)).slice(-2)+'</span><span><span class="k">Ảnh Mẫu Bạn Chọn</span><span class="v"><img src="'+state.selections.refPhoto+'" style="width:56px;height:56px;object-fit:cover;margin-top:6px;border:1px solid var(--hair)"></span></span></li>'
+    : "");
+  var id = getOrMakeDesignId();
+  $("#result-id").textContent = "Mã thiết kế: "+id;
+}
+
+var _designId = null;
+function getOrMakeDesignId(){
+  if(_designId) return _designId;
+  _designId = "DLA-2026-"+String(Math.floor(1000+Math.random()*9000));
+  return _designId;
+}
+
+function renderAll(){
+  renderProgressBar();
+  renderRigs();
+  renderLiveSummary();
+  renderLivePreview();
+  renderNavButtons();
+  renderResult();
+}
+
+function scrollToBuilder(){
+  var el = document.getElementById("builder");
+  if(el) el.scrollIntoView({behavior:"smooth", block:"start"});
+}
+
+/* ═══════════════════════ 5. NAV / ACTIONS ═══════════════════════ */
+
+function goStart(){
+  state.started = true; state.resultView = false;
+  renderAll();
+  scrollToBuilder();
+}
+function goNext(){
+  var steps = getSteps();
+  if(!isComplete(steps[state.step])) return;
+  if(state.step < steps.length-1){ state.step++; }
+  else { state.resultView = true; }
+  renderAll();
+  scrollToBuilder();
+}
+function goPrev(){
+  if(state.resultView){ state.resultView=false; state.step = getSteps().length-1; renderAll(); return; }
+  if(state.step>0){ state.step--; renderAll(); }
+}
+function doReset(){
+  state.selections = {silhouette:null,material:null,beadzone:null,refPhoto:null,color:null};
+  state.step = 0; state.resultView=false; _designId=null;
+  try{ localStorage.removeItem(LS_DRAFT); }catch(e){}
+  renderAll();
+}
+function doEdit(){
+  state.resultView=false; state.step=0; renderAll(); scrollToBuilder();
+}
+function doSave(){
+  var id = getOrMakeDesignId();
+  try{
+    var raw = localStorage.getItem(LS_SAVED);
+    var arr = raw ? JSON.parse(raw) : [];
+    arr.push({id:id, selections: JSON.parse(JSON.stringify(state.selections)), savedAt: id});
+    localStorage.setItem(LS_SAVED, JSON.stringify(arr));
+  }catch(e){}
+  var btn = $("[data-save-design]");
+  if(btn){ var old=btn.textContent; btn.textContent="Đã Lưu ✓"; setTimeout(function(){btn.textContent=old;},1800); }
+}
+function loadPreset(p){
+  state.selections = {
+    silhouette:p.sel.silhouette, material:p.sel.material,
+    beadzone:p.sel.beadzone||null, refPhoto:null, color:p.sel.color
+  };
+  state.started = true; state.resultView = true;
+  saveDraft();
+  renderAll();
+  scrollToBuilder();
+}
+
+document.addEventListener("click", function(e){
+  if(e.target.closest("[data-goto-builder]")) goStart();
+  if(e.target.closest("[data-next]")) goNext();
+  if(e.target.closest("[data-prev]")) goPrev();
+  if(e.target.closest("[data-reset-design]")){ if(confirm("Xoá toàn bộ thiết kế hiện tại?")) doReset(); }
+  if(e.target.closest("[data-edit-design]")) doEdit();
+  if(e.target.closest("[data-save-design]")) doSave();
+  if(e.target.closest("[data-open-form]")) openForm();
+  if(e.target.closest("[data-close-form]")) closeForm();
+  if(e.target === $("#modal-bg")) closeForm();
+  if(e.target.id==="zalo-hint-btn") shareRefPhotoViaZalo();
+});
+
+/* ═══════════════════════ 6. DLA EDIT + FAQ ═══════════════════════ */
+
+function buildEditGrid(){
+  var grid = $("#edit-grid");
+  grid.innerHTML = PRESETS.map(function(p){
+    return '<div class="edit-card">'
+      +'<div class="ph" style="background-image:url(\''+p.img+'\')"></div>'
+      +'<div class="cap"><h3>'+p.name+'</h3><p>'+p.tag+'</p>'
+      +'<button type="button" data-preset="'+p.key+'">Xem Thiết Kế</button></div>'
+      +'</div>';
+  }).join("");
+  grid.addEventListener("click", function(e){
+    var b = e.target.closest("[data-preset]");
+    if(!b) return;
+    var p = PRESETS.filter(function(x){return x.key===b.dataset.preset;})[0];
+    if(p) loadPreset(p);
+  });
+}
+function buildFAQ(){
+  var wrap = $("#faq");
+  wrap.innerHTML = FAQ.map(function(f,i){
+    return '<div class="faq-item" data-i="'+i+'"><button type="button"><span>'+f.q+'</span><span class="plus">+</span></button>'
+      +'<div class="faq-a"><p>'+f.a+'</p></div></div>';
+  }).join("");
+  wrap.addEventListener("click", function(e){
+    var btn = e.target.closest("button");
+    if(!btn) return;
+    btn.parentElement.classList.toggle("on");
+  });
+}
+
+/* ═══════════════════════ 7. FORM MODAL ═══════════════════════ */
+
+function designRecapText(){
+  var lines = ["Dáng Váy: "+fmtValue("silhouette"), "Chất Liệu: "+fmtValue("material")];
+  if(state.selections.material==="dinhket") lines.push("Vùng Đính Kết: "+fmtValue("beadzone"));
+  lines.push("Màu Sắc: "+fmtValue("color"));
+  return "BẢN SKETCH VÁY CỦA BẠN\nMã thiết kế: "+getOrMakeDesignId()+"\n"+lines.join("\n");
+}
+
+async function shareRefPhotoViaZalo(){
+  var photo = state.selections.refPhoto;
+  if(!photo) return;
+  try{
+    var res = await fetch(photo);
+    var blob = await res.blob();
+    var file = new File([blob], "anh-mau-dla.jpg", {type:"image/jpeg"});
+    if(navigator.canShare && navigator.canShare({files:[file]})){
+      await navigator.share({files:[file], text:"Ảnh mẫu tôi thích — thiết kế váy DLA"});
+      return;
+    }
+  }catch(e){}
+  var a = document.createElement("a");
+  a.href = photo; a.download = "anh-mau-dla.jpg"; a.click();
+  window.open("https://zalo.me/0359950588", "_blank");
+}
+
+function openForm(){
+  $("#form-view").style.display="block";
+  $("#thanks-view").classList.remove("on");
+  $("#form-recap").textContent = designRecapText();
+  var hint = $("#zalo-hint");
+  if(state.selections.refPhoto){
+    hint.style.display = "flex";
+    $("#zalo-hint-img").src = state.selections.refPhoto;
+  } else {
+    hint.style.display = "none";
+  }
+  $("#modal-bg").classList.add("on");
+}
+function closeForm(){ $("#modal-bg").classList.remove("on"); }
+
+function submitLead(data){
+  /* GOOGLE FORM LEAD — dùng tạm form/sheet Lead ebook Dress Guide đang chạy
+     thật (xem project_website_dolinhanh), gắn "Nguồn" rõ ràng để lọc sau.
+     Ảnh mẫu KHÔNG gửi qua đường này (Google Form fetch không nhận file) —
+     khách được nhắc gửi ảnh qua Zalo riêng, xem shareRefPhotoViaZalo(). */
+  try{
+    var FORM_ID = "1FAIpQLSchU7uUBZBNfiQZSiVYvHVcUfyEJiJA084SHRNWEcnZ_CyplA";
+    var f = new FormData();
+    f.append("entry.1614276000", data.ten);
+    f.append("entry.379034013", data.sdt);
+    f.append("entry.541722676", "Thiet ke vay | "+data.city+" | Ngay cuoi: "+(data.ngayCuoi||"chua chon")
+      +" | Ngan sach: "+data.budget+" | Email: "+(data.email||"-")+" | Co anh mau: "+(data.hasPhoto?"co":"khong")
+      +" | "+data.recap.replace(/\n/g," / "));
+    fetch("https://docs.google.com/forms/d/e/"+FORM_ID+"/formResponse", {method:"POST", mode:"no-cors", body:f}).catch(function(){});
+  }catch(e){}
+  try{
+    var raw = localStorage.getItem("dla_thietkevay_leads");
+    var arr = raw ? JSON.parse(raw) : [];
+    arr.push(data);
+    localStorage.setItem("dla_thietkevay_leads", JSON.stringify(arr));
+  }catch(e){}
+}
+
+$("#lead-form").addEventListener("submit", function(e){
+  e.preventDefault();
+  var fd = new FormData(e.target);
+  var data = {
+    ten: fd.get("ten"), sdt: fd.get("sdt"), email: fd.get("email"),
+    ngayCuoi: fd.get("ngayCuoi"), city: fd.get("city"), budget: fd.get("budget"),
+    recap: designRecapText(), designId: getOrMakeDesignId(), hasPhoto: !!state.selections.refPhoto
+  };
+  submitLead(data);
+  doSave();
+  $("#form-view").style.display="none";
+  $("#thanks-view").classList.add("on");
+});
+
+/* ═══════════════════════ 8. INIT ═══════════════════════ */
+
+loadDraft();
+buildEditGrid();
+buildFAQ();
+renderAll();
+
+})();
+</script>
