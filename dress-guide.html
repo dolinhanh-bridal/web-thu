@@ -230,7 +230,7 @@ src="https://www.facebook.com/tr?id=1358640082651240&ev=PageView&noscript=1"
 
   /* ── popup giữa sách: chặn đọc tiếp cho tới khi điền tên + SĐT/Zalo ── */
   .dg-chan-nen{
-    position:fixed;inset:0;z-index:130;background:rgba(36,27,25,.6);
+    position:fixed;inset:0;z-index:210;background:rgba(36,27,25,.6);
     display:none;align-items:center;justify-content:center;padding:20px;
   }
   .dg-chan-nen.hien{display:flex}
@@ -256,7 +256,7 @@ src="https://www.facebook.com/tr?id=1358640082651240&ev=PageView&noscript=1"
 
   /* ── CTA chính cuối sách: đặt lịch thử váy riêng 1:1 ── */
   .dg-cta-cuoi{
-    position:fixed;left:0;right:0;bottom:0;z-index:70;
+    position:fixed;left:0;right:0;bottom:0;z-index:150;
     background:#fff;border-top:1px solid var(--vien);
     box-shadow:0 -10px 30px rgba(36,27,25,.14);
     padding:14px clamp(14px,3vw,26px) calc(14px + env(safe-area-inset-bottom));
@@ -617,6 +617,7 @@ src="https://www.facebook.com/tr?id=1358640082651240&ev=PageView&noscript=1"
     document.getElementById('ph-toi').disabled = trangPhong >= N - 1;
     document.getElementById('ph-nho').disabled = laBia || iPhong === 0;
     document.getElementById('ph-to').disabled = laBia || iPhong === mucPhong.length - 1;
+    baoTrangDaXem(trangPhong + 1); /* đọc qua chế độ phóng to cũng phải tính là đã lật tới trang này */
     setTimeout(veDiemPhong, 30); /* chờ layout ổn định rồi mới đo khung ảnh */
   }
   function moPhong(t){
