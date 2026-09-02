@@ -589,7 +589,7 @@ src="https://www.facebook.com/tr?id=1358640082651240&ev=PageView&noscript=1"
     var e = DIEM.filter(function(d){ return d.nhan === 'Mục lục' && d.ten && d.ten.indexOf(chua) !== -1; })[0];
     return e ? e.nhay : null;
   }
-  var TRANG_CHECKLIST = timNhay('phần 02') || Math.max(1, Math.round(N * 0.22));
+  var TRANG_CHECKLIST = timNhay('phần 04') || Math.max(1, Math.round(N * 0.4));
   var TRANG_CUOI = (function(){
     var ps = DIEM.filter(function(d){ return d.nhan === 'Bước tiếp theo'; }).map(function(d){ return d.p; });
     return ps.length ? Math.min.apply(null, ps) : Math.max(1, N - 2);

@@ -87,7 +87,15 @@ src="https://www.facebook.com/tr?id=1358640082651240&ev=PageView&noscript=1"
   .quiz .dap div::before{content:"";position:absolute;left:0;top:1.6mm;width:3.4mm;height:3.4mm;
         border:1px solid var(--hong-chu);border-radius:50%}
   .quiz .dap i{font-style:normal;color:var(--hong-chu);font-weight:600;margin-right:2mm}
+  .quiz.qz-song .dap div{cursor:pointer;border-radius:1.5mm;transition:background .15s}
+  .quiz.qz-song .dap div:hover{background:var(--phan)}
+  .quiz.qz-song .dap div.chon{background:var(--phan)}
+  .quiz.qz-song .dap div.chon::before{background:var(--hong-chu)}
   .dem{margin-top:5mm;background:var(--kem);border-radius:2.5mm;padding:5mm 6mm;font-size:9.2pt;line-height:1.6}
+  .dem.qz-kq{display:none}
+  .dem.qz-kq.hien{display:block}
+  .dem.qz-kq h4{margin:0 0 2mm;font-family:var(--serif);font-weight:400;font-size:12.5pt;color:var(--muc)}
+  .dem .qz-lam-lai{display:block;margin-top:3mm;background:none;border:0;padding:0;cursor:pointer;color:var(--ghi);font-family:var(--sans);font-size:7.6pt;letter-spacing:.08em;text-transform:uppercase;text-decoration:underline}
   .dem > b:first-child{display:block;font-family:var(--sans);font-size:7.2pt;font-weight:600;letter-spacing:.18em;
         text-transform:uppercase;color:var(--hong-chu);margin-bottom:2mm}
   .dem b{font-weight:500;color:var(--muc)}
@@ -519,8 +527,8 @@ th,td{padding:6px 4px}
 <section class="trang">
   <p class="nhan">01 · tiếp theo</p>
   <h2 style="font-size:17pt;margin-top:3mm"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M15.8 15.8L21 21"/><path d="M11 13.8s-2.8-1.9-2.8-3.8A1.6 1.6 0 0 1 11 8.7a1.6 1.6 0 0 1 2.8 1.3c0 1.9-2.8 3.8-2.8 3.8z"/></svg></span>Trắc nghiệm đọc vị gu</h2>
-  <p class="dan-ch" style="margin-top:4mm">Sáu câu, bạn chọn đáp án giống mình nhất — đọc trên màn hình thì chạm vào dòng chữ này để làm bài và nhận kết quả ngay.</p>
-  <div class="quiz">
+  <p class="dan-ch" style="margin-top:4mm">Sáu câu, bạn chạm vào đáp án giống mình nhất — chọn đủ sáu câu là kết quả hiện ngay bên dưới.</p>
+  <div class="quiz" id="qz-doc">
     <div class="cau"><b>1. Mở tủ đồ ngày thường của bạn — đồ nào nhiều nhất?</b><div class="dap">
       <div><i>A</i>Đồ trơn màu trung tính, ít hoạ tiết</div>
       <div><i>B</i>Váy điệu, chi tiết nổi bật, có chút lấp lánh</div>
@@ -552,7 +560,8 @@ th,td{padding:6px 4px}
       <div><i>C</i>Trông cứng nhắc, thiếu lãng mạn</div>
       <div><i>D</i>Trông an toàn, giống mọi cô dâu khác</div></div></div>
   </div>
-  <div class="dem"><b>Đếm xem bạn chọn chữ nào nhiều nhất</b>A nhiều nhất → <b>Thanh lịch tối giản</b> &nbsp;·&nbsp; B → <b>Công chúa lộng lẫy</b> &nbsp;·&nbsp; C → <b>Mộng mơ bay bổng</b> &nbsp;·&nbsp; D → <b>Quyến rũ hiện đại</b><br>Hai chữ hoà nhau? Bạn là sự pha trộn của cả hai — cứ mang cả hai hướng vào buổi thử. Trang bên mô tả kỹ từng kiểu.</div>
+  <div class="dem" id="qz-doc-huong"><b>Đếm xem bạn chọn chữ nào nhiều nhất</b>A nhiều nhất → <b>Thanh lịch tối giản</b> &nbsp;·&nbsp; B → <b>Công chúa lộng lẫy</b> &nbsp;·&nbsp; C → <b>Mộng mơ bay bổng</b> &nbsp;·&nbsp; D → <b>Quyến rũ hiện đại</b><br>Hai chữ hoà nhau? Bạn là sự pha trộn của cả hai — cứ mang cả hai hướng vào buổi thử. Trang bên mô tả kỹ từng kiểu.</div>
+  <div class="dem qz-kq" id="qz-doc-kq"></div>
   <div class="chan"><span>01 · Đọc vị bản thân</span><span class="so">04</span></div>
 </section>
 
@@ -952,6 +961,68 @@ th,td{padding:6px 4px}
       if (so) so.textContent = (i + 1 < 10 ? '0' : '') + (i + 1);
     });
   })();
+</script>
+
+<!-- ── trắc nghiệm đọc vị gu: cho tick trực tiếp trên trang ── -->
+<script>
+(function(){
+  var quiz = document.getElementById('qz-doc');
+  if (!quiz) return;
+  quiz.classList.add('qz-song');
+  var QZ_KIEU = [
+    {ten:'Thanh lịch tối giản', mo:'Satin trơn, phom suông hoặc chữ A ít chi tiết — cái đẹp nằm ở đường cắt. Trong buổi thử, bạn hãy bắt đầu từ giá váy satin trơn.'},
+    {ten:'Công chúa lộng lẫy', mo:'Ballgown tùng xoè, đính kết lấp lánh, voan dài phía sau. Trong buổi thử, bạn hãy bắt đầu từ những mẫu tùng xoè.'},
+    {ten:'Mộng mơ bay bổng', mo:'Voan, organza nhiều lớp nhẹ như mây, tay voan mỏng. Trong buổi thử, bạn hãy bắt đầu từ những mẫu chất liệu bay.'},
+    {ten:'Quyến rũ hiện đại', mo:'Đuôi cá ôm dáng, ren xuyên thấu, lưng khoét sâu. Trong buổi thử, bạn hãy bắt đầu từ những mẫu ôm dáng.'}
+  ];
+  var cauList = [].slice.call(quiz.querySelectorAll('.cau'));
+  var chon = [];
+  var huong = document.getElementById('qz-doc-huong');
+  var kq = document.getElementById('qz-doc-kq');
+
+  function ketQua(){
+    var du = cauList.every(function(_, i){ return typeof chon[i] === 'number'; });
+    if (!du){ kq.classList.remove('hien'); if (huong) huong.style.display = ''; return; }
+    if (huong) huong.style.display = 'none';
+    var dem = [0, 0, 0, 0];
+    chon.forEach(function(j){ dem[j]++; });
+    var max = Math.max.apply(null, dem);
+    var thang = [];
+    dem.forEach(function(so, j){ if (so === max) thang.push(j); });
+    var noiDung;
+    if (thang.length === 1){
+      var k = QZ_KIEU[thang[0]];
+      noiDung = '<b>Kết quả của bạn</b><h4>Bạn là cô dâu ' + k.ten + '</h4>' + k.mo;
+    } else {
+      var ten = thang.map(function(j){ return QZ_KIEU[j].ten; }).join(' và ');
+      noiDung = '<b>Kết quả của bạn</b><h4>Bạn là sự pha trộn: ' + ten + '</h4>'
+        + 'Hai hướng đều là bạn — cứ mang cả hai vào buổi thử, mặc lên rồi cơ thể sẽ tự chọn giúp bạn.';
+    }
+    noiDung += '<button type="button" class="qz-lam-lai" id="qz-doc-lam-lai">Làm lại từ đầu</button>';
+    kq.innerHTML = noiDung;
+    kq.classList.add('hien');
+    document.getElementById('qz-doc-lam-lai').addEventListener('click', function(){
+      chon = [];
+      cauList.forEach(function(cau){
+        [].slice.call(cau.querySelectorAll('.dap div')).forEach(function(d){ d.classList.remove('chon'); });
+      });
+      ketQua();
+    });
+    kq.scrollIntoView({behavior:'smooth', block:'nearest'});
+  }
+
+  cauList.forEach(function(cau, i){
+    var dap = [].slice.call(cau.querySelectorAll('.dap div'));
+    dap.forEach(function(d, j){
+      d.addEventListener('click', function(){
+        chon[i] = j;
+        dap.forEach(function(x){ x.classList.remove('chon'); });
+        d.classList.add('chon');
+        ketQua();
+      });
+    });
+  });
+})();
 </script>
 
 </body>
