@@ -139,7 +139,8 @@ src="https://www.facebook.com/tr?id=1358640082651240&ev=PageView&noscript=1"
   .diem{
     position:absolute;border:0;padding:0;cursor:pointer;background:rgba(240,189,184,.26);
     border-bottom:1.5px solid var(--hong-chu);border-radius:2px;z-index:8;
-    min-height:34px; /* vùng chữ gạch chân có khi rất mỏng — nới thêm cho ngón tay bấm trúng */
+    min-height:44px; /* chuẩn tối thiểu vùng bấm ngón tay (Apple HIG) — vùng chữ gạch chân gốc rất mỏng,
+       chạm hụt sẽ rơi vào chế độ phóng to đọc thay vì mở đúng mục */
   }
   .diem:hover{background:rgba(240,189,184,.55)}
   .diem.nhay{background:transparent;border-bottom:1px solid var(--ghi)}
