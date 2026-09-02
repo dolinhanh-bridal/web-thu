@@ -24,13 +24,13 @@ fbq('init','1358640082651240');fbq('track','PageView');
 
 <style>
 :root{
-  --giay:#FBF8F3;      /* giấy vẽ */
-  --nen:#F4F0E8;       /* nền trang */
-  --nen2:#EFEAE0;
+  --giay:#FFFFFF;      /* giấy vẽ */
+  --nen:#FFFFFF;       /* nền trang */
+  --nen2:#F8F7F5;
   --muc:#241F1B;       /* mực */
   --muc2:#5C544C;
   --nhat:#8E857A;
-  --vien:#E0D8CB;
+  --vien:#E7E4DE;
   --champ:#B99B6F;
   --champ2:#C7AE85;
 }
@@ -1203,8 +1203,8 @@ function veTong(d){
   o+=defs;
 
   /* ── giấy vẽ ── */
-  o+='<rect width="'+VB_W+'" height="'+VB_H+'" fill="#FBF8F3"/>';
-  o+='<rect width="'+VB_W+'" height="'+VB_H+'" filter="url(#f-giay)" opacity=".75"/>';
+  o+='<rect width="'+VB_W+'" height="'+VB_H+'" fill="#FFFFFF"/>';
+  o+='<rect width="'+VB_W+'" height="'+VB_H+'" filter="url(#f-giay)" opacity=".45"/>';
 
   /* ── voan (sau cùng phía sau) ── */
   o+=veVoan(d);
@@ -1442,10 +1442,10 @@ function nhacNho(t){
    BẢNG CÔNG CỤ
    ══════════════════════════════════════════════════════════════ */
 function oRen(r){
-  if(r.id==="None") return '<svg viewBox="0 0 100 62"><rect width="100" height="62" fill="#FBF8F3"/>'
+  if(r.id==="None") return '<svg viewBox="0 0 100 62"><rect width="100" height="62" fill="#FFFFFF"/>'
     + '<path d="M30,31 L70,31" stroke="#C6BCAE" stroke-width="1"/></svg>';
   return duyNhat('<svg viewBox="0 0 100 62" style="--ren:#8A7458"><defs>'+REN_PT[r.id]+'</defs>'
-    + '<rect width="100" height="62" fill="#FBF8F3"/><rect width="100" height="62" fill="url(#ren-'+r.id+')"/></svg>');
+    + '<rect width="100" height="62" fill="#FFFFFF"/><rect width="100" height="62" fill="url(#ren-'+r.id+')"/></svg>');
 }
 function veBang(){
   var h="";
@@ -1590,7 +1590,7 @@ function taiPNG(){
   var img=new Image();
   img.onload=function(){
     var c=document.createElement("canvas"); c.width=W; c.height=H;
-    var x=c.getContext("2d"); x.fillStyle="#FBF8F3"; x.fillRect(0,0,W,H); x.drawImage(img,0,0,W,H);
+    var x=c.getContext("2d"); x.fillStyle="#FFFFFF"; x.fillRect(0,0,W,H); x.drawImage(img,0,0,W,H);
     c.toBlob(function(b){
       var u=URL.createObjectURL(b), a=document.createElement("a");
       a.href=u; a.download=maTK()+".png"; document.body.appendChild(a); a.click();
