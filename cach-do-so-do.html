@@ -1,13 +1,31 @@
 <!doctype html>
 <html lang="vi">
 <head>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1358640082651240');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1358640082651240&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Hướng dẫn cô dâu tự đo 14 số đo tại nhà trước khi thử váy cưới: mặc gì, đứng thế nào, đo ở đâu trên cơ thể và vì sao mỗi điều kiện lại làm đổi form váy. Dolinhanh Bridal.">
+<meta name="description" content="Tự đo 14 số đo cơ thể tại nhà trước khi đi thử váy cưới: mặc gì, đứng thế nào, đo ở đâu, và vì sao đo sai một tí là váy lệch cả buổi. Dolinhanh Bridal.">
 <title>Cẩm nang tự đo số đo</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Be+Vietnam+Pro:wght@200;300;400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Be+Vietnam+Pro:wght@200;300;400;500;600&family=Dancing+Script:wght@500;600&display=swap">
 <style>
   :root{
     --ivory:#F4F2EF;
@@ -25,6 +43,7 @@
 
     --display:"Cormorant Garamond",Didot,"Bodoni 72",Georgia,"Times New Roman",serif;
     --body:"Be Vietnam Pro",-apple-system,"Helvetica Neue",Arial,sans-serif;
+    --tay:"Dancing Script","Be Vietnam Pro",cursive;
 
     --gutter:clamp(18px,5vw,64px);
     --col:min(68ch,100%);
@@ -84,12 +103,12 @@
   h2{font-family:var(--display);font-weight:300;font-size:var(--t-h2);line-height:1.1}
   h3{font-family:var(--body);font-weight:500;font-size:var(--t-h3);line-height:1.35;letter-spacing:-.005em}
   p{margin:0 0 1.1em}
+  img{max-width:100%;display:block}
   a{color:var(--tan);text-underline-offset:3px;text-decoration-thickness:.5px}
   a:focus-visible,button:focus-visible,input:focus-visible,summary:focus-visible{
     outline:2px solid var(--tan);outline-offset:3px;border-radius:2px;
   }
   strong{font-weight:500;color:var(--ink)}
-  em{font-family:var(--display);font-style:italic;font-size:1.12em}
 
   .wrap{max-width:1180px;margin:0 auto;padding:0 var(--gutter)}
   .col{max-width:var(--col)}
@@ -98,32 +117,26 @@
     color:var(--grey-2);margin:0 0 1.4em;
   }
 
-  /* ── Ruler motif ─────────────────────────────── */
-  .ruler{
-    height:26px;margin:0;border:0;border-top:1px solid var(--hair);
-    background-image:repeating-linear-gradient(to right,var(--hair) 0 1px,transparent 1px 12px);
-    background-repeat:repeat-x;background-size:12px 8px;background-position:top left;
-  }
-  .ruler-lg{
-    height:44px;
-    background-image:
-      repeating-linear-gradient(to right,var(--grey-2) 0 1px,transparent 1px 60px),
-      repeating-linear-gradient(to right,var(--hair) 0 1px,transparent 1px 12px);
-    background-size:60px 16px,12px 8px;
-  }
-
   /* ── Hero ────────────────────────────────────── */
-  header.hero{padding:clamp(48px,9vw,110px) 0 0}
-  .hero h1 span{display:block}
+  header.hero{padding:clamp(52px,9vw,104px) 0 0}
+  .hero-grid{display:grid;gap:clamp(28px,4vw,56px);align-items:end}
+  @media (min-width:900px){.hero-grid{grid-template-columns:1.15fr .85fr}}
+  .hero h1 span.line{display:block}
   .hero h1 .it{font-style:italic;font-weight:300;color:var(--tan)}
   .standfirst{
-    font-size:clamp(1.02rem,1.5vw,1.22rem);line-height:1.68;color:var(--ink-2);
-    max-width:60ch;margin-top:clamp(24px,3vw,38px);font-weight:300;
+    font-size:clamp(1.02rem,1.5vw,1.2rem);line-height:1.7;color:var(--ink-2);
+    max-width:52ch;margin-top:clamp(22px,3vw,34px);font-weight:300;
   }
   .standfirst b{font-weight:500;color:var(--ink)}
-  .meta{
-    display:flex;flex-wrap:wrap;gap:10px 22px;margin-top:26px;
-    font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;color:var(--grey-2);
+  .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:26px}
+  .chips span{
+    font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--grey);
+    border:1px solid var(--hair);border-radius:999px;padding:.42em 1em;
+  }
+  .hero-anh{position:relative}
+  .hero-anh img{width:100%;height:clamp(280px,42vw,460px);object-fit:cover}
+  .hero-anh .cap{
+    font-family:var(--tay);font-size:1.15rem;color:var(--tan);margin-top:10px;line-height:1.3;
   }
 
   /* ── Sections ────────────────────────────────── */
@@ -139,6 +152,10 @@
   ul.plain li::before{
     content:"";position:absolute;left:0;top:.72em;width:14px;height:1px;background:var(--champagne);
   }
+
+  /* Mindmap */
+  .mindmap{background:var(--paper);padding:clamp(18px,2.6vw,32px);box-shadow:var(--shadow);overflow-x:auto}
+  .mindmap svg{display:block;min-width:660px;width:100%;height:auto}
 
   /* Table of contents */
   nav.toc ol{
@@ -168,6 +185,18 @@
   td:first-child{color:var(--ink);font-weight:400;width:26%}
   td:last-child{color:var(--tan);padding-right:0}
 
+  /* Flatlay "cần chuẩn bị" */
+  .flat{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:clamp(14px,2vw,26px)}
+  .flat figure{margin:0;background:var(--paper);box-shadow:var(--shadow)}
+  .flat img{width:100%;aspect-ratio:4/3;object-fit:cover}
+  .flat .no-anh{
+    width:100%;aspect-ratio:4/3;display:grid;place-items:center;background:var(--tan-soft);
+    font-family:var(--tay);font-size:1.5rem;color:var(--tan);text-align:center;padding:16px;line-height:1.25;
+  }
+  .flat figcaption{padding:14px 18px 18px}
+  .flat .ten{font-family:var(--tay);font-size:1.32rem;color:var(--ink);line-height:1.2}
+  .flat .mo{font-size:.86rem;color:var(--grey);margin-top:4px;line-height:1.55}
+
   /* Cards */
   .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1px;background:var(--hair)}
   .cards>article{background:var(--paper);padding:clamp(22px,2.4vw,30px)}
@@ -175,7 +204,7 @@
   .cards p{margin:0;font-size:.93rem;color:var(--grey)}
   .cards p+p{margin-top:.7em}
 
-  /* Measurement steps */
+  /* Steps */
   .steps{display:grid;gap:0;margin:0;padding:0;list-style:none;counter-reset:s}
   .steps>li{
     counter-increment:s;display:grid;grid-template-columns:auto 1fr;gap:0 22px;
@@ -193,15 +222,18 @@
     color:var(--grey-2);border:1px solid var(--hair);padding:.25em .6em;vertical-align:middle;
   }
 
-  /* Figure + steps side by side */
-  .split{display:grid;grid-template-columns:minmax(0,1fr);gap:clamp(28px,4vw,52px);align-items:start}
-  @media (min-width:900px){.split{grid-template-columns:340px minmax(0,1fr)}}
-  figure{margin:0;position:sticky;top:24px}
-  figure svg{width:100%;height:auto;display:block}
-  figcaption{
-    margin-top:14px;font-size:.76rem;line-height:1.6;color:var(--grey-2);
+  .split{display:grid;grid-template-columns:minmax(0,1fr);gap:clamp(26px,4vw,48px);align-items:start}
+  @media (min-width:900px){
+    .split{grid-template-columns:330px minmax(0,1fr)}
+    .split>figure{position:sticky;top:24px}
+  }
+  .split>figure{margin:0}
+  .split>figure img{width:100%;aspect-ratio:3/4;object-fit:cover}
+  .split figcaption{
+    margin-top:12px;font-size:.8rem;line-height:1.6;color:var(--grey-2);
     padding-top:12px;border-top:1px solid var(--hair);
   }
+  .split figcaption b{font-family:var(--tay);font-size:1.15rem;color:var(--tan);font-weight:600;display:block;margin-bottom:4px}
 
   /* Note box */
   .note{
@@ -211,22 +243,18 @@
   .note h3{font-family:var(--display);font-weight:400;font-size:1.5rem;margin-bottom:.4em}
   .note p:last-child{margin-bottom:0}
 
-  /* Pull quote */
   .pull{
     font-family:var(--display);font-weight:300;font-size:clamp(1.5rem,3.4vw,2.35rem);
-    line-height:1.28;color:var(--ink);margin:clamp(30px,4vw,50px) 0;max-width:22ch;
+    line-height:1.28;color:var(--ink);margin:clamp(30px,4vw,50px) 0;max-width:24ch;
   }
   .pull .it{font-style:italic;color:var(--tan)}
 
-  /* Chain */
   .chain{list-style:none;margin:0;padding:0;display:grid;gap:0}
   .chain li{
     padding:1.05em 0 1.05em 30px;border-top:1px solid var(--hair);position:relative;
     font-size:.95rem;color:var(--grey);
   }
-  .chain li::before{
-    content:"↳";position:absolute;left:0;top:1em;color:var(--champagne);font-size:.85rem;
-  }
+  .chain li::before{content:"↳";position:absolute;left:0;top:1em;color:var(--champagne);font-size:.85rem}
   .chain li:first-child::before{content:"•";left:4px}
   .chain b{color:var(--ink);font-weight:500}
 
@@ -277,66 +305,195 @@
   .cta .eyebrow{color:var(--champagne)}
   .cta p{color:#CFC7BC}
   .cta a{color:var(--champagne)}
-  .shops{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:28px;margin-top:38px}
+  .cta-grid{display:grid;gap:clamp(28px,4vw,52px);align-items:center}
+  @media (min-width:900px){.cta-grid{grid-template-columns:1fr .8fr}}
+  .cta-grid img{width:100%;height:clamp(260px,34vw,420px);object-fit:cover}
+  .shops{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:24px;margin-top:34px}
   .shops h3{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--champagne);font-weight:500;margin-bottom:.6em}
   .shops p{margin:0;font-size:.95rem}
   .zalo{
-    display:inline-block;margin-top:34px;padding:1em 2em;border:1px solid var(--champagne);
+    display:inline-block;margin-top:32px;padding:1em 2em;border:1px solid var(--champagne);
     color:var(--champagne);text-decoration:none;font-size:.76rem;letter-spacing:.14em;text-transform:uppercase;
   }
   .zalo:hover{background:var(--champagne);color:var(--ink)}
 
-  footer.end{padding:34px 0;font-size:.76rem;color:var(--grey-2);text-align:center}
+  footer.end{padding:34px 0 90px;font-size:.76rem;color:var(--grey-2);text-align:center}
+
+  /* ── Nút Zalo nổi (dùng lại nguyên từ ebook Dress Guide) ── */
+  .zl-noi{
+    position:fixed;right:clamp(12px,3vw,24px);bottom:calc(16px + env(safe-area-inset-bottom));
+    z-index:120;display:inline-flex;align-items:center;gap:8px;
+    background:#B05A55;color:#fff;text-decoration:none;border-radius:999px;
+    padding:11px 18px 11px 11px;box-shadow:0 10px 26px rgba(36,27,25,.32);
+    font-family:var(--body);font-size:.72rem;font-weight:600;letter-spacing:.02em;white-space:nowrap;
+    transition:transform .2s,box-shadow .2s;
+  }
+  .zl-noi:hover{transform:translateY(-2px);box-shadow:0 14px 32px rgba(36,27,25,.4)}
+  .zl-noi:active{transform:translateY(0)}
+  .zl-icon{display:grid;place-items:center;width:26px;height:26px;border-radius:50%;background:rgba(255,255,255,.2);flex:none}
+  .zl-icon svg{display:block}
+  @media(max-width:640px){
+    .zl-chu{display:none}
+    .zl-noi{padding:13px;border-radius:50%;gap:0}
+  }
+
+  /* ── Chuyển ngôn ngữ ── */
+  .lang{
+    position:fixed;top:clamp(10px,2vw,18px);right:clamp(12px,3vw,24px);z-index:120;
+    display:inline-flex;align-items:center;background:var(--paper);border:1px solid var(--hair);
+    border-radius:999px;padding:3px;box-shadow:var(--shadow);
+  }
+  .lang button{
+    border:0;background:transparent;color:var(--grey);padding:.45em .95em;font-size:.66rem;
+    letter-spacing:.14em;text-transform:uppercase;font-weight:500;border-radius:999px;cursor:pointer;
+  }
+  .lang button[aria-pressed="true"]{background:var(--ink);color:var(--ivory)}
+
+  html:not([data-lang="en"]) .en{display:none!important}
+  html[data-lang="en"] .vi{display:none!important}
 
   @media print{
     body{background:#fff;color:#000;font-size:11pt}
-    .cta,nav.toc,.sheet-actions,.ruler,figure{display:none}
+    .cta,nav.toc,.sheet-actions,.zl-noi,.lang,.hero-anh,.mindmap,.flat,.split>figure{display:none}
     section{padding-top:18px}
   }
 </style>
 </head>
 <body>
 
+<script>
+(function(){
+  var l = null;
+  try{
+    var q = new URLSearchParams(location.search).get("lang");
+    l = q || localStorage.getItem("dla-lang");
+  }catch(e){}
+  if(!l) l = "vi";   // khách chính là người Việt; khách nước ngoài bấm EN hoặc mở link ?lang=en
+  document.documentElement.setAttribute("data-lang", l === "en" ? "en" : "vi");
+})();
+</script>
+
+<div class="lang" role="group" aria-label="Ngôn ngữ / Language">
+  <button type="button" id="btn-vi" aria-pressed="true">VI</button>
+  <button type="button" id="btn-en" aria-pressed="false">EN</button>
+</div>
+
 <header class="hero">
-  <div class="wrap">
-    <p class="eyebrow">Dolinhanh Bridal · Cẩm nang cô dâu</p>
-    <h1><span>Tự đo số đo</span><span class="it">tại nhà</span></h1>
-    <p class="standfirst">Dùng thước dây mềm, mặc <b>áo lót không mút</b>, <b>không mặc gen</b> trừ khi ngày cưới bạn có mặc, quần áo mỏng ôm sát, đứng thẳng thả lỏng, nhìn thẳng về phía trước và nhờ một người giữ thước cho ngang. Thứ bạn mặc và cách bạn đứng lúc đo chính là hình dáng mà chiếc váy sẽ được dựng theo.</p>
-    <div class="meta">
-      <span>14 số đo</span><span>Đọc 9 phút</span><span>Cập nhật 02.09.2026</span>
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow"><span class="vi">Dolinhanh Bridal · Cẩm nang cô dâu</span><span class="en">Dolinhanh Bridal · Bride's guide</span></p>
+      <h1>
+        <span class="vi"><span class="line">Tự đo số đo</span><span class="line it">tại nhà</span></span>
+        <span class="en"><span class="line">Measure yourself</span><span class="line it">at home</span></span>
+      </h1>
+      <p class="standfirst">
+        <span class="vi">Chỉ cần một cây thước dây mềm và một người bạn giữ hộ đầu thước. Mặc <b>áo lót không mút</b>, <b>bỏ quần gen</b> ra (trừ khi ngày cưới bạn có mặc), đồ mỏng ôm sát, đứng thẳng, nhìn thẳng — đừng cúi xuống nhìn thước. Bạn mặc gì và đứng thế nào lúc đo chính là dáng người mà chiếc váy sẽ được làm theo.</span>
+        <span class="en">All you need is a soft tape measure and a friend to hold one end. Wear a <b>non-padded bra</b>, <b>skip shapewear</b> unless you're wearing it on the day, keep clothing thin and close-fitting, stand tall and look straight ahead — not down at the tape. What you wear and how you stand while measuring is the body your gown gets built around.</span>
+      </p>
+      <div class="chips">
+        <span class="vi">14 số đo</span><span class="en">14 measurements</span>
+        <span class="vi">Đo trong 15 phút</span><span class="en">15 minutes</span>
+        <span class="vi">Cần 1 người phụ</span><span class="en">Bring a helper</span>
+      </div>
+    </div>
+    <div class="hero-anh">
+      <img src="anh/do-so-do/hero-vay.jpg" alt="Chi tiết ren trên vai váy cưới" loading="eager">
+      <p class="cap"><span class="vi">Số đo chuẩn = váy ôm đúng chỗ cần ôm</span><span class="en">Good measurements = a gown that fits where it should</span></p>
     </div>
   </div>
-  <div class="wrap"><hr class="ruler ruler-lg" style="margin-top:clamp(36px,5vw,64px)"></div>
 </header>
 
 <main>
 
 <section id="hoc-gi">
   <div class="wrap col">
-    <div class="sec-head"><h2>Bạn sẽ nắm được gì</h2></div>
+    <div class="sec-head"><h2><span class="vi">Đọc xong bài này bạn sẽ biết</span><span class="en">What you'll walk away with</span></h2></div>
     <ul class="plain">
-      <li>Mặc gì và bỏ gì ra khi đo, để con số mô tả đúng cơ thể thật của bạn chứ không phải một dáng người tạm thời.</li>
-      <li>Áo lót có mút, quần gen, độ cao gót giày và tư thế đứng — mỗi thứ làm đổi một đường may, một chiết ly hay một đường gấu cụ thể trên váy.</li>
-      <li>Cách đo từng số một, đo ở đâu trên cơ thể, và ghi lại thế nào để Dolinhanh chọn đúng váy hoặc sửa đúng chỗ ngay từ buổi thử đầu tiên.</li>
+      <li><span class="vi">Mặc gì, bỏ gì ra khi đo — để con số là cơ thể thật của bạn, không phải một dáng người "ảo" do áo lót hay quần gen tạo ra.</span><span class="en">What to wear and what to take off, so the numbers describe your real body — not a temporary shape created by a padded bra or shapewear.</span></li>
+      <li><span class="vi">Vì sao áo lót có mút, quần gen, độ cao gót và tư thế đứng lại làm lệch nguyên một đường may trên váy.</span><span class="en">Why a padded bra, shapewear, heel height and posture each move a specific seam, dart or hemline on the finished gown.</span></li>
+      <li><span class="vi">Đo từng số ở đâu trên người, ghi lại thế nào để hôm thử váy đỡ mất thời gian sửa tới sửa lui.</span><span class="en">Exactly where each measurement sits on the body, and how to record it so your fitting is quicker and calmer.</span></li>
     </ul>
+  </div>
+</section>
+
+<section id="ban-do">
+  <div class="wrap">
+    <div class="sec-head"><h2><span class="vi">Bản đồ 14 số đo</span><span class="en">The 14 measurements at a glance</span></h2></div>
+    <p class="col"><span class="vi">Nhìn cái này trước cho dễ hình dung: 14 số chia làm 3 nhóm. Đo hết một lượt theo thứ tự, đừng nhảy cóc.</span><span class="en">Start here. The 14 numbers fall into three groups — take them in order, in one sitting.</span></p>
+    <div class="mindmap">
+      <svg viewBox="0 0 900 430" role="img" aria-label="Sơ đồ 14 số đo chia thành ba nhóm: thân trên, phần dưới, chiều dài">
+        <g font-family="Be Vietnam Pro, sans-serif">
+          <rect x="16" y="176" width="150" height="76" rx="38" fill="var(--ink)"/>
+          <text x="91" y="207" text-anchor="middle" fill="var(--ivory)" font-size="19" font-weight="500">14</text>
+          <text x="91" y="228" text-anchor="middle" fill="var(--champagne)" font-size="11" letter-spacing="1.6">
+            <tspan class="vi">SỐ ĐO</tspan><tspan class="en">MEASUREMENTS</tspan>
+          </text>
+
+          <g stroke="var(--champagne)" stroke-width="1.4" fill="none">
+            <path d="M166,214 C210,214 214,86 258,86"/>
+            <path d="M166,214 C210,214 214,214 258,214"/>
+            <path d="M166,214 C210,214 214,342 258,342"/>
+          </g>
+
+          <g fill="var(--tan-soft)" stroke="var(--champagne)" stroke-width="1">
+            <rect x="258" y="58" width="176" height="56" rx="12"/>
+            <rect x="258" y="186" width="176" height="56" rx="12"/>
+            <rect x="258" y="314" width="176" height="56" rx="12"/>
+          </g>
+          <g fill="var(--ink)" font-size="14" font-weight="500">
+            <text x="278" y="84"><tspan class="vi">Thân trên</tspan><tspan class="en">The bodice</tspan></text>
+            <text x="278" y="212"><tspan class="vi">Phần dưới</tspan><tspan class="en">Hips</tspan></text>
+            <text x="278" y="340"><tspan class="vi">Chiều dài</tspan><tspan class="en">Lengths</tspan></text>
+          </g>
+          <g fill="var(--tan)" font-size="10.5" letter-spacing="1">
+            <text x="278" y="101">01 – 10</text>
+            <text x="278" y="229">11 – 12</text>
+            <text x="278" y="357">13 – 14</text>
+          </g>
+
+          <g stroke="var(--hair)" stroke-width="1" fill="none">
+            <path d="M434,86 C470,86 470,34 506,34"/>
+            <path d="M434,86 C470,86 470,66 506,66"/>
+            <path d="M434,86 C470,86 470,98 506,98"/>
+            <path d="M434,86 C470,86 470,130 506,130"/>
+            <path d="M434,214 C470,214 470,190 506,190"/>
+            <path d="M434,214 C470,214 470,222 506,222"/>
+            <path d="M434,342 C470,342 470,302 506,302"/>
+            <path d="M434,342 C470,342 470,334 506,334"/>
+            <path d="M434,342 C470,342 470,366 506,366"/>
+          </g>
+          <g fill="var(--ink-2)" font-size="12.5">
+            <text x="514" y="38"><tspan fill="var(--tan)">01–03</tspan> <tspan class="vi">Ba vòng ngực: trên · đầy · chân ngực</tspan><tspan class="en">Three bust lines: high · full · under</tspan></text>
+            <text x="514" y="70"><tspan fill="var(--tan)">04–05</tspan> <tspan class="vi">Vòng eo tự nhiên · khoảng cách 2 đỉnh ngực</tspan><tspan class="en">Natural waist · apex-to-apex</tspan></text>
+            <text x="514" y="102"><tspan fill="var(--tan)">06–07</tspan> <tspan class="vi">Dài thân trước · dài lưng</tspan><tspan class="en">Front waist length · back length</tspan></text>
+            <text x="514" y="134"><tspan fill="var(--tan)">08–10</tspan> <tspan class="vi">Bắp tay · dài tay · cổ tay (váy có tay)</tspan><tspan class="en">Bicep · sleeve · wrist (if sleeves)</tspan></text>
+            <text x="514" y="194"><tspan fill="var(--tan)">11</tspan> <tspan class="vi">Vòng mông trên</tspan><tspan class="en">High hip</tspan></text>
+            <text x="514" y="226"><tspan fill="var(--tan)">12</tspan> <tspan class="vi">Vòng mông chỗ đầy nhất</tspan><tspan class="en">Full hip</tspan></text>
+            <text x="514" y="306"><tspan fill="var(--tan)">13</tspan> <tspan class="vi">Eo xuống sàn</tspan><tspan class="en">Waist to floor</tspan></text>
+            <text x="514" y="338"><tspan fill="var(--tan)">14</tspan> <tspan class="vi">Hõm cổ xuống sàn</tspan><tspan class="en">Hollow to floor</tspan></text>
+            <text x="514" y="370" fill="var(--grey-2)" font-size="11.5"><tspan class="vi">+ độ cao gót giày cưới, ghi riêng một số</tspan><tspan class="en">+ heel height, recorded separately</tspan></text>
+          </g>
+        </g>
+      </svg>
+    </div>
   </div>
 </section>
 
 <section id="muc-luc">
   <div class="wrap">
-    <div class="sec-head"><h2>Trong bài này</h2></div>
+    <div class="sec-head"><h2><span class="vi">Trong bài này</span><span class="en">In this guide</span></h2></div>
     <nav class="toc">
       <ol>
-        <li><a href="#quy-tac">Theo phiếu đo của nơi làm váy trước</a></li>
-        <li><a href="#vi-sao">Vì sao thứ bạn mặc làm đổi số đo</a></li>
-        <li><a href="#bang-nhanh">Bảng nhanh: điều kiện nào đổi cái gì</a></li>
-        <li><a href="#chuan-bi">Chuẩn bị trước khi đo</a></li>
-        <li><a href="#mac-gi">Mặc gì, đứng thế nào</a></li>
-        <li><a href="#than-tren">Cách đo phần thân trên</a></li>
-        <li><a href="#than-duoi">Cách đo phần dưới và chiều dài</a></li>
-        <li><a href="#goc-tho">Góc thợ: một điều kiện sai đi xa tới đâu</a></li>
-        <li><a href="#phieu">Phiếu số đo để điền và gửi</a></li>
-        <li><a href="#faq">Câu hỏi thường gặp</a></li>
+        <li><a href="#quy-tac"><span class="vi">Có phiếu đo riêng thì theo phiếu</span><span class="en">Follow your maker's sheet first</span></a></li>
+        <li><a href="#vi-sao"><span class="vi">Vì sao mặc gì lại làm đổi số đo</span><span class="en">Why what you wear changes the number</span></a></li>
+        <li><a href="#bang-nhanh"><span class="vi">Bảng nhanh: sai chỗ nào, hỏng chỗ nào</span><span class="en">Quick reference: condition by condition</span></a></li>
+        <li><a href="#chuan-bi"><span class="vi">Cần chuẩn bị gì</span><span class="en">What you need before you start</span></a></li>
+        <li><a href="#mac-gi"><span class="vi">Mặc gì, đứng thế nào</span><span class="en">What to wear, how to stand</span></a></li>
+        <li><a href="#than-tren"><span class="vi">Cách đo phần thân trên</span><span class="en">How to measure: the bodice</span></a></li>
+        <li><a href="#than-duoi"><span class="vi">Cách đo phần dưới và chiều dài</span><span class="en">How to measure: hips and lengths</span></a></li>
+        <li><a href="#goc-tho"><span class="vi">Góc thợ: sai một tí, lệch cả váy</span><span class="en">A fitter's view: how one error travels</span></a></li>
+        <li><a href="#phieu"><span class="vi">Phiếu số đo để điền và gửi</span><span class="en">Your measurement sheet</span></a></li>
+        <li><a href="#faq"><span class="vi">Câu hỏi hay gặp</span><span class="en">Frequently asked questions</span></a></li>
       </ol>
     </nav>
   </div>
@@ -344,36 +501,59 @@
 
 <section id="quy-tac">
   <div class="wrap col">
-    <div class="sec-head"><span class="num">01</span><h2>Theo phiếu đo của nơi làm váy trước</h2></div>
-    <p>Trước hết: nếu Dolinhanh (hoặc bên may váy của bạn) đã gửi một phiếu đo riêng, hãy làm đúng theo phiếu đó. Mỗi nơi ghi một vài số đo theo cách khác nhau, nhất là số đo chiều dài — có nơi đo từ hõm cổ xuống sàn, có nơi đo từ eo.</p>
-    <p>Điều quan trọng là <strong>đo trọn một lượt theo cùng một cách</strong>. Trộn hai cách đo sẽ cho ra một bộ số dựng trên những mốc khác nhau, người đọc số không thể hiểu thống nhất được, và chiếc váy sẽ được làm theo một cơ thể không tồn tại.</p>
+    <div class="sec-head"><span class="num">01</span><h2><span class="vi">Có phiếu đo riêng thì theo phiếu</span><span class="en">Follow your maker's sheet first</span></h2></div>
+    <p><span class="vi">Nếu Dolinhanh (hoặc bên may váy của bạn) đã gửi một phiếu đo riêng, cứ làm theo phiếu đó. Mỗi nơi ghi vài số đo hơi khác nhau, nhất là số đo chiều dài — nơi đo từ hõm cổ xuống sàn, nơi đo từ eo.</span><span class="en">If Dolinhanh — or whoever is making your gown — has sent you a measurement sheet, follow that. Different makers record a few measurements differently, especially length: some measure from the hollow of the neck, some from the waist.</span></p>
+    <p><span class="vi">Quan trọng là <strong>đo trọn một lượt theo cùng một cách</strong>. Trộn hai cách đo là ra một bộ số dựng trên những mốc khác nhau — người đọc số không hiểu được, và váy sẽ được làm theo một cơ thể không có thật.</span><span class="en">What matters is taking <strong>the whole set one way</strong>. Mixing two methods gives a set built on different landmarks — nobody can read it consistently, and the gown gets built for a body that doesn't exist.</span></p>
   </div>
 </section>
 
 <section id="vi-sao">
   <div class="wrap col">
-    <div class="sec-head"><span class="num">02</span><h2>Vì sao thứ bạn mặc làm đổi số đo</h2></div>
-    <p>Một số đo ghi lại cơ thể bạn ở một thời điểm, trong một điều kiện. Đổi điều kiện là đổi con số, dù cơ thể bạn không hề thay đổi. Chiếc áo lót nâng ngực lên, chiếc quần gen ép eo lại, hay chỉ một cái cúi đầu nhìn xuống thước khi đo chiều dài — cả ba đều cho ra những con số mô tả một cơ thể mà ngày cưới bạn sẽ không mang theo.</p>
-    <p>Đây là chỗ khác nhau giữa mua váy may sẵn và váy dựng theo số đo. Váy may sẵn bắt đầu từ một size chuẩn rồi sửa lại sau. Váy dựng theo số đo lấy chính dữ liệu cơ thể bạn để cắt rập, nên số đo lệch không được sửa ở khâu sau — nó đi thẳng vào form váy và tỉ lệ.</p>
-    <p class="pull">Số đo là <span class="it">dòng đầu tiên</span> của bản rập. Bản rập thừa hưởng mọi điều kiện bạn đã đo.</p>
+    <div class="sec-head"><span class="num">02</span><h2><span class="vi">Vì sao mặc gì lại làm đổi số đo</span><span class="en">Why what you wear changes the number</span></h2></div>
+    <p><span class="vi">Số đo chỉ ghi lại cơ thể bạn ở một thời điểm, trong một điều kiện. Đổi điều kiện là đổi con số, dù người bạn chẳng thay đổi gì. Áo lót nâng ngực lên, quần gen ép eo lại, hay chỉ một cái cúi đầu nhìn thước — cả ba đều cho ra con số của một cơ thể mà hôm cưới bạn không mang theo.</span><span class="en">A measurement records your body at one moment, under one set of conditions. Change the conditions and you change the record, even though your body hasn't changed. A bra that lifts the bust, shapewear that compresses the waist, a glance down at the tape — each one produces numbers for a body you won't be wearing on the day.</span></p>
+    <p><span class="vi">Váy may sẵn thì khác: bắt đầu từ một size chuẩn rồi sửa lại sau. Còn váy dựng theo số đo lấy chính dữ liệu cơ thể bạn để cắt rập — số lệch đi thẳng vào form váy, không có khâu nào sửa hộ.</span><span class="en">Ready-to-wear works differently: it starts from a standard size and gets corrected by alterations. A made-to-measure gown uses your body data to build the pattern, so an inconsistent number goes straight into the fit — there's no later stage that quietly fixes it.</span></p>
+    <p class="pull"><span class="vi">Số đo là <span class="it">dòng đầu tiên</span> của bản rập. Bản rập thừa hưởng đúng những gì bạn đã mặc lúc đo.</span><span class="en">The measurement is <span class="it">the first line</span> of the pattern. The pattern inherits every condition you measured under.</span></p>
   </div>
 </section>
 
 <section id="bang-nhanh">
   <div class="wrap">
-    <div class="sec-head"><span class="num">03</span><h2>Bảng nhanh: điều kiện nào đổi cái gì</h2></div>
-    <p class="col">Trước khi vào từng bước, đây là toàn bộ câu chuyện gói trong một bảng. Mỗi điều kiện lúc đo làm đổi một thứ trên cơ thể, và thứ đó làm đổi một thứ trên váy.</p>
+    <div class="sec-head"><span class="num">03</span><h2><span class="vi">Bảng nhanh: sai chỗ nào, hỏng chỗ nào</span><span class="en">Quick reference: what each condition changes</span></h2></div>
     <div class="table-scroll">
       <table>
         <thead>
-          <tr><th>Điều kiện lúc đo</th><th>Đổi gì trên cơ thể</th><th>Đổi gì trên váy</th></tr>
+          <tr>
+            <th><span class="vi">Lúc đo bạn làm gì</span><span class="en">Measuring condition</span></th>
+            <th><span class="vi">Cơ thể đổi ra sao</span><span class="en">What changes on the body</span></th>
+            <th><span class="vi">Váy đổi ra sao</span><span class="en">What changes on the gown</span></th>
+          </tr>
         </thead>
         <tbody>
-          <tr><td>Áo lót có mút, áo push-up</td><td>Đỉnh ngực bị nâng cao và đẩy ra trước</td><td>Chiết ly, mê ngực, đường may thân, viền cổ</td></tr>
-          <tr><td>Mặc gen mà ngày cưới không mặc</td><td>Eo và mông bị ép, phân bố lại</td><td>Độ khít của khoá, độ rộng thân, form chân váy</td></tr>
-          <tr><td>Cúi nhìn xuống khi đo</td><td>Thân trước và cổ ngắn lại</td><td>Số đo hõm cổ → sàn, dài thân trước</td></tr>
-          <tr><td>Kéo thước quá chặt</td><td>Vòng đo nhỏ hơn thực tế</td><td>Độ dư cử động, khoá váy, đi lại khó</td></tr>
-          <tr><td>Đứng lệch, đổi tư thế giữa chừng</td><td>Cân bằng trái–phải thay đổi</td><td>Gấu váy lệch, vai lệch, chân váy xoè không đều</td></tr>
+          <tr>
+            <td><span class="vi">Mặc áo lót có mút, push-up</span><span class="en">Padded or push-up bra</span></td>
+            <td><span class="vi">Đỉnh ngực bị nâng cao, đẩy ra trước</span><span class="en">The bust apex lifts and projects forward</span></td>
+            <td><span class="vi">Chiết ly, mê ngực, đường may thân, viền cổ</span><span class="en">Dart, cup, princess seam, neckline</span></td>
+          </tr>
+          <tr>
+            <td><span class="vi">Mặc gen mà hôm cưới không mặc</span><span class="en">Shapewear you won't wear on the day</span></td>
+            <td><span class="vi">Eo và mông bị ép nhỏ lại</span><span class="en">Waist and hip get compressed</span></td>
+            <td><span class="vi">Khoá váy chật, thân váy bó</span><span class="en">Tight closure, tight torso</span></td>
+          </tr>
+          <tr>
+            <td><span class="vi">Cúi nhìn xuống thước</span><span class="en">Looking down at the tape</span></td>
+            <td><span class="vi">Thân trước và cổ ngắn lại</span><span class="en">Front torso and neck shorten</span></td>
+            <td><span class="vi">Sai số hõm cổ → sàn, dài thân trước</span><span class="en">Wrong hollow-to-floor and front length</span></td>
+          </tr>
+          <tr>
+            <td><span class="vi">Kéo thước thật chặt cho số đẹp</span><span class="en">Pulling the tape tight</span></td>
+            <td><span class="vi">Vòng đo nhỏ hơn thật</span><span class="en">The circumference reads smaller</span></td>
+            <td><span class="vi">Váy thiếu độ dư, mặc vào khó thở</span><span class="en">Too little ease, hard to move in</span></td>
+          </tr>
+          <tr>
+            <td><span class="vi">Đứng lệch, đổi tư thế giữa chừng</span><span class="en">Uneven or shifting posture</span></td>
+            <td><span class="vi">Cân bằng trái–phải thay đổi</span><span class="en">Left-to-right balance changes</span></td>
+            <td><span class="vi">Gấu váy lệch, vai lệch, tùng xoè không đều</span><span class="en">Uneven hem, shoulders and skirt hang</span></td>
+          </tr>
         </tbody>
       </table>
     </div>
@@ -381,55 +561,90 @@
 </section>
 
 <section id="chuan-bi">
-  <div class="wrap col">
-    <div class="sec-head"><span class="num">04</span><h2>Chuẩn bị trước khi đo</h2></div>
-    <ul class="plain">
-      <li>Một cây <strong>thước dây mềm</strong> (loại của thợ may, không dùng thước cuộn kim loại).</li>
-      <li>Một sợi <strong>dây thun hoặc ruy băng mảnh</strong> để buộc đánh dấu eo tự nhiên.</li>
-      <li>Đúng chiếc <strong>áo lót</strong> bạn sẽ mặc, hoặc loại Dolinhanh dặn.</li>
-      <li>Một <strong>người phụ giữ thước</strong> — không thể tự đo hết một mình.</li>
-      <li>Một chiếc <strong>gương lớn</strong> soi được toàn thân.</li>
-      <li>Chỗ để <strong>ghi lại ngay</strong> từng số vừa đo (dùng phiếu ở cuối trang).</li>
-      <li><strong>Giày cưới</strong>, hoặc đôi giày có độ cao gót gần nhất bạn đang có.</li>
-    </ul>
-    <div class="note">
-      <h3>Luật đo hai lần</h3>
-      <p>Đo mỗi số <strong>hai lần</strong>, lần sau đừng nhìn kết quả lần trước. Nếu hai lần lệch nhau, đo thêm lần thứ ba. Đừng lấy trung bình của hai số vênh nhau, và đừng làm tròn xuống cho “đẹp số”.</p>
+  <div class="wrap">
+    <div class="sec-head"><span class="num">04</span><h2><span class="vi">Cần chuẩn bị gì</span><span class="en">What you need before you start</span></h2></div>
+    <div class="flat">
+      <figure>
+        <img src="anh/do-so-do/thuoc-day2.jpg" alt="Thước dây mềm của thợ may" loading="lazy">
+        <figcaption>
+          <div class="ten"><span class="vi">Thước dây mềm</span><span class="en">A soft tape measure</span></div>
+          <p class="mo"><span class="vi">Loại vải của thợ may. Thước cuộn kim loại của thợ xây thì chịu, không uốn theo người được.</span><span class="en">The fabric kind. A metal builder's tape can't follow the curves of a body.</span></p>
+        </figcaption>
+      </figure>
+      <figure>
+        <div class="no-anh"><span class="vi">một sợi dây thun mảnh</span><span class="en">a narrow elastic</span></div>
+        <figcaption>
+          <div class="ten"><span class="vi">Dây thun đánh dấu eo</span><span class="en">Elastic to mark the waist</span></div>
+          <p class="mo"><span class="vi">Buộc quanh eo, để nó tự tụt về đúng chỗ eo tự nhiên. Đây là mốc cố định cho mọi số đo chiều dài.</span><span class="en">Tie it around your middle and let it settle at your natural waist. Every length measurement starts from there.</span></p>
+        </figcaption>
+      </figure>
+      <figure>
+        <img src="anh/do-so-do/guong.jpg" alt="Gương đứng toàn thân trong phòng sáng" loading="lazy">
+        <figcaption>
+          <div class="ten"><span class="vi">Gương đứng + một người phụ</span><span class="en">A full-length mirror + a helper</span></div>
+          <p class="mo"><span class="vi">Gương để kiểm thước có ngang không. Người phụ để giữ đầu thước — tự đo hết một mình là số sẽ vẹo.</span><span class="en">The mirror checks the tape is level. The helper holds one end — measuring entirely alone is how numbers go crooked.</span></p>
+        </figcaption>
+      </figure>
+      <figure>
+        <img src="anh/do-so-do/so-but3.jpg" alt="Sổ tay và bút để ghi số đo" loading="lazy">
+        <figcaption>
+          <div class="ten"><span class="vi">Chỗ ghi lại ngay</span><span class="en">Somewhere to write it down</span></div>
+          <p class="mo"><span class="vi">Ghi từng số ngay lúc đo, đừng để nhớ rồi ghi sau. Hoặc điền thẳng vào phiếu ở cuối trang.</span><span class="en">Record each number the moment you take it. Or type it straight into the sheet at the end of this page.</span></p>
+        </figcaption>
+      </figure>
+      <figure>
+        <img src="anh/do-so-do/giay.jpg" alt="Giày cao gót màu nude" loading="lazy">
+        <figcaption>
+          <div class="ten"><span class="vi">Giày cưới của bạn</span><span class="en">Your wedding shoes</span></div>
+          <p class="mo"><span class="vi">Chưa mua thì lấy đôi nào cao gót gần nhất. Chưa có nữa thì ghi độ cao gót dự kiến.</span><span class="en">No shoes yet? Use the closest heel height you own — or note your planned heel height as its own number.</span></p>
+        </figcaption>
+      </figure>
+      <figure>
+        <div class="no-anh"><span class="vi">áo lót không mút</span><span class="en">a non-padded bra</span></div>
+        <figcaption>
+          <div class="ten"><span class="vi">Đúng chiếc áo lót</span><span class="en">The right bra</span></div>
+          <p class="mo"><span class="vi">Loại không mút, đúng dáng ngực thật. Ghi lại luôn là bạn đã đo với áo nào.</span><span class="en">Non-padded, true to your natural shape. Note down which one you wore.</span></p>
+        </figcaption>
+      </figure>
+    </div>
+    <div class="note col">
+      <h3><span class="vi">Luật đo hai lần</span><span class="en">The measure-twice rule</span></h3>
+      <p><span class="vi">Đo mỗi số <strong>hai lần</strong>, lần sau đừng nhìn kết quả lần trước. Lệch nhau thì đo lần ba. Đừng lấy trung bình hai số vênh nhau, và đừng làm tròn xuống cho số đẹp — đây không phải chỗ để làm đẹp con số.</span><span class="en">Take every measurement <strong>twice</strong>, without peeking at the first result. If the two differ, take a third. Don't average two conflicting numbers, and don't round down to a prettier one — this isn't the place to flatter yourself.</span></p>
     </div>
   </div>
 </section>
 
 <section id="mac-gi">
   <div class="wrap">
-    <div class="sec-head"><span class="num">05</span><h2>Mặc gì, đứng thế nào</h2></div>
+    <div class="sec-head"><span class="num">05</span><h2><span class="vi">Mặc gì, đứng thế nào</span><span class="en">What to wear, how to stand</span></h2></div>
     <div class="cards">
       <article>
-        <h3>Áo lót</h3>
-        <p>Mặc áo lót <strong>không mút</strong>, đúng dáng ngực thật của bạn. Nếu chiếc váy có sẵn mê ngực hoặc cấu trúc corset bên trong, hãy hỏi Dolinhanh nên mặc gì bên dưới — cấu trúc gắn sẵn nâng ngực khác hẳn áo lót thường.</p>
-        <p>Dù mặc loại nào, hãy <strong>ghi lại đã đo với áo gì</strong>.</p>
+        <h3><span class="vi">Áo lót</span><span class="en">Bra</span></h3>
+        <p><span class="vi">Mặc áo <strong>không mút</strong>, đúng dáng ngực thật. Nếu váy có sẵn mê ngực hay corset bên trong, nhắn hỏi Dolinhanh nên mặc gì bên dưới — cấu trúc gắn sẵn nâng ngực khác hẳn áo lót thường.</span><span class="en">Wear a <strong>non-padded</strong> bra that reflects your real shape. If the gown has built-in cups or corsetry, ask Dolinhanh what to wear underneath — built-in structure holds the bust differently.</span></p>
+        <p><span class="vi">Mặc loại nào cũng được, miễn là <strong>ghi lại</strong> đã đo với áo gì.</span><span class="en">Whatever you wear, <strong>write down</strong> which one it was.</span></p>
       </article>
       <article>
-        <h3>Quần gen</h3>
-        <p>Chỉ mặc gen khi ngày cưới bạn <strong>chắc chắn</strong> mặc đúng chiếc gen đó. Khi ấy nó thật sự là một phần cơ thể mà váy được dựng theo.</p>
-        <p>Đo trong chiếc gen bạn sẽ không mặc thì váy được dựng quanh một vòng eo không có thật, đến hôm mặc sẽ chật và tức ở thân.</p>
+        <h3><span class="vi">Quần gen</span><span class="en">Shapewear</span></h3>
+        <p><span class="vi">Chỉ mặc nếu hôm cưới bạn <strong>chắc chắn</strong> mặc đúng chiếc đó. Khi ấy nó là một phần cơ thể mà váy được dựng theo.</span><span class="en">Only wear it if you'll <strong>definitely</strong> wear that same piece on the day. Then it's genuinely part of the body the gown is built for.</span></p>
+        <p><span class="vi">Đo trong chiếc gen sẽ không mặc thì váy được dựng quanh vòng eo không có thật — hôm mặc sẽ chật và tức.</span><span class="en">Measure in shapewear you won't wear and the gown gets built around a waist that isn't there — it'll close tight on the day.</span></p>
       </article>
       <article>
-        <h3>Quần áo</h3>
-        <p>Mặc đồ <strong>mỏng, ôm sát</strong>, hoặc đo trực tiếp trên da ở những chỗ có thể. Áo dày cộm cộng thêm vài phân không phải của bạn.</p>
+        <h3><span class="vi">Quần áo</span><span class="en">Clothing</span></h3>
+        <p><span class="vi">Đồ <strong>mỏng, ôm sát</strong>, hoặc đo thẳng trên da ở chỗ nào tiện. Áo dày cộm cộng thêm vài phân không phải của bạn.</span><span class="en">Keep it <strong>thin and close-fitting</strong>, or measure on bare skin where you can. Bulky layers add width that isn't yours.</span></p>
       </article>
       <article>
-        <h3>Tư thế</h3>
-        <p>Đứng thẳng, thả lỏng, hai chân dồn đều trọng lượng, tay buông xuôi, <strong>mắt nhìn thẳng</strong> chứ không cúi nhìn thước.</p>
-        <p>Quan trọng không kém: giữ nguyên một tư thế suốt cả buổi đo. Đứng thẳng lúc đo ngực, chùng người lúc đo eo, dịch chân lúc đo mông — ba số đo ấy là của ba cơ thể khác nhau.</p>
+        <h3><span class="vi">Tư thế</span><span class="en">Posture</span></h3>
+        <p><span class="vi">Đứng thẳng, thả lỏng, hai chân dồn đều, tay buông xuôi, <strong>mắt nhìn thẳng</strong>. Đừng hóp bụng, cũng đừng ưỡn.</span><span class="en">Stand tall and relaxed, weight even, arms down, <strong>eyes forward</strong>. Don't suck in, don't arch.</span></p>
+        <p><span class="vi">Và giữ nguyên một tư thế suốt buổi. Đứng thẳng lúc đo ngực, chùng người lúc đo eo, dịch chân lúc đo mông — ba số đó là của ba người khác nhau.</span><span class="en">And hold the same posture throughout. Tall for the bust, slumped for the waist, shifted for the hips — those three numbers belong to three different bodies.</span></p>
       </article>
       <article>
-        <h3>Lực kéo thước</h3>
-        <p>Thước phải <strong>ngang, phẳng, ôm sát nhưng không siết</strong>. Kéo chặt cho ra số nhỏ chỉ khiến độ dư cử động bị tính trên một nền sai.</p>
-        <p>Việc của bạn là đưa ra con số nền sạch. Phần thêm dư hay siết vào để tạo form là việc của thợ ở khâu cắt rập.</p>
+        <h3><span class="vi">Lực kéo thước</span><span class="en">Tape tension</span></h3>
+        <p><span class="vi">Thước phải <strong>ngang, phẳng, ôm mà không siết</strong> — vẫn thở bình thường được. Kéo chặt cho ra số nhỏ chỉ khiến độ dư cử động bị tính trên một nền sai.</span><span class="en">Snug, level and flat, <strong>never compressing</strong> — you should still breathe normally. Pulling tight for a smaller number just applies the ease to the wrong baseline.</span></p>
+        <p><span class="vi">Việc của bạn là đưa con số nền sạch. Phần thêm dư hay siết để tạo form là việc của thợ.</span><span class="en">Your job is a clean base number. Adding ease — or compression for a structured bodice — is the pattern-maker's job.</span></p>
       </article>
       <article>
-        <h3>Người phụ</h3>
-        <p>Bạn đo được ở nhà, nhưng <strong>đừng tự đo hết một mình</strong>. Các vòng đo và các số đo chiều dài chỉ chuẩn khi có người thứ hai giữ thước cho ngang, còn bạn giữ tư thế tự nhiên.</p>
+        <h3><span class="vi">Người phụ</span><span class="en">A helper</span></h3>
+        <p><span class="vi">Đo ở nhà thì được, nhưng <strong>đừng tự đo hết một mình</strong>. Các vòng đo và số đo chiều dài chỉ chuẩn khi có người thứ hai giữ thước, còn bạn thì đứng tự nhiên.</span><span class="en">Home measuring works, but <strong>don't take every number alone</strong>. Circumferences and lengths only stay true when someone else holds the tape while you stand naturally.</span></p>
       </article>
     </div>
   </div>
@@ -437,59 +652,32 @@
 
 <section id="than-tren">
   <div class="wrap">
-    <div class="sec-head"><span class="num">06</span><h2>Cách đo phần thân trên</h2></div>
+    <div class="sec-head"><span class="num">06</span><h2><span class="vi">Cách đo phần thân trên</span><span class="en">How to measure: the bodice</span></h2></div>
     <div class="split">
       <figure>
-        <svg viewBox="0 0 340 330" role="img" aria-label="Sơ đồ vị trí các vòng đo trên thân trên: vòng ngực trên, vòng ngực đầy, vòng chân ngực, vòng eo tự nhiên">
-          <defs>
-            <path id="halfA" d="M110,36 L94,36 C92,46 90,54 82,58 C68,63 56,74 51,96 C45,120 43,142 47,166 C51,186 63,190 68,204 C73,220 64,236 60,254 C56,268 54,280 54,296 L110,296"/>
-          </defs>
-          <g fill="var(--paper)" stroke="var(--ink)" stroke-width="1" stroke-linejoin="round">
-            <use href="#halfA"/>
-            <use href="#halfA" transform="translate(220,0) scale(-1,1)"/>
-          </g>
-          <g stroke="var(--tan)" stroke-width="1" fill="none">
-            <line x1="42" y1="106" x2="178" y2="106"/>
-            <line x1="36" y1="142" x2="184" y2="142"/>
-            <line x1="41" y1="172" x2="179" y2="172"/>
-            <line x1="60" y1="204" x2="160" y2="204"/>
-            <line x1="86" y1="142" x2="134" y2="142" stroke-dasharray="2 3"/>
-          </g>
-          <g fill="var(--tan)"><circle cx="86" cy="142" r="2.6"/><circle cx="134" cy="142" r="2.6"/></g>
-          <g stroke="var(--champagne)" stroke-width=".75">
-            <line x1="178" y1="106" x2="204" y2="106"/>
-            <line x1="184" y1="142" x2="204" y2="142"/>
-            <line x1="179" y1="172" x2="204" y2="172"/>
-            <line x1="160" y1="204" x2="204" y2="204"/>
-          </g>
-          <g fill="var(--grey)" font-family="Be Vietnam Pro, sans-serif" font-size="10.5">
-            <text x="209" y="103">02 · Vòng ngực trên</text>
-            <text x="209" y="139">01 · Vòng ngực đầy</text>
-            <text x="209" y="152" fill="var(--grey-2)" font-size="9">05 · khoảng cách 2 đỉnh</text>
-            <text x="209" y="169">03 · Vòng chân ngực</text>
-            <text x="209" y="201">04 · Vòng eo tự nhiên</text>
-            <text x="209" y="214" fill="var(--grey-2)" font-size="9">buộc dây thun đánh dấu</text>
-          </g>
-        </svg>
-        <figcaption>Bốn vòng đo của thân trên và vị trí hai đỉnh ngực. Buộc sợi dây thun ở eo tự nhiên trước tiên — nó là mốc cố định cho mọi số đo chiều dài phía sau.</figcaption>
+        <img src="anh/do-so-do/ren-chitiet.jpg" alt="Chi tiết ren và đường may trên thân váy cưới" loading="lazy">
+        <figcaption>
+          <b><span class="vi">Vì sao thân trên khó nhất</span><span class="en">Why the bodice is the fussy part</span></b>
+          <span class="vi">Chiết ly, đường may thân và viền cổ đều được vẽ dựa vào đỉnh ngực. Lệch một chút là thấy ngay khi mặc.</span><span class="en">Darts, princess seams and the neckline are all drafted around the bust apex. A couple of centimetres shows immediately.</span>
+        </figcaption>
       </figure>
 
       <div>
         <div class="note" style="margin-top:0">
-          <h3>Trước khi đo thân trên</h3>
-          <p>Mặc áo lót không mút, chỉ mặc gen nếu ngày cưới có mặc. Đo trên đồ lót hoặc lớp áo mỏng ôm sát. Giữ thước ngang, phẳng, ôm mà không siết — bạn vẫn phải thở bình thường được.</p>
+          <h3><span class="vi">Trước khi bắt đầu</span><span class="en">Before you start</span></h3>
+          <p><span class="vi">Áo lót không mút, chỉ mặc gen nếu hôm cưới có mặc. Đo trên đồ lót hoặc lớp áo mỏng. Thước ngang, phẳng, ôm mà không siết. Mỗi số đo hai lần.</span><span class="en">Non-padded bra; shapewear only if you're wearing it on the day. Measure over underwear or one thin layer. Keep the tape level, flat and snug. Every number twice.</span></p>
         </div>
         <ol class="steps" style="margin-top:2em">
-          <li><div><h3>Vòng ngực đầy</h3><p>Đo quanh chỗ đầy nhất của ngực, thước đi qua cả hai đỉnh ngực và giữ ngang ở lưng, không để thước trượt lên cao.</p></div></li>
-          <li><div><h3>Vòng ngực trên</h3><p>Đo quanh thân ngay phía trên bầu ngực, thước đi dưới hai nách và ngang qua phần trên của ngực. Chênh lệch giữa số này và vòng ngực đầy cho biết ngực bạn đầy tới đâu, thân váy cần tạo form bao nhiêu.</p></div></li>
-          <li><div><h3>Vòng chân ngực</h3><p>Đo ngay dưới bầu ngực, đúng chỗ dây áo lót nằm. Ôm sát và ngang.</p></div></li>
-          <li><div><h3>Vòng eo tự nhiên</h3><p>Eo tự nhiên là chỗ thân bạn gấp lại khi nghiêng nhẹ sang một bên — không phải chỗ bạn hay mặc cạp quần. Buộc dây thun đánh dấu ở đó rồi đo ngang.</p></div></li>
-          <li><div><h3>Đỉnh ngực và khoảng cách hai đỉnh</h3><p>Đỉnh ngực là điểm nhô ra nhất của mỗi bên. Khoảng cách hai đỉnh là đoạn thẳng nối hai điểm đó. Hai số này định vị chiết ly và đường viền cổ, nên phải đo trong đúng chiếc áo lót bạn sẽ mặc.</p></div></li>
-          <li><div><h3>Dài thân trước</h3><p>Từ điểm chân cổ trên vai, kéo thước qua đỉnh ngực, xuống tới sợi dây thun đánh dấu eo.</p></div></li>
-          <li><div><h3>Dài lưng</h3><p>Từ đốt xương nhô ra ở chân gáy, thước chạy dọc giữa lưng theo đường cong của cơ thể, xuống tới sợi dây thun ở eo.</p></div></li>
-          <li><div><h3>Vòng bắp tay <span class="opt">nếu váy có tay</span></h3><p>Đo quanh chỗ to nhất của bắp tay, tay thả lỏng tự nhiên.</p></div></li>
-          <li><div><h3>Dài tay <span class="opt">nếu váy có tay</span></h3><p>Từ điểm đầu vai, chạy dọc mặt ngoài cánh tay hơi gập, qua khuỷu, tới chỗ bạn muốn tay áo kết thúc ở cổ tay.</p></div></li>
-          <li><div><h3>Vòng cổ tay <span class="opt">nếu váy có tay</span></h3><p>Đo quanh cổ tay tại đúng chỗ tay áo sẽ kết thúc, ôm sát nhưng không chặt.</p></div></li>
+          <li><div><h3><span class="vi">Vòng ngực đầy</span><span class="en">Full bust</span></h3><p><span class="vi">Đo quanh chỗ đầy nhất của ngực, thước đi qua cả hai đỉnh ngực và giữ ngang ở lưng — đừng để thước trượt lên cao phía sau.</span><span class="en">Around the fullest part of the bust, over both apexes, keeping the tape level across the back — don't let it ride up behind you.</span></p></div></li>
+          <li><div><h3><span class="vi">Vòng ngực trên</span><span class="en">High bust</span></h3><p><span class="vi">Quanh thân ngay phía trên bầu ngực, thước đi dưới hai nách. Chênh lệch giữa số này với vòng ngực đầy cho biết ngực bạn đầy tới đâu, thân váy cần tạo form bao nhiêu.</span><span class="en">Around the torso just above the bust, under the arms. The gap between this and the full bust tells the maker how much shaping the bodice needs.</span></p></div></li>
+          <li><div><h3><span class="vi">Vòng chân ngực</span><span class="en">Underbust</span></h3><p><span class="vi">Ngay dưới bầu ngực, đúng chỗ dây áo lót nằm. Ôm sát và ngang.</span><span class="en">Directly under the bust, where the bra band sits. Snug and level.</span></p></div></li>
+          <li><div><h3><span class="vi">Vòng eo tự nhiên</span><span class="en">Natural waist</span></h3><p><span class="vi">Eo tự nhiên là chỗ thân gấp lại khi bạn nghiêng nhẹ sang một bên — không phải chỗ hay mặc cạp quần. Buộc dây thun ở đó rồi đo ngang.</span><span class="en">Your natural waist is where your torso creases when you lean gently to one side — not where your jeans sit. Mark it with the elastic, then measure level.</span></p></div></li>
+          <li><div><h3><span class="vi">Đỉnh ngực và khoảng cách hai đỉnh</span><span class="en">Apex and apex-to-apex</span></h3><p><span class="vi">Đỉnh ngực là điểm nhô ra nhất mỗi bên; khoảng cách hai đỉnh là đoạn thẳng nối chúng. Hai số này định vị chiết ly và viền cổ, nên phải đo trong đúng chiếc áo lót bạn sẽ mặc.</span><span class="en">The apex is the most projecting point of each bust; apex-to-apex is the straight line between them. These place the darts and the neckline, so take them in the bra you'll actually wear.</span></p></div></li>
+          <li><div><h3><span class="vi">Dài thân trước</span><span class="en">Front waist length</span></h3><p><span class="vi">Từ điểm chân cổ trên vai, kéo thước qua đỉnh ngực, xuống tới sợi dây thun ở eo.</span><span class="en">From the side-neck point, over the bust apex, down to the elastic at your waist.</span></p></div></li>
+          <li><div><h3><span class="vi">Dài lưng</span><span class="en">Back length</span></h3><p><span class="vi">Từ đốt xương nhô ra ở chân gáy, thước chạy dọc giữa lưng theo đường cong cơ thể, xuống tới dây thun ở eo.</span><span class="en">From the bone at the base of the neck, down the centre back following your contour, to the elastic at the waist.</span></p></div></li>
+          <li><div><h3><span class="vi">Vòng bắp tay</span><span class="en">Bicep</span> <span class="opt"><span class="vi">váy có tay</span><span class="en">if sleeves</span></span></h3><p><span class="vi">Quanh chỗ to nhất của bắp tay, tay thả lỏng.</span><span class="en">Around the fullest part of the upper arm, arm relaxed.</span></p></div></li>
+          <li><div><h3><span class="vi">Dài tay</span><span class="en">Sleeve length</span> <span class="opt"><span class="vi">váy có tay</span><span class="en">if sleeves</span></span></h3><p><span class="vi">Từ điểm đầu vai, dọc mặt ngoài cánh tay hơi gập, qua khuỷu, tới chỗ bạn muốn tay áo kết thúc.</span><span class="en">From the shoulder point, along the outside of a slightly bent arm, over the elbow, to where you want the sleeve to end.</span></p></div></li>
+          <li><div><h3><span class="vi">Vòng cổ tay</span><span class="en">Wrist</span> <span class="opt"><span class="vi">váy có tay</span><span class="en">if sleeves</span></span></h3><p><span class="vi">Quanh cổ tay đúng chỗ tay áo kết thúc, ôm sát nhưng không chặt.</span><span class="en">Around the wrist where the sleeve will end, snug but not tight.</span></p></div></li>
         </ol>
       </div>
     </div>
@@ -498,64 +686,34 @@
 
 <section id="than-duoi">
   <div class="wrap">
-    <div class="sec-head"><span class="num">07</span><h2>Cách đo phần dưới và chiều dài</h2></div>
+    <div class="sec-head"><span class="num">07</span><h2><span class="vi">Cách đo phần dưới và chiều dài</span><span class="en">How to measure: hips and lengths</span></h2></div>
     <div class="split">
       <figure>
-        <svg viewBox="0 0 340 460" role="img" aria-label="Sơ đồ vòng mông trên, vòng mông và hai số đo chiều dài: eo xuống sàn, hõm cổ xuống sàn">
-          <defs>
-            <path id="halfB" d="M110,36 L94,36 C92,46 90,54 82,58 C68,63 56,74 51,96 C45,120 43,142 47,166 C51,186 63,190 68,204 C73,220 64,236 60,256 C55,276 52,296 52,326 C52,360 53,392 54,414 L110,414"/>
-          </defs>
-          <g fill="var(--paper)" stroke="var(--ink)" stroke-width="1" stroke-linejoin="round">
-            <use href="#halfB"/>
-            <use href="#halfB" transform="translate(220,0) scale(-1,1)"/>
-          </g>
-          <line x1="20" y1="414" x2="250" y2="414" stroke="var(--ink)" stroke-width="1.4"/>
-          <g stroke="var(--tan)" stroke-width="1" fill="none">
-            <line x1="60" y1="204" x2="160" y2="204" stroke-dasharray="2 3"/>
-            <line x1="54" y1="234" x2="166" y2="234"/>
-            <line x1="47" y1="266" x2="173" y2="266"/>
-            <path d="M110,60 L110,414" stroke-dasharray="4 4"/>
-            <path d="M192,204 L192,414"/>
-            <path d="M188,204 L196,204"/><path d="M188,414 L196,414"/>
-            <path d="M106,60 L114,60"/>
-          </g>
-          <g fill="var(--tan)"><circle cx="110" cy="60" r="2.6"/></g>
-          <g stroke="var(--champagne)" stroke-width=".75">
-            <line x1="110" y1="60" x2="148" y2="60"/>
-            <line x1="166" y1="234" x2="204" y2="234"/>
-            <line x1="173" y1="266" x2="204" y2="266"/>
-          </g>
-          <g fill="var(--grey)" font-family="Be Vietnam Pro, sans-serif" font-size="10.5">
-            <text x="152" y="57">Hõm cổ</text>
-            <text x="209" y="231">11 · Vòng mông trên</text>
-            <text x="209" y="263">12 · Vòng mông</text>
-            <text x="200" y="332">13 · Eo → sàn</text>
-            <text x="200" y="345" fill="var(--grey-2)" font-size="9">đo dọc hông</text>
-            <text x="118" y="396">14 · Hõm cổ → sàn</text>
-            <text x="118" y="409" fill="var(--grey-2)" font-size="9">mắt nhìn thẳng</text>
-          </g>
-        </svg>
-        <figcaption>Hai vòng đo phần dưới và hai số đo chiều dài. Đo chân trần trước để có bản ghi sạch về cơ thể thật, rồi mới đo lại theo giày cưới.</figcaption>
+        <img src="anh/do-so-do/giay.jpg" alt="Đôi giày cao gót nude dùng khi đo chiều dài váy" loading="lazy">
+        <figcaption>
+          <b><span class="vi">Đôi giày quyết định gấu váy</span><span class="en">Your shoes decide the hem</span></b>
+          <span class="vi">Đo chân trần trước cho có bản ghi sạch, rồi đo lại khi đi giày cưới.</span><span class="en">Take the lengths barefoot first for a clean record, then again in your wedding shoes.</span>
+        </figcaption>
       </figure>
 
       <div>
-        <ol class="steps" start="11" style="counter-reset:s 10;margin-top:0">
-          <li><div><h3>Vòng mông trên</h3><p>Đo quanh phần trên của mông, cách eo tự nhiên một khoảng cố định xuống dưới (thường 8–10 cm) — ghi lại luôn con số khoảng cách đó.</p></div></li>
-          <li><div><h3>Vòng mông</h3><p>Đo quanh chỗ đầy nhất của mông, hai chân khép, thước giữ ngang cả vòng.</p></div></li>
-          <li><div><h3>Eo xuống sàn</h3><p>Từ sợi dây thun ở eo thẳng xuống sàn, thước chạy dọc hông và giữ thẳng đứng.</p></div></li>
-          <li><div><h3>Hõm cổ xuống sàn</h3><p>Từ chỗ hõm giữa hai xương quai xanh, giữa thân trước, thả thước thẳng đứng xuống sàn — trong lúc đó mắt vẫn nhìn thẳng phía trước.</p></div></li>
+        <ol class="steps" style="counter-reset:s 10;margin-top:0">
+          <li><div><h3><span class="vi">Vòng mông trên</span><span class="en">High hip</span></h3><p><span class="vi">Quanh phần trên của mông, cách eo tự nhiên một khoảng cố định xuống dưới (thường 8–10 cm) — ghi luôn con số khoảng cách đó.</span><span class="en">Around the upper hip, a set distance below the natural waist (usually 8–10 cm) — note that distance too.</span></p></div></li>
+          <li><div><h3><span class="vi">Vòng mông</span><span class="en">Full hip</span></h3><p><span class="vi">Quanh chỗ đầy nhất của mông, hai chân khép, thước ngang cả vòng.</span><span class="en">Around the fullest part of the seat, feet together, tape level all the way around.</span></p></div></li>
+          <li><div><h3><span class="vi">Eo xuống sàn</span><span class="en">Waist to floor</span></h3><p><span class="vi">Từ dây thun ở eo thẳng xuống sàn, thước chạy dọc hông và giữ thẳng đứng.</span><span class="en">From the elastic at your waist straight down to the floor, tape running down your side and held vertical.</span></p></div></li>
+          <li><div><h3><span class="vi">Hõm cổ xuống sàn</span><span class="en">Hollow to floor</span></h3><p><span class="vi">Từ chỗ hõm giữa hai xương quai xanh, giữa thân trước, thả thước thẳng xuống sàn — mắt vẫn nhìn thẳng phía trước.</span><span class="en">From the hollow between your collarbones at centre front, drop the tape straight to the floor — eyes still forward.</span></p></div></li>
         </ol>
 
         <div class="note">
-          <h3>Giày cưới và độ cao gót</h3>
-          <p>Chiều dài là số đo duy nhất mà đôi giày làm đổi con số, nên hãy ghi cả hai: chiều dài chân trần và chiều dài khi đi giày cưới. Thứ tự ưu tiên:</p>
+          <h3><span class="vi">Giày cưới và độ cao gót</span><span class="en">Shoes and heel height</span></h3>
+          <p><span class="vi">Chiều dài là số đo duy nhất mà đôi giày làm đổi con số, nên ghi cả hai: chân trần và khi đi giày. Thứ tự ưu tiên:</span><span class="en">Length is the one measurement your shoes change, so record both: barefoot and in shoes. In order of preference:</span></p>
           <ul class="plain" style="margin-top:1em">
-            <li>Đo lại chiều dài khi đi <strong>đúng đôi giày cưới</strong>, nếu đã có giày.</li>
-            <li>Chưa có thì đo với đôi giày <strong>cao gót tương đương</strong>.</li>
-            <li>Không có cả hai thì giữ số đo chân trần và ghi <strong>độ cao gót dự kiến</strong> thành một con số riêng.</li>
+            <li><span class="vi">Đo lại khi đi <strong>đúng đôi giày cưới</strong>, nếu đã có.</span><span class="en">Measure again in <strong>your actual wedding shoes</strong>, if you have them.</span></li>
+            <li><span class="vi">Chưa có thì đo với đôi <strong>cao gót tương đương</strong>.</span><span class="en">If not, use shoes of a <strong>similar heel height</strong>.</span></li>
+            <li><span class="vi">Không có cả hai thì giữ số chân trần và ghi <strong>độ cao gót dự kiến</strong> thành số riêng.</span><span class="en">If you have neither, keep the barefoot number and record your <strong>planned heel height</strong> separately.</span></li>
           </ul>
-          <p>Số đo chân trần giữ đúng tỉ lệ thật của bạn. Độ cao gót quyết định gấu váy trước chạm sàn hay hở mũi giày, và đuôi váy đổ về sau thế nào. Để riêng thành một con số nghĩa là sau này bạn đổi giày thì chỉ chỉnh gấu, không phải đo lại từ đầu.</p>
-          <p>Một giới hạn nên biết: độ cao gót ước lượng đủ để tính tỉ lệ ở giai đoạn đầu, nhưng chưa đủ để chốt gấu. Gót nhọn 10 cm và gót đế xuồng 10 cm đặt cơ thể ở hai tư thế khác nhau — trước khi chốt độ dài cuối cùng, Dolinhanh cần chính đôi giày bạn sẽ đi.</p>
+          <p><span class="vi">Số chân trần giữ đúng tỉ lệ thật của bạn. Độ cao gót quyết định gấu váy trước chạm sàn hay hở mũi giày, và đuôi váy đổ về sau thế nào. Để riêng ra nghĩa là sau này đổi giày thì chỉ chỉnh gấu, không phải đo lại từ đầu.</span><span class="en">The barefoot number anchors your true proportions. The heel height decides whether the front hem grazes the floor or clears your shoe, and how the train falls. Kept separate, a change of shoes means a hem adjustment — not a whole new set of measurements.</span></p>
+          <p><span class="vi">Một giới hạn nên biết: gót ước lượng đủ để tính tỉ lệ ban đầu, nhưng chưa đủ để chốt gấu. Gót nhọn 10 cm và gót đế xuồng 10 cm đặt cơ thể ở hai tư thế khác nhau — trước khi chốt độ dài cuối, Dolinhanh cần chính đôi giày bạn sẽ đi.</span><span class="en">One limit worth knowing: an estimated heel is fine for early proportions but not for the final hem. A 10 cm stiletto and a 10 cm platform hold the body differently — before the length is finalised, Dolinhanh needs the actual shoe.</span></p>
         </div>
       </div>
     </div>
@@ -564,53 +722,52 @@
 
 <section id="goc-tho">
   <div class="wrap col">
-    <div class="sec-head"><span class="num">08</span><h2>Góc thợ: một điều kiện sai đi xa tới đâu</h2></div>
-    <p>Đây là thứ mà một danh sách gạch đầu dòng không nói được: một điều kiện sai không nằm yên một chỗ. Nó chạy dọc suốt bản rập.</p>
-    <p>Cứ lấy chiếc áo lót có mút mà đi tới cùng. Giả sử nó nâng đỉnh ngực lên 2 cm:</p>
+    <div class="sec-head"><span class="num">08</span><h2><span class="vi">Góc thợ: sai một tí, lệch cả váy</span><span class="en">A fitter's view: how one error travels</span></h2></div>
+    <p><span class="vi">Đây là thứ mà một danh sách gạch đầu dòng không nói được: một điều kiện sai không nằm yên một chỗ, nó chạy dọc suốt bản rập. Cứ lấy chiếc áo lót có mút mà đi tới cùng — giả sử nó nâng đỉnh ngực lên 2 cm:</span><span class="en">Here's what a checklist can't tell you: one wrong condition doesn't stay put — it travels through the whole pattern. Follow the padded bra all the way through. Say it lifts the apex by 2 cm:</span></p>
     <ul class="chain">
-      <li><b>Chiết ly ngực</b> được vẽ chĩa về cái đỉnh ngực đã bị nâng, nên góc chiết đổi.</li>
-      <li>Chiết đã dịch, nên phần vải nó nhả ra <b>rơi cao hơn</b> bầu ngực thật của bạn.</li>
-      <li><b>Đường may thân</b> vòng quanh đỉnh ngực giờ vòng quanh một điểm không nằm trên cơ thể, nên nó vểnh ra khỏi ngực thay vì ôm theo.</li>
-      <li><b>Viền cổ</b> được cắt cho một bầu ngực nhô ra trước nhiều hơn thật — khi mặc với dáng ngực tự nhiên, mép cổ váy đứng ra và hở.</li>
+      <li><span class="vi"><b>Chiết ly ngực</b> được vẽ chĩa về cái đỉnh ngực đã bị nâng, nên góc chiết đổi.</span><span class="en">The <b>bust dart</b> is drafted to point at that raised apex, so its angle changes.</span></li>
+      <li><span class="vi">Chiết dịch rồi, phần vải nó nhả ra <b>rơi cao hơn</b> bầu ngực thật.</span><span class="en">With the dart moved, the fullness it releases <b>lands above</b> your real bust.</span></li>
+      <li><span class="vi"><b>Đường may thân</b> vòng quanh một điểm không nằm trên cơ thể bạn, nên nó vểnh ra thay vì ôm theo.</span><span class="en">The <b>princess seam</b> curves around a point that isn't on your body, so it stands proud instead of following you.</span></li>
+      <li><span class="vi"><b>Viền cổ</b> được cắt cho bầu ngực nhô ra nhiều hơn thật — mặc vào là mép cổ đứng ra và hở.</span><span class="en">The <b>neckline</b> is cut for a bust that projects further than yours — so it stands away and gaps.</span></li>
     </ul>
-    <p style="margin-top:1.6em">Một điều kiện, bốn hệ quả trên váy, không cái nào là lỗi may — tất cả đều truy được về chiếc áo lót mặc trong hai mươi phút lúc đo.</p>
-    <p>Phần còn lại của danh sách cũng chạy theo đúng logic ấy. Chiếc gen bạn không mặc dựng nên một vòng eo không có thật. Một cái cúi đầu làm ngắn thân trước. Thước kéo chặt làm lệch cái nền mà mọi tính toán độ dư dựa vào. Mỗi thứ là một quyết định nhỏ lúc đo, rồi thành một đặc điểm cố định của chiếc váy đã xong.</p>
+    <p style="margin-top:1.6em"><span class="vi">Một điều kiện, bốn hệ quả trên váy, không cái nào là lỗi may — tất cả đều truy về chiếc áo lót mặc trong hai mươi phút lúc đo.</span><span class="en">One condition, four consequences on the gown, none of them a sewing fault — all of them traceable to a bra worn for twenty minutes while measuring.</span></p>
+    <p><span class="vi">Phần còn lại cũng chạy đúng logic ấy: chiếc gen bạn không mặc dựng nên vòng eo không có thật, một cái cúi đầu làm ngắn thân trước, thước kéo chặt làm lệch cái nền mà mọi tính toán dựa vào. Mỗi thứ là một quyết định nhỏ lúc đo, rồi thành đặc điểm cố định của chiếc váy đã xong.</span><span class="en">The rest follows the same logic: shapewear you won't wear builds a waist that isn't there, a downward glance shortens a front, a tight tape shifts the baseline every ease decision rests on. Each is a small choice while measuring that becomes a permanent feature of the finished gown.</span></p>
   </div>
 </section>
 
 <section id="phieu">
   <div class="wrap">
-    <div class="sec-head"><span class="num">09</span><h2>Phiếu số đo để điền và gửi</h2></div>
-    <p class="col">Điền ngay trong lúc đo, đừng để nhớ rồi ghi sau. Xong bấm <strong>Copy phiếu</strong> rồi dán vào Zalo gửi cho Dolinhanh — hoặc bấm <strong>In phiếu</strong> để cầm theo hôm thử váy. Số đo lưu ngay trên máy bạn, Dolinhanh không nhận được gì cho tới khi bạn tự gửi.</p>
+    <div class="sec-head"><span class="num">09</span><h2><span class="vi">Phiếu số đo để điền và gửi</span><span class="en">Your measurement sheet</span></h2></div>
+    <p class="col"><span class="vi">Điền ngay trong lúc đo. Xong bấm <strong>Copy phiếu</strong> rồi dán vào Zalo gửi Dolinhanh — hoặc <strong>In phiếu</strong> để cầm theo hôm thử váy. Số đo chỉ lưu trên máy bạn, Dolinhanh không nhận được gì cho tới khi bạn tự gửi.</span><span class="en">Fill it in as you measure. Then tap <strong>Copy sheet</strong> and paste it to us on Zalo — or <strong>Print</strong> it to bring to your fitting. The numbers stay on your own device; Dolinhanh receives nothing until you send them.</span></p>
     <div class="sheet">
       <form id="sheet" autocomplete="off">
         <div class="sheet-grid">
-          <div class="field field-wide"><label for="ten">Tên cô dâu</label><input id="ten" type="text" placeholder="Nguyễn Thị A"></div>
-          <div class="field field-wide"><label for="dolot">Đo với áo lót / gen loại gì</label><input id="dolot" type="text" placeholder="Áo lót không mút, không mặc gen"></div>
-          <div class="field"><label for="m1">01 · Vòng ngực đầy</label><input id="m1" type="number" step="0.5" inputmode="decimal" placeholder="—"><span class="unit">cm</span></div>
-          <div class="field"><label for="m2">02 · Vòng ngực trên</label><input id="m2" type="number" step="0.5" inputmode="decimal" placeholder="—"><span class="unit">cm</span></div>
-          <div class="field"><label for="m3">03 · Vòng chân ngực</label><input id="m3" type="number" step="0.5" inputmode="decimal" placeholder="—"><span class="unit">cm</span></div>
-          <div class="field"><label for="m4">04 · Vòng eo tự nhiên</label><input id="m4" type="number" step="0.5" inputmode="decimal" placeholder="—"><span class="unit">cm</span></div>
-          <div class="field"><label for="m5">05 · Khoảng cách 2 đỉnh ngực</label><input id="m5" type="number" step="0.5" inputmode="decimal" placeholder="—"><span class="unit">cm</span></div>
-          <div class="field"><label for="m6">06 · Dài thân trước</label><input id="m6" type="number" step="0.5" inputmode="decimal" placeholder="—"><span class="unit">cm</span></div>
-          <div class="field"><label for="m7">07 · Dài lưng</label><input id="m7" type="number" step="0.5" inputmode="decimal" placeholder="—"><span class="unit">cm</span></div>
-          <div class="field"><label for="m8">08 · Vòng bắp tay</label><input id="m8" type="number" step="0.5" inputmode="decimal" placeholder="—"><span class="unit">cm</span></div>
-          <div class="field"><label for="m9">09 · Dài tay</label><input id="m9" type="number" step="0.5" inputmode="decimal" placeholder="—"><span class="unit">cm</span></div>
-          <div class="field"><label for="m10">10 · Vòng cổ tay</label><input id="m10" type="number" step="0.5" inputmode="decimal" placeholder="—"><span class="unit">cm</span></div>
-          <div class="field"><label for="m11">11 · Vòng mông trên</label><input id="m11" type="number" step="0.5" inputmode="decimal" placeholder="—"><span class="unit">cm</span></div>
-          <div class="field"><label for="m12">12 · Vòng mông</label><input id="m12" type="number" step="0.5" inputmode="decimal" placeholder="—"><span class="unit">cm</span></div>
-          <div class="field"><label for="m13">13 · Eo → sàn (chân trần)</label><input id="m13" type="number" step="0.5" inputmode="decimal" placeholder="—"><span class="unit">cm</span></div>
-          <div class="field"><label for="m14">14 · Hõm cổ → sàn (chân trần)</label><input id="m14" type="number" step="0.5" inputmode="decimal" placeholder="—"><span class="unit">cm</span></div>
-          <div class="field"><label for="m15">Chiều cao</label><input id="m15" type="number" step="0.5" inputmode="decimal" placeholder="—"><span class="unit">cm</span></div>
-          <div class="field"><label for="m16">Cân nặng</label><input id="m16" type="number" step="0.5" inputmode="decimal" placeholder="—"><span class="unit">kg</span></div>
-          <div class="field"><label for="m17">Độ cao gót giày cưới</label><input id="m17" type="number" step="0.5" inputmode="decimal" placeholder="—"><span class="unit">cm</span></div>
-          <div class="field"><label for="m18">Hõm cổ → sàn (đi giày)</label><input id="m18" type="number" step="0.5" inputmode="decimal" placeholder="—"><span class="unit">cm</span></div>
-          <div class="field field-wide"><label for="ghichu">Ghi chú thêm</label><input id="ghichu" type="text" placeholder="Ngày cưới, mẫu váy đang thích, chỗ cần lưu ý…"></div>
+          <div class="field field-wide"><label for="ten"><span class="vi">Tên cô dâu</span><span class="en">Bride's name</span></label><input id="ten" type="text" placeholder="—"></div>
+          <div class="field field-wide"><label for="dolot"><span class="vi">Đo với áo lót / gen loại gì</span><span class="en">Measured wearing which bra / shapewear</span></label><input id="dolot" type="text" placeholder="—"></div>
+          <div class="field"><label for="m1"><span class="vi">01 · Vòng ngực đầy</span><span class="en">01 · Full bust</span></label><input id="m1" type="number" step="0.5" inputmode="decimal" placeholder="—"><span class="unit">cm</span></div>
+          <div class="field"><label for="m2"><span class="vi">02 · Vòng ngực trên</span><span class="en">02 · High bust</span></label><input id="m2" type="number" step="0.5" inputmode="decimal" placeholder="—"><span class="unit">cm</span></div>
+          <div class="field"><label for="m3"><span class="vi">03 · Vòng chân ngực</span><span class="en">03 · Underbust</span></label><input id="m3" type="number" step="0.5" inputmode="decimal" placeholder="—"><span class="unit">cm</span></div>
+          <div class="field"><label for="m4"><span class="vi">04 · Vòng eo tự nhiên</span><span class="en">04 · Natural waist</span></label><input id="m4" type="number" step="0.5" inputmode="decimal" placeholder="—"><span class="unit">cm</span></div>
+          <div class="field"><label for="m5"><span class="vi">05 · Khoảng cách 2 đỉnh ngực</span><span class="en">05 · Apex to apex</span></label><input id="m5" type="number" step="0.5" inputmode="decimal" placeholder="—"><span class="unit">cm</span></div>
+          <div class="field"><label for="m6"><span class="vi">06 · Dài thân trước</span><span class="en">06 · Front waist length</span></label><input id="m6" type="number" step="0.5" inputmode="decimal" placeholder="—"><span class="unit">cm</span></div>
+          <div class="field"><label for="m7"><span class="vi">07 · Dài lưng</span><span class="en">07 · Back length</span></label><input id="m7" type="number" step="0.5" inputmode="decimal" placeholder="—"><span class="unit">cm</span></div>
+          <div class="field"><label for="m8"><span class="vi">08 · Vòng bắp tay</span><span class="en">08 · Bicep</span></label><input id="m8" type="number" step="0.5" inputmode="decimal" placeholder="—"><span class="unit">cm</span></div>
+          <div class="field"><label for="m9"><span class="vi">09 · Dài tay</span><span class="en">09 · Sleeve length</span></label><input id="m9" type="number" step="0.5" inputmode="decimal" placeholder="—"><span class="unit">cm</span></div>
+          <div class="field"><label for="m10"><span class="vi">10 · Vòng cổ tay</span><span class="en">10 · Wrist</span></label><input id="m10" type="number" step="0.5" inputmode="decimal" placeholder="—"><span class="unit">cm</span></div>
+          <div class="field"><label for="m11"><span class="vi">11 · Vòng mông trên</span><span class="en">11 · High hip</span></label><input id="m11" type="number" step="0.5" inputmode="decimal" placeholder="—"><span class="unit">cm</span></div>
+          <div class="field"><label for="m12"><span class="vi">12 · Vòng mông</span><span class="en">12 · Full hip</span></label><input id="m12" type="number" step="0.5" inputmode="decimal" placeholder="—"><span class="unit">cm</span></div>
+          <div class="field"><label for="m13"><span class="vi">13 · Eo → sàn (chân trần)</span><span class="en">13 · Waist to floor (barefoot)</span></label><input id="m13" type="number" step="0.5" inputmode="decimal" placeholder="—"><span class="unit">cm</span></div>
+          <div class="field"><label for="m14"><span class="vi">14 · Hõm cổ → sàn (chân trần)</span><span class="en">14 · Hollow to floor (barefoot)</span></label><input id="m14" type="number" step="0.5" inputmode="decimal" placeholder="—"><span class="unit">cm</span></div>
+          <div class="field"><label for="m15"><span class="vi">Chiều cao</span><span class="en">Height</span></label><input id="m15" type="number" step="0.5" inputmode="decimal" placeholder="—"><span class="unit">cm</span></div>
+          <div class="field"><label for="m16"><span class="vi">Cân nặng</span><span class="en">Weight</span></label><input id="m16" type="number" step="0.5" inputmode="decimal" placeholder="—"><span class="unit">kg</span></div>
+          <div class="field"><label for="m17"><span class="vi">Độ cao gót giày cưới</span><span class="en">Wedding shoe heel height</span></label><input id="m17" type="number" step="0.5" inputmode="decimal" placeholder="—"><span class="unit">cm</span></div>
+          <div class="field"><label for="m18"><span class="vi">Hõm cổ → sàn (đi giày)</span><span class="en">Hollow to floor (in shoes)</span></label><input id="m18" type="number" step="0.5" inputmode="decimal" placeholder="—"><span class="unit">cm</span></div>
+          <div class="field field-wide"><label for="ghichu"><span class="vi">Ghi chú thêm</span><span class="en">Anything else</span></label><input id="ghichu" type="text" placeholder="—"></div>
         </div>
         <div class="sheet-actions">
-          <button type="button" id="btn-copy">Copy phiếu</button>
-          <button type="button" class="ghost" id="btn-print">In phiếu</button>
-          <button type="button" class="ghost" id="btn-clear">Xoá hết</button>
+          <button type="button" id="btn-copy"><span class="vi">Copy phiếu</span><span class="en">Copy sheet</span></button>
+          <button type="button" class="ghost" id="btn-print"><span class="vi">In phiếu</span><span class="en">Print</span></button>
+          <button type="button" class="ghost" id="btn-clear"><span class="vi">Xoá hết</span><span class="en">Clear</span></button>
           <span class="saved" id="saved" aria-live="polite"></span>
         </div>
       </form>
@@ -620,76 +777,103 @@
 
 <section id="faq">
   <div class="wrap col">
-    <div class="sec-head"><span class="num">10</span><h2>Câu hỏi thường gặp</h2></div>
+    <div class="sec-head"><span class="num">10</span><h2><span class="vi">Câu hỏi hay gặp</span><span class="en">Frequently asked questions</span></h2></div>
 
     <details>
-      <summary>Tự đo ở nhà thì nên mặc gì?</summary>
-      <div class="body"><p>Áo lót không mút đúng dáng ngực thật, hoặc loại nội y mà bên làm váy dặn nếu váy có cấu trúc nâng ngực sẵn. Không mặc gen trừ khi ngày cưới có mặc. Quần áo mỏng ôm sát hoặc đo trực tiếp trên da, đứng thẳng, trọng lượng dồn đều hai chân.</p></div>
+      <summary><span class="vi">Tự đo ở nhà thì nên mặc gì?</span><span class="en">What should I wear to measure at home?</span></summary>
+      <div class="body"><p><span class="vi">Áo lót không mút đúng dáng ngực thật, hoặc loại nội y mà bên làm váy dặn nếu váy có cấu trúc nâng ngực sẵn. Không mặc gen trừ khi hôm cưới có mặc. Quần áo mỏng ôm sát hoặc đo thẳng trên da, đứng thẳng, trọng lượng dồn đều hai chân.</span><span class="en">A non-padded bra true to your natural shape — or whatever your maker specifies if the gown has built-in support. Skip shapewear unless you're wearing it on the day. Thin, close-fitting clothes or bare skin, standing upright with weight even on both feet.</span></p></div>
     </details>
 
     <details>
-      <summary>Áo lót nào là đúng khi đo váy cưới?</summary>
-      <div class="body"><p>Áo không mút, phản ánh đúng dáng ngực thật. Áo có mút hoặc push-up nâng đỉnh ngực lên vài phân, kéo theo chiết ly, đường may thân và viền cổ bị đặt sai chỗ — chiếc váy xong sẽ vừa với một bầu ngực cao hơn ngực bạn và hở ở viền cổ. Luôn ghi lại bạn đã đo với chiếc áo nào.</p></div>
+      <summary><span class="vi">Áo lót nào là đúng?</span><span class="en">Which bra is the right one?</span></summary>
+      <div class="body"><p><span class="vi">Loại không mút. Áo có mút hoặc push-up nâng đỉnh ngực lên vài phân, kéo theo chiết ly, đường may thân và viền cổ bị đặt sai chỗ — váy xong sẽ vừa với một bầu ngực cao hơn ngực bạn, và hở ở viền cổ. Luôn ghi lại đã đo với áo nào.</span><span class="en">A non-padded one. Padded or push-up bras raise the apex by centimetres, which shifts the dart, the princess seam and the neckline — the finished gown fits a higher bust than yours and gaps at the neckline. Always record which bra you wore.</span></p></div>
     </details>
 
     <details>
-      <summary>Có nên mặc gen khi đo không?</summary>
-      <div class="body"><p>Chỉ khi ngày cưới bạn mặc đúng chiếc gen đó dưới váy. Gen ép và phân bố lại vòng eo, vòng mông, nên đo trong chiếc gen sẽ không mặc là dựng váy quanh một cơ thể không tồn tại vào hôm cưới — và váy sẽ chật.</p></div>
+      <summary><span class="vi">Có nên mặc gen khi đo không?</span><span class="en">Should I wear shapewear?</span></summary>
+      <div class="body"><p><span class="vi">Chỉ khi hôm cưới bạn mặc đúng chiếc gen đó dưới váy. Gen ép và phân bố lại eo, mông — đo trong chiếc gen sẽ không mặc là dựng váy quanh một cơ thể không tồn tại vào hôm cưới, và váy sẽ chật.</span><span class="en">Only if you'll wear that same piece under the gown on the day. Shapewear compresses and redistributes the waist and hips — measuring in shapewear you won't wear builds the gown for a body that won't be there, and it will sit tight.</span></p></div>
     </details>
 
     <details>
-      <summary>Đo có cần đi giày không?</summary>
-      <div class="body"><p>Đo chiều dài chân trần trước để có bản ghi sạch, rồi mới tính đôi giày: đo lại với chính đôi giày cưới nếu đã có, với giày cao gót tương đương nếu chưa, hoặc ghi độ cao gót dự kiến thành một con số riêng. Độ cao gót quyết định gấu váy phía trước và cách đuôi váy đổ — trước khi chốt độ dài cuối cùng vẫn cần chính đôi giày thật.</p></div>
+      <summary><span class="vi">Đo có cần đi giày không?</span><span class="en">Do I measure in shoes?</span></summary>
+      <div class="body"><p><span class="vi">Đo chiều dài chân trần trước cho có bản ghi sạch, rồi mới tính đôi giày: đo lại với chính giày cưới nếu có, với giày cao gót tương đương nếu chưa, hoặc ghi độ cao gót dự kiến thành số riêng. Trước khi chốt độ dài cuối vẫn cần chính đôi giày thật.</span><span class="en">Take the lengths barefoot first for a clean record, then account for the shoe: measure again in your actual wedding shoes if you have them, in a similar heel height if not, or record your planned heel height separately. The real shoe is still needed before the final hem.</span></p></div>
     </details>
 
     <details>
-      <summary>Thước kéo chặt cỡ nào là vừa?</summary>
-      <div class="body"><p>Ôm sát, nằm ngang, áp phẳng vào cơ thể nhưng không siết — bạn vẫn thở bình thường được. Kéo chặt làm vòng đo nhỏ đi, khiến độ dư cử động bị cộng vào một con số nền sai. Phần dư (hoặc phần siết vào ở thân váy có gọng) do thợ tính ở khâu cắt rập, việc của bạn là đưa con số nền sạch.</p></div>
+      <summary><span class="vi">Thước kéo chặt cỡ nào là vừa?</span><span class="en">How tight should the tape be?</span></summary>
+      <div class="body"><p><span class="vi">Ôm sát, nằm ngang, áp phẳng vào cơ thể nhưng không siết — vẫn thở bình thường được. Kéo chặt làm vòng đo nhỏ đi, khiến độ dư cử động bị cộng vào một con số nền sai.</span><span class="en">Snug, level and flat against the body without compressing — you should breathe normally. Pulling it tight reduces the recorded circumference, so the intended ease gets applied to the wrong baseline.</span></p></div>
     </details>
 
     <details>
-      <summary>Tự đo một mình có được không?</summary>
-      <div class="body"><p>Đo ở nhà thì được, nhưng đừng tự đo hết một mình. Nhờ người thứ hai giữ thước cho ngang trong khi bạn giữ tư thế tự nhiên. Tự đo một mình là nguyên nhân phổ biến nhất của các vòng đo bị vẹo và các số đo chiều dài bị lệch. Sự nhất quán trên cả bộ số quan trọng ngang với độ chính xác của từng số.</p></div>
+      <summary><span class="vi">Tự đo một mình có được không?</span><span class="en">Can I do this entirely alone?</span></summary>
+      <div class="body"><p><span class="vi">Đo ở nhà thì được, nhưng đừng tự đo hết một mình. Nhờ người thứ hai giữ thước cho ngang trong khi bạn giữ tư thế tự nhiên. Sự nhất quán trên cả bộ số quan trọng ngang với độ chính xác của từng số.</span><span class="en">You can measure at home, but not every number by yourself. Have someone hold the tape level while you keep a natural posture. Consistency across the whole set matters as much as accuracy on any one number.</span></p></div>
     </details>
 
     <details>
-      <summary>Đo xong rồi vẫn phải tới thử váy chứ?</summary>
-      <div class="body"><p>Vẫn nên. Bộ số đo giúp Dolinhanh chuẩn bị trước những mẫu vừa dáng bạn nhất và biết trước chỗ nào cần sửa, nên buổi thử ngắn hơn và đỡ mất công đi lại. Nhưng cảm giác mặc lên người, độ ôm ở thân và cách chiếc váy đi theo bước chân thì chỉ khi thử mới biết được.</p></div>
+      <summary><span class="vi">Đo xong rồi có phải tới thử váy nữa không?</span><span class="en">Do I still need a fitting?</span></summary>
+      <div class="body"><p><span class="vi">Vẫn nên. Bộ số giúp Dolinhanh chuẩn bị sẵn những mẫu vừa dáng bạn nhất và biết trước chỗ nào cần sửa, nên buổi thử ngắn và đỡ mất công đi lại. Nhưng cảm giác mặc lên người, độ ôm ở thân và cách chiếc váy đi theo bước chân thì chỉ khi thử mới biết.</span><span class="en">Yes. Your numbers let Dolinhanh pull the styles most likely to suit you and anticipate the alterations, so the fitting is shorter. But how a gown feels on, how it holds your torso and moves as you walk — that only happens in person.</span></p></div>
     </details>
   </div>
 </section>
 
-<section class="cta" style="padding-top:clamp(48px,7vw,96px)">
-  <div class="wrap">
-    <p class="eyebrow">Bước tiếp theo</p>
-    <h2 style="max-width:20ch">Mang bộ số đo tới buổi thử váy</h2>
-    <p class="col" style="margin-top:1.2em">Gửi phiếu số đo qua Zalo trước, Dolinhanh sẽ chuẩn bị sẵn những mẫu hợp dáng bạn nhất cho buổi thử. Thử váy tại showroom miễn phí, đặt lịch trước để có phòng thử và stylist riêng.</p>
-    <div class="shops">
-      <div>
-        <h3>Hà Nội</h3>
-        <p>75 Nguyễn Thị Định, Trung Hoà, Cầu Giấy</p>
+<section class="cta">
+  <div class="wrap cta-grid">
+    <div>
+      <p class="eyebrow"><span class="vi">Bước tiếp theo</span><span class="en">Next step</span></p>
+      <h2><span class="vi">Mang bộ số đo tới buổi thử váy</span><span class="en">Bring your numbers to the fitting</span></h2>
+      <p style="margin-top:1.2em"><span class="vi">Gửi phiếu số đo qua Zalo trước, Dolinhanh chuẩn bị sẵn những mẫu hợp dáng bạn nhất. Thử váy tại showroom miễn phí, đặt lịch trước để có phòng thử và stylist riêng.</span><span class="en">Send your sheet on Zalo first and Dolinhanh will have the most suitable gowns ready for you. Trying on at the showroom is free — book ahead for a private fitting room and your own stylist.</span></p>
+      <div class="shops">
+        <div>
+          <h3><span class="vi">Hà Nội</span><span class="en">Hanoi</span></h3>
+          <p>75 Nguyễn Thị Định, Trung Hoà, Cầu Giấy</p>
+        </div>
+        <div>
+          <h3><span class="vi">TP. Hồ Chí Minh</span><span class="en">Ho Chi Minh City</span></h3>
+          <p>2 Tân Canh, Phường 1, Tân Bình</p>
+        </div>
+        <div>
+          <h3>Zalo · Hotline</h3>
+          <p>0359 950 588</p>
+        </div>
       </div>
-      <div>
-        <h3>TP. Hồ Chí Minh</h3>
-        <p>2 Tân Canh, Phường 1, Tân Bình</p>
-      </div>
-      <div>
-        <h3>Zalo · Hotline</h3>
-        <p>0359 950 588</p>
-      </div>
+      <a class="zalo" href="https://zalo.me/0359950588" target="_blank" rel="noopener"><span class="vi">Nhắn Zalo đặt lịch thử váy</span><span class="en">Message us on Zalo</span></a>
     </div>
-    <a class="zalo" href="https://zalo.me/0359950588" target="_blank" rel="noopener">Nhắn Zalo đặt lịch thử váy</a>
+    <img src="anh/do-so-do/guong-codau.jpg" alt="Cô dâu mặc váy cưới đứng trước gương" loading="lazy">
   </div>
 </section>
 
 </main>
 
+<a class="zl-noi" id="zl-noi" href="https://zalo.me/0359950588" target="_blank" rel="noopener" aria-label="Nhắn Zalo cho Dolinhanh Bridal">
+  <span class="zl-icon" aria-hidden="true">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+  </span>
+  <span class="zl-chu"><span class="vi">Nhắn Zalo đặt lịch</span><span class="en">Chat on Zalo</span></span>
+</a>
+
 <footer class="end">
-  <div class="wrap">Dolinhanh Bridal · Cẩm nang cô dâu · Số đo bạn điền chỉ lưu trên máy của bạn</div>
+  <div class="wrap"><span class="vi">Dolinhanh Bridal · Cẩm nang cô dâu · Số đo bạn điền chỉ lưu trên máy của bạn</span><span class="en">Dolinhanh Bridal · Bride's guide · Your measurements stay on your own device</span></div>
 </footer>
 
 <script>
 (function(){
+  var root = document.documentElement;
+
+  function lang(){ return root.getAttribute("data-lang") === "en" ? "en" : "vi"; }
+  function setLang(l){
+    root.setAttribute("data-lang", l);
+    root.setAttribute("lang", l === "en" ? "en" : "vi");
+    document.title = l === "en" ? "Measure Yourself at Home" : "Cẩm nang tự đo số đo";
+    bVi.setAttribute("aria-pressed", l === "vi" ? "true" : "false");
+    bEn.setAttribute("aria-pressed", l === "en" ? "true" : "false");
+    try{ localStorage.setItem("dla-lang", l); }catch(e){}
+  }
+  var bVi = document.getElementById("btn-vi");
+  var bEn = document.getElementById("btn-en");
+  bVi.addEventListener("click", function(){ setLang("vi"); });
+  bEn.addEventListener("click", function(){ setLang("en"); });
+  setLang(lang());
+
   var form = document.getElementById("sheet");
   if(!form) return;
   var inputs = form.querySelectorAll("input");
@@ -699,7 +883,7 @@
   function flash(msg){
     saved.textContent = msg;
     clearTimeout(flash.t);
-    flash.t = setTimeout(function(){ saved.textContent = ""; }, 2600);
+    flash.t = setTimeout(function(){ saved.textContent = ""; }, 2800);
   }
   function store(){
     var data = {};
@@ -713,36 +897,38 @@
       inputs.forEach(function(i){ if(data[i.id]) i.value = data[i.id]; });
     }
   }catch(e){}
-
   inputs.forEach(function(i){ i.addEventListener("input", store); });
 
   function buildText(){
-    var lines = ["PHIẾU SỐ ĐO — DOLINHANH BRIDAL", ""];
+    var l = lang();
+    var lines = [l === "en" ? "MEASUREMENT SHEET — DOLINHANH BRIDAL" : "PHIẾU SỐ ĐO — DOLINHANH BRIDAL", ""];
     inputs.forEach(function(i){
       var label = form.querySelector('label[for="' + i.id + '"]');
-      var name = label ? label.textContent.trim() : i.id;
+      var sp = label ? label.querySelector("." + l) : null;
+      var name = (sp ? sp.textContent : (label ? label.textContent : i.id)).trim();
       var unit = i.parentNode.querySelector(".unit");
       var val = i.value.trim();
       if(val) lines.push(name + ": " + val + (unit ? " " + unit.textContent : ""));
     });
-    if(lines.length === 2) lines.push("(chưa điền số nào)");
+    if(lines.length === 2) lines.push(l === "en" ? "(nothing filled in yet)" : "(chưa điền số nào)");
     return lines.join("\n");
   }
 
   document.getElementById("btn-copy").addEventListener("click", function(){
+    var l = lang();
+    var okMsg = l === "en" ? "Copied — paste it to us on Zalo" : "Đã copy — dán vào Zalo gửi Dolinhanh";
+    var failMsg = l === "en" ? "Copy blocked — please select and copy manually" : "Máy không cho copy tự động, bạn chọn và copy tay giúp nhé";
     var text = buildText();
     function fallback(){
       var ta = document.createElement("textarea");
       ta.value = text; ta.style.position = "fixed"; ta.style.opacity = "0";
       document.body.appendChild(ta); ta.select();
-      try{ document.execCommand("copy"); flash("Đã copy — dán vào Zalo gửi Dolinhanh"); }
-      catch(e){ flash("Máy không cho copy tự động, bạn chọn và copy tay giúp nhé"); }
+      try{ document.execCommand("copy"); flash(okMsg); }
+      catch(e){ flash(failMsg); }
       document.body.removeChild(ta);
     }
     if(navigator.clipboard && navigator.clipboard.writeText){
-      navigator.clipboard.writeText(text).then(function(){
-        flash("Đã copy — dán vào Zalo gửi Dolinhanh");
-      }).catch(fallback);
+      navigator.clipboard.writeText(text).then(function(){ flash(okMsg); }).catch(fallback);
     } else { fallback(); }
   });
 
@@ -751,7 +937,7 @@
   document.getElementById("btn-clear").addEventListener("click", function(){
     inputs.forEach(function(i){ i.value = ""; });
     try{ localStorage.removeItem(KEY); }catch(e){}
-    flash("Đã xoá hết số đo trên máy này");
+    flash(lang() === "en" ? "Cleared from this device" : "Đã xoá hết số đo trên máy này");
   });
 })();
 </script>
