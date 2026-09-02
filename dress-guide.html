@@ -322,6 +322,56 @@ src="https://www.facebook.com/tr?id=1358640082651240&ev=PageView&noscript=1"
   }
   .goi-y.hien{opacity:1}
   @media(prefers-reduced-motion:reduce){.to{transition:none}}
+
+  /* ── popup giữa sách: xin SĐT/Zalo đổi checklist thử váy ── */
+  .dg-noi-nho{
+    position:fixed;left:16px;bottom:16px;z-index:75;max-width:300px;
+    background:#fff;color:#241B19;border-radius:14px;padding:18px 18px 16px;
+    box-shadow:0 16px 44px rgba(36,27,25,.24);
+    opacity:0;transform:translateY(18px);pointer-events:none;
+    transition:opacity .5s,transform .5s;
+  }
+  .dg-noi-nho.hien{opacity:1;transform:none;pointer-events:auto}
+  .dg-nn-dong{position:absolute;top:8px;right:10px;border:0;background:none;font:300 22px/1 var(--sans);color:#8B7B77;cursor:pointer}
+  .dg-noi-nho .nhan-h{font-family:var(--sans);font-size:.58rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:#B05A55}
+  .dg-noi-nho h4{margin:5px 0 6px;font-family:var(--serif);font-weight:400;font-size:1.05rem;color:#241B19}
+  .dg-noi-nho p{margin:0 0 12px;font-size:.78rem;line-height:1.5;color:#4C3E3B}
+  .dg-noi-nho input{width:100%;box-sizing:border-box;border:1px solid #DFD5D0;border-radius:9px;padding:10px 12px;font-size:.85rem;font-family:var(--sans);color:#241B19;outline:none;margin-bottom:8px}
+  .dg-noi-nho input:focus{border-color:#B05A55}
+  .dg-noi-nho button[type=submit]{width:100%;border:0;border-radius:999px;background:#B05A55;color:#fff;padding:10px;font-size:.74rem;letter-spacing:.05em;text-transform:uppercase;font-family:var(--sans);cursor:pointer}
+  .dg-nn-loi{display:block;color:#B0413A;font-size:.7rem;margin-top:6px;min-height:1em}
+  #dg-checklist-xong p{margin:0;font-size:.82rem;line-height:1.5;color:#4C3E3B}
+  @media(max-width:560px){.dg-noi-nho{left:10px;right:10px;bottom:64px;max-width:none}}
+
+  /* ── CTA chính cuối sách: đặt lịch thử váy riêng 1:1 ── */
+  .dg-cta-cuoi{
+    position:fixed;left:0;right:0;bottom:0;z-index:70;
+    background:#fff;border-top:1px solid var(--vien);
+    box-shadow:0 -10px 30px rgba(36,27,25,.14);
+    padding:14px clamp(14px,3vw,26px) calc(14px + env(safe-area-inset-bottom));
+    transform:translateY(120%);transition:transform .5s cubic-bezier(.22,1,.36,1);
+  }
+  .dg-cta-cuoi.hien{transform:translateY(0)}
+  .dg-cta-dong{position:absolute;top:8px;right:12px;border:0;background:none;font:300 22px/1 var(--sans);color:#8B7B77;cursor:pointer}
+  .dg-cta-noi{max-width:520px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:6px;text-align:center}
+  .dg-cta-noi .nhan-h{font-family:var(--sans);font-size:.56rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:#B05A55}
+  .dg-cta-noi b{font-family:var(--serif);font-weight:400;font-size:1.05rem;color:#241B19}
+  .dg-cta-nut{border:0;border-radius:999px;background:#B05A55;color:#fff;padding:13px 28px;font-family:var(--sans);font-size:.78rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;margin-top:2px;white-space:nowrap}
+  .dg-cta-nut:hover{opacity:.9}
+  .dg-cta-phu{font-family:var(--sans);font-size:.68rem;color:#8B7B77;text-decoration:underline;margin-top:2px}
+
+  /* ── form đặt lịch (dùng lại kiểu .hop-noi) ── */
+  .dg-fm{margin-top:16px;display:grid;gap:12px;text-align:left}
+  .dg-fm label{display:block;font-family:var(--sans);font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:#8B7B77;margin-bottom:5px}
+  .dg-fm input,.dg-fm select{
+    width:100%;box-sizing:border-box;border:1px solid #DFD5D0;border-radius:9px;background:#fff;
+    padding:10px 12px;font-size:.9rem;font-family:var(--sans);color:#241B19;outline:none;
+  }
+  .dg-fm input:focus,.dg-fm select:focus{border-color:#B05A55}
+  .dg-fm-doi{display:grid;gap:12px}
+  @media(min-width:480px){.dg-fm-doi{grid-template-columns:1fr 1fr}}
+  .dg-fm-tb{margin-top:10px;font-family:var(--sans);font-size:.78rem;color:#4C3E3B;min-height:16px;text-align:center}
+  .dg-fm-tb.loi{color:#9C3B3B}
 </style>
 
 <div class="top">
@@ -390,6 +440,72 @@ src="https://www.facebook.com/tr?id=1358640082651240&ev=PageView&noscript=1"
     <div id="qz-danh-sach"></div>
     <div class="qz-kq" id="qz-kq" hidden></div>
     <button class="qz-lam-lai" id="qz-lam-lai" hidden>Làm lại từ đầu</button>
+  </div>
+</div>
+
+<!-- ── popup giữa sách: xin SĐT/Zalo đổi checklist thử váy ── -->
+<div class="dg-noi-nho" id="dg-checklist" role="dialog" aria-label="Nhận checklist đi thử váy">
+  <button class="dg-nn-dong" id="dg-checklist-dong" aria-label="Đóng">×</button>
+  <div id="dg-checklist-trong">
+    <span class="nhan-h">Quà tặng thêm</span>
+    <h4>Checklist đi thử váy</h4>
+    <p>Để lại Zalo, Dolinhanh gửi ngay danh sách việc cần chuẩn bị trước buổi thử — khỏi quên gì.</p>
+    <form id="dg-checklist-form">
+      <input type="tel" id="dg-checklist-sdt" inputmode="tel" placeholder="Số điện thoại (Zalo)" required>
+      <button type="submit">Gửi checklist cho tôi</button>
+      <span class="dg-nn-loi" id="dg-checklist-loi"></span>
+    </form>
+  </div>
+  <div id="dg-checklist-xong" hidden>
+    <p><b>Đã nhận được rồi 🤍</b><br>Dolinhanh sẽ nhắn checklist qua Zalo này trong ít phút.</p>
+  </div>
+</div>
+
+<!-- ── CTA chính cuối sách: đặt lịch thử váy riêng 1:1 ── -->
+<div class="dg-cta-cuoi" id="dg-cta-cuoi">
+  <button class="dg-cta-dong" id="dg-cta-dong" aria-label="Đóng">×</button>
+  <div class="dg-cta-noi">
+    <span class="nhan-h">Bước tiếp theo</span>
+    <b>Sẵn sàng đi thử váy chưa?</b>
+    <button type="button" class="dg-cta-nut" id="dg-cta-mo">Đặt lịch thử váy riêng 1:1</button>
+    <a class="dg-cta-phu" href="mua-planner.html" target="_blank" rel="noopener">Hoặc giữ ebook "Hành trình trở thành cô dâu" — 99.000đ</a>
+  </div>
+</div>
+
+<div class="hop-nen" id="dg-hen-nen">
+  <div class="hop-noi" role="dialog" aria-modal="true" aria-labelledby="dg-hen-tieude">
+    <button class="hop-dong" id="dg-hen-dong" aria-label="Đóng">✕</button>
+    <span class="nhan-h">Đặt lịch riêng</span>
+    <h3 id="dg-hen-tieude">Đặt lịch thử váy 1:1</h3>
+    <p style="margin-top:8px">Để lại thông tin, Dolinhanh giữ đúng khung giờ và xác nhận lại với bạn.</p>
+    <form id="dg-fmHen" class="dg-fm" novalidate>
+      <label>Tên cô dâu &amp; chú rể <span style="color:#241B19">*</span>
+        <input type="text" name="ten" required placeholder="Ví dụ: Thu Hà &amp; Minh Quân"></label>
+      <label>Số điện thoại <span style="color:#241B19">*</span>
+        <input type="tel" name="sdt" required inputmode="tel" placeholder="Để Dolinhanh gọi xác nhận lịch"></label>
+      <label>Ngày tổ chức tiệc
+        <input type="date" name="ngayTiec"></label>
+      <label>Địa điểm tổ chức tiệc
+        <input type="text" name="noiTiec" placeholder="Trung tâm tiệc cưới / khách sạn, tỉnh thành"></label>
+      <div class="dg-fm-doi">
+        <label>Ngày đặt hẹn <span style="color:#241B19">*</span>
+          <input type="date" name="ngayHen" required></label>
+        <label>Giờ đặt hẹn <span style="color:#241B19">*</span>
+          <input type="time" name="gioHen" required step="900"></label>
+      </div>
+      <label>Showroom
+        <select name="coSo">
+          <option value="HN - 75 Nguyễn Thị Định">Hà Nội · 75 Nguyễn Thị Định</option>
+          <option value="HCM - 2 Tân Canh, Q. Tân Bình">TP.HCM · 2 Tân Canh, Tân Bình</option>
+        </select></label>
+      <button type="submit" class="di-trang" id="dg-btnHen" style="width:100%;justify-content:center;margin-top:6px">Gửi thông tin đặt hẹn</button>
+      <p class="dg-fm-tb" id="dg-henTb"></p>
+    </form>
+    <div id="dg-henXong" hidden>
+      <p style="font-weight:600;margin-top:16px">Dolinhanh đã nhận thông tin của bạn 🤍</p>
+      <p>Dolinhanh sẽ gọi lại xác nhận lịch sớm nhất. Bạn nhắn thêm qua Zalo để giữ chỗ nhanh hơn nhé — nội dung đã copy sẵn.</p>
+      <button type="button" class="di-trang" id="dg-nutZalo">Nhắn Zalo 035 995 0588</button>
+    </div>
   </div>
 </div>
 
@@ -466,6 +582,18 @@ src="https://www.facebook.com/tr?id=1358640082651240&ev=PageView&noscript=1"
   /* ── điểm bấm ── */
   var DIEM = DUNG_DT ? (window.__DIEM_DT__ || []) : (window.__DIEM__ || []);
   var hopNen = document.getElementById('hop-nen');
+
+  /* ── trang mốc để bật popup checklist / CTA cuối — dò theo mục lục
+     thay vì hardcode số, để renumber trang không làm lệch mốc ── */
+  function timNhay(chua){
+    var e = DIEM.filter(function(d){ return d.nhan === 'Mục lục' && d.ten && d.ten.indexOf(chua) !== -1; })[0];
+    return e ? e.nhay : null;
+  }
+  var TRANG_CHECKLIST = timNhay('phần 02') || Math.max(1, Math.round(N * 0.22));
+  var TRANG_CUOI = (function(){
+    var ps = DIEM.filter(function(d){ return d.nhan === 'Bước tiếp theo'; }).map(function(d){ return d.p; });
+    return ps.length ? Math.min.apply(null, ps) : Math.max(1, N - 2);
+  })();
 
   function moHop(d){
     if (d.quiz){ moQuiz(); return; }
@@ -700,6 +828,7 @@ src="https://www.facebook.com/tr?id=1358640082651240&ev=PageView&noscript=1"
       bLui.disabled = p === 0;
       bToi.disabled = p >= N - 1;
       veSoNhanh(p + 1);
+      baoTrangDaXem(p + 1);
       return;
     }
     to.forEach(function(el, k){
@@ -716,6 +845,12 @@ src="https://www.facebook.com/tr?id=1358640082651240&ev=PageView&noscript=1"
     bLui.disabled = vi === 0;
     bToi.disabled = vi >= SO_TO;
     veSoNhanh(trai || 1);
+    baoTrangDaXem(Math.max(trai, phai || trai));
+  }
+
+  function baoTrangDaXem(trang){
+    if (window.__dgKiemChecklist) window.__dgKiemChecklist(trang);
+    if (window.__dgKiemCuoi) window.__dgKiemCuoi(trang);
   }
 
   function di(buoc){
@@ -820,6 +955,155 @@ src="https://www.facebook.com/tr?id=1358640082651240&ev=PageView&noscript=1"
     goiY.classList.add('hien');
     setTimeout(function(){ goiY.classList.remove('hien'); }, 4200);
   }
+  /* ── popup giữa sách: xin SĐT/Zalo đổi checklist thử váy ──
+     Thu lead sớm, không đợi đọc hết mới xin. Bỏ qua nếu khách đã để lại
+     SĐT ở cổng đầu sách hoặc đã từng thấy popup này rồi. */
+  (function(){
+    var hop = document.getElementById('dg-checklist');
+    if (!hop) return;
+    var KEY_GATE = 'dla_lead_dressguide';
+    var KEY_CL = 'dla_dg_checklist_lead';
+    var KEY_SEEN = 'dla_dg_checklist_seen';
+    function daCoLead(){
+      try{ return !!(localStorage.getItem(KEY_GATE) || localStorage.getItem(KEY_CL)); }catch(e){ return false; }
+    }
+    function daXem(){
+      try{ return !!localStorage.getItem(KEY_SEEN); }catch(e){ return false; }
+    }
+    function danhDauXem(){
+      try{ localStorage.setItem(KEY_SEEN, '1'); }catch(e){}
+    }
+    var daHien = false;
+    window.__dgKiemChecklist = function(trang){
+      if (daHien || daCoLead() || daXem()) return;
+      if (trang >= TRANG_CHECKLIST){
+        daHien = true;
+        danhDauXem();
+        setTimeout(function(){ hop.classList.add('hien'); }, 500);
+      }
+    };
+    document.getElementById('dg-checklist-dong').addEventListener('click', function(){
+      hop.classList.remove('hien');
+    });
+    var form = document.getElementById('dg-checklist-form');
+    form.addEventListener('submit', function(ev){
+      ev.preventDefault();
+      var sdt = document.getElementById('dg-checklist-sdt').value.trim().replace(/[.\s-]/g, '');
+      var PHONE_RE = /^(0|\+?84)(3|5|7|8|9)[0-9]{8}$/;
+      var loi = document.getElementById('dg-checklist-loi');
+      if (!PHONE_RE.test(sdt)){ loi.textContent = 'Số điện thoại chưa đúng.'; return; }
+      loi.textContent = '';
+      var ten = '';
+      try{
+        var gate = JSON.parse(localStorage.getItem(KEY_GATE) || 'null');
+        if (gate && gate.ten) ten = gate.ten;
+      }catch(e){}
+      try{
+        var fd = new FormData();
+        fd.append('entry.1614276000', ten);
+        fd.append('entry.379034013', sdt);
+        fd.append('entry.541722676', 'popup-checklist-giua-sach | ' + document.referrer);
+        fetch('https://docs.google.com/forms/u/0/d/e/1FAIpQLSchU7uUBZBNfiQZSiVYvHVcUfyEJiJA084SHRNWEcnZ_CyplA/formResponse', {method:'POST', mode:'no-cors', body:fd});
+      }catch(e){}
+      try{ if (typeof fbq === 'function') fbq('track', 'Lead', {content_name:'Dress Guide Checklist Popup'}); }catch(e){}
+      try{ localStorage.setItem(KEY_CL, JSON.stringify({sdt:sdt, ts:Date.now()})); }catch(e){}
+      document.getElementById('dg-checklist-trong').hidden = true;
+      document.getElementById('dg-checklist-xong').hidden = false;
+      setTimeout(function(){ hop.classList.remove('hien'); }, 3400);
+    });
+  })();
+
+  /* ── CTA chính cuối sách: đặt lịch thử váy riêng 1:1 ──
+     Hiện khi khách chạm tới phần "Bước tiếp theo", ở nguyên trên màn
+     hình (không tự ẩn) — ebook 99k chỉ còn là lựa chọn phụ bên dưới. */
+  (function(){
+    var banner = document.getElementById('dg-cta-cuoi');
+    var nen = document.getElementById('dg-hen-nen');
+    var fm = document.getElementById('dg-fmHen');
+    if (!banner || !nen || !fm) return;
+
+    window.__dgKiemCuoi = function(trang){
+      if (trang >= TRANG_CUOI) banner.classList.add('hien');
+    };
+    document.getElementById('dg-cta-dong').addEventListener('click', function(){
+      banner.classList.remove('hien');
+    });
+
+    try{
+      var gate = JSON.parse(localStorage.getItem('dla_lead_dressguide') || 'null');
+      if (gate){
+        if (gate.ten) fm.querySelector('[name=ten]').value = gate.ten;
+        if (gate.sdt) fm.querySelector('[name=sdt]').value = gate.sdt;
+      }
+    }catch(e){}
+
+    document.getElementById('dg-cta-mo').addEventListener('click', function(){
+      nen.classList.add('hien');
+    });
+    document.getElementById('dg-hen-dong').addEventListener('click', function(){ nen.classList.remove('hien'); });
+    nen.addEventListener('click', function(ev){ if (ev.target === nen) nen.classList.remove('hien'); });
+
+    var FORM_ID  = '1FAIpQLSeF3dEz3mocx_O5PxRjuYsOy3SktzFlXvEd-EeQ07eijImlew';
+    var MAIL_URL = 'https://script.google.com/macros/s/AKfycbwlmpyoY3b-iCmO9ZoVeUhm0wYJb4CrQ6I9ezsadk4UhDx1JS3qAEN7MWNOL_DGgkiV/exec';
+    var tb = document.getElementById('dg-henTb');
+    function ngayVN(v){ if (!v) return ''; var pp = v.split('-'); return pp[2] + '/' + pp[1] + '/' + pp[0]; }
+
+    fm.addEventListener('submit', function(ev){
+      ev.preventDefault();
+      var d = {}; new FormData(fm).forEach(function(v, k){ d[k] = (v || '').trim(); });
+      if (!d.ten || !d.sdt || !d.ngayHen || !d.gioHen){
+        tb.className = 'dg-fm-tb loi'; tb.textContent = 'Bạn điền giúp Dolinhanh các ô có dấu * nhé.';
+        return;
+      }
+      var btn = document.getElementById('dg-btnHen');
+      btn.disabled = true; btn.textContent = 'Đang gửi…';
+      tb.className = 'dg-fm-tb'; tb.textContent = '';
+
+      var ghiChu = 'Khách tự đặt qua ebook Dress Guide.'
+        + (d.ngayTiec ? ' Ngày tổ chức tiệc: ' + ngayVN(d.ngayTiec) + '.' : '')
+        + (d.noiTiec  ? ' Địa điểm tiệc: ' + d.noiTiec + '.' : '');
+
+      var f = new FormData();
+      f.append('entry.255122862',  'Đặt hẹn mới');
+      f.append('entry.1209740434', d.coSo);
+      f.append('entry.1170467141', d.ten);
+      f.append('entry.1115003557', d.sdt);
+      var n = d.ngayHen.split('-');
+      f.append('entry.1882557220_year', n[0]);
+      f.append('entry.1882557220_month', n[1]);
+      f.append('entry.1882557220_day', n[2]);
+      var g = d.gioHen.split(':');
+      f.append('entry.495927254_hour', g[0]);
+      f.append('entry.495927254_minute', g[1]);
+      f.append('entry.1839154254', '1 tiếng (mặc định)');
+      f.append('entry.1191547382', 'Khách thường');
+      f.append('entry.283405907',  ghiChu);
+      f.append('entry.828439224',  'Khách tự đặt (ebook Dress Guide)');
+      fetch('https://docs.google.com/forms/d/e/' + FORM_ID + '/formResponse', {method:'POST', mode:'no-cors', body:f}).catch(function(){});
+
+      var tin = 'KHÁCH ĐẶT LỊCH THỬ VÁY (ebook Dress Guide)\n'
+        + 'Cô dâu & chú rể: ' + d.ten + '\n'
+        + 'SĐT: ' + d.sdt + '\n'
+        + 'Ngày tổ chức tiệc: ' + (ngayVN(d.ngayTiec) || 'chưa điền') + '\n'
+        + 'Địa điểm tổ chức tiệc: ' + (d.noiTiec || 'chưa điền') + '\n'
+        + 'Ngày đặt hẹn: ' + ngayVN(d.ngayHen) + '\n'
+        + 'Giờ đặt hẹn: ' + d.gioHen + '\n'
+        + 'Showroom: ' + d.coSo;
+      fetch(MAIL_URL + '?hoi=' + encodeURIComponent(tin) + '&em=' + encodeURIComponent(d.sdt), {mode:'no-cors'}).catch(function(){});
+
+      try{ navigator.clipboard.writeText(tin); }catch(e){}
+      try{ if (typeof fbq === 'function') fbq('track', 'Schedule', {content_name:'Dress Guide - Dat lich 1:1'}); }catch(e){}
+
+      var nz = document.getElementById('dg-nutZalo');
+      if (nz){ nz.onclick = function(){ try{ navigator.clipboard.writeText(tin); }catch(e){} window.open('https://zalo.me/0359950588', '_blank', 'noopener'); }; }
+
+      setTimeout(function(){
+        fm.style.display = 'none';
+        document.getElementById('dg-henXong').hidden = false;
+      }, 700);
+    });
+  })();
+
   window.addEventListener('resize', doCo);
   window.addEventListener('load', doCo);
   window.addEventListener('orientationchange', doCo);
