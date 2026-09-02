@@ -197,8 +197,9 @@ src="https://www.facebook.com/tr?id=1358640082651240&ev=PageView&noscript=1"
   /* ── đọc to: phóng trang để đọc trên điện thoại ────── */
   .phong{position:fixed;inset:0;z-index:140;background:#fff;display:none;flex-direction:column}
   .phong.hien{display:flex}
-  .phong-cuon{flex:1;overflow:auto;-webkit-overflow-scrolling:touch;background:#EFE9E5}
+  .phong-cuon{position:relative;flex:1;overflow:auto;-webkit-overflow-scrolling:touch;background:#EFE9E5}
   .phong-cuon img{display:block;margin:0 auto;max-width:none;height:auto}
+  #phong-diem{position:absolute;top:0;left:0}
   .phong-thanh{
     flex:none;display:flex;align-items:center;justify-content:center;gap:10px;
     padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:#fff;
@@ -313,7 +314,7 @@ src="https://www.facebook.com/tr?id=1358640082651240&ev=PageView&noscript=1"
 <div class="so-nhanh" id="so-nhanh"></div>
 
 <div class="phong" id="phong">
-  <div class="phong-cuon" id="phong-cuon"><img id="phong-anh" alt="Trang sách"></div>
+  <div class="phong-cuon" id="phong-cuon"><img id="phong-anh" alt="Trang sách"><div id="phong-diem"></div></div>
   <div class="phong-thanh">
     <button id="ph-lui" aria-label="Trang trước">‹</button>
     <span class="so" id="ph-so">01</span>
@@ -560,6 +561,22 @@ src="https://www.facebook.com/tr?id=1358640082651240&ev=PageView&noscript=1"
   var phAnh = document.getElementById('phong-anh');
   var mucPhong = [1, 1.6, 2.4, 3.4], iPhong = 1, trangPhong = 0;
 
+  /* hotspot cũng bấm được trong chế độ phóng to — dùng lại datDiem(), chỉ
+     cần tính đúng khung ảnh hiện tại (đổi theo trang / mức zoom) mỗi lần */
+  var phDiem = document.getElementById('phong-diem');
+  function veDiemPhong(){
+    var r = phAnh.getBoundingClientRect();
+    var cr = phCuon.getBoundingClientRect();
+    if (!r.width || !r.height) return; /* ảnh chưa tải xong kích thước */
+    phDiem.style.left = Math.round(r.left - cr.left + phCuon.scrollLeft) + 'px';
+    phDiem.style.top = Math.round(r.top - cr.top + phCuon.scrollTop) + 'px';
+    phDiem.style.width = Math.round(r.width) + 'px';
+    phDiem.style.height = Math.round(r.height) + 'px';
+    phDiem.innerHTML = '';
+    datDiem(phDiem, trangPhong + 1);
+  }
+  phAnh.addEventListener('load', veDiemPhong);
+
   function veoPhong(){
     var laBia = trangPhong === 0;
     if (laBia){
@@ -580,6 +597,7 @@ src="https://www.facebook.com/tr?id=1358640082651240&ev=PageView&noscript=1"
     document.getElementById('ph-toi').disabled = trangPhong >= N - 1;
     document.getElementById('ph-nho').disabled = laBia || iPhong === 0;
     document.getElementById('ph-to').disabled = laBia || iPhong === mucPhong.length - 1;
+    setTimeout(veDiemPhong, 30); /* chờ layout ổn định rồi mới đo khung ảnh */
   }
   function moPhong(t){
     trangPhong = Math.max(0, Math.min(N - 1, t));
