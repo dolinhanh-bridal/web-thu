@@ -31,7 +31,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="Tự thiết kế chiếc váy cưới của riêng bạn cùng Dolinhanh Bridal — kể về chiếc váy bạn mơ ước, chọn silhouette, cổ váy, chất liệu và màu sắc.">
-<title>Thiết Kế Váy Cưới Của Riêng Bạn — Dolinhanh Bridal</title>
+<title>Design Your Own Wedding Dress — Dolinhanh Bridal</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Be+Vietnam+Pro:wght@200;300;400;500;600;700&display=swap">
@@ -132,7 +132,7 @@
   /* ── kết quả ─────────────────────────────────────── */
   .kq-luoi{display:grid;grid-template-columns:340px 1fr;gap:32px;align-items:start;margin-bottom:24px}
   @media(max-width:820px){.kq-luoi{grid-template-columns:1fr}}
-  .khung-vay{background:#FBF8F3;border-radius:20px;aspect-ratio:320/860;
+  .khung-vay{background:var(--bubble);border-radius:20px;aspect-ratio:320/620;
              display:flex;align-items:center;justify-content:center;position:relative;max-width:340px}
   .khung-vay svg{width:92%;height:92%}
   .khung-vay.co-anh{padding:0;overflow:hidden}
@@ -205,13 +205,13 @@
 <div class="khung">
   <div class="dau">
     <a class="wordmark" href="bao-gia-v2.html">Dolinhanh</a>
-    <a class="phu" href="design-your-dress.html">English</a>
+    <a class="phu" href="thiet-ke-vay.html">Tiếng Việt</a>
   </div>
 
   <div class="tien" id="tien"></div>
   <div id="noidung"></div>
 
-  <div class="chan">Dolinhanh Bridal · Hà Nội &amp; TP. Hồ Chí Minh</div>
+  <div class="chan">Dolinhanh Bridal · Hanoi &amp; Ho Chi Minh City</div>
 </div>
 
 <script>
@@ -231,51 +231,51 @@ var ZALO = "https://zalo.me/0359950588";
 
 /* ═════════ LỜI THOẠI (dịch từ nguyên văn bản gốc) ═════════ */
 var L = {
-  chao: "Chào bạn! Mình là trợ lý thiết kế riêng của Dolinhanh Bridal. Mình ở đây để giúp bạn thiết kế chiếc váy trong mơ mà mới chỉ tồn tại trong trí tưởng tượng của bạn. Cùng biến nó thành hiện thực nhé. ✨",
-  hoiAnh: "Bạn có tấm ảnh cảm hứng nào mình yêu thích không? Kể cả chỉ là vài chi tiết của những chiếc váy khác nhau, mình cũng rất muốn xem điều gì đã chạm đến bạn.",
-  hoiAnh_1: "Tải ảnh cảm hứng của tôi lên",
-  hoiAnh_2: "Xem thư viện gợi ý của Dolinhanh",
-  hoiAnh_3: "Bỏ qua",
-  keVay: "Kể cho mình nghe về chiếc váy bạn vẫn hằng mơ ước. Đừng lo nếu bạn chưa hình dung được hết mọi chi tiết — chỉ một cảm giác, một không khí, hay vài chi tiết bạn thích ở những chiếc váy khác nhau cũng là điểm bắt đầu hoàn hảo rồi. Đó chính là việc của mình.",
-  keVay_vd: "Ví dụ: “Mình hình dung một chiếc váy chữ A lãng mạn với những đường ren mảnh, hợp với một đám cưới ngoài trời ấm cúng giữa hoa lá và ánh sáng dịu. Cảm giác nên mơ màng, tinh tế và vượt thời gian.”",
-  boBuoc: "Bỏ qua bước này",
-  gui: "Gửi",
-  dangNghi: "Mình đang cảm nhận ý tưởng của bạn và hình dung ra chiếc váy hoàn hảo…",
-  theDD: "✦ Đặc điểm chiếc váy trong mơ của bạn",
-  xacNhan: "Nghe đã thấy đẹp rồi đấy. Mình chỉ muốn chắc chắn là mình hiểu đúng hình dung của bạn trước khi đi tiếp. Cảm giác này đúng là bạn chứ?",
-  co: "Đúng rồi",
-  khong: "Chưa đúng lắm",
-  vuiNhat: "Giờ đến phần thú vị nhất! Cùng đưa hình dung của bạn thành hình hài, từng chi tiết một. Chọn những đặc điểm chính bên dưới nhé. Chưa chắc chắn ở mục nào thì cứ chọn “Linh hoạt” — không có lựa chọn nào là sai cả.",
-  tiepTuc: "Tiếp tục",
-  themGi: "Bạn còn mong muốn gì thêm không? (ví dụ: đính kết như đá hay ngọc trai, kiểu tay áo, độ dài đuôi váy, v.v.)",
-  dangVe: "Đây rồi! Mình đang gom tất cả những gì bạn chia sẻ lại thành một thiết kế. Bản phác thảo riêng cho bạn đang được dựng…",
-  xong: "Chiếc váy của bạn, thiết kế riêng cho bạn!",
-  chuaCo: "Chiếc váy của bạn — và bạn có thể tới thử ngay. ✨",
-  chuaCo_p: "Mẫu bạn đang thấy là váy thật trong bộ sưu tập Dolinhanh — bạn có thể ghé showroom Hà Nội hoặc TP.HCM thử trực tiếp. Nếu muốn đúng từng chi tiết bạn vừa chọn, đội ngũ atelier sẽ may riêng cho bạn theo đúng chất liệu và màu đó.",
-  sanSang: "Sẵn sàng trao đổi?",
-  cta1_b: "Đặt lịch tư vấn thiết kế miễn phí",
-  cta1_s: "Một buổi 30 phút cùng tư vấn viên bridal của Dolinhanh — hoàn toàn miễn phí, không ràng buộc",
-  cta2_b: "Gửi thiết kế của tôi & nhận báo giá riêng",
-  cta2_s: "Gửi thiết kế cùng ảnh cảm hứng, Dolinhanh sẽ báo giá chi tiết cho bạn",
-  chuaSan: "Chưa sẵn sàng? Không sao cả.",
-  cta3_b: "Chỉnh lại thiết kế — mình muốn thử tiếp",
-  cta4_b: "Lưu thiết kế, để lúc khác quay lại",
-  daLuu: "Đã lưu ✓",
-  tvTieuDe: "Thư viện gợi ý",
-  tvMoTa: "Chọn những mẫu bạn thích (tối đa 3) để Dolinhanh hiểu gu của bạn hơn",
-  tvXong: "Xong",
-  upLbl: "Chọn ảnh từ máy",
-  upGhi: "Tối đa 3 ảnh. Không bắt buộc.",
-  upXong: "Xong",
-  loiAI: "Mình chưa kết nối được lúc này, nhưng không sao — mình cùng chọn trực tiếp nhé.",
-  maTK: "Mã thiết kế",
-  nhanCT: "Chất liệu thật, cận cảnh",
-  ghiAnh: "Ảnh mẫu thật từ bộ sưu tập Dolinhanh, chọn theo dáng váy bạn thích. Váy của bạn sẽ được may riêng đúng chất liệu và màu bạn đã chọn."
+  chao: "Hi! I'm Sara, Dolinhanh Bridal's personal design assistant. I'm here to help you design the dream dress that exists only in your imagination. Let's bring it to life. \u2728",
+  hoiAnh: "Do you have any inspiration photos you love? Even if it's just pieces of different dresses, I'd love to see what speaks to you.",
+  hoiAnh_1: "Upload my inspiration photos",
+  hoiAnh_2: "Browse our gallery for inspiration",
+  hoiAnh_3: "Skip",
+  keVay: "Tell me about the dress you've been dreaming of. Don't worry if you don't have every detail figured out \u2014 even a feeling, a vibe, or pieces of different dresses you love is the perfect place to start. That's exactly what I'm here for.",
+  keVay_vd: "e.g., 'I am envisioning a romantic A-line dress with fine lace detailing, suited for an intimate outdoor wedding surrounded by florals and soft lighting. The vibe should be dreamy, elevated, and timeless'",
+  boBuoc: "Skip this step",
+  gui: "Send",
+  dangNghi: "Analyzing your inspiration and envisioning the perfect dress\u2026",
+  theDD: "\u2726 Your Dream Dress Characteristics",
+  xacNhan: "This is starting to sound absolutely beautiful. Just want to make sure I have your vision right before we go further. Does this feel like you?",
+  co: "Yes",
+  khong: "No",
+  vuiNhat: "Now for the fun part! Let's bring your vision to life one detail at a time. Choose your key attributes below. Not sure what to pick? Simply select \"Flexible\". There are no wrong answers here.",
+  tiepTuc: "Continue",
+  themGi: "Any additional preferences? (e.g., embellishments like beading or embroidery, sleeve style, train length, and so on so forth)",
+  dangVe: "This is the moment! I'm bringing everything you've shared to life. Your one-of-a-kind design is being created just for you\u2026",
+  xong: "Your dress, designed just for you!",
+  chuaCo: "Your dress \u2014 and you can come try it on. \u2728",
+  chuaCo_p: "The gown you see is a real dress from the Dolinhanh collection \u2014 come try it on at our Hanoi or Ho Chi Minh City showroom. And if you want every detail exactly as you chose it, our atelier will make it for you in that fabric and colour.",
+  sanSang: "Ready to discuss?",
+  cta1_b: "Book a complimentary design consultation",
+  cta1_s: "A free 30-minute session with one of our bridal consultants \u2014 no commitment required",
+  cta2_b: "Share my design & get a custom quote",
+  cta2_s: "Send us your design and inspiration photos and we'll come back with a detailed quote",
+  chuaSan: "Not ready yet? That's okay.",
+  cta3_b: "Refine my design \u2014 keep exploring",
+  cta4_b: "Save my design and come back later",
+  daLuu: "Saved \u2713",
+  tvTieuDe: "Inspiration Gallery",
+  tvMoTa: "Select images for inspiration (up to 3)",
+  tvXong: "Done",
+  upLbl: "Choose photos",
+  upGhi: "Up to 3 photos. Optional.",
+  upXong: "Done",
+  loiAI: "I couldn't connect just now, but no problem \u2014 let's pick together instead.",
+  maTK: "Design ID",
+  nhanCT: "The fabric, up close",
+  ghiAnh: "A real gown from the Dolinhanh collection, matched to the silhouette you chose. Your dress will be made to order in the fabric and colour you selected."
 };
 
 /* ═════════ DỮ LIỆU LỰA CHỌN (y hệt bản gốc) ═════════ */
 var NHOM = [
-  {key:"silhouette", ten:"Phom váy", opts:[
+  {key:"silhouette", ten:"Silhouette", opts:[
     {id:"A-Line", vi:"Chữ A", rows:[[94,40],[140,34],[230,32],[270,36],[360,54],[460,74],[540,90],[600,100]]},
     {id:"Ball Gown", vi:"Xoè bồng", rows:[[94,40],[140,34],[230,28],[270,66],[340,92],[440,104],[520,110],[600,114]]},
     {id:"Mermaid", vi:"Đuôi cá", rows:[[94,40],[140,34],[230,30],[270,32],[340,34],[420,36],[460,40],[520,64],[600,92]]},
@@ -285,7 +285,7 @@ var NHOM = [
     {id:"Mini / Short", vi:"Váy ngắn", rows:[[94,40],[140,34],[230,32],[270,36],[360,54],[430,68],[460,74]]},
     {id:"Flexible", vi:"Linh hoạt", mem:true}
   ]},
-  {key:"neckline", ten:"Cổ váy", opts:[
+  {key:"neckline", ten:"Neckline", opts:[
     {id:"Sweetheart", vi:"Tim"}, {id:"Straight Across", vi:"Ngang"},
     {id:"V-Neck", vi:"Chữ V"}, {id:"Scoop Neck", vi:"Cong tròn"},
     {id:"Square Neck", vi:"Vuông"}, {id:"Boatneck (Bateau)", vi:"Thuyền"},
@@ -294,7 +294,7 @@ var NHOM = [
     {id:"Asymmetric / One-Shoulder", vi:"Lệch vai"}, {id:"Cowl Neck", vi:"Rủ mềm"},
     {id:"Flexible", vi:"Linh hoạt", mem:true}
   ]},
-  {key:"fabric", ten:"Chất liệu", opts:[
+  {key:"fabric", ten:"Fabric", opts:[
     {id:"Satin", vi:"Phi bóng"}, {id:"Silk", vi:"Lụa"}, {id:"Mikado", vi:"Mikado"},
     {id:"Crepe", vi:"Crepe"}, {id:"Chiffon", vi:"Voan mỏng"}, {id:"Organza", vi:"Organza"},
     {id:"Tulle", vi:"Tuyn"}, {id:"Lace", vi:"Ren"}, {id:"Taffeta", vi:"Taffeta"},
@@ -302,7 +302,7 @@ var NHOM = [
     {id:"Brocade", vi:"Gấm"}, {id:"Velvet", vi:"Nhung"},
     {id:"Flexible", vi:"Linh hoạt", mem:true}
   ]},
-  {key:"color", ten:"Màu sắc", opts:[
+  {key:"color", ten:"Color", opts:[
     {id:"White", vi:"Trắng", hex:"#FFFFFF"}, {id:"Ivory", vi:"Trắng ngà", hex:"#F6EFE4"},
     {id:"Champagne", vi:"Champagne", hex:"#E8D3B0"}, {id:"Blush", vi:"Hồng phấn", hex:"#F3D9DC"},
     {id:"Pearl", vi:"Ngọc trai", hex:"#F0EDE6"}, {id:"Silver", vi:"Bạc", hex:"#D9D9D9"},
@@ -318,12 +318,7 @@ var THU_VIEN = [
 ];
 
 
-/* ═════════ ẢNH VÁY THẬT CỦA DLA ═════════
-   Thay cho hình vẽ SVG (chị Linh chê xấu 02/09) — dùng chính ảnh bộ sưu
-   tập DLA. Chọn theo dáng váy, tinh chỉnh thêm theo chất liệu nếu có ảnh
-   khớp. LUẬT: KHÔNG bao giờ đổi màu ảnh gốc (kể cả khi khách chọn màu
-   khác) — chỉ ghi chú rõ đây là ảnh minh hoạ dáng.
-   "Mini / Short" chưa có ảnh thật -> vẫn dùng hình vẽ phác thảo. */
+/* ═════════ REAL DLA DRESS PHOTOS ═════════ */
 var ANH_VAY = {
   "Ball Gown":              {mac:"anh/look-01.jpg", Lace:"anh/sc/ballgown.jpg", Satin:"anh/sc/fairy.jpg", Mikado:"anh/look-04.jpg"},
   "A-Line":                 {mac:"anh/sc/blossom.jpg", Lace:"anh/look-03.jpg", Satin:"anh/look-06.jpg"},
@@ -335,7 +330,7 @@ var ANH_VAY = {
 };
 function anhVay(){
   var m = ANH_VAY[s.chon.silhouette];
-  if(!m) return null;                       /* Mini/Short -> ve phac thao */
+  if(!m) return null;
   return (s.chon.fabric && m[s.chon.fabric]) ? m[s.chon.fabric] : m.mac;
 }
 
@@ -400,7 +395,7 @@ function chonBanVe(){
 }
 
 /* ═════════ TRẠNG THÁI ═════════ */
-var LS = "dla_tkv_vi";
+var LS = "dla_tkv_en";
 var s = {
   man: 0,                 /* 0..5 */
   anh: [],                /* ảnh cảm hứng (data URL hoặc đường dẫn) */
@@ -447,191 +442,69 @@ function mauCua(id){
   return (o && o.hex) ? o.hex : "#F6EFE4";
 }
 
-/* ═════════ CROQUIS — bản vẽ thiết kế thời trang ═════════
-   Tỉ lệ 9 đầu (chuẩn bản vẽ thời trang: người cao mảnh hơn đời thật).
-   Mốc cơ thể: vai y=125 · ngực y=190 · eo y=265 · hông y=340 · sàn y=800.
-   Mọi dáng váy bám theo đúng các mốc này nên đổi dáng không bị lệch. */
-
-var MOC = { vai:125, nguc:190, eo:265, hong:340, san:800 };
-
-/* Dáng váy: [y, nửa chiều rộng] tính từ eo xuống gấu */
-var DANG_VAY = {
-  "A-Line":                 [[265,38],[340,58],[440,84],[560,112],[680,138],[792,158]],
-  "Ball Gown":              [[265,38],[312,80],[392,126],[502,168],[632,198],[792,216]],
-  "Mermaid":                [[265,38],[340,52],[440,50],[530,48],[602,64],[692,108],[792,152]],
-  "Trumpet / Fit-and-Flare":[[265,38],[340,52],[430,52],[500,60],[572,90],[682,132],[792,166]],
-  "Sheath / Column":        [[265,38],[340,48],[450,46],[560,44],[680,44],[792,46]],
-  "Empire":                 [[228,42],[300,70],[420,100],[550,130],[680,154],[792,172]],
-  "Mini / Short":           [[265,38],[330,60],[400,80],[452,90]],
-  "Flexible":               [[265,38],[340,58],[440,84],[560,112],[680,138],[792,158]]
-};
-function dangVay(){ return DANG_VAY[s.chon.silhouette] || DANG_VAY["A-Line"]; }
-
-/* Cổ váy: [nửa rộng thân trên, y đỉnh ngực, kiểu vẽ] */
-function veCoVay(mau){
-  var k = s.chon.neckline, x = 160, g = '';
-  var tren = 172;                                  /* mép trên thân váy */
-  switch(k){
-    case "Sweetheart":
-      g = 'M'+(x-50)+','+(tren+6)+' Q'+(x-46)+','+(tren-8)+' '+(x-24)+','+(tren+2)
-        + ' Q'+x+','+(tren+16)+' '+(x+24)+','+(tren+2)
-        + ' Q'+(x+46)+','+(tren-8)+' '+(x+50)+','+(tren+6); break;
-    case "Straight Across":
-      g = 'M'+(x-50)+','+tren+' L'+(x+50)+','+tren; break;
-    case "V-Neck":
-      g = 'M'+(x-48)+','+(tren-6)+' L'+x+','+(tren+40)+' L'+(x+48)+','+(tren-6); break;
-    case "Scoop Neck":
-      g = 'M'+(x-48)+','+(tren-6)+' Q'+x+','+(tren+40)+' '+(x+48)+','+(tren-6); break;
-    case "Square Neck":
-      g = 'M'+(x-42)+','+(tren-8)+' L'+(x-42)+','+(tren+18)+' L'+(x+42)+','+(tren+18)+' L'+(x+42)+','+(tren-8); break;
-    case "Boatneck (Bateau)":
-      g = 'M'+(x-58)+','+(tren-4)+' Q'+x+','+(tren+8)+' '+(x+58)+','+(tren-4); break;
-    case "Halter":
-      g = 'M'+(x-44)+','+(tren+8)+' Q'+x+','+(tren+26)+' '+(x+44)+','+(tren+8)
-        + ' M'+(x-14)+','+(tren+4)+' Q'+x+','+(tren-46)+' '+(x+14)+','+(tren+4); break;
-    case "High Neck / Mock Neck":
-      g = 'M'+(x-30)+','+(tren-38)+' Q'+x+','+(tren-30)+' '+(x+30)+','+(tren-38)
-        + ' M'+(x-30)+','+(tren-38)+' L'+(x-30)+','+(tren-56)
-        + ' M'+(x+30)+','+(tren-38)+' L'+(x+30)+','+(tren-56); break;
-    case "Off-the-Shoulder":
-      g = 'M'+(x-64)+','+(tren+14)+' Q'+x+','+(tren+30)+' '+(x+64)+','+(tren+14)
-        + ' M'+(x-64)+','+(tren+14)+' Q'+(x-62)+','+(tren-2)+' '+(x-48)+','+(tren-6)
-        + ' M'+(x+64)+','+(tren+14)+' Q'+(x+62)+','+(tren-2)+' '+(x+48)+','+(tren-6); break;
-    case "Illusion Neckline":
-      g = 'M'+(x-46)+','+(tren-2)+' Q'+x+','+(tren+34)+' '+(x+46)+','+(tren-2); break;
-    case "Asymmetric / One-Shoulder":
-      g = 'M'+(x-46)+','+(tren+20)+' Q'+(x-6)+','+(tren+30)+' '+(x+44)+','+(tren-4)
-        + ' L'+(x+50)+','+(tren-44); break;
-    case "Cowl Neck":
-      g = 'M'+(x-44)+','+(tren-2)+' Q'+x+','+(tren+38)+' '+(x+44)+','+(tren-2)
-        + ' M'+(x-36)+','+(tren+4)+' Q'+x+','+(tren+28)+' '+(x+36)+','+(tren+4); break;
-    default:
-      g = 'M'+(x-50)+','+tren+' L'+(x+50)+','+tren;
-  }
-  return '<path d="'+g+'" fill="none" stroke="#3A322B" stroke-width="1.3" stroke-linecap="round"/>';
-}
-
-/* Tay áo — chỉ vẽ khi cổ váy gợi ý có tay */
-function veTayAo(){
-  var k = s.chon.neckline;
-  if(k !== "Off-the-Shoulder" && k !== "Illusion Neckline") return '';
-  return '<path d="M104,186 Q92,250 96,320 Q104,336 116,330 Q112,256 118,196 Z" fill="#fff" fill-opacity=".5" stroke="#3A322B" stroke-width=".9"/>'
-       + '<path d="M216,186 Q228,250 224,320 Q216,336 204,330 Q208,256 202,196 Z" fill="#fff" fill-opacity=".5" stroke="#3A322B" stroke-width=".9"/>';
-}
-
-/* Người mẫu croquis — vẽ TRƯỚC váy */
 var NGUOI = ''
-  /* tóc búi sau */
-  + '<path d="M133,74 Q126,36 160,28 Q194,36 187,74 Q188,92 178,98 L142,98 Q132,92 133,74 Z" fill="#4A3728"/>'
-  + '<ellipse cx="160" cy="34" rx="17" ry="12" fill="#4A3728"/>'
-  /* mặt */
-  + '<path d="M143,66 Q143,96 160,102 Q177,96 177,66 Q177,48 160,46 Q143,48 143,66 Z" fill="#EFD9C0"/>'
-  /* tóc trước ôm trán */
-  + '<path d="M141,66 Q140,44 160,42 Q180,44 179,66 Q172,52 160,54 Q148,52 141,66 Z" fill="#4A3728"/>'
-  /* cổ + vai */
-  + '<path d="M151,100 L151,124 Q160,132 169,124 L169,100 Z" fill="#EFD9C0"/>'
-  + '<path d="M151,120 Q116,128 100,150 M169,120 Q204,128 220,150" fill="none" stroke="#3A322B" stroke-width="1.1" stroke-linecap="round"/>'
-  /* tay buông hai bên */
-  + '<path d="M102,152 Q92,220 98,300 Q100,318 108,318 Q114,300 112,246 Q114,196 118,166" fill="#EFD9C0" stroke="#3A322B" stroke-width=".9"/>'
-  + '<path d="M218,152 Q228,220 222,300 Q220,318 212,318 Q206,300 208,246 Q206,196 202,166" fill="#EFD9C0" stroke="#3A322B" stroke-width=".9"/>'
-  /* thân trên (ẩn dưới váy, để có khối) */
-  + '<path d="M126,150 Q120,210 132,264 L188,264 Q200,210 194,150 Z" fill="#EFD9C0"/>';
+  +'<ellipse cx="160" cy="54" rx="27" ry="31" fill="#5A4434"/>'
+  +'<circle cx="160" cy="26" r="10" fill="#5A4434"/>'
+  +'<ellipse cx="160" cy="59" rx="19" ry="23" fill="var(--skin)"/>'
+  +'<path d="M143,72 L143,96 L177,96 L177,72 Q160,84 143,72 Z" fill="var(--skin)"/>'
+  +'<g fill="none" stroke="var(--line)" stroke-width="1">'
+  +'<path d="M120,94'+cong([[120,94],[100,160],[92,260],[88,360],[90,460],[96,540]])+'"/>'
+  +'<path d="M200,94'+cong([[200,94],[220,160],[228,260],[232,360],[230,460],[224,540]])+'"/>'
+  +'</g>';
 
-/* Hoa văn chất liệu */
-function hoaTiet(){
-  return ''
-  + '<linearGradient id="g-vai" x1="0" y1="0" x2="1" y2="0">'
-  +   '<stop offset="0" stop-color="#fff" stop-opacity=".0"/>'
-  +   '<stop offset=".38" stop-color="#fff" stop-opacity=".65"/>'
-  +   '<stop offset=".62" stop-color="#fff" stop-opacity=".1"/>'
-  +   '<stop offset="1" stop-color="#000" stop-opacity=".07"/>'
-  + '</linearGradient>'
-  + '<pattern id="pt-ren" width="17" height="17" patternUnits="userSpaceOnUse">'
-  +   '<path d="M8.5,3 Q11,7 8.5,11 Q6,7 8.5,3 Z" fill="#8A7458" opacity=".3"/>'
-  +   '<circle cx="2" cy="13" r="1.1" fill="#8A7458" opacity=".26"/>'
-  +   '<circle cx="15" cy="9" r="1.1" fill="#8A7458" opacity=".26"/>'
-  + '</pattern>'
-  + '<pattern id="pt-tuyn" width="7" height="7" patternUnits="userSpaceOnUse">'
-  +   '<path d="M0,0 L7,7 M7,0 L0,7" stroke="#9C8A72" stroke-width=".35" opacity=".3"/>'
-  + '</pattern>'
-  + '<pattern id="pt-gam" width="22" height="22" patternUnits="userSpaceOnUse">'
-  +   '<path d="M11,4 L16,11 L11,18 L6,11 Z" fill="none" stroke="#8A7458" stroke-width=".7" opacity=".34"/>'
-  + '</pattern>';
-}
-var PHU_HOATIET = {
-  "Lace":"pt-ren", "Brocade":"pt-gam",
-  "Tulle":"pt-tuyn", "Organza":"pt-tuyn", "Chiffon":"pt-tuyn", "Georgette":"pt-tuyn"
+var HOA = '<g><path d="M224,540 L221,566 M224,540 L227,568 M224,540 L216,562" stroke="#7C8A66" stroke-width="1.4" fill="none"/>'
+  +[[214,532],[224,526],[234,532],[218,540],[230,540],[224,536]].map(function(p){
+    return '<circle cx="'+p[0]+'" cy="'+p[1]+'" r="6.4" fill="#fff" stroke="var(--hair)" stroke-width=".6"/>';}).join('')
+  +'<circle cx="224" cy="534" r="4" fill="var(--skin)" opacity=".5"/></g>';
+
+var HOA_TIET = {
+  "Satin":"sheen", "Charmeuse":"sheen", "Silk":"sheen-nhe", "Mikado":null,
+  "Crepe":"cham", "Georgette":"cham", "Chiffon":"luoi-thua", "Organza":"luoi",
+  "Tulle":"luoi-min", "Lace":"ren", "Taffeta":"gan", "Brocade":"gam",
+  "Velvet":"nhung", "Flexible":null
 };
-
-/* Đường viền váy khép kín */
-function duongVayKin(rows){
-  var tr = rows.map(function(r){ return [160-r[1], r[0]]; });
-  var ph = rows.map(function(r){ return [160+r[1], r[0]]; }).reverse();
-  var d = 'M '+tr[0][0].toFixed(1)+','+tr[0][1].toFixed(1) + cong(tr);
-  d += ' L '+ph[0][0].toFixed(1)+','+ph[0][1].toFixed(1) + cong(ph) + ' Z';
-  return d;
+function dinhNghiaHoaTiet(){
+  return ''
+  +'<pattern id="p-sheen" width="40" height="40" patternUnits="userSpaceOnUse" patternTransform="rotate(35)"><line x1="0" y1="0" x2="0" y2="40" stroke="#fff" stroke-width="6" opacity=".14"/></pattern>'
+  +'<pattern id="p-sheen-nhe" width="60" height="60" patternUnits="userSpaceOnUse" patternTransform="rotate(25)"><line x1="0" y1="0" x2="0" y2="60" stroke="#fff" stroke-width="9" opacity=".08"/></pattern>'
+  +'<pattern id="p-cham" width="11" height="11" patternUnits="userSpaceOnUse"><circle cx="5.5" cy="5.5" r=".9" fill="var(--ink)" opacity=".15"/></pattern>'
+  +'<pattern id="p-luoi-thua" width="22" height="22" patternUnits="userSpaceOnUse"><path d="M0,0 L22,22 M22,0 L0,22" stroke="var(--ink)" stroke-width=".4" opacity=".08"/></pattern>'
+  +'<pattern id="p-luoi" width="11" height="11" patternUnits="userSpaceOnUse"><path d="M0,0 L11,11 M11,0 L0,11" stroke="var(--ink)" stroke-width=".4" opacity=".18"/></pattern>'
+  +'<pattern id="p-luoi-min" width="6" height="6" patternUnits="userSpaceOnUse"><path d="M0,0 L6,6 M6,0 L0,6" stroke="var(--ink)" stroke-width=".35" opacity=".1"/></pattern>'
+  +'<pattern id="p-ren" width="16" height="16" patternUnits="userSpaceOnUse"><circle cx="4" cy="4" r="1.2" fill="var(--ink)" opacity=".24"/><circle cx="12" cy="11" r="1.2" fill="var(--ink)" opacity=".24"/><circle cx="11" cy="3" r=".7" fill="var(--ink)" opacity=".16"/></pattern>'
+  +'<pattern id="p-gan" width="5" height="5" patternUnits="userSpaceOnUse"><line x1="0" y1="2.5" x2="5" y2="2.5" stroke="var(--ink)" stroke-width=".6" opacity=".22"/></pattern>'
+  +'<pattern id="p-gam" width="22" height="22" patternUnits="userSpaceOnUse"><path d="M11,3 L17,11 L11,19 L5,11 Z" fill="none" stroke="var(--ink)" stroke-width=".7" opacity=".28"/></pattern>'
+  +'<pattern id="p-nhung" width="10" height="10" patternUnits="userSpaceOnUse"><rect width="10" height="10" fill="var(--ink)" opacity=".07"/></pattern>';
 }
-
-/* Nếp gấp vải — toả từ eo xuống gấu, thưa dần */
-function nepGap(rows){
-  var cuoi = rows[rows.length-1], g = '';
-  var soNep = 7;
-  for(var i=1;i<soNep;i++){
-    var t = i/soNep;
-    var xEo  = 160 + (t-0.5)*2*34;
-    var xGau = 160 + (t-0.5)*2*(cuoi[1]-8);
-    var xGiua= 160 + (t-0.5)*2*((34+cuoi[1])/2);
-    var lech = (i%2 ? 5 : -4);
-    g += '<path d="M'+xEo.toFixed(1)+','+(rows[0][0]+6)
-       + ' Q'+(xGiua+lech).toFixed(1)+','+((rows[0][0]+cuoi[0])/2).toFixed(0)
-       + ' '+xGau.toFixed(1)+','+(cuoi[0]-4)+'" fill="none" stroke="#6A5A4A" '
-       + 'stroke-width=".75" opacity="'+(i%2?.30:.20)+'" stroke-linecap="round"/>';
+function coVayMarkup(id){
+  switch(id){
+    case "Sweetheart": return '<path d="M130,100 C130,90 148,88 152,100 C156,88 174,88 178,98 C178,120 160,148 160,160 C160,148 130,120 130,100 Z" fill="var(--skin)"/>';
+    case "Straight Across": return '<path d="M132,108 L188,108 L188,122 L132,122 Z" fill="var(--skin)"/>';
+    case "V-Neck": return '<path d="M140,100 L180,100 L160,172 Z" fill="var(--skin)"/>';
+    case "Scoop Neck": return '<path d="M126,100 Q160,160 194,100 Z" fill="var(--skin)"/>';
+    case "Square Neck": return '<path d="M136,108 L184,108 L184,148 L136,148 Z" fill="var(--skin)"/>';
+    case "Boatneck (Bateau)": return '<path d="M120,98 L200,98 L200,112 L120,112 Z" fill="var(--skin)"/>';
+    case "Halter": return '<path d="M118,96 L202,96 L202,128 Q160,146 118,128 Z" fill="var(--skin)"/><path d="M154,68 L166,68 L163,98 L157,98 Z" fill="MAU"/>';
+    case "Off-the-Shoulder": return '<path d="M118,96 L202,96 L202,128 Q160,148 118,128 Z" fill="var(--skin)"/>';
+    case "Illusion Neckline": return '<path d="M126,100 Q160,160 194,100 Z" fill="var(--skin)" opacity=".45"/>';
+    case "Asymmetric / One-Shoulder": return '<path d="M160,98 L196,98 Q180,138 152,150 Q159,122 160,98 Z" fill="var(--skin)"/>';
+    case "Cowl Neck": return '<path d="M134,102 Q160,142 186,102" fill="none" stroke="#6A4925" stroke-width="1.2" opacity=".5"/><ellipse cx="160" cy="138" rx="7" ry="11" fill="var(--skin)" opacity=".55"/>';
+    default: return "";
   }
-  return g;
 }
-
-/* ═════ VẼ TOÀN BỘ BẢN THIẾT KẾ ═════ */
 function veVay(){
-  var rows = dangVay();
-  var mau  = mauCua(s.chon.color);
-  var dVay = duongVayKin(rows);
-  var cuoi = rows[rows.length-1];
-  var pt   = s.chon.fabric ? PHU_HOATIET[s.chon.fabric] : null;
-
-  var g = '<defs>'+hoaTiet()
-        + '<clipPath id="cl-vay"><path d="'+dVay+'"/></clipPath></defs>';
-
-  /* nền giấy vẽ */
-  g += '<rect x="0" y="0" width="320" height="860" fill="#FBF8F3"/>';
-
-  /* bóng dưới chân */
-  g += '<ellipse cx="160" cy="'+(cuoi[0]+6)+'" rx="'+(cuoi[1]*0.92).toFixed(0)+'" ry="9" fill="#C9B79E" opacity=".28"/>';
-
+  var rows = rowsCua(s.chon.silhouette);
+  var mau = mauCua(s.chon.color);
+  var d = duongVay(rows);
+  var g = '<defs>'+dinhNghiaHoaTiet()+'<clipPath id="cl"><path d="'+d+'"/></clipPath></defs>';
   g += NGUOI;
-
-  /* thân váy + chân váy liền khối */
-  g += '<path d="'+dVay+'" fill="'+mau+'" stroke="#3A322B" stroke-width="1.25" stroke-linejoin="round"/>';
-  g += '<rect x="0" y="150" width="320" height="700" fill="url(#g-vai)" clip-path="url(#cl-vay)"/>';
-  if(pt) g += '<rect x="0" y="150" width="320" height="700" fill="url(#'+pt+')" clip-path="url(#cl-vay)"/>';
-
-  /* phần thân trên (corset) ôm sát, vẽ đè lên */
-  g += '<path d="M126,172 Q120,215 132,266 L188,266 Q200,215 194,172 Z" fill="'+mau+'" stroke="#3A322B" stroke-width="1.15"/>';
-  if(pt) g += '<path d="M126,172 Q120,215 132,266 L188,266 Q200,215 194,172 Z" fill="url(#'+pt+')"/>';
-  /* gân corset */
-  g += '<g stroke="#6A5A4A" stroke-width=".7" opacity=".32" fill="none">'
-    +  '<path d="M141,176 Q137,218 145,264"/><path d="M160,175 L160,265"/>'
-    +  '<path d="M179,176 Q183,218 175,264"/></g>';
-
-  g += nepGap(rows);
-  g += veTayAo();
-  g += veCoVay(mau);
-
-  /* đường eo */
-  g += '<path d="M132,265 Q160,272 188,265" fill="none" stroke="#3A322B" stroke-width="1.1"/>';
-
+  g += '<path d="'+d+'" fill="'+mau+'" stroke="var(--ink)" stroke-width="1"/>';
+  var ht = s.chon.fabric ? HOA_TIET[s.chon.fabric] : null;
+  if(ht) g += '<rect x="60" y="80" width="200" height="540" fill="url(#p-'+ht+')" clip-path="url(#cl)"/>';
+  if(s.chon.neckline && s.chon.neckline!=="Flexible") g += coVayMarkup(s.chon.neckline).split("MAU").join(mau);
+  g += HOA;
   return g;
 }
-
 
 /* ═════════ GỌI AI (Gemini qua Apps Script) ═════════ */
 function goiAI(moTa, xong){
@@ -657,7 +530,7 @@ function apGoiY(g){
 function veTien(){
   var t = $("#tien"), n = 6, h = "";
   for(var i=0;i<n;i++) h += '<i class="'+(i<=s.man?"on":"")+'"></i>';
-  t.innerHTML = '<span>Bước '+(s.man+1)+' / '+n+'</span>' + h;
+  t.innerHTML = '<span>Step '+(s.man+1)+' / '+n+'</span>' + h;
 }
 
 function ve(){
@@ -693,7 +566,7 @@ function man0(){
 function man1(){
   return '<div class="bb">'+esc(L.keVay)+'<span class="vd">'+esc(L.keVay_vd)+'</span></div>'
     + '<div class="o-nhap">'
-      + '<textarea id="o-mota" placeholder="Bạn cứ viết thoải mái…">'+esc(s.moTa)+'</textarea>'
+      + '<textarea id="o-mota" placeholder="Write as much or as little as you like\u2026">'+esc(s.moTa)+'</textarea>'
       + '<button class="nut" data-di="guiMoTa">'+esc(L.gui)+'</button>'
     + '</div>'
     + '<button class="bo-qua" data-di="boMoTa">'+esc(L.boBuoc)+'</button>';
@@ -722,7 +595,7 @@ function man3(){
       + n.opts.map(function(o){
           var on = s.chon[n.key]===o.id;
           return '<button type="button" class="pill'+(o.mem?" mem":"")+(on?" chon":"")
-               + '" data-nhom="'+n.key+'" data-id="'+esc(o.id)+'">'+esc(o.vi)+'</button>';
+               + '" data-nhom="'+n.key+'" data-id="'+esc(o.id)+'">'+esc(o.id)+'</button>';
         }).join('')
       + '</div></div>';
   });
@@ -736,7 +609,7 @@ function man3(){
 function man4(){
   return '<div class="bb">'+esc(L.themGi)+'</div>'
     + '<div class="o-nhap">'
-      + '<textarea id="o-them" placeholder="Bạn cứ viết thoải mái…">'+esc(s.themGi)+'</textarea>'
+      + '<textarea id="o-them" placeholder="Write as much or as little as you like\u2026">'+esc(s.themGi)+'</textarea>'
       + '<button class="nut" data-di="guiThem">'+esc(L.gui)+'</button>'
     + '</div>'
     + '<button class="bo-qua" data-di="boThem">'+esc(L.boBuoc)+'</button>';
@@ -746,17 +619,17 @@ function man4(){
 function man5(){
   var tenVi = function(k){
     var o = timOpt(k, s.chon[k]);
-    return o ? (o.vi + (o.id!==o.vi ? " ("+o.id+")" : "")) : "—";
+    return o ? o.id : "\u2014";
   };
   var ghim = s.anh.length ? '<div class="ghim" style="background-image:url(\''+s.anh[0]+'\')"></div>' : '';
   var chip = s.chon.silhouette
-    ? '<div class="the-nho"><b>'+esc(timOpt("silhouette",s.chon.silhouette).vi)+'</b><span>'
-      +esc(s.chon.fabric?timOpt("fabric",s.chon.fabric).vi:"—")+'</span></div>' : '';
+    ? '<div class="the-nho"><b>'+esc(s.chon.silhouette)+'</b><span>'
+      +esc(s.chon.fabric||"\u2014")+'</span></div>' : '';
 
   var a = chonBanVe();               /* bản vẽ DLA cung cấp; chưa có -> vẽ phác thảo tạm */
   var trong = a
     ? '<img src="'+a+'" alt="" class="anh-vay">'
-    : '<svg viewBox="0 0 320 860" class="sketch">'+veVay()+'</svg>';
+    : '<svg viewBox="0 0 320 620" class="sketch">'+veVay()+'</svg>';
 
   return '<div class="bb">'+esc(L.xong)+'</div>'
     + '<div class="kq-luoi">'
@@ -855,18 +728,18 @@ function moForm(loai){
   c.innerHTML = '<div class="bb"><b>'+esc(tieu)+'</b></div>'
     + '<form id="fm" style="max-width:520px">'
     + '<div style="display:grid;gap:14px">'
-    + o("ten","Họ và tên", "text", true)
-    + o("sdt","Số điện thoại / Zalo", "tel", true)
-    + o("email","Email (không bắt buộc)", "email", false)
-    + o("ngay","Ngày cưới dự kiến", "date", false)
-    + '<label style="display:grid;gap:5px"><span style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--grey)">Nơi tổ chức</span>'
+    + o("ten","Full name", "text", true)
+    + o("sdt","Phone / WhatsApp", "tel", true)
+    + o("email","Email (optional)", "email", false)
+    + o("ngay","Wedding date", "date", false)
+    + '<label style="display:grid;gap:5px"><span style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--grey)">Wedding city</span>'
     + '<select name="tp" style="font:inherit;font-size:15px;padding:11px 12px;border:1.5px solid var(--hair);border-radius:10px">'
-    + '<option>Hà Nội</option><option>TP. Hồ Chí Minh</option><option>Nơi khác</option></select></label>'
+    + '<option>Hanoi</option><option>Ho Chi Minh City</option><option>Elsewhere</option></select></label>'
     + '</div>'
-    + '<button class="nut" type="submit" style="width:100%;margin-top:20px">Gửi cho Dolinhanh</button>'
+    + '<button class="nut" type="submit" style="width:100%;margin-top:20px">Send to Dolinhanh</button>'
     + '</form>'
-    + '<p style="font-size:12.5px;color:var(--grey-2);margin-top:14px;max-width:520px">Dolinhanh sẽ liên hệ lại để tư vấn. Không tự động thu phí.</p>'
-    + '<button class="bo-qua" style="margin-top:16px" data-di="veKQ">← Quay lại thiết kế</button>';
+    + '<p style="font-size:12.5px;color:var(--grey-2);margin-top:14px;max-width:520px">Dolinhanh will get in touch to advise you. No automatic charges.</p>'
+    + '<button class="bo-qua" style="margin-top:16px" data-di="veKQ">\u2190 Back to my design</button>';
 
   function o(name,nhan,type,bat){
     return '<label style="display:grid;gap:5px"><span style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--grey)">'
@@ -888,9 +761,9 @@ function moForm(loai){
       fetch("https://docs.google.com/forms/d/e/"+FORM_ID+"/formResponse",
             {method:"POST", mode:"no-cors", body:fd}).catch(function(){});
     }catch(err){}
-    $("#noidung").innerHTML = '<div class="bb"><b>Dolinhanh đã nhận thiết kế của bạn.</b><br>'
-      + 'Đội ngũ bridal sẽ liên hệ lại sớm nhất để tư vấn chi tiết. Bạn cũng có thể nhắn Zalo để được phản hồi nhanh hơn.</div>'
-      + '<a class="nut" href="'+ZALO+'" target="_blank" rel="noopener">Nhắn Zalo ngay</a>'
+    $("#noidung").innerHTML = '<div class="bb"><b>Dolinhanh has received your design.</b><br>'
+      + 'Our bridal team will be in touch shortly. You can also message us on WhatsApp for a faster reply.</div>'
+      + '<a class="nut" href="'+ZALO+'" target="_blank" rel="noopener">Message us now</a>'
       + (s.anh.length ? '<p style="font-size:13.5px;color:var(--grey);margin-top:16px;max-width:560px">Bạn có '
           +s.anh.length+' ảnh cảm hứng — nhắn kèm ảnh đó qua Zalo để tư vấn viên hiểu đúng ý bạn hơn nhé.</p>' : '');
   });
