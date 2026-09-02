@@ -285,9 +285,11 @@ src="https://www.facebook.com/tr?id=1358640082651240&ev=PageView&noscript=1"
   .zl-noi.zl-len{bottom:calc(108px + env(safe-area-inset-bottom))}
   .zl-icon{display:grid;place-items:center;width:26px;height:26px;border-radius:50%;background:rgba(255,255,255,.2);flex:none}
   .zl-icon svg{display:block}
-  @media(max-width:420px){
+  @media(max-width:640px){
     .zl-chu{display:none}
-    .zl-noi{padding:13px;border-radius:50%}
+    .zl-noi{padding:13px;border-radius:50%;gap:0}
+    /* chừa chỗ ở góc phải đáy màn hình cho nút, chữ "Bấm để xem thêm" khỏi tràn vào */
+    .duoi{padding-right:76px}
   }
 
   /* ── form đặt lịch (dùng lại kiểu .hop-noi) ── */
