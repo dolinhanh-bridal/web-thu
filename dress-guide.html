@@ -355,6 +355,19 @@ src="https://www.facebook.com/tr?id=1358640082651240&ev=PageView&noscript=1"
   </div>
 </div>
 
+<div class="hop-nen" id="qz2-nen">
+  <div class="hop-noi" role="dialog" aria-modal="true" aria-labelledby="qz2-tieude">
+    <button class="hop-dong" id="qz2-dong" aria-label="Đóng">✕</button>
+    <span class="nhan-h">Đọc vị bản thân · Phần 2</span>
+    <h3 id="qz2-tieude">Bạn ra quyết định kiểu nào?</h3>
+    <p style="margin-top:8px">Năm câu, biết thêm điều này giúp buổi thử của bạn diễn ra đúng nhịp — chọn đủ là kết quả hiện ngay bên dưới.</p>
+    <div id="qz2-danh-sach"></div>
+    <button class="qz-xemkq" id="qz2-xemkq" hidden>Nhận kết quả của bạn</button>
+    <div class="qz-kq" id="qz2-kq" hidden></div>
+    <button class="qz-lam-lai" id="qz2-lam-lai" hidden>Làm lại từ đầu</button>
+  </div>
+</div>
+
 <!-- ── popup giữa sách: chặn đọc tiếp cho tới khi điền tên + SĐT/Zalo,
      hiện sau khi đọc xong "Đọc vị bản thân". Không có nút đóng — khách
      chỉ qua được bằng cách điền form, hoặc bấm "Xem bảng giá" để rời
@@ -715,7 +728,12 @@ src="https://www.facebook.com/tr?id=1358640082651240&ev=PageView&noscript=1"
        có sẵn trong sheet lead, không phải chờ khách tự chụp màn hình gửi */
     try{ localStorage.setItem('dla_dg_quiz_kq', tenGu); }catch(e){}
     chu += '<br><br>Bạn chụp màn hình kết quả này gửi Dolinhanh trước buổi thử nhé — shop sẽ treo sẵn những mẫu đúng gu của bạn.';
+    chu += '<button type="button" class="qz-xemkq" id="qz-tieptuc" style="margin-top:16px">Làm tiếp: Bạn ra quyết định kiểu nào?</button>';
     kq.innerHTML = chu; kq.hidden = false; lamLai.hidden = false;
+    document.getElementById('qz-tieptuc').addEventListener('click', function(){
+      QZ_NEN.classList.remove('hien');
+      moQuiz2();
+    });
     kq.scrollIntoView({behavior:'smooth', block:'nearest'});
   }
   function moQuiz(){
@@ -726,6 +744,88 @@ src="https://www.facebook.com/tr?id=1358640082651240&ev=PageView&noscript=1"
   QZ_NEN.addEventListener('click', function(e){ if (e.target === QZ_NEN) QZ_NEN.classList.remove('hien'); });
   document.getElementById('qz-xemkq').addEventListener('click', qzKetQua);
   document.getElementById('qz-lam-lai').addEventListener('click', function(){ qzChon = []; qzVe(); qzKiemDu(); });
+
+  /* ── trắc nghiệm 2: bạn ra quyết định kiểu nào — mở tiếp sau trắc
+     nghiệm gu, giúp nhân viên biết cách tư vấn/chăm sóc phù hợp ── */
+  var QZ2_NEN = document.getElementById('qz2-nen');
+  var QZ2 = [
+    {q:'1. Khi mua một món đồ giá trị (không phải váy cưới), bạn thường…',
+     a:['Quyết nhanh nếu ưng, không đắn đo nhiều','So sánh, tìm hiểu kỹ trước khi mua','Mua theo cảm hứng — thấy thích là chốt','Hỏi ý kiến người thân trước khi quyết']},
+    {q:'2. Trong buổi thử váy, bạn muốn nghe ý kiến của ai nhất?',
+     a:['Không ai cả — bạn tự tin với gu của mình','Chuyên viên, để có góc nhìn chuyên môn','Cảm giác của chính bạn lúc mặc lên','Người đi cùng — mẹ, bạn thân']},
+    {q:'3. Giữa hai mẫu đều đẹp, bạn sẽ…',
+     a:['Chọn ngay mẫu khiến bạn ưng đầu tiên','Liệt kê ưu nhược điểm rồi mới quyết','Mặc thử lại vài lần, chọn theo cảm giác','Để người đi cùng chọn giúp']},
+    {q:'4. Về ngân sách cho váy cưới, bạn…',
+     a:['Đã chốt mức cụ thể, không đổi','Có khung rõ ràng, cân nhắc kỹ từng khoản','Chưa nghĩ nhiều, ưng là tính sau','Theo tư vấn của shop để quyết mức phù hợp']},
+    {q:'5. Nếu chuyên viên gợi ý một mẫu khác hẳn hình dung ban đầu, bạn…',
+     a:['Cảm ơn nhưng vẫn ưu tiên lựa chọn ban đầu','Hỏi kỹ lý do trước khi cân nhắc thử','Thử ngay — biết đâu hợp hơn','Tin tưởng làm theo gợi ý ngay']}
+  ];
+  var QZ2_KIEU = [
+    {ten:'Quyết đoán', mo:'Bạn biết rõ mình muốn gì và không ngại quyết định nhanh. Trong buổi thử, hãy tin vào lựa chọn đầu tiên khiến bạn ưng — thường đó chính là chiếc váy dành cho bạn.'},
+    {ten:'Cẩn trọng', mo:'Bạn thích cân nhắc kỹ trước khi quyết định. Đừng ngại xin thêm thời gian, hoặc hẹn một buổi thử thứ hai nếu vẫn còn phân vân.'},
+    {ten:'Cảm xúc', mo:'Bạn quyết định bằng cảm giác nhiều hơn lý trí — và đó không phải điều xấu. Hãy chú ý cảm giác đầu tiên khi mặc một chiếc váy lên người, thường nó không nói dối bạn.'},
+    {ten:'Nghe theo tư vấn', mo:'Bạn tin tưởng ý kiến người khác, điều này giúp buổi thử nhẹ nhàng hơn — nhưng đừng quên hỏi lại cảm giác thật của chính mình trước khi chốt.'}
+  ];
+  var qz2Chon = [];
+  function qz2Ve(){
+    var ds = document.getElementById('qz2-danh-sach');
+    ds.innerHTML = '';
+    QZ2.forEach(function(cau, i){
+      var khoi = document.createElement('div'); khoi.className = 'qz-cau';
+      var b = document.createElement('b'); b.textContent = cau.q; khoi.appendChild(b);
+      var dap = document.createElement('div'); dap.className = 'qz-dap';
+      cau.a.forEach(function(chu, j){
+        var nut = document.createElement('button');
+        nut.innerHTML = '<i>' + 'ABCD'[j] + '</i><span></span>';
+        nut.querySelector('span').textContent = chu;
+        if (qz2Chon[i] === j) nut.classList.add('chon');
+        nut.addEventListener('click', function(){ qz2Chon[i] = j; qz2Ve(); qz2KiemDu(); });
+        dap.appendChild(nut);
+      });
+      khoi.appendChild(dap); ds.appendChild(khoi);
+    });
+  }
+  function qz2KiemDu(){
+    var xemKq = document.getElementById('qz2-xemkq');
+    var kq = document.getElementById('qz2-kq');
+    var lamLai = document.getElementById('qz2-lam-lai');
+    var du = QZ2.every(function(_, i){ return typeof qz2Chon[i] === 'number'; });
+    kq.hidden = true; lamLai.hidden = true;
+    xemKq.hidden = !du;
+    if (du) xemKq.scrollIntoView({behavior:'smooth', block:'nearest'});
+  }
+  function qz2KetQua(){
+    var kq = document.getElementById('qz2-kq');
+    var lamLai = document.getElementById('qz2-lam-lai');
+    document.getElementById('qz2-xemkq').hidden = true;
+    var dem = [0,0,0,0];
+    qz2Chon.forEach(function(j){ dem[j]++; });
+    var max = Math.max.apply(null, dem);
+    var thang = [];
+    dem.forEach(function(so, j){ if (so === max) thang.push(j); });
+    var chu, tenKq;
+    if (thang.length === 1){
+      var k = QZ2_KIEU[thang[0]];
+      tenKq = k.ten;
+      chu = '<span class="nhan-h">Kết quả của bạn</span><h4>Bạn là kiểu ' + k.ten + '</h4>' + k.mo;
+    } else {
+      var ten = thang.map(function(j){ return QZ2_KIEU[j].ten; }).join(' và ');
+      tenKq = 'Pha trộn: ' + ten;
+      chu = '<span class="nhan-h">Kết quả của bạn</span><h4>Bạn là sự pha trộn: ' + ten + '</h4>'
+          + 'Cả hai hướng đều đúng với bạn — tuỳ lúc mà bên nào nổi trội hơn.';
+    }
+    try{ localStorage.setItem('dla_dg_quiz2_kq', tenKq); }catch(e){}
+    kq.innerHTML = chu; kq.hidden = false; lamLai.hidden = false;
+    kq.scrollIntoView({behavior:'smooth', block:'nearest'});
+  }
+  function moQuiz2(){
+    qz2Ve(); qz2KiemDu();
+    QZ2_NEN.classList.add('hien');
+  }
+  document.getElementById('qz2-dong').addEventListener('click', function(){ QZ2_NEN.classList.remove('hien'); });
+  QZ2_NEN.addEventListener('click', function(e){ if (e.target === QZ2_NEN) QZ2_NEN.classList.remove('hien'); });
+  document.getElementById('qz2-xemkq').addEventListener('click', qz2KetQua);
+  document.getElementById('qz2-lam-lai').addEventListener('click', function(){ qz2Chon = []; qz2Ve(); qz2KiemDu(); });
 
   function hai(n){ return n < 10 ? '0' + n : '' + n; }
 
@@ -948,10 +1048,14 @@ src="https://www.facebook.com/tr?id=1358640082651240&ev=PageView&noscript=1"
         var fd = new FormData();
         fd.append('entry.1614276000', ten);
         fd.append('entry.379034013', sdt);
-        var guTracNghiem = '';
-        try{ guTracNghiem = localStorage.getItem('dla_dg_quiz_kq') || ''; }catch(e){}
+        var guTracNghiem = '', kieuTracNghiem = '';
+        try{
+          guTracNghiem = localStorage.getItem('dla_dg_quiz_kq') || '';
+          kieuTracNghiem = localStorage.getItem('dla_dg_quiz2_kq') || '';
+        }catch(e){}
         fd.append('entry.541722676', 'popup-giua-sach-sau-doc-vi'
-          + (guTracNghiem ? ' | Gu trắc nghiệm: ' + guTracNghiem : '')
+          + (guTracNghiem ? ' | Gu: ' + guTracNghiem : '')
+          + (kieuTracNghiem ? ' | Kiểu quyết định: ' + kieuTracNghiem : '')
           + ' | ' + document.referrer);
         fetch('https://docs.google.com/forms/u/0/d/e/1FAIpQLSchU7uUBZBNfiQZSiVYvHVcUfyEJiJA084SHRNWEcnZ_CyplA/formResponse', {method:'POST', mode:'no-cors', body:fd});
       }catch(e){}
