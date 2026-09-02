@@ -189,6 +189,18 @@ src="https://www.facebook.com/tr?id=1358640082651240&ev=PageView&noscript=1"
   td:first-child{color:var(--ink);font-weight:400;width:26%}
   td:last-child{color:var(--tan);padding-right:0}
 
+  /* 3 điều kiện làm đổi số đo */
+  .dieu-kien{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:clamp(14px,2vw,26px);margin:clamp(26px,4vw,44px) 0}
+  .dieu-kien figure{margin:0;background:var(--paper);box-shadow:var(--shadow)}
+  .dieu-kien img{width:100%;aspect-ratio:486/780;object-fit:cover;display:block}
+  .dieu-kien figcaption{padding:16px 20px 20px}
+  .dieu-kien .dk-so{
+    font-family:var(--sans);font-weight:500;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;
+    color:var(--tan);margin-bottom:6px;
+  }
+  .dieu-kien .ten{font-family:var(--display);font-style:italic;font-size:1.35rem;color:var(--ink);line-height:1.2}
+  .dieu-kien .mo{font-size:.86rem;color:var(--grey);margin-top:6px;line-height:1.55}
+
   /* Flatlay "cần chuẩn bị" */
   .flat{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:clamp(14px,2vw,26px)}
   .flat figure{margin:0;background:var(--paper);box-shadow:var(--shadow)}
@@ -516,6 +528,38 @@ src="https://www.facebook.com/tr?id=1358640082651240&ev=PageView&noscript=1"
     <div class="sec-head"><span class="num">02</span><h2><span class="vi">Vì sao mặc gì lại làm đổi số đo</span><span class="en">Why what you wear changes the number</span></h2></div>
     <p><span class="vi">Số đo chỉ ghi lại cơ thể bạn ở một thời điểm, trong một điều kiện. Đổi điều kiện là đổi con số, dù người bạn chẳng thay đổi gì. Áo lót nâng ngực lên, quần gen ép eo lại, hay chỉ một cái cúi đầu nhìn thước — cả ba đều cho ra con số của một cơ thể mà hôm cưới bạn không mang theo.</span><span class="en">A measurement records your body at one moment, under one set of conditions. Change the conditions and you change the record, even though your body hasn't changed. A bra that lifts the bust, shapewear that compresses the waist, a glance down at the tape — each one produces numbers for a body you won't be wearing on the day.</span></p>
     <p><span class="vi">Váy may sẵn thì khác: bắt đầu từ một size chuẩn rồi sửa lại sau. Còn váy dựng theo số đo lấy chính dữ liệu cơ thể bạn để cắt rập — số lệch đi thẳng vào form váy, không có khâu nào sửa hộ.</span><span class="en">Ready-to-wear works differently: it starts from a standard size and gets corrected by alterations. A made-to-measure gown uses your body data to build the pattern, so an inconsistent number goes straight into the fit — there's no later stage that quietly fixes it.</span></p>
+  </div>
+
+  <div class="wrap">
+    <div class="dieu-kien">
+      <figure>
+        <img src="anh/do-so-do/dieu-kien-1-ao-lot.jpg" alt="Đo vòng ngực khi mặc áo lót nâng ngực, vạch đỏ chỉ đỉnh ngực bị đẩy lên cao" loading="lazy">
+        <figcaption>
+          <div class="dk-so">01</div>
+          <div class="ten"><span class="vi">Áo lót nâng ngực lên</span><span class="en">A lifted bust</span></div>
+          <p class="mo"><span class="vi">Áo có mút đẩy đỉnh ngực lên cao và ra trước. Chiết ly, mê ngực, viền cổ đều bám theo cái mốc đó.</span><span class="en">A padded bra moves the bust apex up and forward. Darts, cups and neckline all get built around that point.</span></p>
+        </figcaption>
+      </figure>
+      <figure>
+        <img src="anh/do-so-do/dieu-kien-2-gen.jpg" alt="Đo vòng eo khi mặc quần gen, vạch đỏ chỉ vòng eo bị ép nhỏ lại" loading="lazy">
+        <figcaption>
+          <div class="dk-so">02</div>
+          <div class="ten"><span class="vi">Quần gen ép eo lại</span><span class="en">A compressed waist</span></div>
+          <p class="mo"><span class="vi">Gen làm vòng eo và mông ghi lại nhỏ hơn thật. Hôm cưới không mặc gen nữa là váy chật ngay.</span><span class="en">Shapewear records a waist and hip smaller than they are. Leave it off on the day and the gown pulls.</span></p>
+        </figcaption>
+      </figure>
+      <figure>
+        <img src="anh/do-so-do/dieu-kien-3-cui-dau.jpg" alt="Cúi đầu nhìn xuống khi đo chiều dài thân trước, vạch đỏ chỉ đoạn bị ngắn đi" loading="lazy">
+        <figcaption>
+          <div class="dk-so">03</div>
+          <div class="ten"><span class="vi">Cúi đầu nhìn thước</span><span class="en">A tilted posture</span></div>
+          <p class="mo"><span class="vi">Chỉ cúi xuống nhìn thôi là thân trước và cổ đã ngắn lại — sai luôn số hõm cổ xuống sàn.</span><span class="en">Just glancing down shortens the front torso and neck — and with it your hollow-to-floor length.</span></p>
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <div class="wrap col">
     <p class="pull"><span class="vi">Số đo là <span class="it">dòng đầu tiên</span> của bản rập. Bản rập thừa hưởng đúng những gì bạn đã mặc lúc đo.</span><span class="en">The measurement is <span class="it">the first line</span> of the pattern. The pattern inherits every condition you measured under.</span></p>
   </div>
 </section>
