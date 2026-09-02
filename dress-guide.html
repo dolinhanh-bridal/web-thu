@@ -189,6 +189,12 @@ src="https://www.facebook.com/tr?id=1358640082651240&ev=PageView&noscript=1"
   }
   .qz-dap button i{font-style:normal;font-weight:600;color:#B05A55;flex:none}
   .qz-dap button.chon{background:#FDF0EE;border-color:#B05A55;color:#241B19}
+  .qz-xemkq{
+    display:block;width:100%;margin-top:20px;border:0;border-radius:999px;background:#B05A55;color:#fff;
+    font-family:var(--sans);font-size:.78rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;
+    padding:13px;cursor:pointer;
+  }
+  .qz-xemkq[hidden]{display:none}
   .qz-kq{margin-top:20px;background:#FCF4EA;border-radius:10px;padding:16px 18px;font-size:.92rem;line-height:1.65;color:#4C3E3B}
   .qz-kq .nhan-h{display:block;margin-bottom:6px}
   .qz-kq h4{margin:0 0 6px;font-family:var(--serif);font-weight:400;font-size:1.25rem;color:#241B19}
@@ -343,6 +349,7 @@ src="https://www.facebook.com/tr?id=1358640082651240&ev=PageView&noscript=1"
     <h3 id="qz-tieude">Trắc nghiệm đọc vị gu</h3>
     <p style="margin-top:8px">Sáu câu, bạn chọn đáp án giống mình nhất — chọn đủ là kết quả hiện ngay bên dưới.</p>
     <div id="qz-danh-sach"></div>
+    <button class="qz-xemkq" id="qz-xemkq" hidden>Nhận kết quả của bạn</button>
     <div class="qz-kq" id="qz-kq" hidden></div>
     <button class="qz-lam-lai" id="qz-lam-lai" hidden>Làm lại từ đầu</button>
   </div>
@@ -667,42 +674,58 @@ src="https://www.facebook.com/tr?id=1358640082651240&ev=PageView&noscript=1"
         nut.innerHTML = '<i>' + 'ABCD'[j] + '</i><span></span>';
         nut.querySelector('span').textContent = chu;
         if (qzChon[i] === j) nut.classList.add('chon');
-        nut.addEventListener('click', function(){ qzChon[i] = j; qzVe(); qzKetQua(); });
+        nut.addEventListener('click', function(){ qzChon[i] = j; qzVe(); qzKiemDu(); });
         dap.appendChild(nut);
       });
       khoi.appendChild(dap); ds.appendChild(khoi);
     });
   }
-  function qzKetQua(){
+  /* chọn đủ 6 câu thì hiện nút "Nhận kết quả" — bấm nút mới hiện kết quả,
+     không tự động lộ ra ngay để tạo khoảnh khắc chờ đợi/kích thích hơn */
+  function qzKiemDu(){
+    var xemKq = document.getElementById('qz-xemkq');
     var kq = document.getElementById('qz-kq');
     var lamLai = document.getElementById('qz-lam-lai');
     var du = QZ.every(function(_, i){ return typeof qzChon[i] === 'number'; });
-    if (!du){ kq.hidden = true; lamLai.hidden = true; return; }
+    kq.hidden = true; lamLai.hidden = true;
+    xemKq.hidden = !du;
+    if (du) xemKq.scrollIntoView({behavior:'smooth', block:'nearest'});
+  }
+  function qzKetQua(){
+    var kq = document.getElementById('qz-kq');
+    var lamLai = document.getElementById('qz-lam-lai');
+    document.getElementById('qz-xemkq').hidden = true;
     var dem = [0,0,0,0];
     qzChon.forEach(function(j){ dem[j]++; });
     var max = Math.max.apply(null, dem);
     var thang = [];
     dem.forEach(function(so, j){ if (so === max) thang.push(j); });
-    var chu;
+    var chu, tenGu;
     if (thang.length === 1){
       var k = QZ_KIEU[thang[0]];
+      tenGu = k.ten;
       chu = '<span class="nhan-h">Kết quả của bạn</span><h4>Bạn là cô dâu ' + k.ten + '</h4>' + k.mo;
     } else {
       var ten = thang.map(function(j){ return QZ_KIEU[j].ten; }).join(' và ');
+      tenGu = 'Pha trộn: ' + ten;
       chu = '<span class="nhan-h">Kết quả của bạn</span><h4>Bạn là sự pha trộn: ' + ten + '</h4>'
           + 'Hai hướng đều là bạn — cứ mang cả hai vào buổi thử, mặc lên rồi cơ thể sẽ tự chọn giúp bạn.';
     }
+    /* lưu lại gu vừa ra để gắn kèm khi khách điền form giữa sách — Dolinhanh
+       có sẵn trong sheet lead, không phải chờ khách tự chụp màn hình gửi */
+    try{ localStorage.setItem('dla_dg_quiz_kq', tenGu); }catch(e){}
     chu += '<br><br>Bạn chụp màn hình kết quả này gửi Dolinhanh trước buổi thử nhé — shop sẽ treo sẵn những mẫu đúng gu của bạn.';
     kq.innerHTML = chu; kq.hidden = false; lamLai.hidden = false;
     kq.scrollIntoView({behavior:'smooth', block:'nearest'});
   }
   function moQuiz(){
-    qzVe(); qzKetQua();
+    qzVe(); qzKiemDu();
     QZ_NEN.classList.add('hien');
   }
   document.getElementById('qz-dong').addEventListener('click', function(){ QZ_NEN.classList.remove('hien'); });
   QZ_NEN.addEventListener('click', function(e){ if (e.target === QZ_NEN) QZ_NEN.classList.remove('hien'); });
-  document.getElementById('qz-lam-lai').addEventListener('click', function(){ qzChon = []; qzVe(); qzKetQua(); });
+  document.getElementById('qz-xemkq').addEventListener('click', qzKetQua);
+  document.getElementById('qz-lam-lai').addEventListener('click', function(){ qzChon = []; qzVe(); qzKiemDu(); });
 
   function hai(n){ return n < 10 ? '0' + n : '' + n; }
 
@@ -925,7 +948,11 @@ src="https://www.facebook.com/tr?id=1358640082651240&ev=PageView&noscript=1"
         var fd = new FormData();
         fd.append('entry.1614276000', ten);
         fd.append('entry.379034013', sdt);
-        fd.append('entry.541722676', 'popup-giua-sach-sau-doc-vi | ' + document.referrer);
+        var guTracNghiem = '';
+        try{ guTracNghiem = localStorage.getItem('dla_dg_quiz_kq') || ''; }catch(e){}
+        fd.append('entry.541722676', 'popup-giua-sach-sau-doc-vi'
+          + (guTracNghiem ? ' | Gu trắc nghiệm: ' + guTracNghiem : '')
+          + ' | ' + document.referrer);
         fetch('https://docs.google.com/forms/u/0/d/e/1FAIpQLSchU7uUBZBNfiQZSiVYvHVcUfyEJiJA084SHRNWEcnZ_CyplA/formResponse', {method:'POST', mode:'no-cors', body:fd});
       }catch(e){}
       try{ if (typeof fbq === 'function') fbq('track', 'Lead', {content_name:'Dress Guide Ebook'}); }catch(e){}
