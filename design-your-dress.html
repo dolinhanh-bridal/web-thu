@@ -308,6 +308,7 @@ var L = {
   loiAI: "I couldn't connect just now, but no problem \u2014 let's pick together instead.",
   maTK: "Design ID",
   nhanCT: "The fabric, up close",
+  ghiAnhThat: "A real gown from the Dolinhanh collection, close to the silhouette you chose. Yours will be made to order in the fabric and colour you selected.",
   ghiAnh: "An illustration based on the choices you made. This is a starting point \u2014 our atelier will refine every detail with you before it is made."
 };
 
@@ -364,6 +365,7 @@ var ANH_VAY = {
   "Trumpet / Fit-and-Flare":{mac:"anh/sc/floral.jpg"},
   "Sheath / Column":        {mac:"anh/sc/minimalist.jpg", Satin:"anh/look-05.jpg"},
   "Empire":                 {mac:"anh/look-06.jpg"},
+  "Mini / Short":           {mac:"anh/sc/minimalist.jpg"},
   "Flexible":               {mac:"anh/sc/claire.jpg"}
 };
 function anhVay(){
@@ -659,7 +661,11 @@ function man5(){
     ? '<div class="the-nho"><b>'+esc(s.chon.silhouette)+'</b><span>'
       +esc(s.chon.fabric||"\u2014")+'</span></div>' : '';
 
-  var a = chonBanVe();               /* bản vẽ DLA cung cấp; chưa có -> vẽ phác thảo tạm */
+  /* Ưu tiên 1: bản vẽ sketch. Ưu tiên 2: ảnh váy thật DLA.
+     Hình vẽ bằng code chỉ dùng khi cả hai đều không có — nó xấu, tránh cho khách thấy. */
+  var a = chonBanVe();
+  var laBanVe = !!a;
+  if(!a) a = anhVay();
   var trong = a
     ? '<img src="'+a+'" alt="" class="anh-vay">'
     : '<svg viewBox="0 0 320 620" class="sketch">'+veVay()+'</svg>';
@@ -668,7 +674,7 @@ function man5(){
     + '<div class="kq-luoi">'
       + '<div><div class="khung-vay'+(a?' co-anh':'')+'">'+chip+trong+ghim+'</div>'
         + '<p class="ma-tk">'+esc(L.maTK)+': '+maTK()+'</p>'
-        + (a ? '<p class="ghi-anh">'+esc(L.ghiAnh)+'</p>' : '')
+        + (a ? '<p class="ghi-anh">'+esc(laBanVe ? L.ghiAnh : L.ghiAnhThat)+'</p>' : '')
         + (function(){
             var ct = anhChiTiet();
             if(!ct.length) return '';

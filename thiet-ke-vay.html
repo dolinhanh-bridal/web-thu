@@ -369,6 +369,7 @@ var ANH_VAY = {
   "Trumpet / Fit-and-Flare":{mac:"anh/sc/floral.jpg"},
   "Sheath / Column":        {mac:"anh/sc/minimalist.jpg", Satin:"anh/look-05.jpg"},
   "Empire":                 {mac:"anh/look-06.jpg"},
+  "Mini / Short":           {mac:"anh/sc/minimalist.jpg"},
   "Flexible":               {mac:"anh/sc/claire.jpg"}
 };
 function anhVay(){
@@ -786,7 +787,12 @@ function man5(){
     ? '<div class="the-nho"><b>'+esc(timOpt("silhouette",s.chon.silhouette).vi)+'</b><span>'
       +esc(s.chon.fabric?timOpt("fabric",s.chon.fabric).vi:"—")+'</span></div>' : '';
 
-  var a = chonBanVe();               /* bản vẽ DLA cung cấp; chưa có -> vẽ phác thảo tạm */
+  /* Ưu tiên 1: bản vẽ sketch. Ưu tiên 2: ảnh váy thật DLA.
+     Hình vẽ bằng code chỉ dùng khi cả hai đều không có (rất hiếm) — nó xấu,
+     chị Linh đã chê 2 lần, đừng để khách nhìn thấy nếu tránh được. */
+  var a = chonBanVe();
+  var laBanVe = !!a;
+  if(!a) a = anhVay();
   var trong = a
     ? '<img src="'+a+'" alt="" class="anh-vay">'
     : '<svg viewBox="0 0 320 860" class="sketch">'+veVay()+'</svg>';
@@ -795,7 +801,7 @@ function man5(){
     + '<div class="kq-luoi">'
       + '<div><div class="khung-vay'+(a?' co-anh':'')+'">'+chip+trong+ghim+'</div>'
         + '<p class="ma-tk">'+esc(L.maTK)+': '+maTK()+'</p>'
-        + (a ? '<p class="ghi-anh">'+esc(L.ghiAnh)+'</p>' : '')
+        + (a ? '<p class="ghi-anh">'+esc(laBanVe ? L.ghiAnh : L.ghiAnhThat)+'</p>' : '')
         + (function(){
             var ct = anhChiTiet();
             if(!ct.length) return '';
