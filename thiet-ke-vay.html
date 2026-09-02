@@ -306,6 +306,7 @@ var L = {
   upGhi: "Tối đa 3 ảnh. Không bắt buộc.",
   upXong: "Xong",
   loiAI: "Mình chưa kết nối được lúc này, nhưng không sao — mình cùng chọn trực tiếp nhé.",
+  buoc: "Bước",
   maTK: "Mã thiết kế",
   nhanCT: "Chất liệu thật, cận cảnh",
   ghiAnh: "Bản vẽ minh hoạ theo lựa chọn của bạn. Đây là hình dung ban đầu — đội ngũ atelier sẽ cùng bạn tinh chỉnh lại từng chi tiết trước khi may."
@@ -689,9 +690,12 @@ function apGoiY(g){
 
 /* ═════════ VẼ GIAO DIỆN ═════════ */
 function veTien(){
-  var t = $("#tien"), n = 6, h = "";
-  for(var i=0;i<n;i++) h += '<i class="'+(i<=s.man?"on":"")+'"></i>';
-  t.innerHTML = '<span>Bước '+(s.man+1)+' / '+n+'</span>' + h;
+  /* luồng 4 bước: man 0 (ảnh) -> 3 (thuộc tính) -> 4 (mong muốn) -> 5 (kết quả) */
+  var BUOC = {0:1, 3:2, 4:3, 5:4};
+  var buoc = BUOC[s.man] || 1, n = 4;
+  var t = $("#tien"), h = "";
+  for(var i=0;i<n;i++) h += '<i class="'+(i < buoc ? "on" : "")+'"></i>';
+  t.innerHTML = '<span>' + L.buoc + ' ' + buoc + ' / ' + n + '</span>' + h;
 }
 
 function ve(){
@@ -962,7 +966,7 @@ document.addEventListener("click", function(e){
   if(d==="thuvien"){ moThuVien(); return; }
   if(d==="tvXong"){ ve(); return; }
 
-  if(d==="tiep0"){ s.man = AI_URL ? 1 : 3; ve(); return; }
+  if(d==="tiep0"){ s.man = 3; ve(); return; }   /* chị Linh chốt: bỏ bước kể về váy */
 
   if(d==="guiMoTa"){
     var t = ($("#o-mota")||{}).value || "";

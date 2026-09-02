@@ -306,6 +306,7 @@ var L = {
   upGhi: "Up to 3 photos. Optional.",
   upXong: "Done",
   loiAI: "I couldn't connect just now, but no problem \u2014 let's pick together instead.",
+  buoc: "Step",
   maTK: "Design ID",
   nhanCT: "The fabric, up close",
   ghiAnhThat: "A real gown from the Dolinhanh collection, close to the silhouette you chose. Yours will be made to order in the fabric and colour you selected.",
@@ -563,9 +564,12 @@ function apGoiY(g){
 
 /* ═════════ VẼ GIAO DIỆN ═════════ */
 function veTien(){
-  var t = $("#tien"), n = 6, h = "";
-  for(var i=0;i<n;i++) h += '<i class="'+(i<=s.man?"on":"")+'"></i>';
-  t.innerHTML = '<span>Step '+(s.man+1)+' / '+n+'</span>' + h;
+  /* 4-step flow: 0 (photos) -> 3 (attributes) -> 4 (extras) -> 5 (result) */
+  var BUOC = {0:1, 3:2, 4:3, 5:4};
+  var buoc = BUOC[s.man] || 1, n = 4;
+  var t = $("#tien"), h = "";
+  for(var i=0;i<n;i++) h += '<i class="'+(i < buoc ? "on" : "")+'"></i>';
+  t.innerHTML = '<span>' + L.buoc + ' ' + buoc + ' / ' + n + '</span>' + h;
 }
 
 function ve(){
