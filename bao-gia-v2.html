@@ -23,6 +23,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="Dolinhanh Bridal Experience 2026 — quiet minimal luxury, crafted by Mother Love. Một trải nghiệm bridal riêng tư tại Hà Nội & TP.HCM.">
 <title>Dolinhanh Bridal Experience 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap">
 <script>document.documentElement.classList.add("js");</script>
 
 <style>
@@ -39,10 +42,13 @@
     --hair-dark:rgba(255,255,255,.18);
     --champagne:#CDBBA2;
 
-    /* bộ chữ V2 gốc (chị Linh chốt 18/08 khuya): Bodoni tiêu đề/số/giá, Helvetica thân + nhãn */
+    /* bộ chữ V2 (chị Linh chốt 18/08, vá dấu tiếng Việt 02/09):
+       --didone GIỮ NGUYÊN Bodoni — chỉ dùng cho SỐ và GIÁ (không có dấu nên không lỗi).
+       --serif/--body đổi sang Playfair Display + Lora vì Bodoni/Baskerville thiếu dấu
+       tiếng Việt, máy phải mượn dấu từ font khác nên chữ méo và lệch cao thấp. */
     --didone:"Bodoni 72","Bodoni MT",Didot,"Didot LT STD","Playfair Display",Georgia,"Times New Roman",serif;
-    --serif:"Bodoni 72","Bodoni MT",Didot,"Didot LT STD",Baskerville,Georgia,"Times New Roman",serif;
-    --body:Baskerville,"Libre Baskerville",Georgia,"Times New Roman",serif;
+    --serif:"Playfair Display",Georgia,"Times New Roman",serif;
+    --body:"Lora",Georgia,"Times New Roman",serif;
     --sans:-apple-system,"Helvetica Neue",Helvetica,Arial,sans-serif;
 
     --gutter:clamp(20px,5vw,72px);
