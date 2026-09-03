@@ -112,124 +112,83 @@ a{color:inherit}
 
 /* ══════ 4. XƯỞNG ══════ */
 #m-xuong{padding:0}
-.xuong{display:grid;grid-template-columns:1fr 400px;min-height:100svh}
-.sanh{
-  position:sticky;top:0;height:100svh;display:flex;flex-direction:column;
-  align-items:center;justify-content:center;padding:26px 20px 20px;background:var(--nen2);
-  border-right:1px solid var(--vien);
-}
-.khung{position:relative;height:calc(100svh - 150px);max-height:760px;display:flex;align-items:center;justify-content:center}
-.khung svg.ban-ve{height:100%;width:auto;max-width:100%;display:block;filter:drop-shadow(0 22px 46px rgba(90,74,56,.14))}
-.sanh .duoi{display:flex;gap:8px;align-items:center;margin-top:14px;flex-wrap:wrap;justify-content:center}
-.mem{
-  display:inline-flex;align-items:center;gap:7px;padding:9px 15px;border:1px solid var(--vien);
-  background:var(--giay);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--muc2);
-  border-radius:2px;transition:.25s;
-}
-.mem:hover:not(:disabled){border-color:var(--muc);color:var(--muc)}
-.mem:disabled{opacity:.35;cursor:default}
+.xd{display:grid;grid-template-columns:minmax(320px,500px) 1fr;gap:28px;max-width:1240px;margin:0 auto;padding:76px 20px 64px;align-items:start}
+.xd-trai{position:sticky;top:16px;align-self:start;min-width:0}
+.xd-phai{min-width:0}
+
+.hop-xem{background:#fff;border:1px solid var(--vien);border-radius:14px;padding:14px;box-shadow:0 6px 22px rgba(90,74,56,.07);position:relative}
+.khung{display:block}
+.khung svg.ban-ve{width:100%;height:auto;display:block;max-height:66svh;margin:0 auto}
 .nhac{
-  position:absolute;left:50%;transform:translateX(-50%);top:14px;
-  font-size:12.5px;letter-spacing:.05em;color:var(--nhat);white-space:nowrap;
-  padding:7px 16px;background:rgba(251,248,243,.9);border-radius:99px;
-  opacity:0;transition:.5s;pointer-events:none;
+  position:absolute;left:50%;transform:translateX(-50%);top:20px;z-index:4;
+  font-size:12.5px;letter-spacing:.04em;color:var(--muc2);white-space:nowrap;
+  padding:7px 16px;background:rgba(255,255,255,.94);border:1px solid var(--vien);border-radius:99px;
+  opacity:0;transition:.45s;pointer-events:none;box-shadow:0 4px 14px rgba(0,0,0,.05);
 }
 .nhac.on{opacity:1}
 
-/* bảng công cụ */
-.bang{background:var(--nen);display:flex;flex-direction:column;height:100svh;position:sticky;top:0}
-.bang-dau{padding:22px 26px 14px;border-bottom:1px solid var(--vien);display:flex;justify-content:space-between;align-items:flex-end;gap:10px}
-.bang-dau .ten{font-size:18px;letter-spacing:.02em;text-transform:uppercase;white-space:nowrap}
-.bang-dau .tho{white-space:nowrap}
-#ma-hien{font-size:9.5px;letter-spacing:.14em;white-space:nowrap}
-.bang-than{flex:1;overflow-y:auto;padding:6px 0 92px;scrollbar-width:thin}
-.bang-than::-webkit-scrollbar{width:5px}
-.bang-than::-webkit-scrollbar-thumb{background:var(--vien);border-radius:9px}
+.the-tom{margin-top:14px;background:#fff;border:1px solid var(--vien);border-radius:12px;padding:15px 17px 17px;box-shadow:0 4px 16px rgba(90,74,56,.05)}
+.the-tom-dau{display:flex;justify-content:space-between;align-items:baseline;gap:10px;margin-bottom:8px}
+.ma-nho{font-size:9.5px;letter-spacing:.16em;color:var(--nhat);white-space:nowrap}
+.dong-tom{display:flex;justify-content:space-between;gap:14px;padding:7px 0;border-bottom:1px dashed var(--vien);align-items:baseline}
+.dong-tom:last-of-type{border-bottom:0}
+.dong-tom .k2{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--nhat);flex:0 0 40%}
+.dong-tom .v2{font-family:"Playfair Display",serif;font-size:14.5px;text-align:right;line-height:1.35}
+.hang-mem{display:flex;gap:8px;margin-top:13px}
+.nut.rong{width:100%;justify-content:center;margin-top:10px;padding:14px 20px}
 
-.muc{border-bottom:1px solid var(--vien)}
-.muc>button.dau{
-  width:100%;display:flex;align-items:center;justify-content:space-between;gap:12px;
-  padding:17px 26px;text-align:left;transition:.25s;
+/* tab kiểu kẹp hồ sơ */
+.tab-hang{display:flex;gap:5px;border-bottom:1px solid var(--vien);position:sticky;top:0;z-index:5;background:var(--nen);padding-top:8px;overflow-x:auto;scrollbar-width:none}
+.tab-hang::-webkit-scrollbar{display:none}
+.tab{
+  border:1px solid var(--vien);border-bottom:0;background:var(--nen2);color:var(--muc2);
+  padding:12px 16px;border-radius:8px 8px 0 0;font-size:10.5px;letter-spacing:.18em;
+  text-transform:uppercase;white-space:nowrap;transition:.2s;position:relative;top:1px;
 }
-.muc>button.dau:hover{background:var(--nen2)}
-.muc .ten-muc{font-size:12px;letter-spacing:.2em;text-transform:uppercase}
-.muc .gia-tri{font-size:12.5px;color:var(--nhat);font-family:"Playfair Display",serif;font-style:italic;text-align:right;max-width:150px;line-height:1.35}
-.muc .than{display:none;padding:2px 26px 24px}
-.muc.mo .than{display:block;animation:hienNhe .35s ease both}
-.muc.mo>button.dau .ten-muc{color:var(--muc)}
-.muc .mui{width:9px;height:9px;border-right:1px solid var(--nhat);border-bottom:1px solid var(--nhat);transform:rotate(45deg);transition:.3s;flex:0 0 auto;margin-top:-4px}
-.muc.mo .mui{transform:rotate(-135deg);margin-top:2px}
+.tab:hover{background:#F2EFEA;color:var(--muc)}
+.tab.on{background:#fff;color:var(--muc);z-index:2;box-shadow:0 -2px 8px rgba(0,0,0,.03)}
+.tab i{font-style:normal;color:var(--champ2);margin-left:6px;font-size:12px;line-height:1}
 
-.vien-op{display:flex;flex-wrap:wrap;gap:7px}
-.op{
-  padding:9px 14px;border:1px solid var(--vien);background:var(--giay);
-  font-size:12.5px;color:var(--muc2);border-radius:2px;transition:.22s;line-height:1.3;
+.khoi-the{background:#fff;border:1px solid var(--vien);border-top:0;border-radius:0 0 10px 10px;padding:18px 18px 22px}
+.meo{font-size:12.5px;color:var(--nhat);margin:0 0 15px;line-height:1.65;max-width:62ch}
+.meo b{font-weight:400;color:var(--muc2)}
+.luoi-the{display:grid;grid-template-columns:repeat(auto-fill,minmax(178px,1fr));gap:13px}
+.the{
+  border:1px solid var(--vien);border-radius:14px;overflow:hidden;background:#fff;text-align:left;
+  transition:.16s;display:block;width:100%;padding:0;position:relative;
 }
-.op:hover{border-color:var(--champ2);color:var(--muc)}
-.op.chon{background:var(--muc);color:var(--giay);border-color:var(--muc)}
-.op .en{display:block;font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;opacity:.55;margin-top:2px}
-
-/* ô chọn bằng ảnh mảnh váy thật */
-.luoi-manh{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}
-.the-manh{border:1px solid var(--vien);background:#fff;border-radius:3px;overflow:hidden;transition:.25s;padding:0;display:block}
-.the-manh:hover{border-color:var(--champ2)}
-.the-manh.chon{border-color:var(--muc);box-shadow:0 0 0 1px var(--muc)}
-.the-manh img{display:block;width:100%;height:78px;object-fit:contain;padding:6px 4px 2px;background:#fff}
-.the-manh .trong-manh{height:78px;display:flex;align-items:center;justify-content:center;color:var(--nhat);font-size:20px}
-.the-manh span{display:block;padding:6px 4px 7px;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--muc2);border-top:1px solid var(--vien);line-height:1.3}
-.the-manh.chon span{background:var(--muc);color:var(--giay);border-color:var(--muc)}
-
-/* ô ren có hoạ tiết */
-.luoi-ren{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}
-.the-ren{border:1px solid var(--vien);background:var(--giay);border-radius:3px;overflow:hidden;transition:.25s;padding:0}
-.the-ren:hover{border-color:var(--champ2)}
-.the-ren.chon{border-color:var(--muc);box-shadow:0 0 0 1px var(--muc)}
-.the-ren svg{display:block;width:100%;height:62px}
-.the-ren span{display:block;padding:7px 4px 8px;font-size:10px;letter-spacing:.11em;text-transform:uppercase;color:var(--muc2);border-top:1px solid var(--vien)}
-.the-ren.chon span{background:var(--muc);color:var(--giay);border-color:var(--muc)}
+.the:hover{transform:translateY(-2px);box-shadow:0 9px 24px rgba(90,74,56,.10);border-color:var(--champ2)}
+.the.on{border-color:var(--muc);box-shadow:0 9px 26px rgba(90,74,56,.16)}
+.the .o-anh{height:142px;display:flex;width:100%;align-items:center;justify-content:center;background:#FCFBF9;padding:10px 8px 4px}
+.the .o-anh img{max-width:100%;max-height:100%;object-fit:contain;display:block}
+.the .o-anh svg{width:100%;height:100%;display:block}
+.the .o-anh .trong{color:var(--vien);font-size:26px;font-family:"Playfair Display",serif}
+.the .ten2{display:block;font-size:13.5px;padding:11px 12px 0;line-height:1.3}
+.the .mo2{display:block;font-size:11.5px;color:var(--nhat);padding:4px 12px 0;line-height:1.5;min-height:2.4em}
+.the .en3{display:block;font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--nhat);padding:7px 12px 12px}
+.the .dau-chon{
+  position:absolute;right:9px;top:9px;width:22px;height:22px;border-radius:50%;
+  background:var(--muc);color:#fff;font-size:12px;display:none;align-items:center;justify-content:center;line-height:1;
+}
+.the.on .dau-chon{display:flex}
 
 /* vùng đặt ren */
-.dat{margin-top:16px;padding-top:15px;border-top:1px dashed var(--vien)}
-.dat .nhan{font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--nhat);margin-bottom:10px}
+.dat{margin-top:18px;padding-top:16px;border-top:1px dashed var(--vien)}
+.dat .nhan{font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--nhat);margin-bottom:11px}
 .vung{display:flex;flex-wrap:wrap;gap:7px}
-.vung button{
-  padding:8px 13px;border:1px solid var(--vien);background:transparent;font-size:12px;
-  color:var(--muc2);border-radius:99px;transition:.22s;
-}
+.vung button{padding:9px 15px;border:1px solid var(--vien);background:#fff;font-size:12.5px;color:var(--muc2);border-radius:99px;transition:.2s}
 .vung button:hover{border-color:var(--champ2)}
-.vung button.chon{background:var(--champ2);border-color:var(--champ2);color:#fff}
+.vung button.chon{background:var(--muc);border-color:var(--muc);color:#fff}
 
-/* chi tiết bật/tắt */
-.ct{display:flex;flex-direction:column;gap:2px}
-.ct button{
-  display:flex;align-items:center;gap:13px;padding:11px 4px;text-align:left;transition:.2s;border-bottom:1px solid transparent;
-}
-.ct button:hover{border-bottom-color:var(--vien)}
-.ct .cong{
-  width:22px;height:22px;flex:0 0 auto;border:1px solid var(--vien);border-radius:50%;
-  display:flex;align-items:center;justify-content:center;font-size:13px;color:var(--nhat);transition:.25s;line-height:1;
-}
-.ct button.on .cong{background:var(--muc);border-color:var(--muc);color:var(--giay)}
-.ct .ten-ct{font-size:13.5px;color:var(--muc2)}
-.ct button.on .ten-ct{color:var(--muc)}
-.ct .en-ct{font-size:9.5px;letter-spacing:.15em;text-transform:uppercase;color:var(--nhat);margin-left:auto}
-
-/* màu */
-.mau-hang{display:flex;flex-wrap:wrap;gap:11px}
-.o-mau{width:38px;height:38px;border-radius:50%;border:1px solid var(--vien);position:relative;transition:.25s}
-.o-mau:hover{transform:scale(1.08)}
-.o-mau.chon{box-shadow:0 0 0 1px var(--giay),0 0 0 2px var(--muc)}
-
-/* thanh tiến trình hành trình */
-.hanh-trinh{display:flex;gap:0;padding:13px 26px;border-bottom:1px solid var(--vien);overflow-x:auto;scrollbar-width:none}
-.hanh-trinh::-webkit-scrollbar{display:none}
-.ht{display:flex;align-items:center;gap:9px;flex:0 0 auto;padding-right:13px}
-.ht i{width:5px;height:5px;border-radius:50%;background:var(--vien);transition:.4s;font-style:normal}
-.ht.xong i{background:var(--champ2)}
-.ht span{font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--vien);transition:.4s;white-space:nowrap}
-.ht.xong span{color:var(--nhat)}
-.ht:after{content:"";width:14px;height:1px;background:var(--vien);margin-left:4px}
-.ht:last-child:after{display:none}
+/* hỏi đáp cuối */
+.hoi-dap{margin-top:26px;border-top:1px solid var(--vien)}
+.hoi-dap details{border-bottom:1px solid var(--vien)}
+.hoi-dap summary{cursor:pointer;list-style:none;padding:15px 30px 15px 2px;font-size:14px;position:relative}
+.hoi-dap summary::-webkit-details-marker{display:none}
+.hoi-dap summary:after{content:"+";position:absolute;right:6px;top:13px;color:var(--nhat);font-size:17px}
+.hoi-dap details[open] summary:after{content:"–"}
+.hoi-dap p{margin:0 0 16px;font-size:13.5px;color:var(--muc2);line-height:1.75;max-width:64ch}
+.hoi-dap a{border-bottom:1px solid var(--vien)}
 
 /* ══════ 5. LỘ DIỆN ══════ */
 #m-lo{padding:70px 0 90px}
@@ -311,22 +270,20 @@ body.trong-xuong .doi-ngu{display:none}
   .hero .kyten{gap:16px;margin-top:26px}
   .doi-ngu{background:linear-gradient(var(--nen) 55%,transparent);padding:14px 18px 20px}
   .lo{grid-template-columns:1fr;gap:32px}
-  .xuong{grid-template-columns:1fr}
-  .sanh{position:relative;height:auto;min-height:52svh;padding:56px 16px 10px;border-right:0;border-bottom:1px solid var(--vien)}
-  .khung{height:44svh;max-height:none}
-  .bang{height:auto;position:relative}
-  .bang-than{overflow:visible;max-height:none}
-  .bang-dau{padding:18px 20px 12px}
-  .muc>button.dau{padding:16px 20px}
-  .muc .than{padding:2px 20px 22px}
-  .hanh-trinh{padding:11px 20px}
-  .luoi-ren{grid-template-columns:repeat(3,1fr)}
+  .xd{grid-template-columns:1fr;gap:16px;padding:66px 12px 44px}
+  .xd-trai{position:relative;top:0}
+  .khung svg.ban-ve{max-height:52svh}
+  .tab-hang{top:0}
+  .khoi-the{padding:14px 12px 18px}
+  .luoi-the{grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:10px}
+  .the .o-anh{height:118px}
 }
 @media(max-width:520px){
   .boc{padding:0 18px}
   .hop{padding:30px 22px 26px}
   .cta-cuoi{padding:40px 22px}
-  .luoi-ren{grid-template-columns:repeat(2,1fr)}
+  .luoi-the{grid-template-columns:repeat(2,1fr)}
+  .tab{padding:11px 13px;font-size:10px;letter-spacing:.14em}
 }
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
@@ -394,28 +351,52 @@ body.trong-xuong .doi-ngu{display:none}
 
 <!-- ═════════ 4. XƯỞNG ═════════ -->
 <section class="man" id="m-xuong">
-  <div class="xuong">
-    <div class="sanh">
-      <div class="nhac" id="nhac"></div>
-      <div class="khung" id="khung"></div>
-      <div class="duoi">
-        <button class="mem" id="nut-hoan">Hoàn tác</button>
-        <button class="mem" id="nut-lam-lai">Vẽ lại từ đầu</button>
-        <button class="mem" id="nut-xong">Xem bản hoàn thiện →</button>
+  <div class="xd">
+    <!-- CỘT TRÁI: bản xem + bảng đã chọn -->
+    <div class="xd-trai">
+      <div class="hop-xem">
+        <div class="nhac" id="nhac"></div>
+        <div class="khung" id="khung"></div>
+      </div>
+
+      <div class="the-tom">
+        <div class="the-tom-dau">
+          <span class="tho">Thiết kế của bạn</span>
+          <span class="ma-nho" id="ma-hien"></span>
+        </div>
+        <div id="tom-chon"></div>
+        <div class="hang-mem">
+          <button class="mem" id="nut-hoan">Hoàn tác</button>
+          <button class="mem" id="nut-lam-lai">Vẽ lại từ đầu</button>
+        </div>
+        <button class="nut rong" id="nut-xong">Xem bản hoàn thiện <span aria-hidden="true">→</span></button>
       </div>
     </div>
 
-    <aside class="bang">
-      <div class="bang-dau">
-        <div>
-          <div class="tho">Thiết kế của bạn</div>
-          <div class="ten dd" id="ten-tk">Váy của bạn</div>
-        </div>
-        <div class="tho" id="ma-hien" style="text-align:right"></div>
+    <!-- CỘT PHẢI: tab + lưới thẻ -->
+    <div class="xd-phai">
+      <div class="tab-hang" id="tab-hang" role="tablist"></div>
+      <div class="khoi-the">
+        <p class="meo" id="meo"></p>
+        <div class="luoi-the" id="luoi-the"></div>
+        <div id="them-vung"></div>
       </div>
-      <div class="hanh-trinh" id="hanh-trinh"></div>
-      <div class="bang-than" id="bang-than"></div>
-    </aside>
+
+      <div class="hoi-dap">
+        <details><summary>Bản vẽ này có phải là váy thật không?</summary>
+          <p>Đây là bản phác thảo để bạn hình dung. Khi tới atelier, đội ngũ Dolinhanh sẽ cùng bạn
+             chọn đúng loại ren, đúng chất vải và chỉnh từng đường trên dáng người bạn.</p></details>
+        <details><summary>Bao lâu thì may xong?</summary>
+          <p>Váy đặt may riêng thường cần khoảng 8–12 tuần kể từ khi chốt mẫu và số đo.
+             Nếu cưới gấp, bạn cứ nhắn — chúng tôi sẽ xem lịch xưởng và báo lại phương án.</p></details>
+        <details><summary>Tôi ở xa, đo số đo thế nào?</summary>
+          <p>Có hướng dẫn tự đo 14 số đo tại nhà, kèm phiếu ghi số đo để bạn gửi lại.
+             <a href="cach-do-so-do.html" target="_blank" rel="noopener">Xem hướng dẫn đo</a>.</p></details>
+        <details><summary>Tôi muốn thêm chi tiết không có trong danh sách?</summary>
+          <p>Được. Bạn cứ gửi thiết kế này kèm ghi chú, hoặc nhắn Zalo cho Dolinhanh —
+             phần lớn yêu cầu riêng đều làm được.</p></details>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -532,42 +513,42 @@ var Y_EO = 256, CAO_CHAN = 430, Y_THAN_DAY = 274;   /* mốc ghép cố định 
 
 /* ───────── LỚP 1 · CHÂN VÁY ───────── */
 var CHAN = [
- {id:"Bong",   vi:"Xoè bồng",  en:"Ball Gown", f:"chan-bong", r:0.6711,    rong:236},
- {id:"Xoe",    vi:"Chữ A",     en:"A-Line",    f:"chan-xoe", r:0.7743,     rong:214},
- {id:"DuoiCa", vi:"Đuôi cá",   en:"Mermaid",   f:"chan-duoi-ca", r:1.3023, rong:132}
+ {id:"Bong",   vi:"Xoè bồng",  en:"Ball Gown", f:"chan-bong", r:0.6711,    rong:236, mo:"Xoè bồng, đuôi quét dài"},
+ {id:"Xoe",    vi:"Chữ A",     en:"A-Line",    f:"chan-xoe", r:0.7743,     rong:214, mo:"Chữ A mềm, dễ mặc nhất"},
+ {id:"DuoiCa", vi:"Đuôi cá",   en:"Mermaid",   f:"chan-duoi-ca", r:1.3023, rong:132, mo:"Ôm sát tới gối rồi loe"}
 ];
 
 /* ───────── LỚP 2 · THÂN VÁY ───────── */
 var THAN = [
- {id:"CorsetCup", vi:"Corset cúp ngực", en:"Bustier",      f:"than-corset-cup", r:0.7067, rong:104},
- {id:"CorsetXe",  vi:"Corset xẻ giữa",  en:"Panelled",     f:"than-corset-xe", r:0.8395,  rong:104},
- {id:"QuayNgang", vi:"Quây ngang",      en:"Straight Band",f:"than-quay-ngang", r:0.7092, rong:100},
- {id:"TankVuong", vi:"Cổ vuông hai quai",en:"Square Tank", f:"than-tank-vuong", r:0.9794, rong:100},
- {id:"YemV",      vi:"Yếm chữ V",       en:"V Bralette",   f:"than-yem-v", r:0.9254,      rong:106},
- {id:"CorsetRen", vi:"Corset ren",      en:"Lace Bustier", f:"than-corset-ren", r:1.0121, rong:104},
- {id:"QuaySatin", vi:"Quây satin bản to",en:"Satin Band",  f:"quay-satin", r:0.5409,      rong:118, day:262}
+ {id:"CorsetCup", vi:"Corset cúp ngực", en:"Bustier",      f:"than-corset-cup", r:0.7067, rong:104, mo:"Cúp ngực có gọng, tôn vòng một"},
+ {id:"CorsetXe",  vi:"Corset xẻ giữa",  en:"Panelled",     f:"than-corset-xe", r:0.8395,  rong:104, mo:"Nẹp dọc xẻ giữa, dáng cổ điển"},
+ {id:"QuayNgang", vi:"Quây ngang",      en:"Straight Band",f:"than-quay-ngang", r:0.7092, rong:100, mo:"Cắt ngang trơn, tối giản nhất"},
+ {id:"TankVuong", vi:"Cổ vuông hai quai",en:"Square Tank", f:"than-tank-vuong", r:0.9794, rong:100, mo:"Cổ vuông hai quai bản to"},
+ {id:"YemV",      vi:"Yếm chữ V",       en:"V Bralette",   f:"than-yem-v", r:0.9254,      rong:106, mo:"Chữ V mềm, hai quai mảnh"},
+ {id:"CorsetRen", vi:"Corset ren",      en:"Lace Bustier", f:"than-corset-ren", r:1.0121, rong:104, mo:"Ren nổi ánh champagne"},
+ {id:"QuaySatin", vi:"Quây satin bản to",en:"Satin Band",  f:"quay-satin", r:0.5409,      rong:118, day:262, mo:"Băng satin bản to ôm eo"}
 ];
 
 /* ───────── LỚP 3 · TAY ÁO / GĂNG ─────────
    1 mảnh giữa (giua:true) hoặc 2 mảnh trái–phải (ft/fp) */
 var TAYA = [
- {id:"None",   vi:"Không tay",      en:"None"},
- {id:"TreVai", vi:"Vạt trễ vai",    en:"Off-Shoulder Drape", f:"tre-vai", r:0.3838, giua:true, rong:152, y:176},
- {id:"Voan",   vi:"Tay voan rời",   en:"Draped Tulle", ft:"tay-voan-t", r:1.6121, fp:"tay-voan-p", rong:58, lech:52, y:168},
- {id:"Dai",    vi:"Tay dài loe",    en:"Long Sleeve",  ft:"tay-dai-t", r:2.0,  fp:"tay-dai-p",  rong:38, lech:57, y:198},
- {id:"Gang",   vi:"Găng ren dài",   en:"Lace Gloves",  ft:"gang-ren-t", r:3.8261, fp:"gang-ren-p", rong:23, lech:56, y:236}
+ {id:"None",   vi:"Không tay",      en:"None", mo:"Để trần vai, gọn gàng"},
+ {id:"TreVai", vi:"Vạt trễ vai",    en:"Off-Shoulder Drape", f:"tre-vai", r:0.3838, giua:true, rong:152, y:176, mo:"Vạt vải vắt ngang hai vai"},
+ {id:"Voan",   vi:"Tay voan rời",   en:"Draped Tulle", ft:"tay-voan-t", r:1.6121, fp:"tay-voan-p", rong:58, lech:52, y:168, mo:"Tay voan rời, bay nhẹ"},
+ {id:"Dai",    vi:"Tay dài loe",    en:"Long Sleeve",  ft:"tay-dai-t", r:2.0,  fp:"tay-dai-p",  rong:38, lech:57, y:198, mo:"Ống tay loe, kín đáo hơn"},
+ {id:"Gang",   vi:"Găng ren dài",   en:"Lace Gloves",  ft:"gang-ren-t", r:3.8261, fp:"gang-ren-p", rong:23, lech:56, y:236, mo:"Găng ren dài quá khuỷu"}
 ];
 
 /* ───────── LỚP 4 · REN (phủ lên vải, theo vùng) ───────── */
 var REN = [
- {id:"None",     vi:"Không ren",  en:"No Lace"},
- {id:"Floral",   vi:"Hoa mềm",    en:"Soft Floral"},
- {id:"Chantilly",vi:"Chantilly",  en:"Chantilly"},
- {id:"Botanical",vi:"Lá cành",    en:"Botanical"},
- {id:"Flower3D", vi:"Hoa nổi 3D", en:"3D Floral"},
- {id:"Scallop",  vi:"Viền bèo",   en:"Scalloped"},
- {id:"Romantic", vi:"Hoa hồng",   en:"Romantic"},
- {id:"Minimal",  vi:"Tối giản",   en:"Minimal"}
+ {id:"None",     vi:"Không ren",  en:"No Lace", mo:"Để mộc, khoe chất vải"},
+ {id:"Floral",   vi:"Hoa mềm",    en:"Soft Floral", mo:"Hoa nhỏ rải đều, dịu dàng"},
+ {id:"Chantilly",vi:"Chantilly",  en:"Chantilly", mo:"Ren lưới mảnh, cổ điển Pháp"},
+ {id:"Botanical",vi:"Lá cành",    en:"Botanical", mo:"Lá cành vươn dài, thanh"},
+ {id:"Flower3D", vi:"Hoa nổi 3D", en:"3D Floral", mo:"Hoa to nổi khối, hút mắt"},
+ {id:"Scallop",  vi:"Viền bèo",   en:"Scalloped", mo:"Viền bèo sóng ở gấu"},
+ {id:"Romantic", vi:"Hoa hồng",   en:"Romantic", mo:"Hoa hồng cuộn, nữ tính"},
+ {id:"Minimal",  vi:"Tối giản",   en:"Minimal", mo:"Thưa và nhẹ, gần như trơn"}
 ];
 var VUNG = [
  {id:"than", vi:"Thân váy", en:"Bodice"},
@@ -579,35 +560,35 @@ var VUNG = [
 
 /* ───────── LỚP 5 · ĐÍNH KẾT ───────── */
 var CHITIET = [
- {id:"pearl",   vi:"Ngọc trai",   en:"Pearls"},
- {id:"crystal", vi:"Pha lê",      en:"Crystals"},
- {id:"bead",    vi:"Cườm dải",    en:"Beading"},
- {id:"flower",  vi:"Hoa nổi",     en:"3D Flowers"},
- {id:"bow",     vi:"Nơ lớn",      en:"Bow"},
- {id:"applique",vi:"Đắp hoạ tiết",en:"Appliqué"},
- {id:"embroi",  vi:"Thêu chỉ",    en:"Embroidery"},
- {id:"belt",    vi:"Đai eo",      en:"Belt"}
+ {id:"pearl",   vi:"Ngọc trai",   en:"Pearls", mo:"Ngọc trai rải tay"},
+ {id:"crystal", vi:"Pha lê",      en:"Crystals", mo:"Pha lê bắt sáng"},
+ {id:"bead",    vi:"Cườm dải",    en:"Beading", mo:"Cườm chạy dải dọc thân"},
+ {id:"flower",  vi:"Hoa nổi",     en:"3D Flowers", mo:"Hoa vải nổi khối"},
+ {id:"bow",     vi:"Nơ lớn",      en:"Bow", mo:"Nơ lớn buông dải sau lưng"},
+ {id:"applique",vi:"Đắp hoạ tiết",en:"Appliqué", mo:"Hoạ tiết đắp rời"},
+ {id:"embroi",  vi:"Thêu chỉ",    en:"Embroidery", mo:"Thêu chỉ nổi trên tùng"},
+ {id:"belt",    vi:"Đai eo",      en:"Belt", mo:"Đai eo đính đá"}
 ];
 
 /* ───────── LỚP 6 · VOAN & PHỤ KIỆN (vẽ) ───────── */
 var VOAN = [
- {id:"None",   vi:"Không voan",   en:"No Veil", dai:0},
- {id:"Short",  vi:"Voan ngắn",    en:"Elbow",   dai:300},
- {id:"Long",   vi:"Voan dài",     en:"Chapel",  dai:470},
- {id:"Cathe",  vi:"Voan quét đất",en:"Cathedral",dai:646},
- {id:"Blusher",vi:"Voan che mặt", en:"Blusher", dai:280, che:true},
- {id:"Bow",    vi:"Nơ tóc",       en:"Hair Bow",dai:0, no:true}
+ {id:"None",   vi:"Không voan",   en:"No Veil", dai:0, mo:"Để tóc và vai thoáng"},
+ {id:"Short",  vi:"Voan ngắn",    en:"Elbow",   dai:300, mo:"Ngang khuỷu tay, trẻ trung"},
+ {id:"Long",   vi:"Voan dài",     en:"Chapel",  dai:470, mo:"Dài ngang gấu váy"},
+ {id:"Cathe",  vi:"Voan quét đất",en:"Cathedral",dai:646, mo:"Quét đất, kiêu sa nhất"},
+ {id:"Blusher",vi:"Voan che mặt", en:"Blusher", dai:280, che:true, mo:"Có lớp che mặt phía trước"},
+ {id:"Bow",    vi:"Nơ tóc",       en:"Hair Bow",dai:0, no:true, mo:"Nơ satin gài búi tóc"}
 ];
 
 /* ───────── LỚP 7 · MÀU (phủ nhẹ lên vải, giữ nguyên nếp sáng tối) ───────── */
 var MAU = [
- {id:"Ivory",    vi:"Trắng ngà",  en:"Ivory",     hex:"#FFFFFF", dam:0},
- {id:"Pearl",    vi:"Ngọc trai",  en:"Pearl",     hex:"#F4F1EA", dam:.35},
- {id:"Champagne",vi:"Champagne",  en:"Champagne", hex:"#EBD9BC", dam:.55},
- {id:"Nude",     vi:"Nude",       en:"Nude",      hex:"#E9D6C6", dam:.55},
- {id:"Blush",    vi:"Hồng phấn",  en:"Blush",     hex:"#F3D9DC", dam:.5},
- {id:"Sage",     vi:"Xanh khói",  en:"Sage",      hex:"#DCE0D3", dam:.5},
- {id:"Silver",   vi:"Bạc",        en:"Silver",    hex:"#DEDCD8", dam:.45}
+ {id:"Ivory",    vi:"Trắng ngà",  en:"Ivory",     hex:"#FFFFFF", dam:0, mo:"Trắng ngà nguyên bản"},
+ {id:"Pearl",    vi:"Ngọc trai",  en:"Pearl",     hex:"#F4F1EA", dam:.35, mo:"Ánh ngọc trai rất nhẹ"},
+ {id:"Champagne",vi:"Champagne",  en:"Champagne", hex:"#EBD9BC", dam:.55, mo:"Ấm, hợp da nâu vàng"},
+ {id:"Nude",     vi:"Nude",       en:"Nude",      hex:"#E9D6C6", dam:.55, mo:"Trong trẻo, gần màu da"},
+ {id:"Blush",    vi:"Hồng phấn",  en:"Blush",     hex:"#F3D9DC", dam:.5, mo:"Hồng phấn mờ"},
+ {id:"Sage",     vi:"Xanh khói",  en:"Sage",      hex:"#DCE0D3", dam:.5, mo:"Xanh khói lạ mắt"},
+ {id:"Silver",   vi:"Bạc",        en:"Silver",    hex:"#DEDCD8", dam:.45, mo:"Bạc lạnh, hiện đại"}
 ];
 
 /* nhóm hiển thị trên bảng công cụ */
@@ -1145,7 +1126,7 @@ function apAI(g,d,daCo){
    ══════════════════════════════════════════════════════════════ */
 var MAC_DINH={than:"CorsetCup",chan:"Xoe",tay:"None",ren:"None",vung:{than:true},ct:{},voan:"None",mau:"Ivory"};
 var LS="dla_atelier_v1";
-var s={ d:JSON.parse(JSON.stringify(MAC_DINH)), goc:null, moTa:"", ma:"", lichSu:[], mo:{} };
+var s={ d:JSON.parse(JSON.stringify(MAC_DINH)), goc:null, moTa:"", ma:"", lichSu:[], tab:"than" };
 
 function ban(o){ return JSON.parse(JSON.stringify(o)); }
 function maTK(){ if(!s.ma){ var r=rng(Date.now()>>>0); s.ma="DLA-DRESS-2026-"+String(Math.floor(1000+r()*9000)); } return s.ma; }
@@ -1197,85 +1178,117 @@ function nhacNho(t){
    ══════════════════════════════════════════════════════════════ */
 function oRen(r){
   if(r.id==="None") return '<svg viewBox="0 0 100 62"><rect width="100" height="62" fill="#FFFFFF"/>'
-    + '<path d="M30,31 L70,31" stroke="#C6BCAE" stroke-width="1"/></svg>';
+    + '<path d="M28,31 L72,31" stroke="#D7CFC3" stroke-width="1"/></svg>';
   return duyNhat('<svg viewBox="0 0 100 62" style="--ren:#8A7458"><defs>'+REN_PT[r.id]+'</defs>'
     + '<rect width="100" height="62" fill="#FFFFFF"/><rect width="100" height="62" fill="url(#ren-'+r.id+')"/></svg>');
 }
-function oManh(o){
-  if(!o.f && !o.ft) return '<div class="trong-manh">—</div>';
-  var f=o.f||o.ft;
-  return '<img src="'+ANH_MANH+f+'.png" alt="" loading="lazy">';
+function oVoan(v){
+  if(!v.dai && !v.no) return '<span class="trong">—</span>';
+  if(v.no) return '<svg viewBox="0 0 100 62"><path d="M46,31 C30,18 22,34 40,36 C24,42 32,54 48,38 L52,38 C68,54 76,42 60,36 C78,34 70,18 54,31 Z" fill="#fff" stroke="#8B7B6B" stroke-width="1.1"/><ellipse cx="50" cy="34" rx="5" ry="4.4" fill="#fff" stroke="#8B7B6B" stroke-width="1.1"/></svg>';
+  var h=Math.min(52, 14+v.dai*0.055);
+  return '<svg viewBox="0 0 100 62"><path d="M50,6 C36,14 '+(50-h*0.6)+','+(6+h*0.6)+' '+(50-h*0.62)+','+(6+h)+' Q50,'+(6+h+5)+' '+(50+h*0.62)+','+(6+h)
+       + ' C'+(50+h*0.6)+','+(6+h*0.6)+' 64,14 50,6 Z" fill="#F7F5F1" stroke="#B7ADA0" stroke-width=".9"/></svg>';
 }
-function veBang(){
-  var h="";
-  for(var i=0;i<BANG.length;i++){
-    var b=BANG[i], gia="", than="";
-
-    if(b.kieu==="anh"){
-      gia=nhan(b.key,s.d[b.key]);
-      than='<div class="luoi-manh">'+b.ds.map(function(o){
-        return '<button class="the-manh'+(s.d[b.key]===o.id?" chon":"")+'" data-nhom="'+b.key+'" data-id="'+o.id+'">'
-             + oManh(o)+'<span>'+esc(o.vi)+'</span></button>';
-      }).join("")+'</div>';
-    }
-    else if(b.kieu==="op"){
-      gia=nhan(b.key,s.d[b.key]);
-      than='<div class="vien-op">'+b.ds.map(function(o){
-        return '<button class="op'+(s.d[b.key]===o.id?" chon":"")+'" data-nhom="'+b.key+'" data-id="'+o.id+'">'
-             + esc(o.vi)+'<span class="en">'+esc(o.en)+'</span></button>';
-      }).join("")+'</div>';
-    }
-    else if(b.kieu==="ren"){
-      gia = s.d.ren==="None" ? "Chưa thêm" : nhan("ren",s.d.ren)+(tenVung()?" · "+tenVung():"");
-      than='<div class="luoi-ren">'+REN.map(function(r){
-        return '<button class="the-ren'+(s.d.ren===r.id?" chon":"")+'" data-ren="'+r.id+'" title="'+esc(r.en)+'">'
-             + oRen(r)+'<span>'+esc(r.vi)+'</span></button>';
-      }).join("")+'</div>';
-      if(s.d.ren!=="None"){
-        than+='<div class="dat"><div class="nhan">Đặt ren ở đâu?</div><div class="vung">'
-          + VUNG.map(function(z){
-              return '<button data-vung="'+z.id+'" class="'+((s.d.vung&&s.d.vung[z.id])?"chon":"")+'">'+esc(z.vi)+'</button>';
-            }).join("")+'</div></div>';
-      }
-    }
-    else if(b.kieu==="ct"){
-      gia=tenCT();
-      than='<div class="ct">'+CHITIET.map(function(c){
-        var on=!!(s.d.ct&&s.d.ct[c.id]);
-        return '<button data-ct="'+c.id+'" class="'+(on?"on":"")+'"><span class="cong">'+(on?"✓":"+")+'</span>'
-             + '<span class="ten-ct">'+esc(c.vi)+'</span><span class="en-ct">'+esc(c.en)+'</span></button>';
-      }).join("")+'</div>';
-    }
-    else if(b.kieu==="mau"){
-      gia=nhan("mau",s.d.mau);
-      than='<div class="mau-hang">'+MAU.map(function(m){
-        return '<button class="o-mau'+(s.d.mau===m.id?" chon":"")+'" data-mau="'+m.id+'" title="'+esc(m.vi)+'" '
-             + 'style="background:'+m.hex+'"><span class="sr" style="position:absolute;left:-9999px">'+esc(m.vi)+'</span></button>';
-      }).join("")+'</div>';
-    }
-
-    h+='<section class="muc'+(s.mo[b.key]?" mo":"")+'" data-muc="'+b.key+'">'
-     + '<button class="dau" data-mo="'+b.key+'"><span class="ten-muc">'+esc(b.ten)+'</span>'
-     + '<span style="display:flex;align-items:center;gap:12px"><span class="gia-tri">'+esc(gia)+'</span><span class="mui"></span></span></button>'
-     + '<div class="than">'+than+'</div></section>';
+function oMau(m){
+  return '<svg viewBox="0 0 100 62"><rect width="100" height="62" fill="#FFFFFF"/>'
+       + '<circle cx="50" cy="31" r="21" fill="'+m.hex+'" stroke="#D7CFC3" stroke-width="1"/></svg>';
+}
+function anhThe(b,o){
+  if(b.kieu==="anh"){
+    var f=o.f||o.ft;
+    return f ? '<img src="'+ANH_MANH+f+'.png" alt="" loading="lazy">' : '<span class="trong">—</span>';
   }
-  $("#bang-than").innerHTML=h;
+  if(b.key==="ren")  return oRen(o);
+  if(b.key==="voan") return oVoan(o);
+  if(b.key==="mau")  return oMau(o);
+  if(b.key==="ct")   return oRenCT(o);
+  return '<span class="trong">—</span>';
+}
+/* ô đính kết: vẽ thử motif cho khách hình dung */
+function oRenCT(c){
+  var g='<svg viewBox="0 0 100 62" style="--ren:#8A7458"><rect width="100" height="62" fill="#FFFFFF"/>';
+  var r=rng(97);
+  if(c.id==="pearl")   for(var i=0;i<16;i++) g+=ngoc(14+r()*72, 10+r()*42, 2+r()*2);
+  else if(c.id==="crystal") for(var i=0;i<11;i++) g+=pha_le(14+r()*72, 10+r()*42, 3+r()*3);
+  else if(c.id==="bead")    for(var x=16;x<86;x+=9){ for(var y=8;y<54;y+=5) g+='<circle cx="'+(x+Math.sin(y/7)*2).toFixed(1)+'" cy="'+y+'" r="1" fill="#8A7458" opacity=".55"/>'; }
+  else if(c.id==="flower")  g+=hoa5(34,30,13,.6,1)+hoa5(64,34,10,.5,1)+hoa5(54,14,7,.45,1);
+  else if(c.id==="bow")     g+='<path d="M50,24 C34,12 24,32 44,32 Z" fill="#F4F0E9" stroke="#8B7B6B" stroke-width="1"/><path d="M50,24 C66,12 76,32 56,32 Z" fill="#F4F0E9" stroke="#8B7B6B" stroke-width="1"/><path d="M46,30 L42,56 L50,54 L52,30 Z" fill="#F7F4EE" stroke="#8B7B6B" stroke-width=".8"/><ellipse cx="50" cy="27" rx="6" ry="5" fill="#F4F0E9" stroke="#8B7B6B" stroke-width="1"/>';
+  else if(c.id==="applique") g+=hoa5(50,31,20,.5,0)+hoa5(50,31,10,.42,0);
+  else if(c.id==="embroi")  g+='<path d="M26,54 C34,40 32,24 30,10 M50,56 C58,40 54,22 52,8 M74,54 C82,40 78,24 76,12" fill="none" stroke="#8A7458" stroke-width=".8" opacity=".55"/><path d="M30,22 q7,-4 10,2 q-7,3 -10,-2 Z M52,18 q7,-4 10,2 q-7,3 -10,-2 Z M76,26 q7,-4 10,2 q-7,3 -10,-2 Z" fill="#8A7458" opacity=".28"/>';
+  else if(c.id==="belt")    { g+='<rect x="12" y="24" width="76" height="15" rx="3" fill="url(#g-dai-o)"/>'; for(var i=0;i<14;i++) g+=pha_le(16+i*5.4, 31+Math.sin(i)*3, 2.2); }
+  g+='</svg>';
+  if(c.id==="belt") g=g.replace("<rect width=\"100\"","<defs><linearGradient id=\"g-dai-o\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"0\"><stop offset=\"0\" stop-color=\"#D9CDBA\"/><stop offset=\".5\" stop-color=\"#FFFFFF\"/><stop offset=\"1\" stop-color=\"#D9CDBA\"/></linearGradient><radialGradient id=\"g-ngoc\" cx=\".35\" cy=\".32\" r=\".75\"><stop offset=\"0\" stop-color=\"#FFF\"/><stop offset=\"1\" stop-color=\"#CBBBA4\"/></radialGradient></defs><rect width=\"100\"");
+  else g=g.replace("<rect width=\"100\"","<defs><radialGradient id=\"g-ngoc\" cx=\".35\" cy=\".32\" r=\".75\"><stop offset=\"0\" stop-color=\"#FFF\"/><stop offset=\"1\" stop-color=\"#CBBBA4\"/></radialGradient></defs><rect width=\"100\"");
+  return duyNhat(g);
 }
 
-function veHanhTrinh(){
-  var d=s.d;
-  var b=[["Thân",true],["Chân váy",d.chan!==MAC_DINH.chan],
-         ["Tay áo",d.tay!=="None"],["Ren",d.ren!=="None"],
-         ["Đính kết",Object.keys(d.ct||{}).some(function(k){return d.ct[k];})],
-         ["Voan",d.voan!=="None"]];
-  $("#hanh-trinh").innerHTML=b.map(function(x){
-    return '<div class="ht'+(x[1]?" xong":"")+'"><i></i><span>'+esc(x[0])+'</span></div>';
+/* ───── mẹo theo từng tab ───── */
+var MEO = {
+ than:"Thân váy quyết định dáng người nhìn thấy đầu tiên. Bấm thử vài kiểu — bản vẽ đổi ngay, sai thì hoàn tác.",
+ chan:"Chân váy quyết định độ kiêu sa. Xoè bồng cho tiệc lớn, chữ A dễ mặc nhất, đuôi cá tôn dáng.",
+ tay:"Tay áo đổi cả gương mặt chiếc váy. Có thể để trần vai, khoác vạt trễ vai, hoặc đeo găng ren.",
+ ren:"Chọn kiểu ren trước, rồi chọn <b>ren nằm ở đâu</b> ở ngay bên dưới — thân váy, chân váy, tay áo hay toàn thân.",
+ ct:"Bấm để thêm, bấm lần nữa để bỏ. Chọn được nhiều thứ cùng lúc.",
+ voan:"Voan là thứ khiến bức ảnh cưới ra đúng chất cô dâu.",
+ mau:"Sắc vải phủ nhẹ lên chất liệu, giữ nguyên nếp sáng tối. Màu thật sẽ chọn tại atelier."
+};
+
+function dangChon(b,o){
+  if(b.kieu==="ct") return !!(s.d.ct&&s.d.ct[o.id]);
+  return s.d[b.key]===o.id;
+}
+function veTab(){
+  $("#tab-hang").innerHTML=BANG.map(function(b){
+    var xong = b.key==="ct" ? Object.keys(s.d.ct||{}).some(function(k){return s.d.ct[k];})
+             : b.key==="ren" ? s.d.ren!=="None"
+             : b.key==="voan"? s.d.voan!=="None"
+             : b.key==="tay" ? s.d.tay!=="None" : true;
+    return '<button class="tab'+(s.tab===b.key?" on":"")+'" data-tab="'+b.key+'" role="tab">'
+         + esc(b.ten)+(xong?'<i>•</i>':'')+'</button>';
+  }).join("");
+}
+function veThe(){
+  var b=BANG.filter(function(x){return x.key===s.tab;})[0]||BANG[0];
+  $("#meo").innerHTML=MEO[b.key]||"";
+  $("#luoi-the").innerHTML=b.ds.map(function(o){
+    var on=dangChon(b,o);
+    return '<button class="the'+(on?" on":"")+'" '
+         + (b.kieu==="ct" ? 'data-ct="'+o.id+'"' : b.key==="ren" ? 'data-ren="'+o.id+'"'
+            : b.key==="mau" ? 'data-mau="'+o.id+'"' : 'data-nhom="'+b.key+'" data-id="'+o.id+'"')
+         + '><span class="dau-chon">✓</span>'
+         + '<span class="o-anh">'+anhThe(b,o)+'</span>'
+         + '<span class="ten2">'+esc(o.vi)+'</span>'
+         + '<span class="mo2">'+esc(o.mo||"")+'</span>'
+         + '<span class="en3">'+esc(o.en)+'</span></button>';
+  }).join("");
+  /* ren: chọn vùng đặt */
+  var tv=$("#them-vung");
+  if(b.key==="ren" && s.d.ren!=="None"){
+    tv.innerHTML='<div class="dat"><div class="nhan">Đặt ren ở đâu?</div><div class="vung">'
+      + VUNG.map(function(z){
+          return '<button data-vung="'+z.id+'" class="'+((s.d.vung&&s.d.vung[z.id])?"chon":"")+'">'+esc(z.vi)+'</button>';
+        }).join("")+'</div></div>';
+  } else tv.innerHTML="";
+}
+function veTom(){
+  var d=s.d, r=[
+   ["Thân váy",nhan("than",d.than)],
+   ["Chân váy",nhan("chan",d.chan)],
+   ["Tay áo",nhan("tay",d.tay)],
+   ["Ren",d.ren==="None"?"—":nhan("ren",d.ren)+(tenVung()?" · "+tenVung():"")],
+   ["Đính kết",tenCT()],
+   ["Voan",nhan("voan",d.voan)],
+   ["Sắc vải",nhan("mau",d.mau)]
+  ];
+  $("#tom-chon").innerHTML=r.map(function(x){
+    return '<div class="dong-tom"><div class="k2">'+esc(x[0])+'</div><div class="v2">'+esc(x[1])+'</div></div>';
   }).join("");
 }
 
 function veXuong(){
   $("#khung").innerHTML=veTong(s.d);
-  veBang(); veHanhTrinh();
+  if(!s.tab) s.tab="than";
+  veTab(); veThe(); veTom();
   $("#ma-hien").textContent=maTK();
   $("#nut-hoan").disabled=!s.lichSu.length;
   luu();
@@ -1446,15 +1459,16 @@ document.addEventListener("click",function(e){
   var b;
   if(b=t.closest("[data-di]")){
     var v=b.getAttribute("data-di");
-    if(v==="xuong-thang"){ s.goc=ban(s.d); maTK(); s.mo={phom:true}; di("xuong"); } else di(v);
+    if(v==="xuong-thang"){ s.goc=ban(s.d); maTK(); s.tab="than"; di("xuong"); } else di(v);
     return;
   }
   if(b=t.closest("[data-form]")){ moForm(b.getAttribute("data-form")); return; }
   if(t.id==="dong-x"||t.id==="phu"){ dongForm(); return; }
 
-  if(b=t.closest("[data-mo]")){
-    var k=b.getAttribute("data-mo"); s.mo[k]=!s.mo[k];
-    b.parentNode.classList.toggle("mo",!!s.mo[k]); return;
+  if(b=t.closest("[data-tab]")){
+    s.tab=b.getAttribute("data-tab"); veTab(); veThe();
+    var kh=$(".khoi-the"); if(kh && window.innerWidth<960) kh.scrollIntoView({behavior:"smooth",block:"start"});
+    return;
   }
   if(b=t.closest("[data-nhom]")){
     var key=b.getAttribute("data-nhom"), id=b.getAttribute("data-id");
@@ -1552,7 +1566,7 @@ function phacThao(){
   var xong=false;
   function ketThuc(g){
     if(xong) return; xong=true; clearInterval(nhip);
-    s.d=apAI(g,d,daCo); s.goc=ban(s.d); s.lichSu=[]; s.mo={ren:true};
+    s.d=apAI(g,d,daCo); s.goc=ban(s.d); s.lichSu=[]; s.tab="than";
     maTK();
     setTimeout(function(){ di("xuong"); nhacNho("Váy của bạn xong rồi — giờ chơi thôi."); },420);
   }
