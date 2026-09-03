@@ -1199,5 +1199,20 @@ src="https://www.facebook.com/tr?id=1358640082651240&ev=PageView&noscript=1"
 })();
 </script>
 
+
+<!-- Meta Pixel: bam nut Zalo = su kien Contact (them 03/09/2026) -->
+<script>
+(function(){
+  var TEN = 'Dress Guide - ban lat';
+  var CHON = 'a[href*="zalo.me"], #dg-nutZalo';
+  document.addEventListener('click', function(e){
+    var t = e.target;
+    if (!t || !t.closest) return;
+    if (!t.closest(CHON)) return;
+    try{ if (typeof fbq === 'function') fbq('track', 'Contact', {content_name: TEN}); }catch(err){}
+  }, true);
+})();
+</script>
+
 </body>
 </html>
