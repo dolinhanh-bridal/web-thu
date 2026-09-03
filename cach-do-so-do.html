@@ -160,6 +160,12 @@ src="https://www.facebook.com/tr?id=1358640082651240&ev=PageView&noscript=1"
   /* Mindmap */
   .mindmap{background:var(--paper);padding:clamp(18px,2.6vw,32px);box-shadow:var(--shadow);overflow-x:auto}
   .mindmap svg{display:block;min-width:660px;width:100%;height:auto}
+  .mindmap a{cursor:pointer}
+  .mindmap a .nen{fill:var(--ink);fill-opacity:0;transition:fill-opacity .18s ease}
+  .mindmap a:hover .nen,.mindmap a:focus-visible .nen{fill-opacity:.07}
+  .mindmap a:focus-visible{outline:none}
+  .mindmap .goi-y{font-size:.78rem;color:var(--grey-2);margin-top:10px;letter-spacing:.02em}
+  section[id]{scroll-margin-top:24px}
 
   /* Table of contents */
   nav.toc ol{
@@ -447,13 +453,16 @@ src="https://www.facebook.com/tr?id=1358640082651240&ev=PageView&noscript=1"
     <div class="sec-head"><h2><span class="vi">Bản đồ 14 số đo</span><span class="en">The 14 measurements at a glance</span></h2></div>
     <p class="col"><span class="vi">Nhìn cái này trước cho dễ hình dung: 14 số chia làm 3 nhóm. Đo hết một lượt theo thứ tự, đừng nhảy cóc.</span><span class="en">Start here. The 14 numbers fall into three groups — take them in order, in one sitting.</span></p>
     <div class="mindmap">
-      <svg viewBox="0 0 900 430" role="img" aria-label="Sơ đồ 14 số đo chia thành ba nhóm: thân trên, phần dưới, chiều dài">
+      <svg viewBox="0 0 900 430" role="img" aria-label="Sơ đồ 14 số đo chia thành ba nhóm: thân trên, phần dưới, chiều dài — bấm vào từng nhóm để nhảy tới phần hướng dẫn">
         <g font-family="Helvetica Neue, Helvetica, Arial, sans-serif">
-          <rect x="16" y="176" width="150" height="76" rx="38" fill="var(--ink)"/>
-          <text x="91" y="207" text-anchor="middle" fill="var(--ivory)" font-size="19" font-weight="500">14</text>
-          <text x="91" y="228" text-anchor="middle" fill="var(--champagne)" font-size="11" letter-spacing="1.6">
-            <tspan class="vi">SỐ ĐO</tspan><tspan class="en">MEASUREMENTS</tspan>
-          </text>
+          <a href="#phieu">
+            <rect class="nen" x="10" y="170" width="162" height="88" rx="44"/>
+            <rect x="16" y="176" width="150" height="76" rx="38" fill="var(--ink)"/>
+            <text x="91" y="207" text-anchor="middle" fill="var(--ivory)" font-size="19" font-weight="500">14</text>
+            <text x="91" y="228" text-anchor="middle" fill="var(--champagne)" font-size="11" letter-spacing="1.6">
+              <tspan class="vi">SỐ ĐO</tspan><tspan class="en">MEASUREMENTS</tspan>
+            </text>
+          </a>
 
           <g stroke="var(--champagne)" stroke-width="1.4" fill="none">
             <path d="M166,214 C210,214 214,86 258,86"/>
@@ -461,21 +470,24 @@ src="https://www.facebook.com/tr?id=1358640082651240&ev=PageView&noscript=1"
             <path d="M166,214 C210,214 214,342 258,342"/>
           </g>
 
-          <g fill="var(--tan-soft)" stroke="var(--champagne)" stroke-width="1">
-            <rect x="258" y="58" width="176" height="56" rx="12"/>
-            <rect x="258" y="186" width="176" height="56" rx="12"/>
-            <rect x="258" y="314" width="176" height="56" rx="12"/>
-          </g>
-          <g fill="var(--ink)" font-size="14" font-weight="500">
-            <text x="278" y="84"><tspan class="vi">Thân trên</tspan><tspan class="en">The bodice</tspan></text>
-            <text x="278" y="212"><tspan class="vi">Phần dưới</tspan><tspan class="en">Hips</tspan></text>
-            <text x="278" y="340"><tspan class="vi">Chiều dài</tspan><tspan class="en">Lengths</tspan></text>
-          </g>
-          <g fill="var(--tan)" font-size="10.5" letter-spacing="1">
-            <text x="278" y="101">01 – 10</text>
-            <text x="278" y="229">11 – 12</text>
-            <text x="278" y="357">13 – 14</text>
-          </g>
+          <a href="#than-tren">
+            <rect class="nen" x="252" y="52" width="188" height="68" rx="14"/>
+            <rect x="258" y="58" width="176" height="56" rx="12" fill="var(--tan-soft)" stroke="var(--champagne)" stroke-width="1"/>
+            <text x="278" y="84" fill="var(--ink)" font-size="14" font-weight="500"><tspan class="vi">Thân trên</tspan><tspan class="en">The bodice</tspan></text>
+            <text x="278" y="101" fill="var(--tan)" font-size="10.5" letter-spacing="1">01 – 10</text>
+          </a>
+          <a href="#than-duoi">
+            <rect class="nen" x="252" y="180" width="188" height="68" rx="14"/>
+            <rect x="258" y="186" width="176" height="56" rx="12" fill="var(--tan-soft)" stroke="var(--champagne)" stroke-width="1"/>
+            <text x="278" y="212" fill="var(--ink)" font-size="14" font-weight="500"><tspan class="vi">Phần dưới</tspan><tspan class="en">Hips</tspan></text>
+            <text x="278" y="229" fill="var(--tan)" font-size="10.5" letter-spacing="1">11 – 12</text>
+          </a>
+          <a href="#than-duoi">
+            <rect class="nen" x="252" y="308" width="188" height="68" rx="14"/>
+            <rect x="258" y="314" width="176" height="56" rx="12" fill="var(--tan-soft)" stroke="var(--champagne)" stroke-width="1"/>
+            <text x="278" y="340" fill="var(--ink)" font-size="14" font-weight="500"><tspan class="vi">Chiều dài</tspan><tspan class="en">Lengths</tspan></text>
+            <text x="278" y="357" fill="var(--tan)" font-size="10.5" letter-spacing="1">13 – 14</text>
+          </a>
 
           <g stroke="var(--hair)" stroke-width="1" fill="none">
             <path d="M434,86 C470,86 470,34 506,34"/>
@@ -488,20 +500,48 @@ src="https://www.facebook.com/tr?id=1358640082651240&ev=PageView&noscript=1"
             <path d="M434,342 C470,342 470,334 506,334"/>
             <path d="M434,342 C470,342 470,366 506,366"/>
           </g>
-          <g fill="var(--ink-2)" font-size="12.5">
-            <text x="514" y="38"><tspan fill="var(--tan)">01–03</tspan> <tspan class="vi">Ba vòng ngực: trên · đầy · chân ngực</tspan><tspan class="en">Three bust lines: high · full · under</tspan></text>
-            <text x="514" y="70"><tspan fill="var(--tan)">04–05</tspan> <tspan class="vi">Vòng eo tự nhiên · khoảng cách 2 đỉnh ngực</tspan><tspan class="en">Natural waist · apex-to-apex</tspan></text>
-            <text x="514" y="102"><tspan fill="var(--tan)">06–07</tspan> <tspan class="vi">Dài thân trước · dài lưng</tspan><tspan class="en">Front waist length · back length</tspan></text>
-            <text x="514" y="134"><tspan fill="var(--tan)">08–10</tspan> <tspan class="vi">Bắp tay · dài tay · cổ tay (váy có tay)</tspan><tspan class="en">Bicep · sleeve · wrist (if sleeves)</tspan></text>
-            <text x="514" y="194"><tspan fill="var(--tan)">11</tspan> <tspan class="vi">Vòng mông trên</tspan><tspan class="en">High hip</tspan></text>
-            <text x="514" y="226"><tspan fill="var(--tan)">12</tspan> <tspan class="vi">Vòng mông chỗ đầy nhất</tspan><tspan class="en">Full hip</tspan></text>
-            <text x="514" y="306"><tspan fill="var(--tan)">13</tspan> <tspan class="vi">Eo xuống sàn</tspan><tspan class="en">Waist to floor</tspan></text>
-            <text x="514" y="338"><tspan fill="var(--tan)">14</tspan> <tspan class="vi">Hõm cổ xuống sàn</tspan><tspan class="en">Hollow to floor</tspan></text>
-            <text x="514" y="370" fill="var(--grey-2)" font-size="11.5"><tspan class="vi">+ độ cao gót giày cưới, ghi riêng một số</tspan><tspan class="en">+ heel height, recorded separately</tspan></text>
+          <g font-size="12.5">
+            <a href="#than-tren">
+              <rect class="nen" x="506" y="22" width="382" height="24" rx="6"/>
+              <text x="514" y="38" fill="var(--ink-2)"><tspan fill="var(--tan)">01–03</tspan> <tspan class="vi">Ba vòng ngực: trên · đầy · chân ngực</tspan><tspan class="en">Three bust lines: high · full · under</tspan></text>
+            </a>
+            <a href="#than-tren">
+              <rect class="nen" x="506" y="54" width="382" height="24" rx="6"/>
+              <text x="514" y="70" fill="var(--ink-2)"><tspan fill="var(--tan)">04–05</tspan> <tspan class="vi">Vòng eo tự nhiên · khoảng cách 2 đỉnh ngực</tspan><tspan class="en">Natural waist · apex-to-apex</tspan></text>
+            </a>
+            <a href="#than-tren">
+              <rect class="nen" x="506" y="86" width="382" height="24" rx="6"/>
+              <text x="514" y="102" fill="var(--ink-2)"><tspan fill="var(--tan)">06–07</tspan> <tspan class="vi">Dài thân trước · dài lưng</tspan><tspan class="en">Front waist length · back length</tspan></text>
+            </a>
+            <a href="#than-tren">
+              <rect class="nen" x="506" y="118" width="382" height="24" rx="6"/>
+              <text x="514" y="134" fill="var(--ink-2)"><tspan fill="var(--tan)">08–10</tspan> <tspan class="vi">Bắp tay · dài tay · cổ tay (váy có tay)</tspan><tspan class="en">Bicep · sleeve · wrist (if sleeves)</tspan></text>
+            </a>
+            <a href="#than-duoi">
+              <rect class="nen" x="506" y="178" width="382" height="24" rx="6"/>
+              <text x="514" y="194" fill="var(--ink-2)"><tspan fill="var(--tan)">11</tspan> <tspan class="vi">Vòng mông trên</tspan><tspan class="en">High hip</tspan></text>
+            </a>
+            <a href="#than-duoi">
+              <rect class="nen" x="506" y="210" width="382" height="24" rx="6"/>
+              <text x="514" y="226" fill="var(--ink-2)"><tspan fill="var(--tan)">12</tspan> <tspan class="vi">Vòng mông chỗ đầy nhất</tspan><tspan class="en">Full hip</tspan></text>
+            </a>
+            <a href="#than-duoi">
+              <rect class="nen" x="506" y="290" width="382" height="24" rx="6"/>
+              <text x="514" y="306" fill="var(--ink-2)"><tspan fill="var(--tan)">13</tspan> <tspan class="vi">Eo xuống sàn</tspan><tspan class="en">Waist to floor</tspan></text>
+            </a>
+            <a href="#than-duoi">
+              <rect class="nen" x="506" y="322" width="382" height="24" rx="6"/>
+              <text x="514" y="338" fill="var(--ink-2)"><tspan fill="var(--tan)">14</tspan> <tspan class="vi">Hõm cổ xuống sàn</tspan><tspan class="en">Hollow to floor</tspan></text>
+            </a>
+            <a href="#chuan-bi">
+              <rect class="nen" x="506" y="354" width="382" height="24" rx="6"/>
+              <text x="514" y="370" fill="var(--grey-2)" font-size="11.5"><tspan class="vi">+ độ cao gót giày cưới, ghi riêng một số</tspan><tspan class="en">+ heel height, recorded separately</tspan></text>
+            </a>
           </g>
         </g>
       </svg>
     </div>
+    <p class="goi-y"><span class="vi">Bấm vào từng nhóm trong sơ đồ để nhảy thẳng tới phần hướng dẫn đo.</span><span class="en">Tap any group in the map to jump straight to that part of the guide.</span></p>
   </div>
 </section>
 
