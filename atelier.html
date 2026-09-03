@@ -134,7 +134,8 @@ a{color:inherit}
 .dong-tom:last-of-type{border-bottom:0}
 .dong-tom .k2{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--nhat);flex:0 0 40%}
 .dong-tom .v2{font-family:"Playfair Display",serif;font-size:14.5px;text-align:right;line-height:1.35}
-.hang-mem{display:flex;gap:8px;margin-top:13px}
+.hang-mem{display:flex;gap:7px;margin-top:13px;flex-wrap:wrap}
+.hang-mem .mem{text-decoration:none}
 .nut.rong{width:100%;justify-content:center;margin-top:10px;padding:14px 20px}
 
 /* tab kiểu kẹp hồ sơ */
@@ -142,7 +143,7 @@ a{color:inherit}
 .tab-hang::-webkit-scrollbar{display:none}
 .tab{
   border:1px solid var(--vien);border-bottom:0;background:var(--nen2);color:var(--muc2);
-  padding:12px 16px;border-radius:8px 8px 0 0;font-size:10.5px;letter-spacing:.18em;
+  padding:12px 11px;border-radius:8px 8px 0 0;font-size:10px;letter-spacing:.12em;
   text-transform:uppercase;white-space:nowrap;transition:.2s;position:relative;top:1px;
 }
 .tab:hover{background:#F2EFEA;color:var(--muc)}
@@ -150,6 +151,10 @@ a{color:inherit}
 .tab i{font-style:normal;color:var(--champ2);margin-left:6px;font-size:12px;line-height:1}
 
 .khoi-the{background:#fff;border:1px solid var(--vien);border-top:0;border-radius:0 0 10px 10px;padding:18px 18px 22px}
+.hang-cong-tac{display:flex;justify-content:flex-end;margin:-4px 0 12px}
+.cong-tac{display:inline-flex;border:1px solid var(--vien);border-radius:99px;overflow:hidden;background:var(--nen2)}
+.cong-tac button{padding:8px 15px;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--nhat);transition:.2s}
+.cong-tac button.on{background:var(--muc);color:#fff}
 .meo{font-size:12.5px;color:var(--nhat);margin:0 0 15px;line-height:1.65;max-width:62ch}
 .meo b{font-weight:400;color:var(--muc2)}
 .luoi-the{display:grid;grid-template-columns:repeat(auto-fill,minmax(178px,1fr));gap:13px}
@@ -361,13 +366,15 @@ body.trong-xuong .doi-ngu{display:none}
 
       <div class="the-tom">
         <div class="the-tom-dau">
-          <span class="tho">Thiết kế của bạn</span>
+          <span class="tho">Lựa chọn của bạn</span>
           <span class="ma-nho" id="ma-hien"></span>
         </div>
         <div id="tom-chon"></div>
         <div class="hang-mem">
           <button class="mem" id="nut-hoan">Hoàn tác</button>
           <button class="mem" id="nut-lam-lai">Vẽ lại từ đầu</button>
+          <button class="mem" id="nut-luu2">Lưu thiết kế</button>
+          <a class="mem" href="cach-do-so-do.html" target="_blank" rel="noopener">Hướng dẫn số đo</a>
         </div>
         <button class="nut rong" id="nut-xong">Xem bản hoàn thiện <span aria-hidden="true">→</span></button>
       </div>
@@ -377,24 +384,30 @@ body.trong-xuong .doi-ngu{display:none}
     <div class="xd-phai">
       <div class="tab-hang" id="tab-hang" role="tablist"></div>
       <div class="khoi-the">
+        <div class="hang-cong-tac">
+          <div class="cong-tac" id="cong-tac">
+            <button data-sac="trang">Bản trắng</button><button data-sac="mau">Có sắc vải</button>
+          </div>
+        </div>
         <p class="meo" id="meo"></p>
         <div class="luoi-the" id="luoi-the"></div>
         <div id="them-vung"></div>
       </div>
 
       <div class="hoi-dap">
-        <details><summary>Bản vẽ này có phải là váy thật không?</summary>
+        <details><summary>Thời gian may</summary>
+          <p>Váy đặt may riêng thường cần khoảng 8–12 tuần kể từ khi chốt mẫu và số đo.
+             Nếu cưới gấp, bạn cứ nhắn — chúng tôi sẽ xem lịch xưởng rồi báo lại phương án.</p></details>
+        <details><summary>Để vừa vặn nhất</summary>
+          <p>Bạn cứ chọn theo dáng mình thích trước; số đo tinh chỉnh sau. Có hướng dẫn tự đo
+             14 số đo tại nhà kèm phiếu ghi để gửi lại.
+             <a href="cach-do-so-do.html" target="_blank" rel="noopener">Xem hướng dẫn đo</a>.</p></details>
+        <details><summary>Yêu cầu riêng</summary>
+          <p>Muốn thêm chi tiết không có trong danh sách? Bạn cứ gửi thiết kế kèm ghi chú,
+             hoặc nhắn Zalo cho Dolinhanh — phần lớn yêu cầu riêng đều làm được.</p></details>
+        <details><summary>Bản vẽ này có phải váy thật không?</summary>
           <p>Đây là bản phác thảo để bạn hình dung. Khi tới atelier, đội ngũ Dolinhanh sẽ cùng bạn
              chọn đúng loại ren, đúng chất vải và chỉnh từng đường trên dáng người bạn.</p></details>
-        <details><summary>Bao lâu thì may xong?</summary>
-          <p>Váy đặt may riêng thường cần khoảng 8–12 tuần kể từ khi chốt mẫu và số đo.
-             Nếu cưới gấp, bạn cứ nhắn — chúng tôi sẽ xem lịch xưởng và báo lại phương án.</p></details>
-        <details><summary>Tôi ở xa, đo số đo thế nào?</summary>
-          <p>Có hướng dẫn tự đo 14 số đo tại nhà, kèm phiếu ghi số đo để bạn gửi lại.
-             <a href="cach-do-so-do.html" target="_blank" rel="noopener">Xem hướng dẫn đo</a>.</p></details>
-        <details><summary>Tôi muốn thêm chi tiết không có trong danh sách?</summary>
-          <p>Được. Bạn cứ gửi thiết kế này kèm ghi chú, hoặc nhắn Zalo cho Dolinhanh —
-             phần lớn yêu cầu riêng đều làm được.</p></details>
       </div>
     </div>
   </div>
@@ -497,7 +510,7 @@ var TRANG_EN = "atelier-en.html";
 /* ───────── TOẠ ĐỘ BẢN VẼ ─────────
    viewBox 0 0 360 940 · trục giữa x=180
    Mốc cơ thể (croquis 9 đầu): vai 128 · ngực 190 · eo 265 · hông 340 · sàn 800 */
-var CX = 180, VB_W = 360, VB_H = 740, SAN = 686;
+var CX = 180, VB_W = 360, VB_H = 730, VB_TREN = 120, SAN = 686;   /* VB_TREN: cắt bỏ phần trống phía trên */
 
 /* ══════════════════════════════════════════════════════════════
    BỘ MẢNH VÁY THẬT (ảnh PNG nền trong suốt, chị Linh cung cấp)
@@ -594,8 +607,8 @@ var MAU = [
 /* nhóm hiển thị trên bảng công cụ */
 var BANG = [
  {key:"than", ten:"Thân váy",  en:"Bodice",       kieu:"anh", ds:THAN},
- {key:"chan", ten:"Chân váy",  en:"Skirt",        kieu:"anh", ds:CHAN},
  {key:"tay",  ten:"Tay áo",    en:"Sleeves",      kieu:"anh", ds:TAYA},
+ {key:"chan", ten:"Dáng váy",  en:"Silhouette",   kieu:"anh", ds:CHAN},
  {key:"ren",  ten:"Ren",       en:"Lace",         kieu:"ren", ds:REN},
  {key:"ct",   ten:"Đính kết",  en:"Embellishment",kieu:"ct",  ds:CHITIET},
  {key:"voan", ten:"Voan",      en:"Veil",         kieu:"op",  ds:VOAN},
@@ -707,7 +720,7 @@ function hopVay(d){
 function veVoan(d){
   var v=tim(VOAN,d.voan);
   if(v.no){
-    var by=100;
+    var by=166;
     return '<g opacity=".95"><path d="M'+(CX-4)+','+by+' C'+(CX-24)+','+(by-14)+' '+(CX-32)+','+(by+10)+' '+(CX-11)+','+(by+6)+' Z"'
          + ' fill="#fff" fill-opacity=".9" stroke="var(--net)" stroke-width=".9"/>'
          + '<path d="M'+(CX+4)+','+by+' C'+(CX+24)+','+(by-14)+' '+(CX+32)+','+(by+10)+' '+(CX+11)+','+(by+6)+' Z"'
@@ -715,16 +728,16 @@ function veVoan(d){
          + '<ellipse cx="'+CX+'" cy="'+(by+3)+'" rx="5" ry="4.5" fill="#fff" fill-opacity=".95" stroke="var(--net)" stroke-width=".9"/></g>';
   }
   if(!v.dai) return "";
-  var y=40+v.dai, r=Math.min(118, 44+v.dai*0.105);
-  var d1="M"+(CX-13)+",42 C"+(CX-58)+",130 "+n1(CX-r*0.9)+","+n1(y*0.58)+" "+n1(CX-r)+","+n1(y-14)
+  var Y0=150, y=Y0+v.dai, r=Math.min(118, 44+v.dai*0.105);
+  var d1="M"+(CX-13)+","+Y0+" C"+(CX-58)+","+(Y0+90)+" "+n1(CX-r*0.9)+","+n1(Y0+(y-Y0)*0.58)+" "+n1(CX-r)+","+n1(y-14)
        + " Q"+CX+","+n1(y+22)+" "+n1(CX+r)+","+n1(y-14)
-       + " C"+n1(CX+r*0.9)+","+n1(y*0.58)+" "+(CX+58)+",130 "+(CX+13)+",42 Z";
+       + " C"+n1(CX+r*0.9)+","+n1(Y0+(y-Y0)*0.58)+" "+(CX+58)+","+(Y0+90)+" "+(CX+13)+","+Y0+" Z";
   var g='<path d="'+d1+'" fill="url(#g-voan)" stroke="#9C8E7E" stroke-width=".5" stroke-opacity=".16"/>';
   g+='<path d="'+d1+'" fill="url(#pt-luoi)" opacity=".2"/>';
-  g+='<path d="M'+(CX-13)+',42 C'+(CX-46)+',150 '+n1(CX-r*0.66)+','+n1(y*0.7)+' '+n1(CX-r*0.72)+','+n1(y-30)
-   + ' M'+(CX+13)+',42 C'+(CX+46)+',150 '+n1(CX+r*0.66)+','+n1(y*0.7)+' '+n1(CX+r*0.72)+','+n1(y-30)
+  g+='<path d="M'+(CX-13)+','+Y0+' C'+(CX-46)+','+(Y0+110)+' '+n1(CX-r*0.66)+','+n1(Y0+(y-Y0)*0.7)+' '+n1(CX-r*0.72)+','+n1(y-30)
+   + ' M'+(CX+13)+','+Y0+' C'+(CX+46)+','+(Y0+110)+' '+n1(CX+r*0.66)+','+n1(Y0+(y-Y0)*0.7)+' '+n1(CX+r*0.72)+','+n1(y-30)
    + '" fill="none" stroke="#9C8E7E" stroke-width=".45" opacity=".12"/>';
-  if(v.che) g+='<path d="M'+(CX-40)+',44 C'+(CX-58)+',90 '+(CX-52)+',124 '+(CX-34)+',134 Q'+CX+',150 '+(CX+34)+',134'
+  if(false) g+='<path d="M'+(CX-40)+',44 C'+(CX-58)+',90 '+(CX-52)+',124 '+(CX-34)+',134 Q'+CX+',150 '+(CX+34)+',134'
             + ' C'+(CX+52)+',124 '+(CX+58)+',90 '+(CX+40)+',44 Z" fill="#fff" fill-opacity=".34" stroke="var(--net)" stroke-width=".6" stroke-opacity=".5"/>';
   return g;
 }
@@ -975,7 +988,7 @@ function veTong(d){
   var a=veAoVay(d), hv=a.hop, L=a.L;
   var mau=tim(MAU,d.mau), seed=hatGiong(d);
 
-  var o='<svg class="ban-ve" viewBox="0 0 '+VB_W+' '+VB_H+'" xmlns="http://www.w3.org/2000/svg" '
+  var o='<svg class="ban-ve" viewBox="0 '+VB_TREN+' '+VB_W+' '+(VB_H-VB_TREN)+'" xmlns="http://www.w3.org/2000/svg" '
       + 'style="--net:#3A322B;--ren:#8A7458" role="img" aria-label="Bản phác thảo váy cưới của bạn">';
 
   var defs='<defs>';
@@ -1001,7 +1014,7 @@ function veTong(d){
   o+=defs;
 
   /* giấy vẽ */
-  o+='<rect width="'+VB_W+'" height="'+VB_H+'" fill="#FFFFFF"/>';
+  o+='<rect y="'+VB_TREN+'" width="'+VB_W+'" height="'+(VB_H-VB_TREN)+'" fill="#FFFFFF"/>';
 
   /* voan phía sau */
   o+=veVoan(d);
@@ -1009,8 +1022,7 @@ function veTong(d){
   /* bóng đổ chân váy */
   o+='<ellipse cx="'+CX+'" cy="'+n1(hv.gau-4)+'" rx="'+n1(hv.nua*0.94)+'" ry="9" fill="#C9BDAC" opacity=".22"/>';
 
-  /* người mẫu */
-  o+=veNguoi(d);
+  /* KHÔNG vẽ người mẫu — chị Linh chốt 02/09: chỉ xếp các mảnh váy, giống trang mẫu */
 
   /* váy — ảnh thật */
   o+=L.chan+L.than+L.tay;
@@ -1224,13 +1236,13 @@ function oRenCT(c){
 
 /* ───── mẹo theo từng tab ───── */
 var MEO = {
- than:"Thân váy quyết định dáng người nhìn thấy đầu tiên. Bấm thử vài kiểu — bản vẽ đổi ngay, sai thì hoàn tác.",
- chan:"Chân váy quyết định độ kiêu sa. Xoè bồng cho tiệc lớn, chữ A dễ mặc nhất, đuôi cá tôn dáng.",
- tay:"Tay áo đổi cả gương mặt chiếc váy. Có thể để trần vai, khoác vạt trễ vai, hoặc đeo găng ren.",
- ren:"Chọn kiểu ren trước, rồi chọn <b>ren nằm ở đâu</b> ở ngay bên dưới — thân váy, chân váy, tay áo hay toàn thân.",
- ct:"Bấm để thêm, bấm lần nữa để bỏ. Chọn được nhiều thứ cùng lúc.",
- voan:"Voan là thứ khiến bức ảnh cưới ra đúng chất cô dâu.",
- mau:"Sắc vải phủ nhẹ lên chất liệu, giữ nguyên nếp sáng tối. Màu thật sẽ chọn tại atelier."
+ than:"<b>Mẹo:</b> Thân váy quyết định dáng người nhìn thấy đầu tiên. Bấm thử vài kiểu — bản vẽ đổi ngay, sai thì hoàn tác.",
+ chan:"<b>Mẹo:</b> Chân váy quyết định độ kiêu sa. Xoè bồng cho tiệc lớn, chữ A dễ mặc nhất, đuôi cá tôn dáng.",
+ tay:"<b>Mẹo:</b> Tay áo đổi cả gương mặt chiếc váy. Có thể để trần vai, khoác vạt trễ vai, hoặc đeo găng ren.",
+ ren:"<b>Mẹo:</b> Chọn kiểu ren trước, rồi chọn <b>ren nằm ở đâu</b> ở ngay bên dưới — thân váy, chân váy, tay áo hay toàn thân.",
+ ct:"<b>Mẹo:</b> Bấm để thêm, bấm lần nữa để bỏ. Chọn được nhiều thứ cùng lúc.",
+ voan:"<b>Mẹo:</b> Voan là thứ khiến bức ảnh cưới ra đúng chất cô dâu.",
+ mau:"<b>Mẹo:</b> Sắc vải phủ nhẹ lên chất liệu, giữ nguyên nếp sáng tối. Màu thật sẽ chọn tại atelier."
 };
 
 function dangChon(b,o){
@@ -1285,10 +1297,17 @@ function veTom(){
   }).join("");
 }
 
+function veCongTac(){
+  var c=$("#cong-tac"); if(!c) return;
+  var trang = s.d.mau==="Ivory";
+  Array.prototype.forEach.call(c.querySelectorAll("[data-sac]"),function(b){
+    b.classList.toggle("on", (b.getAttribute("data-sac")==="trang")===trang);
+  });
+}
 function veXuong(){
   $("#khung").innerHTML=veTong(s.d);
   if(!s.tab) s.tab="than";
-  veTab(); veThe(); veTom();
+  veTab(); veThe(); veTom(); veCongTac();
   $("#ma-hien").textContent=maTK();
   $("#nut-hoan").disabled=!s.lichSu.length;
   luu();
@@ -1499,7 +1518,16 @@ document.addEventListener("click",function(e){
       themVao?"Thêm rồi — nhìn kỹ bản vẽ xem.":"Bỏ ra rồi, gọn hơn hẳn.");
     return;
   }
-  if(b=t.closest("[data-mau]")){ dat("mau",b.getAttribute("data-mau"),"Màu ngà thường lên hình đẹp nhất."); return; }
+  if(b=t.closest("[data-mau]")){
+    if(b.getAttribute("data-mau")!=="Ivory") s.sacTruoc=b.getAttribute("data-mau");
+    dat("mau",b.getAttribute("data-mau"),"Sắc ngà thường lên hình đẹp nhất."); return;
+  }
+  if(b=t.closest("[data-sac]")){
+    var ch=b.getAttribute("data-sac");
+    if(ch==="trang"){ if(s.d.mau!=="Ivory"){ s.sacTruoc=s.d.mau; dat("mau","Ivory","Bản trắng — nhìn rõ phom váy nhất."); } }
+    else if(s.d.mau==="Ivory") dat("mau", s.sacTruoc||"Champagne", "Sắc vải phủ nhẹ, giữ nguyên nếp vải.");
+    return;
+  }
 },false);
 
 /* nút riêng */
@@ -1515,14 +1543,17 @@ gan("nut-lam-lai",function(){
 gan("nut-xong",function(){ di("lo"); });
 gan("nut-sua",function(){ di("xuong"); });
 gan("nut-tai",taiPNG);
-gan("nut-luu",function(){
+function luuVaCopy(id){
   luu();
-  var l=linkXem(), b=$("#nut-luu");
-  function xong(t){ b.textContent=t; setTimeout(function(){ b.textContent="Lưu thiết kế"; },2600); }
+  var l=linkXem(), b=$("#"+id); if(!b) return;
+  var cu=b.textContent;
+  function xong(t){ b.textContent=t; setTimeout(function(){ b.textContent=cu; },2600); }
   if(navigator.clipboard&&navigator.clipboard.writeText)
     navigator.clipboard.writeText(l).then(function(){ xong("Đã lưu + copy link ✓"); },function(){ xong("Đã lưu ✓"); });
   else xong("Đã lưu ✓");
-});
+}
+gan("nut-luu2",function(){ luuVaCopy("nut-luu2"); });
+gan("nut-luu",function(){ luuVaCopy("nut-luu"); });
 gan("nut-phac",function(){
   s.moTa=($("#o-mota").value||"").trim();
   if(!s.moTa){ $("#o-mota").focus(); return; }
