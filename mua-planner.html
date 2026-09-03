@@ -1,6 +1,24 @@
 <!doctype html>
 <html lang="vi">
 <head>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1358640082651240');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1358640082651240&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Hành trình trở thành cô dâu — Dolinhanh Bridal</title>
@@ -385,6 +403,34 @@
     nen.addEventListener('click', function(e){ if (e.target === nen) dongChuong(); });
     document.addEventListener('keydown', function(e){ if (e.key === 'Escape') dongChuong(); });
   })();
+</script>
+
+
+<!-- Meta Pixel: bam nut Zalo = su kien Contact (them 03/09/2026) -->
+<script>
+(function(){
+  var TEN = 'Mua sach The Bride Journey';
+  var CHON = 'a[href*="zalo.me"], #dg-nutZalo, #nutZalo';
+  document.addEventListener('click', function(e){
+    var t = e.target;
+    if (!t || !t.closest) return;
+    if (!t.closest(CHON)) return;
+    try{ if (typeof fbq === 'function') fbq('track', 'Contact', {content_name: TEN}); }catch(err){}
+  }, true);
+})();
+</script>
+
+
+<!-- Meta Pixel: bam "Toi da chuyen khoan" sach 99k = su kien Lead (them 03/09/2026) -->
+<script>
+(function(){
+  var f = document.getElementById('ck-form');
+  if (!f) return;
+  f.addEventListener('submit', function(){
+    if (!(f.ten.value || '').trim() || !(f.sdt.value || '').trim()) return;
+    try{ if (typeof fbq === 'function') fbq('track', 'Lead', {content_name: 'Bao da chuyen khoan sach 99k'}); }catch(err){}
+  });
+})();
 </script>
 
 </body>
