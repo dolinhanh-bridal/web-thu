@@ -905,7 +905,7 @@ src="https://www.facebook.com/tr?id=1358640082651240&ev=PageView&noscript=1"
        ⚠️ vay1-4: cuHcm hiện là TẠM ĐỀ XUẤT (~20% cao hơn giá thật HCM) — chị Linh CHƯA chốt số này. */
     vay1: { cuHn:"3.700.000 VND",  cuHcm:"4.500.000 VND",  giaHn:"1.888.000 VND",  giaHcm:"2.888.000 VND",  quyen:["Take care 1h cùng stylist","Mannequin","Sketch váy","Thiệp cưới online"] },
     vay2: { cuHn:"14.500.000 VND", cuHcm:"17.500.000 VND", giaHn:"6.888.000 VND",  giaHcm:"6.888.000 VND",  quyen:["1 váy chọn lọc","Dành cho lần đặt lịch đầu tiên","1 vest","Thiệp cưới online"] },
-    vay3: { cuHn:"28.500.000 VND", cuHcm:"34.500.000 VND", giaHn:"14.888.000 VND", giaHcm:"16.888.000 VND", quyen:["2 váy","1 vest hoặc voan thêu tên / thêu quotes","Mannequin","Thiệp cưới online","Sketch váy"] },
+    vay3: { cuHn:"28.500.000 VND", cuHcm:"34.500.000 VND", giaHn:"14.888.000 VND", giaHcm:"16.888.000 VND", quyen:["2 váy","1 vest hoặc voan thêu tên / thêu quotes","{HCM}Áo dài","Mannequin","Thiệp cưới online","Sketch váy"] },
     vay4: { ten:"Signature Bride", cuHn:"45.500.000 VND", cuHcm:"55.000.000 VND", giaHn:"26.888.000 VND", giaHcm:"28.888.000 VND", quyen:["3 váy","Áo dài đôi","1 vest","Trang điểm cô dâu","Take care 3 tiếng","Mannequin","Thiệp cưới online","Sketch váy"] },
 
     /* B. Wedding experience — trieuHn/trieuHcm: GIÁ THẬT (triệu) tách riêng theo TP.
@@ -916,6 +916,11 @@ src="https://www.facebook.com/tr?id=1358640082651240&ev=PageView&noscript=1"
     goi4: { ten:"Wedding Signature", cuHn:"42.800.000 VND", cuHcm:"42.800.000 VND", trieuHn:36.8,   trieuHcm:38.8,   quyen:["Chụp pre-wedding studio","1 máy chụp + 1 máy quay (2 lễ tại {TP})","3 váy tiệc"] }
   };
   function coHienTai(){ return document.documentElement.getAttribute("data-co-so") || "hcm"; }
+  /* mục quyền lợi gắn tiền tố {HN}/{HCM} chỉ hiện ở đúng thành phố đó, ví dụ "{HCM}Áo dài" */
+  function quyenChoTP(list, ma){
+    return list.filter(q=>{ const m=q.match(/^\{(HN|HCM)\}/); return !m || m[1].toLowerCase()===ma; })
+                .map(q=>q.replace(/^\{(HN|HCM)\}/,""));
+  }
   function giaCu(g){ return g && (coHienTai()==="hn" ? g.cuHn : g.cuHcm); }
   function giaTrieu(g){ if(!g) return 0; if(g.trieuHn!=null) return coHienTai()==="hn" ? g.trieuHn : g.trieuHcm; return null; }
   function giaThat(g){
@@ -952,7 +957,7 @@ src="https://www.facebook.com/tr?id=1358640082651240&ev=PageView&noscript=1"
     });
     document.querySelectorAll("[data-quyen]").forEach(o=>{
       const g=BANG_GIA[o.dataset.quyen]; if(!g) return;
-      o.innerHTML = g.quyen.map(q=>"<li>"+q.split("{TP}").join("HCM")+"</li>").join("");
+      o.innerHTML = quyenChoTP(g.quyen, coHienTai()).map(q=>"<li>"+q.split("{TP}").join("HCM")+"</li>").join("");
     });
     dienFlow();
   })();
@@ -1182,7 +1187,7 @@ src="https://www.facebook.com/tr?id=1358640082651240&ev=PageView&noscript=1"
     const tp = g.ma === "hn" ? "HN" : "HCM";
     document.querySelectorAll("[data-quyen]").forEach(o => {
       const b = BANG_GIA[o.dataset.quyen]; if (!b) return;
-      o.innerHTML = b.quyen.map(q => "<li>" + q.split("{TP}").join(tp) + "</li>").join("");
+      o.innerHTML = quyenChoTP(b.quyen, g.ma).map(q => "<li>" + q.split("{TP}").join(tp) + "</li>").join("");
     });
 
     if (window.__henCoSo) window.__henCoSo(g.ma);   /* bảng đặt hẹn chọn sẵn đúng showroom */
