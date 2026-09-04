@@ -345,6 +345,10 @@ src="https://www.facebook.com/tr?id=1358640082651240&ev=PageView&noscript=1"
     transition:border-color .18s ease,color .18s ease;
   }
   .nut-phu:hover{border-color:var(--ink);color:var(--ink)}
+  @media (max-width:640px){
+    .cta-nut{flex-direction:column;align-items:stretch;gap:12px}
+    .cta-nut a{text-align:center;padding-left:1em;padding-right:1em}
+  }
   .cta-grid{display:grid;gap:clamp(28px,4vw,52px);align-items:center}
   @media (min-width:900px){.cta-grid{grid-template-columns:1fr .8fr}}
   .cta-grid img{width:100%;height:clamp(260px,34vw,420px);object-fit:cover}
