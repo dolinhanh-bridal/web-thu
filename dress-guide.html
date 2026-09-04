@@ -253,6 +253,11 @@ src="https://www.facebook.com/tr?id=1358640082651240&ev=PageView&noscript=1"
     color:#241B19;text-decoration:underline;text-underline-offset:2px;cursor:pointer;background:none;border:0;padding:0;
   }
   #dg-checklist-xong p{margin:0;font-size:.94rem;line-height:1.6;color:#4C3E3B}
+  #dg-checklist-xong-dong{
+    width:100%;border:0;border-radius:999px;background:#B05A55;color:#fff;padding:13px;
+    font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;font-family:var(--sans);
+    cursor:pointer;margin-top:18px;
+  }
 
   /* ── CTA chính cuối sách: đặt lịch thử váy riêng 1:1 ── */
   .dg-cta-cuoi{
@@ -415,7 +420,8 @@ src="https://www.facebook.com/tr?id=1358640082651240&ev=PageView&noscript=1"
       <button type="button" class="dg-chan-baogia" id="dg-checklist-baogia">Hoặc xem bảng giá thuê váy tại đây</button>
     </div>
     <div id="dg-checklist-xong" hidden>
-      <p><b>Đã nhận được rồi 🤍</b><br>Dolinhanh sẽ nhắn checklist qua Zalo này trong ít phút. Bạn đọc tiếp sách nhé.</p>
+      <p><b>Đã nhận được rồi 🤍</b><br>Dolinhanh sẽ nhắn checklist qua Zalo <span id="dg-checklist-xong-sdt"></span> trong ít phút. Bạn đọc tiếp sách nhé.</p>
+      <button type="button" id="dg-checklist-xong-dong">Đã rõ, đọc tiếp</button>
     </div>
   </div>
 </div>
@@ -1090,9 +1096,14 @@ src="https://www.facebook.com/tr?id=1358640082651240&ev=PageView&noscript=1"
       }catch(e){}
       try{ if (typeof fbq === 'function') fbq('track', 'Lead', {content_name:'Dress Guide Ebook'}); }catch(e){}
       try{ localStorage.setItem(KEY_GATE, JSON.stringify({ten:ten, sdt:sdt, ts:Date.now()})); }catch(e){}
+      document.getElementById('dg-checklist-xong-sdt').textContent = sdt;
       document.getElementById('dg-checklist-trong').hidden = true;
       document.getElementById('dg-checklist-xong').hidden = false;
-      setTimeout(function(){ hop.classList.remove('hien'); }, 1800);
+      var dong = setTimeout(function(){ hop.classList.remove('hien'); }, 6000);
+      document.getElementById('dg-checklist-xong-dong').addEventListener('click', function(){
+        clearTimeout(dong);
+        hop.classList.remove('hien');
+      });
     });
   })();
 
