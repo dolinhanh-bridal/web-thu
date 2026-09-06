@@ -329,6 +329,7 @@ src="https://www.facebook.com/tr?id=1358640082651240&ev=PageView&noscript=1"
   .btn.sang:hover{background:#86594F;border-color:#86594F;color:#fff}
   .hero .nut{display:flex;gap:clamp(16px,2vw,28px);flex-wrap:wrap;align-items:center}
   .hero .nut .link{margin-top:34px;border-bottom-color:rgba(255,255,255,.6)}
+  .hero-qua + .nut .btn{margin-top:18px}
 
   .ba{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(22px,3.4vw,54px);
     margin-top:clamp(40px,5vw,72px)}
@@ -369,7 +370,7 @@ src="https://www.facebook.com/tr?id=1358640082651240&ev=PageView&noscript=1"
     text-transform:uppercase;color:rgba(255,255,255,.96)}
 
   /* ── hộp quà tặng trên ảnh bìa ── */
-  .hero-qua{display:inline-flex;align-items:center;gap:12px;margin-top:24px;padding:11px 16px;
+  .hero-qua{display:inline-flex;align-items:center;gap:12px;margin-top:22px;padding:11px 16px;
     border:1px solid rgba(255,255,255,.55);background:rgba(20,18,16,.26);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
     color:#fff;text-decoration:none;font-family:var(--sans);font-size:12px;line-height:1.5;transition:background .4s ease}
   .hero-qua:hover{background:rgba(20,18,16,.46)}
@@ -637,21 +638,22 @@ src="https://www.facebook.com/tr?id=1358640082651240&ev=PageView&noscript=1"
 
   /* ── bố cục ảnh bìa trên điện thoại (V57: chị chê chưa hợp lý) ── */
   @media (max-width:700px){
-    .hero .inner{padding-block:30px 40px}
+    .hero .inner{padding-block:30px 36px}
     .hero-qua .ct-dai{display:none}
     .hero-qua .ct-ngan{display:block}
-    .hero .h-xl + p{margin-top:16px !important;font-size:15.5px;line-height:1.55}
-    .hero-ba{margin-top:16px;font-size:10.5px;letter-spacing:.2em;white-space:nowrap}
-    .hero .nut{flex-direction:column;align-items:stretch;gap:10px;max-width:320px}
-    .hero .nut .btn{margin-top:22px;text-align:center;padding:14px 20px}
+    .hero .h-xl{font-size:clamp(1.5rem,6.6vw,1.9rem)}
+    .hero .h-xl + p{margin-top:12px !important;font-size:14px;line-height:1.55;max-width:34ch}
+    .hero-ba{margin-top:12px;font-size:10px;letter-spacing:.18em;white-space:nowrap}
+    .hero .nut{flex-direction:column;align-items:stretch;gap:10px;max-width:300px}
+    .hero .nut .btn{margin-top:14px;text-align:center;padding:12px 18px;font-size:10.5px}
     .hero .nut .link{margin-top:0;justify-content:center;border:1px solid rgba(255,255,255,.7);
       padding:13px 20px 13px;font-size:11px;letter-spacing:.22em}
     /* V58: chị chê khối chữ hộp quà quá to → bỏ khung, thành 2 dòng nhỏ có gạch dọc bên trái */
-    .hero-qua{display:flex;flex-direction:column;align-items:flex-start;gap:3px;max-width:340px;margin-top:20px;
-      padding:2px 0 2px 12px;border:0;border-left:1px solid rgba(255,255,255,.6);background:none;
-      backdrop-filter:none;-webkit-backdrop-filter:none;font-size:11.5px;line-height:1.45}
+    .hero-qua{display:flex;flex-direction:column;align-items:flex-start;gap:2px;max-width:300px;margin-top:16px;
+      padding:1px 0 1px 10px;border:0;border-left:1px solid rgba(255,255,255,.6);background:none;
+      backdrop-filter:none;-webkit-backdrop-filter:none;font-size:11px;line-height:1.45}
     .hero-qua .ct strong{white-space:nowrap}
-    .hero-qua .nh{font-size:9.5px;letter-spacing:.24em;padding:0;border:0;opacity:.9}
+    .hero-qua .nh{font-size:9px;letter-spacing:.22em;padding:0;border:0;opacity:.9}
     .hero-qua .ct{opacity:.95}
     .hero-qua .ct strong{font-weight:500;text-decoration:underline;text-underline-offset:3px;text-decoration-color:rgba(255,255,255,.6)}
     .hero-qua .mt{display:none}
@@ -692,14 +694,14 @@ src="https://www.facebook.com/tr?id=1358640082651240&ev=PageView&noscript=1"
       <h1 class="h-xl">Quiet minimal luxury,<br><em>Crafted with Mother Love.</em></h1>
       <p style="margin-top:24px;color:#fff;max-width:46ch" data-en="Understated luxury, cared for with a mother’s love.">Vẻ đẹp tối giản mà sang trọng, được chăm chút bằng tình yêu của một người mẹ.</p>
       <p class="hero-ba" data-en="Wedding dresses &nbsp;·&nbsp; Photography &nbsp;·&nbsp; Film">Váy cưới &nbsp;·&nbsp; Chụp hình &nbsp;·&nbsp; Quay phim</p>
-      <div class="nut">
-        <a class="btn sang" href="gui-yeu-cau.html" data-en="Book a private fitting">Đặt lịch thử váy riêng</a>
-      </div>
       <a class="hero-qua" href="#quatang" id="heroQua">
         <span class="nh" data-en="Gifts for the bride">Quà tặng cô dâu</span>
         <span class="ct ct-dai" data-en="Dress Guide ebook &amp; online wedding invitation — <strong>free</strong>">Ebook Dress Guide &amp; thiệp cưới online — <strong>miễn phí</strong></span><span class="ct ct-ngan" data-en="Ebook &amp; online invitation — <strong>free</strong>">Ebook &amp; thiệp cưới online — <strong>miễn phí</strong></span>
         <span class="mt" aria-hidden="true">↓</span>
       </a>
+      <div class="nut">
+        <a class="btn sang" href="gui-yeu-cau.html" data-en="Book a private fitting">Đặt lịch thử váy riêng</a>
+      </div>
     </div>
   </section>
 
