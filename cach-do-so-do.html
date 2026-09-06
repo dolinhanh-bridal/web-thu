@@ -21,7 +21,7 @@ src="https://www.facebook.com/tr?id=1358640082651240&ev=PageView&noscript=1"
 
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Tự đo 14 số đo cơ thể tại nhà trước khi đi thử váy cưới: mặc gì, đứng thế nào, đo ở đâu, và vì sao đo sai một tí là váy lệch cả buổi. Dolinhanh Bridal.">
+<meta name="description" content="Tự đo 14 số đo cơ thể tại nhà trước khi đi thử váy cưới, rồi mang số tới Dolinhanh Bridal thử váy FREE — 10 mẫu hợp dáng, stylist riêng chọn theo đúng số đo của bạn.">
 <title>Cẩm nang tự đo số đo</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -40,6 +40,12 @@ src="https://www.facebook.com/tr?id=1358640082651240&ev=PageView&noscript=1"
     --champagne:#CDBBA2;
     --tan:#6A4925;
     --tan-soft:#F3F2F0;
+    --phan:#F4E7E2;
+    --phan-dam:#E6CFC7;
+    --nhan:#B07E72;
+    --nhan-dam:#9B6B5F;
+    --do:#D6342C;
+    --do-dam:#B92A23;
     --shadow:0 1px 2px rgba(23,19,15,.04), 0 8px 30px rgba(23,19,15,.05);
 
     /* bộ chữ V2: Playfair Display tiêu đề, Lora thân bài, Helvetica nhãn — cả hai đều đủ dấu tiếng Việt */
@@ -68,6 +74,8 @@ src="https://www.facebook.com/tr?id=1358640082651240&ev=PageView&noscript=1"
       --champagne:#CDBBA2;
       --tan:#CDBBA2;
       --tan-soft:#211E1B;
+      --phan:#2A1F1C;
+      --phan-dam:#3B2C28;
       --shadow:0 1px 2px rgba(0,0,0,.3), 0 8px 30px rgba(0,0,0,.35);
     }
   }
@@ -83,6 +91,8 @@ src="https://www.facebook.com/tr?id=1358640082651240&ev=PageView&noscript=1"
     --champagne:#CDBBA2;
     --tan:#CDBBA2;
     --tan-soft:#211E1B;
+    --phan:#2A1F1C;
+    --phan-dam:#3B2C28;
     --shadow:0 1px 2px rgba(0,0,0,.3), 0 8px 30px rgba(0,0,0,.35);
   }
 
@@ -306,12 +316,12 @@ src="https://www.facebook.com/tr?id=1358640082651240&ev=PageView&noscript=1"
   .sheet-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px;align-items:center}
   button{
     font-family:var(--sans);font-size:.72rem;font-weight:500;letter-spacing:.24em;text-transform:uppercase;
-    padding:.95em 1.7em;border:1px solid var(--ink);background:var(--ink);color:var(--ivory);
-    cursor:pointer;transition:opacity .2s;
+    padding:.95em 1.7em;border:1px solid var(--nhan);background:var(--nhan);color:#fff;
+    cursor:pointer;transition:opacity .2s,background .2s;
   }
-  button:hover{opacity:.82}
+  button:hover{background:var(--nhan-dam);border-color:var(--nhan-dam)}
   button.ghost{background:transparent;color:var(--ink);border-color:var(--hair)}
-  button.ghost:hover{border-color:var(--ink);opacity:1}
+  button.ghost:hover{border-color:var(--ink);background:transparent}
   .saved{font-size:.78rem;color:var(--grey-2)}
 
   /* FAQ */
@@ -334,11 +344,12 @@ src="https://www.facebook.com/tr?id=1358640082651240&ev=PageView&noscript=1"
   .cta .eyebrow{color:var(--ink)}
   .cta p{color:var(--grey)}
   .cta a{color:var(--ink)}
-  .cta .zalo{border-color:var(--ink);color:var(--ink)}
-  .cta .zalo:hover{background:var(--ink);color:var(--ivory)}
+  .cta .zalo{border-color:var(--do);background:var(--do);color:#fff}
+  .cta .zalo:hover{background:var(--do-dam);border-color:var(--do-dam);color:#fff}
   .cta .shops h3{color:var(--ink)}
   .cta-nut{display:flex;flex-wrap:wrap;gap:14px;align-items:center;margin-top:32px}
   .cta-nut .zalo{margin-top:0}
+  .cta-nut .nut-ud{padding:1em 2.2em;font-size:.72rem;letter-spacing:.26em}
   .nut-phu{
     display:inline-block;padding:1em 2em;border:1px solid var(--grey-2);color:var(--ink);
     text-decoration:none;font-family:var(--sans);font-weight:700;font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;
@@ -367,8 +378,8 @@ src="https://www.facebook.com/tr?id=1358640082651240&ev=PageView&noscript=1"
   .zl-noi{
     position:fixed;right:clamp(12px,3vw,24px);bottom:calc(16px + env(safe-area-inset-bottom));
     z-index:120;display:inline-flex;align-items:center;gap:8px;
-    background:var(--ink);color:#fff;text-decoration:none;border-radius:999px;
-    padding:11px 18px 11px 11px;box-shadow:0 10px 26px rgba(36,27,25,.32);
+    background:var(--do);color:#fff;text-decoration:none;border-radius:999px;
+    padding:11px 18px 11px 11px;box-shadow:0 10px 26px rgba(214,52,44,.32);
     font-family:var(--sans);font-size:.7rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;white-space:nowrap;
     transition:transform .2s,box-shadow .2s;
   }
@@ -380,6 +391,106 @@ src="https://www.facebook.com/tr?id=1358640082651240&ev=PageView&noscript=1"
     .zl-chu{display:none}
     .zl-noi{padding:13px;border-radius:50%;gap:0}
   }
+
+
+  /* ── Ưu đãi thử váy FREE · 10 mẫu (thêm 06/09/2026) ── */
+  .ud{
+    background:var(--phan);border:1px solid var(--phan-dam);padding:clamp(20px,3vw,30px);
+    margin-top:clamp(26px,3.5vw,38px);max-width:560px;
+  }
+  .ud .nhan{
+    font-family:var(--sans);font-size:.64rem;font-weight:600;letter-spacing:.24em;text-transform:uppercase;
+    color:var(--nhan);margin:0 0 .9em;
+  }
+  .ud h3{font-size:clamp(1.35rem,2.4vw,1.75rem);line-height:1.15;color:var(--ink)}
+  .ud h3 .so{color:var(--nhan);font-weight:600}
+  .ud p.mo{font-size:.95rem;color:var(--ink-2);margin:.7em 0 1em;max-width:48ch}
+  .ud .diem{display:flex;flex-wrap:wrap;gap:6px 16px;margin:0 0 1.1em;padding:0;list-style:none}
+  .ud .diem li{font-family:var(--sans);font-size:.7rem;letter-spacing:.06em;color:var(--ink-2);position:relative;padding-left:14px}
+  .ud .diem li::before{content:"";position:absolute;left:0;top:.55em;width:7px;height:7px;border-radius:50%;background:var(--nhan)}
+  .ud-form{display:grid;gap:10px}
+  .ud-form input[type=text],.ud-form input[type=tel]{
+    width:100%;font:inherit;font-size:1rem;padding:.8em .95em;border:1px solid var(--phan-dam);background:var(--paper);color:var(--ink);
+  }
+  .ud-form input:focus{outline:none;border-color:var(--nhan)}
+  .ud-form input::placeholder{color:var(--grey-2)}
+  .ud-form .coso{display:flex;gap:8px;flex-wrap:wrap}
+  .ud-form .coso label{
+    flex:1;min-width:120px;display:flex;align-items:center;justify-content:center;gap:8px;cursor:pointer;
+    border:1px solid var(--phan-dam);background:var(--paper);padding:.7em .8em;
+    font-family:var(--sans);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-2);
+  }
+  .ud-form .coso input{position:absolute;opacity:0;width:0;height:0}
+  .ud-form .coso label:has(input:checked){border-color:var(--nhan);color:var(--nhan);box-shadow:inset 0 0 0 1px var(--nhan)}
+  .ud-form button{width:100%;font-size:.78rem;padding:1.05em 1.4em;letter-spacing:.2em}
+  .ud .rieng{font-size:.74rem;color:var(--grey);margin:.9em 0 0}
+  .ud-xong{display:none;background:var(--paper);border:1px solid var(--phan-dam);padding:16px 18px;margin-top:6px}
+  .ud-xong.hien{display:block}
+  .ud-xong p{margin:0 0 .8em;color:var(--ink)}
+  .ud-xong a{
+    display:inline-block;background:var(--do);color:#fff;text-decoration:none;padding:.9em 1.6em;
+    font-family:var(--sans);font-size:.7rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;
+  }
+  .ud-xong a:hover{background:var(--do-dam)}
+  @media (min-width:900px){.hero .ud{max-width:none}}
+
+  /* thẻ nhắc giữa bài */
+  .ud-giua{margin-top:clamp(34px,5vw,56px)}
+  .ud-giua .ud{max-width:none;display:grid;gap:18px 32px;align-items:center;margin-top:0}
+  @media (min-width:820px){.ud-giua .ud{grid-template-columns:1fr auto}}
+  .ud-giua .ud p.mo{margin-bottom:0}
+  .nut-ud{
+    display:inline-block;background:var(--nhan);color:#fff;border:1px solid var(--nhan);cursor:pointer;
+    text-decoration:none;padding:1.05em 2em;font-family:var(--sans);font-size:.74rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;
+    white-space:nowrap;transition:background .2s;
+  }
+  .nut-ud:hover{background:var(--nhan-dam);border-color:var(--nhan-dam);color:#fff}
+  .cta .nut-ud{color:#fff}
+  @media (max-width:640px){.ud-giua .nut-ud{width:100%;text-align:center;white-space:normal}}
+
+  /* popup */
+  .ud-nen{
+    position:fixed;inset:0;z-index:220;background:rgba(23,19,15,.55);display:none;align-items:center;justify-content:center;
+    padding:18px;
+  }
+  .ud-nen.hien{display:flex}
+  .ud-hop{position:relative;width:min(520px,100%);max-height:calc(100vh - 36px);overflow:auto;box-shadow:0 30px 80px rgba(0,0,0,.35)}
+  .ud-hop .ud{margin-top:0;max-width:none}
+  .ud-dong{
+    position:absolute;top:8px;right:8px;width:38px;height:38px;border:0;background:transparent;color:var(--ink);
+    font-size:1.5rem;line-height:1;padding:0;cursor:pointer;letter-spacing:0;
+  }
+  .ud-dong:hover{background:transparent;color:var(--nhan)}
+
+  /* thanh dính đáy */
+  .ud-thanh{
+    position:fixed;left:0;right:0;bottom:0;z-index:118;background:var(--paper);border-top:1px solid var(--phan-dam);
+    box-shadow:0 -8px 30px rgba(23,19,15,.08);padding:10px clamp(12px,3vw,24px);padding-bottom:calc(10px + env(safe-area-inset-bottom));
+    display:none;align-items:center;gap:14px;
+  }
+  .ud-thanh.hien{display:flex}
+  .ud-thanh .chu{flex:1;min-width:0;font-family:var(--display);font-size:1.02rem;color:var(--ink);line-height:1.2}
+  .ud-thanh .chu .so{color:var(--nhan);font-weight:600}
+  .ud-thanh .chu small{display:block;font-family:var(--sans);font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:var(--grey);margin-top:3px}
+  .ud-thanh .nut-ud{padding:.9em 1.4em;font-size:.68rem;letter-spacing:.18em}
+  .ud-thanh.hien + .zl-noi{bottom:calc(76px + env(safe-area-inset-bottom))}
+  @media (max-width:640px){
+    .ud-thanh{padding-right:74px}
+    .ud-thanh .chu{font-size:.95rem}
+    .ud-thanh .chu small{display:none}
+    .ud-thanh.hien + .zl-noi{bottom:calc(84px + env(safe-area-inset-bottom))}
+  }
+
+  /* gửi phiếu */
+  #btn-gui{font-size:.76rem;padding:1.05em 1.8em}
+  .phieu-xong{display:none;margin-top:18px;background:var(--phan);border:1px solid var(--phan-dam);padding:18px 20px}
+  .phieu-xong.hien{display:block}
+  .phieu-xong p{margin:0 0 .8em;color:var(--ink)}
+  .phieu-xong a{
+    display:inline-block;background:var(--do);color:#fff;text-decoration:none;padding:.85em 1.5em;
+    font-family:var(--sans);font-size:.68rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;
+  }
+  .phieu-xong a:hover{background:var(--do-dam)}
 
   /* ── Chuyển ngôn ngữ ── */
   .lang{
@@ -398,7 +509,7 @@ src="https://www.facebook.com/tr?id=1358640082651240&ev=PageView&noscript=1"
 
   @media print{
     body{background:#fff;color:#000;font-size:11pt}
-    .cta,nav.toc,.sheet-actions,.zl-noi,.lang,.hero-anh,.mindmap,.flat,.split>figure{display:none}
+    .cta,nav.toc,.sheet-actions,.zl-noi,.lang,.hero-anh,.mindmap,.flat,.split>figure,.ud,.ud-giua,.ud-nen,.ud-thanh,.phieu-xong{display:none}
     section{padding-top:18px}
   }
 </style>
@@ -438,6 +549,32 @@ src="https://www.facebook.com/tr?id=1358640082651240&ev=PageView&noscript=1"
         <span class="vi">14 số đo</span><span class="en">14 measurements</span>
         <span class="vi">Đo trong 15 phút</span><span class="en">15 minutes</span>
         <span class="vi">Cần 1 người phụ</span><span class="en">Bring a helper</span>
+      </div>
+      <div class="ud" id="ud-hero">
+        
+        <p class="nhan"><span class="vi">Ưu đãi riêng cho bạn đọc trang này</span><span class="en">For readers of this guide</span></p>
+        <h3><span class="vi">Thử váy <span class="so">FREE</span> — 10 mẫu tại Dolinhanh</span><span class="en">Try on 10 gowns <span class="so">FREE</span> at Dolinhanh</span></h3>
+        <p class="mo"><span class="vi">Đo xong ở nhà, mang số tới thử liền 10 mẫu hợp dáng — không mất phí, stylist lọc sẵn theo đúng số đo của bạn, phòng thử riêng. Để lại tên + số Zalo, Dolinhanh giữ suất và nhắn xác nhận lịch.</span><span class="en">Measure at home, then come try 10 gowns picked for your numbers — free of charge, your own stylist, a private fitting room. Leave your name and Zalo number and we'll hold your slot.</span></p>
+        <ul class="diem">
+          <li><span class="vi">Thử FREE 10 mẫu</span><span class="en">10 gowns, free</span></li>
+          <li><span class="vi">Stylist riêng</span><span class="en">Private stylist</span></li>
+          <li><span class="vi">Phòng thử riêng</span><span class="en">Private room</span></li>
+          <li><span class="vi">Chọn HN hoặc HCM</span><span class="en">Hanoi or HCMC</span></li>
+        </ul>
+        <form class="ud-form" data-ud-form novalidate autocomplete="on">
+          <input type="text" name="ten" placeholder="Họ và tên" autocomplete="name" required>
+          <input type="tel" name="sdt" placeholder="Số điện thoại / Zalo" autocomplete="tel" inputmode="tel" required>
+          <div class="coso" role="radiogroup" aria-label="Cơ sở">
+            <label><input type="radio" name="coso-ud-hero" value="Hà Nội" checked><span class="vi">Hà Nội</span><span class="en">Hanoi</span></label>
+            <label><input type="radio" name="coso-ud-hero" value="TP.HCM"><span class="vi">TP. Hồ Chí Minh</span><span class="en">Ho Chi Minh City</span></label>
+          </div>
+          <button type="submit"><span class="vi">Giữ suất thử váy FREE</span><span class="en">Hold my free fitting</span></button>
+        </form>
+        <div class="ud-xong" data-ud-xong>
+          <p><span class="vi">Nhận được rồi nha — Dolinhanh nhắn Zalo xác nhận lịch cho bạn trong hôm nay 🤍 Muốn chốt ngay thì nhắn Zalo luôn:</span><span class="en">Got it — we'll message you on Zalo today to confirm your slot 🤍 Want it sooner? Message us now:</span></p>
+          <a href="https://zalo.me/0359950588" target="_blank" rel="noopener"><span class="vi">Nhắn Zalo Dolinhanh</span><span class="en">Message on Zalo</span></a>
+        </div>
+        <p class="rieng"><span class="vi">Chỉ dùng để xếp lịch thử váy. Không spam.</span><span class="en">Used only to book your fitting. No spam.</span></p>
       </div>
     </div>
     <div class="hero-anh">
@@ -669,6 +806,17 @@ src="https://www.facebook.com/tr?id=1358640082651240&ev=PageView&noscript=1"
     </div>
   </div>
 </section>
+<div class="wrap ud-giua">
+  <div class="ud">
+    <div>
+      <p class="nhan"><span class="vi">Thử váy FREE · 10 mẫu tại DLA</span><span class="en">Free fitting · 10 gowns at DLA</span></p>
+      <h3><span class="vi">Đọc tới đây là bạn biết cách đo chuẩn rồi đó.</span><span class="en">You already measure better than most brides.</span></h3>
+      <p class="mo"><span class="vi">Đo xong thì tới thử luôn cho đỡ tưởng tượng: 10 mẫu váy, stylist riêng, hoàn toàn FREE. Giữ suất trước, tới nơi chỉ việc mặc.</span><span class="en">Once you have your numbers, come and try them on for real: 10 gowns, your own stylist, completely free. Hold a slot now and simply show up.</span></p>
+    </div>
+    <button type="button" class="nut-ud" data-ud><span class="vi">Giữ suất thử FREE</span><span class="en">Hold my free fitting</span></button>
+  </div>
+</div>
+
 
 <section id="chuan-bi">
   <div class="wrap">
@@ -864,6 +1012,17 @@ src="https://www.facebook.com/tr?id=1358640082651240&ev=PageView&noscript=1"
     </figure>
   </div>
 </section>
+<div class="wrap ud-giua">
+  <div class="ud">
+    <div>
+      <p class="nhan"><span class="vi">Thử váy FREE · 10 mẫu tại DLA</span><span class="en">Free fitting · 10 gowns at DLA</span></p>
+      <h3><span class="vi">Có số đo rồi? Đừng để nó nằm trong sổ.</span><span class="en">Got your numbers? Don’t leave them in a notebook.</span></h3>
+      <p class="mo"><span class="vi">Gửi phiếu ở dưới hoặc giữ suất thử FREE — stylist Dolinhanh lọc sẵn 10 mẫu hợp số đo của bạn trước khi bạn tới, khỏi thử mò.</span><span class="en">Send your sheet below or hold a free fitting — our stylist shortlists 10 gowns for your measurements before you arrive.</span></p>
+    </div>
+    <button type="button" class="nut-ud" data-ud><span class="vi">Giữ suất thử FREE</span><span class="en">Hold my free fitting</span></button>
+  </div>
+</div>
+
 
 <section id="goc-tho">
   <div class="wrap col">
@@ -890,11 +1049,12 @@ src="https://www.facebook.com/tr?id=1358640082651240&ev=PageView&noscript=1"
 <section id="phieu">
   <div class="wrap">
     <div class="sec-head"><span class="num">09</span><h2><span class="vi">Phiếu số đo để điền và gửi</span><span class="en">Your measurement sheet</span></h2></div>
-    <p class="col"><span class="vi">Điền ngay trong lúc đo. Xong bấm <strong>Copy phiếu</strong> rồi dán vào Zalo gửi Dolinhanh — hoặc <strong>In phiếu</strong> để cầm theo hôm thử váy. Số đo chỉ lưu trên máy bạn, Dolinhanh không nhận được gì cho tới khi bạn tự gửi.</span><span class="en">Fill it in as you measure. Then tap <strong>Copy sheet</strong> and paste it to us on Zalo — or <strong>Print</strong> it to bring to your fitting. The numbers stay on your own device; Dolinhanh receives nothing until you send them.</span></p>
+    <p class="col"><span class="vi">Điền ngay trong lúc đo. Xong bấm <strong>Gửi phiếu cho Dolinhanh</strong> — stylist sẽ lọc sẵn 10 mẫu hợp số đo của bạn cho buổi thử FREE. Muốn tự gửi thì <strong>Copy phiếu</strong> dán vào Zalo, hoặc <strong>In phiếu</strong> cầm theo. Số đo chỉ lưu trên máy bạn cho tới khi bạn bấm gửi.</span><span class="en">Fill it in as you measure. Then tap <strong>Send to Dolinhanh</strong> — our stylist shortlists 10 gowns for your numbers ahead of your free fitting. Prefer to send it yourself? <strong>Copy</strong> it to Zalo or <strong>Print</strong> it. Numbers stay on your device until you tap send.</span></p>
     <div class="sheet">
       <form id="sheet" autocomplete="off">
         <div class="sheet-grid">
-          <div class="field field-wide"><label for="ten"><span class="vi">Tên cô dâu</span><span class="en">Bride's name</span></label><input id="ten" type="text" placeholder="—"></div>
+          <div class="field field-wide"><label for="ten"><span class="vi">Tên cô dâu</span><span class="en">Bride's name</span></label><input id="ten" type="text" placeholder="—" autocomplete="name"></div>
+          <div class="field field-wide"><label for="sdt"><span class="vi">Số điện thoại / Zalo (để Dolinhanh xếp lịch thử váy FREE)</span><span class="en">Phone / Zalo (so we can book your free fitting)</span></label><input id="sdt" type="tel" placeholder="—" autocomplete="tel" inputmode="tel"></div>
           <div class="field field-wide"><label for="dolot"><span class="vi">Đo với áo lót / gen loại gì</span><span class="en">Measured wearing which bra / shapewear</span></label><input id="dolot" type="text" placeholder="—"></div>
           <div class="field"><label for="m1"><span class="vi">01 · Vòng ngực đầy</span><span class="en">01 · Full bust</span></label><input id="m1" type="number" step="0.5" inputmode="decimal" placeholder="—"><span class="unit">cm</span></div>
           <div class="field"><label for="m2"><span class="vi">02 · Vòng ngực trên</span><span class="en">02 · High bust</span></label><input id="m2" type="number" step="0.5" inputmode="decimal" placeholder="—"><span class="unit">cm</span></div>
@@ -917,10 +1077,15 @@ src="https://www.facebook.com/tr?id=1358640082651240&ev=PageView&noscript=1"
           <div class="field field-wide"><label for="ghichu"><span class="vi">Ghi chú thêm</span><span class="en">Anything else</span></label><input id="ghichu" type="text" placeholder="—"></div>
         </div>
         <div class="sheet-actions">
-          <button type="button" id="btn-copy"><span class="vi">Copy phiếu</span><span class="en">Copy sheet</span></button>
+          <button type="button" id="btn-gui"><span class="vi">Gửi phiếu cho Dolinhanh</span><span class="en">Send to Dolinhanh</span></button>
+          <button type="button" class="ghost" id="btn-copy"><span class="vi">Copy phiếu</span><span class="en">Copy sheet</span></button>
           <button type="button" class="ghost" id="btn-print"><span class="vi">In phiếu</span><span class="en">Print</span></button>
           <button type="button" class="ghost" id="btn-clear"><span class="vi">Xoá hết</span><span class="en">Clear</span></button>
           <span class="saved" id="saved" aria-live="polite"></span>
+        </div>
+        <div class="phieu-xong" id="phieu-xong" aria-live="polite">
+          <p><span class="vi">Nhận được phiếu rồi nha — Dolinhanh nhắn Zalo cho bạn trong hôm nay để chốt lịch thử 10 mẫu váy FREE 🤍 Phiếu đã copy sẵn, muốn gửi thêm ảnh hay hỏi gì thì nhắn Zalo luôn:</span><span class="en">Got your sheet — we'll message you on Zalo today to book your free fitting 🤍 The sheet is copied to your clipboard; message us anytime:</span></p>
+          <a href="https://zalo.me/0359950588" target="_blank" rel="noopener"><span class="vi">Nhắn Zalo Dolinhanh</span><span class="en">Message on Zalo</span></a>
         </div>
       </form>
     </div>
@@ -972,8 +1137,8 @@ src="https://www.facebook.com/tr?id=1358640082651240&ev=PageView&noscript=1"
   <div class="wrap cta-grid">
     <div>
       <p class="eyebrow"><span class="vi">Bước tiếp theo</span><span class="en">Next step</span></p>
-      <h2><span class="vi">Mang bộ số đo tới buổi thử váy</span><span class="en">Bring your numbers to the fitting</span></h2>
-      <p style="margin-top:1.2em"><span class="vi">Gửi phiếu số đo qua Zalo trước, Dolinhanh chuẩn bị sẵn những mẫu hợp dáng bạn nhất. Thử váy tại showroom miễn phí, đặt lịch trước để có phòng thử và stylist riêng.</span><span class="en">Send your sheet on Zalo first and Dolinhanh will have the most suitable gowns ready for you. Trying on at the showroom is free — book ahead for a private fitting room and your own stylist.</span></p>
+      <h2><span class="vi">Đo xong rồi thì tới thử thôi</span><span class="en">Measured? Now come try them on</span></h2>
+      <p style="margin-top:1.2em"><span class="vi"><strong>Thử váy FREE — 10 mẫu</strong> tại Dolinhanh — phòng thử riêng, stylist chọn mẫu theo đúng số đo bạn vừa đo. Giữ suất trước, tới nơi chỉ việc mặc và ngắm.</span><span class="en"><strong>Try 10 gowns free</strong> at Dolinhanh — a private room and a stylist who picks by your exact numbers. Hold a slot first, then just show up and try.</span></p>
       <div class="shops">
         <div>
           <h3><span class="vi">Hà Nội</span><span class="en">Hanoi</span></h3>
@@ -989,7 +1154,8 @@ src="https://www.facebook.com/tr?id=1358640082651240&ev=PageView&noscript=1"
         </div>
       </div>
       <div class="cta-nut">
-        <a class="zalo" href="https://zalo.me/0359950588" target="_blank" rel="noopener"><span class="vi">Nhắn Zalo đặt lịch thử váy</span><span class="en">Message us on Zalo</span></a>
+        <button type="button" class="nut-ud" data-ud><span class="vi">Giữ suất thử FREE</span><span class="en">Hold my free fitting</span></button>
+        <a class="zalo" href="https://zalo.me/0359950588" target="_blank" rel="noopener"><span class="vi">Nhắn Zalo đặt lịch</span><span class="en">Message us on Zalo</span></a>
         <a class="nut-phu" href="bao-gia-v2.html"><span class="vi">Xem bảng giá thuê váy</span><span class="en">See the rental price list</span></a>
         <a class="nut-phu" href="dress-guide.html"><span class="vi">Đọc ebook miễn phí</span><span class="en">Read the free ebook</span></a>
       </div>
@@ -999,6 +1165,47 @@ src="https://www.facebook.com/tr?id=1358640082651240&ev=PageView&noscript=1"
 </section>
 
 </main>
+
+<!-- Popup thử váy FREE (tự bật khi cuộn / bấm nút Giữ suất) -->
+<div class="ud-nen" id="ud-nen" role="dialog" aria-modal="true" aria-labelledby="ud-popup-tieude">
+  <div class="ud-hop">
+    <div class="ud" id="ud-popup">
+        <button type="button" class="ud-dong" data-ud-dong aria-label="Đóng">×</button>
+        <p class="nhan"><span class="vi">Ưu đãi riêng cho bạn đọc trang này</span><span class="en">For readers of this guide</span></p>
+        <h3 id="ud-popup-tieude"><span class="vi">Thử váy <span class="so">FREE</span> — 10 mẫu tại Dolinhanh</span><span class="en">Try on 10 gowns <span class="so">FREE</span> at Dolinhanh</span></h3>
+        <p class="mo"><span class="vi">Đo xong ở nhà, mang số tới thử liền 10 mẫu hợp dáng — không mất phí, stylist lọc sẵn theo đúng số đo của bạn, phòng thử riêng. Để lại tên + số Zalo, Dolinhanh giữ suất và nhắn xác nhận lịch.</span><span class="en">Measure at home, then come try 10 gowns picked for your numbers — free of charge, your own stylist, a private fitting room. Leave your name and Zalo number and we'll hold your slot.</span></p>
+        <ul class="diem">
+          <li><span class="vi">Thử FREE 10 mẫu</span><span class="en">10 gowns, free</span></li>
+          <li><span class="vi">Stylist riêng</span><span class="en">Private stylist</span></li>
+          <li><span class="vi">Phòng thử riêng</span><span class="en">Private room</span></li>
+          <li><span class="vi">Chọn HN hoặc HCM</span><span class="en">Hanoi or HCMC</span></li>
+        </ul>
+        <form class="ud-form" data-ud-form novalidate autocomplete="on">
+          <input type="text" name="ten" placeholder="Họ và tên" autocomplete="name" required>
+          <input type="tel" name="sdt" placeholder="Số điện thoại / Zalo" autocomplete="tel" inputmode="tel" required>
+          <div class="coso" role="radiogroup" aria-label="Cơ sở">
+            <label><input type="radio" name="coso-ud-popup" value="Hà Nội" checked><span class="vi">Hà Nội</span><span class="en">Hanoi</span></label>
+            <label><input type="radio" name="coso-ud-popup" value="TP.HCM"><span class="vi">TP. Hồ Chí Minh</span><span class="en">Ho Chi Minh City</span></label>
+          </div>
+          <button type="submit"><span class="vi">Giữ suất thử váy FREE</span><span class="en">Hold my free fitting</span></button>
+        </form>
+        <div class="ud-xong" data-ud-xong>
+          <p><span class="vi">Nhận được rồi nha — Dolinhanh nhắn Zalo xác nhận lịch cho bạn trong hôm nay 🤍 Muốn chốt ngay thì nhắn Zalo luôn:</span><span class="en">Got it — we'll message you on Zalo today to confirm your slot 🤍 Want it sooner? Message us now:</span></p>
+          <a href="https://zalo.me/0359950588" target="_blank" rel="noopener"><span class="vi">Nhắn Zalo Dolinhanh</span><span class="en">Message on Zalo</span></a>
+        </div>
+        <p class="rieng"><span class="vi">Chỉ dùng để xếp lịch thử váy. Không spam.</span><span class="en">Used only to book your fitting. No spam.</span></p>
+      </div>
+  </div>
+</div>
+
+<!-- Thanh dính đáy -->
+<div class="ud-thanh" id="ud-thanh">
+  <div class="chu">
+    <span class="vi">Thử váy <span class="so">FREE</span> · 10 mẫu tại DLA</span><span class="en">Try 10 gowns <span class="so">FREE</span> at DLA</span>
+    <small><span class="vi">Stylist riêng · phòng thử riêng · HN &amp; HCM</span><span class="en">Private stylist · private room · Hanoi &amp; HCMC</span></small>
+  </div>
+  <button type="button" class="nut-ud" data-ud><span class="vi">Giữ suất</span><span class="en">Hold slot</span></button>
+</div>
 
 <a class="zl-noi" id="zl-noi" href="https://zalo.me/0359950588" target="_blank" rel="noopener" aria-label="Nhắn Zalo cho Dolinhanh Bridal">
   <span class="zl-icon" aria-hidden="true">
@@ -1090,6 +1297,26 @@ src="https://www.facebook.com/tr?id=1358640082651240&ev=PageView&noscript=1"
 
   document.getElementById("btn-print").addEventListener("click", function(){ window.print(); });
 
+  /* Gửi phiếu cho Dolinhanh: lead vào sheet + mail báo quản lý + copy sẵn phiếu (thêm 06/09/2026) */
+  document.getElementById("btn-gui").addEventListener("click", function(){
+    var l = lang();
+    var ten = (document.getElementById("ten").value || "").trim();
+    var sdt = (document.getElementById("sdt").value || "").trim();
+    if(!ten || sdt.replace(/\D/g, "").length < 9){
+      flash(l === "en" ? "Please add your name and phone number first" : "Bạn điền giúp tên và số điện thoại ở đầu phiếu nhé");
+      var o = !ten ? document.getElementById("ten") : document.getElementById("sdt");
+      o.focus(); o.scrollIntoView({behavior:"smooth", block:"center"});
+      return;
+    }
+    var text = buildText();
+    if(window.dlaGuiLead) window.dlaGuiLead({ten:ten, sdt:sdt, coso:"", nguon:"gửi phiếu số đo", tin:text});
+    try{ if(navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(text); }catch(e){}
+    var x = document.getElementById("phieu-xong");
+    x.classList.add("hien");
+    x.scrollIntoView({behavior:"smooth", block:"nearest"});
+    flash(l === "en" ? "Sent — thank you!" : "Đã gửi cho Dolinhanh rồi nha");
+  });
+
   document.getElementById("btn-clear").addEventListener("click", function(){
     inputs.forEach(function(i){ i.value = ""; });
     try{ localStorage.removeItem(KEY); }catch(e){}
@@ -1098,6 +1325,124 @@ src="https://www.facebook.com/tr?id=1358640082651240&ev=PageView&noscript=1"
 })();
 </script>
 
+
+<!-- Hệ câu lead thử váy FREE 10 mẫu (thêm 06/09/2026): lead -> sheet "DLA - Lead ebook Dress Guide" + mail quản lý -->
+<script>
+(function(){
+  var FORM = 'https://docs.google.com/forms/d/e/1FAIpQLSchU7uUBZBNfiQZSiVYvHVcUfyEJiJA084SHRNWEcnZ_CyplA/formResponse';
+  var MAIL = 'https://script.google.com/macros/s/AKfycbwlmpyoY3b-iCmO9ZoVeUhm0wYJb4CrQ6I9ezsadk4UhDx1JS3qAEN7MWNOL_DGgkiV/exec';
+  var KEY  = 'dla_lead_dosodo';
+  var TEN_PIXEL = 'Cach do so do - thu vay free';
+
+  function daCoLead(){ try{ return !!localStorage.getItem(KEY); }catch(e){ return false; } }
+  function luuLead(d){ try{ localStorage.setItem(KEY, JSON.stringify(d)); }catch(e){} }
+  function leadCu(){
+    try{
+      var a = JSON.parse(localStorage.getItem(KEY) || 'null') || JSON.parse(localStorage.getItem('dla_lead_dressguide') || 'null');
+      return a || null;
+    }catch(e){ return null; }
+  }
+
+  /* gửi 1 lead: vào sheet lead (3 cột) + mail quản lý qua Apps Script */
+  window.dlaGuiLead = function(d){
+    var nguon = 'Landing đo số đo · thử váy FREE · ' + (d.nguon || 'form') + (d.coso ? ' · ' + d.coso : '');
+    var f = new FormData();
+    f.append('entry.1614276000', d.ten);
+    f.append('entry.379034013', d.sdt);
+    f.append('entry.541722676', nguon);
+    fetch(FORM, {method:'POST', mode:'no-cors', body:f}).catch(function(){});
+    var tin = 'KHÁCH ĐĂNG KÝ THỬ VÁY FREE 10 MẪU (landing đo số đo)\n'
+      + 'Tên: ' + d.ten + '\nSĐT/Zalo: ' + d.sdt
+      + (d.coso ? '\nCơ sở: ' + d.coso : '')
+      + '\nNguồn: ' + nguon
+      + (d.tin ? '\n\n' + d.tin : '');
+    fetch(MAIL + '?hoi=' + encodeURIComponent(tin) + '&em=' + encodeURIComponent(d.sdt), {mode:'no-cors'}).catch(function(){});
+    luuLead({ten:d.ten, sdt:d.sdt, coso:d.coso || ''});
+    try{ if(typeof fbq === 'function') fbq('track', 'Lead', {content_name: TEN_PIXEL}); }catch(e){}
+    anThanh();
+  };
+
+  /* các form ưu đãi (hero + popup) */
+  var forms = document.querySelectorAll('[data-ud-form]');
+  forms.forEach(function(f){
+    var cu = leadCu();
+    if(cu){
+      var it = f.querySelector('[name=ten]'), is = f.querySelector('[name=sdt]');
+      if(it && cu.ten) it.value = cu.ten;
+      if(is && cu.sdt) is.value = cu.sdt;
+    }
+    f.addEventListener('submit', function(e){
+      e.preventDefault();
+      var ten = f.querySelector('[name=ten]').value.trim();
+      var sdt = f.querySelector('[name=sdt]').value.trim();
+      var en  = document.documentElement.getAttribute('data-lang') === 'en';
+      if(!ten || sdt.replace(/\D/g, '').length < 9){
+        alert(en ? 'Please add your name and phone number.' : 'Bạn điền giúp Dolinhanh họ tên và số điện thoại nhé.');
+        return;
+      }
+      var r = f.querySelector('input[type=radio]:checked');
+      window.dlaGuiLead({ten:ten, sdt:sdt, coso: r ? r.value : '', nguon: f.closest('#ud-nen') ? 'popup' : 'form đầu trang'});
+      f.style.display = 'none';
+      var x = f.parentNode.querySelector('[data-ud-xong]');
+      if(x) x.classList.add('hien');
+    });
+  });
+
+  /* popup */
+  var nen = document.getElementById('ud-nen');
+  var daBat = false;
+  function moPopup(nguon){
+    if(!nen) return;
+    nen.classList.add('hien');
+    document.body.style.overflow = 'hidden';
+    daBat = true;
+    try{ sessionStorage.setItem('dla_ud_popup', '1'); }catch(e){}
+    var i = nen.querySelector('[name=ten]');
+    if(i && !i.value && window.innerWidth > 700) setTimeout(function(){ i.focus(); }, 80);
+    try{ if(typeof fbq === 'function') fbq('track', 'ViewContent', {content_name: TEN_PIXEL, content_category: nguon || 'popup'}); }catch(e){}
+  }
+  function dongPopup(){
+    if(!nen) return;
+    nen.classList.remove('hien');
+    document.body.style.overflow = '';
+  }
+  document.querySelectorAll('[data-ud]').forEach(function(b){
+    b.addEventListener('click', function(){ moPopup('nut'); });
+  });
+  document.querySelectorAll('[data-ud-dong]').forEach(function(b){ b.addEventListener('click', dongPopup); });
+  if(nen){
+    nen.addEventListener('click', function(e){ if(e.target === nen) dongPopup(); });
+    document.addEventListener('keydown', function(e){ if(e.key === 'Escape') dongPopup(); });
+  }
+
+  /* tự bật 1 lần: cuộn qua 35% trang, hoặc sau 30 giây — bỏ qua nếu đã để lại thông tin */
+  var daTuBat = false;
+  try{ daTuBat = sessionStorage.getItem('dla_ud_popup') === '1'; }catch(e){}
+  function tuBat(){
+    if(daTuBat || daBat || daCoLead()) return;
+    if(document.activeElement && /INPUT|TEXTAREA/.test(document.activeElement.tagName)) return; // đang điền phiếu thì đừng chen
+    daTuBat = true;
+    moPopup('tu-bat');
+  }
+  window.addEventListener('scroll', function(){
+    var h = document.documentElement.scrollHeight - window.innerHeight;
+    if(h > 0 && window.scrollY / h > 0.35) tuBat();
+  }, {passive:true});
+  setTimeout(tuBat, 30000);
+
+  /* thanh dính đáy: hiện sau khi cuộn qua hero, ẩn khi đã có lead */
+  var thanh = document.getElementById('ud-thanh');
+  function anThanh(){ if(thanh) thanh.classList.remove('hien'); }
+  function xetThanh(){
+    if(!thanh || daCoLead()){ anThanh(); return; }
+    var hero = document.querySelector('header.hero');
+    var moc = hero ? hero.offsetTop + hero.offsetHeight - 80 : 500;
+    if(window.scrollY > moc) thanh.classList.add('hien'); else anThanh();
+  }
+  window.addEventListener('scroll', xetThanh, {passive:true});
+  xetThanh();
+})();
+</script>
 
 <!-- Meta Pixel: bam nut Zalo = su kien Contact (them 03/09/2026) -->
 <script>
