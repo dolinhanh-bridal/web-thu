@@ -1042,7 +1042,7 @@ fbq('init','1358640082651240');fbq('track','PageView');
     for(var k in d){var i=document.createElement('input');i.name=k;i.value=d[k];g.appendChild(i)}
     document.body.appendChild(g);g.submit();setTimeout(function(){g.remove()},2000);
     try{localStorage.setItem('dla_lead_dressguide',JSON.stringify({ten:ten,sdt:sdt}))}catch(err){}
-    if(window.fbq)fbq('track','Lead',{content_name:'landing-dress-guide'});
+    if(window.fbq)fbq('track','Lead',{content_name:'Dress Guide'});
     f.style.display='none';
     document.getElementById('lead-xong').classList.add('hien');
   });
@@ -1052,13 +1052,12 @@ fbq('init','1358640082651240');fbq('track','PageView');
   ['nut-tai-pdf','nut-tai-pdf-dau'].forEach(function(id){
     var n=document.getElementById(id);
     if(n)n.addEventListener('click',function(){
-      if(window.fbq)fbq('track','ViewContent',{content_name:'tai-ebook-pdf',
-        content_category:id==='nut-tai-pdf-dau'?'dau-trang':'cuoi-trang'});
+      if(window.fbq)fbq('track','ViewContent',{content_name:'Dress Guide'});
     });
   });
   var lat=document.getElementById('nut-sach-lat');
   if(lat)lat.addEventListener('click',function(){
-    if(window.fbq)fbq('track','ViewContent',{content_name:'mo-sach-lat'});
+    if(window.fbq)fbq('track','ViewContent',{content_name:'Dress Guide'});
   });
 })();
 
@@ -1069,7 +1068,7 @@ fbq('init','1358640082651240');fbq('track','PageView');
     hop.classList.add('hien');
     nut.textContent='Thông tin chuyển khoản ở ngay dưới 👇';
     nut.disabled=true;
-    if(window.fbq)fbq('track','InitiateCheckout',{content_name:'sach-hanh-trinh-99k',value:99000,currency:'VND'});
+    if(window.fbq)fbq('track','InitiateCheckout',{content_name:'Dress Guide',value:99000,currency:'VND'});
     hop.scrollIntoView({behavior:'smooth',block:'nearest'});
   });
 })();
@@ -1128,11 +1127,11 @@ fbq('init','1358640082651240');fbq('track','PageView');
     fetch(MAIL+'?hoi='+encodeURIComponent(tin)+'&em='+encodeURIComponent(sdt),
       {mode:'no-cors'}).catch(function(){});
     try{navigator.clipboard.writeText(tin)}catch(e){}
-    if(window.fbq)fbq('track','Schedule',{content_name:'landing-dress-guide-dat-lich'});
+    if(window.fbq)fbq('track','Schedule',{content_name:'Dress Guide'});
     var nz=document.getElementById('nut-zalo-hen');
     if(nz)nz.onclick=function(){
       try{navigator.clipboard.writeText(tin)}catch(e){}
-      if(window.fbq)fbq('track','Contact',{content_name:'landing-sau-dat-lich'});
+      if(window.fbq)fbq('track','Contact',{content_name:'Dress Guide'});
       window.open('https://zalo.me/0359950588','_blank','noopener');
     };
     setTimeout(function(){
@@ -1145,8 +1144,8 @@ fbq('init','1358640082651240');fbq('track','PageView');
 document.addEventListener('click',function(e){
   var a=e.target.closest&&e.target.closest('a[href*="zalo.me"]');
   if(!a||!window.fbq)return;
-  if(a.id==='nut-zalo-sach')fbq('track','Lead',{content_name:'sach-hanh-trinh-99k',value:99000,currency:'VND'});
-  else if(a.id==='nut-zalo-hoi')fbq('track','Contact',{content_name:'hoi-sach-hanh-trinh'});
-  else fbq('track','Contact',{content_name:'landing-dress-guide'});
+  if(a.id==='nut-zalo-sach')fbq('track','Lead',{content_name:'Dress Guide',value:99000,currency:'VND'});
+  else if(a.id==='nut-zalo-hoi')fbq('track','Contact',{content_name:'Dress Guide'});
+  else fbq('track','Contact',{content_name:'Dress Guide'});
 },true);
 </script>

@@ -1094,7 +1094,7 @@ src="https://www.facebook.com/tr?id=1358640082651240&ev=PageView&noscript=1"
           + ' | ' + document.referrer);
         fetch('https://docs.google.com/forms/u/0/d/e/1FAIpQLSchU7uUBZBNfiQZSiVYvHVcUfyEJiJA084SHRNWEcnZ_CyplA/formResponse', {method:'POST', mode:'no-cors', body:fd});
       }catch(e){}
-      try{ if (typeof fbq === 'function') fbq('track', 'Lead', {content_name:'Dress Guide Ebook'}); }catch(e){}
+      try{ if (typeof fbq === 'function') fbq('track', 'Lead', {content_name:'Dress Guide'}); }catch(e){}
       try{ localStorage.setItem(KEY_GATE, JSON.stringify({ten:ten, sdt:sdt, ts:Date.now()})); }catch(e){}
       document.getElementById('dg-checklist-xong-sdt').textContent = sdt;
       document.getElementById('dg-checklist-trong').hidden = true;
@@ -1188,7 +1188,7 @@ src="https://www.facebook.com/tr?id=1358640082651240&ev=PageView&noscript=1"
       fetch(MAIL_URL + '?hoi=' + encodeURIComponent(tin) + '&em=' + encodeURIComponent(d.sdt), {mode:'no-cors'}).catch(function(){});
 
       try{ navigator.clipboard.writeText(tin); }catch(e){}
-      try{ if (typeof fbq === 'function') fbq('track', 'Schedule', {content_name:'Dress Guide - Dat lich 1:1'}); }catch(e){}
+      try{ if (typeof fbq === 'function') fbq('track', 'Schedule', {content_name:'Dress Guide'}); }catch(e){}
 
       var nz = document.getElementById('dg-nutZalo');
       if (nz){ nz.onclick = function(){ try{ navigator.clipboard.writeText(tin); }catch(e){} window.open('https://zalo.me/0359950588', '_blank', 'noopener'); }; }
@@ -1214,7 +1214,7 @@ src="https://www.facebook.com/tr?id=1358640082651240&ev=PageView&noscript=1"
 <!-- Meta Pixel: bam nut Zalo = su kien Contact (them 03/09/2026) -->
 <script>
 (function(){
-  var TEN = 'Dress Guide - ban lat';
+  var TEN = 'Dress Guide';
   var CHON = 'a[href*="zalo.me"], #dg-nutZalo';
   document.addEventListener('click', function(e){
     var t = e.target;

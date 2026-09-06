@@ -475,7 +475,7 @@ th,td{padding:6px 4px}
       fd.append('entry.1111955433', location.pathname.split('/').pop()+' | '+document.referrer);
       fetch('https://docs.google.com/forms/u/0/d/e/1FAIpQLSfEyUNJ6X3egcKJU2uD8vKuwyVnTW_WEbZSrcHwmMyU8q9pXg/formResponse', {method:'POST', mode:'no-cors', body:fd});
     }catch(e){}
-    try{ if(typeof fbq==='function') fbq('track','Lead',{content_name:'Dress Guide Ebook'}); }catch(e){}
+    try{ if(typeof fbq==='function') fbq('track','Lead',{content_name:'Dress Guide'}); }catch(e){}
     try{ localStorage.setItem(KEY, JSON.stringify({ten:ten,sdt:sdt,ts:Date.now()})); }catch(e){}
     gate.classList.add('dlg-hidden');
     setTimeout(function(){ if(gate.parentNode) gate.parentNode.removeChild(gate); }, 600);
@@ -1070,7 +1070,7 @@ th,td{padding:6px 4px}
 <!-- Meta Pixel: bam nut Zalo = su kien Contact (them 03/09/2026) -->
 <script>
 (function(){
-  var TEN = 'Dress Guide - ban doc';
+  var TEN = 'Dress Guide';
   var CHON = 'a[href*="zalo.me"], #dg-nutZalo';
   document.addEventListener('click', function(e){
     var t = e.target;
