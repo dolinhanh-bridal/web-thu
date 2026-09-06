@@ -958,7 +958,7 @@ src="https://www.facebook.com/tr?id=1358640082651240&ev=PageView&noscript=1"
       const g=BANG_GIA[o.dataset.gia]; if(!g) return;
       const moi = giaThat(g);
       const cu = giaCu(g);
-      o.innerHTML = cu ? '<span class="gia-cu">'+cu+'</span><span class="gia-moi">'+moi+'</span>' : moi;
+      o.innerHTML = (cu ? '<span class="gia-cu">'+cu+'</span>' : '') + '<span class="gia-moi">'+moi+'</span>';
     });
     document.querySelectorAll("[data-gia-ngan]").forEach(o=>{
       const g=BANG_GIA[o.dataset.giaNgan]; if(!g) return;
