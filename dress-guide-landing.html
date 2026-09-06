@@ -229,6 +229,18 @@ section{scroll-margin-top:52px}
 .nut.zalo{background:#BE3E37;border-color:#BE3E37;color:#fff}
 .nut.zalo:hover{background:#A83630;border-color:#A83630}
 .mua-them{font-size:13px;color:var(--muc-nhat);margin:10px 0 0;line-height:1.5}
+.da-chep{font-size:13px;color:#8A5B54;background:#FBF3F1;border:1px solid #F0DCD6;padding:8px 11px;margin:10px 0 0;line-height:1.5}
+.sau-ck{display:none;background:#fff;border:1px solid #E6D9D3;padding:20px;margin-top:14px}
+.sau-ck.hien{display:block}
+.sau-ds{list-style:none;padding:0;margin:12px 0 0;display:flex;flex-direction:column;gap:11px}
+.sau-ds li{display:grid;grid-template-columns:28px 1fr;gap:10px;font-size:14.5px;line-height:1.55;color:var(--muc-nhat)}
+.sau-ds li i{font-family:var(--serif);font-style:normal;font-size:20px;line-height:1.1;color:var(--nhan)}
+.sau-ds li b{color:var(--muc);font-weight:600}
+.qua{margin-top:18px;padding:16px 18px;background:#FBF3F1;border:1px solid #F0DCD6}
+.qua h4{font-family:var(--serif);font-weight:400;font-size:19px;margin:6px 0 8px;color:var(--muc)}
+.qua p{font-size:14.5px;line-height:1.55;color:var(--muc-nhat);margin:0}
+.qua p b{color:var(--muc)}
+.qua .xem-mau{display:inline-block;margin-top:10px;font-size:14px;font-weight:600;color:var(--nhan)}
 .tai{background:var(--phan);padding:26px 22px;text-align:center}
 .tai h3{font-size:22px;margin-bottom:7px}
 .tai p{color:var(--muc-nhat);font-size:15.5px;max-width:34em;margin:0 auto .9em}
@@ -880,7 +892,22 @@ fbq('init','1358640082651240');fbq('track','PageView');
           <div class="mua-nut">
             <a class="nut zalo" href="https://zalo.me/0359950588" target="_blank" rel="noopener" id="nut-zalo-sach">Chuyển khoản xong — nhắn Zalo nhận file</a>
           </div>
+          <p class="da-chep" id="da-chep" hidden>Đã chép sẵn tin nhắn — vào Zalo bạn chỉ cần dán, rồi gửi kèm ảnh chuyển khoản.</p>
           <p class="mua-them">Chưa muốn chuyển khoản ngay cũng được — <a href="https://zalo.me/0359950588" target="_blank" rel="noopener" id="nut-zalo-hoi" style="color:var(--nhan);font-weight:600">nhắn Zalo hỏi Dolinhanh trước</a> nhé.</p>
+        </div>
+      </div>
+      <div class="sau-ck" id="sau-ck">
+        <p class="nhan">Sau khi chuyển khoản</p>
+        <ol class="sau-ds">
+          <li><i>1</i><div><b>Nhắn Zalo kèm ảnh chụp màn hình chuyển khoản.</b> Bấm nút đỏ ở trên: Zalo mở ra, tin nhắn đã chép sẵn, bạn chỉ cần dán và gửi thêm ảnh.</div></li>
+          <li><i>2</i><div><b>Dolinhanh kiểm tra tài khoản rồi gửi file ngay trong ngày.</b> Quá hai tiếng chưa thấy, bạn nhắn lại giúp, đừng chờ.</div></li>
+          <li><i>3</i><div><b>Bạn nhận về ba thứ:</b> file PDF 80 trang để in, bản điền được ngay trên điện thoại, và món quà bên dưới.</div></li>
+        </ol>
+        <div class="qua">
+          <p class="nhan">Quà tặng kèm sách</p>
+          <h4>Thiệp cưới online — bạn tự làm trong 10 phút</h4>
+          <p>Dolinhanh gửi bạn một mẫu điền: tên hai bạn, ngày giờ, địa điểm lễ và tiệc, một tấm ảnh cưới, màu trang phục gợi ý cho khách. Điền xong, thiệp tự dựng thành trang riêng có mã QR — gửi khách mời qua Zalo hay Messenger đều được. Khách bấm <b>xác nhận tham dự</b> là danh sách về thẳng email của bạn. Miễn phí, không giới hạn.</p>
+          <a class="xem-mau" href="https://dolinhanh-bridal.github.io/thiep-mau-dolinhanh/" target="_blank" rel="noopener" id="nut-thiep-mau">Xem thiệp mẫu →</a>
         </div>
       </div>
     </div>
@@ -1072,6 +1099,7 @@ fbq('init','1358640082651240');fbq('track','PageView');
   if(!nut||!hop)return;
   nut.addEventListener('click',function(){
     hop.classList.add('hien');
+    var sau=document.getElementById('sau-ck');if(sau)sau.classList.add('hien');
     nut.textContent='Thông tin chuyển khoản ở ngay dưới 👇';
     nut.disabled=true;
     if(window.fbq)fbq('track','InitiateCheckout',{content_name:'Dress Guide',value:99000,currency:'VND'});
@@ -1144,6 +1172,16 @@ fbq('init','1358640082651240');fbq('track','PageView');
       fm.style.display='none';
       document.getElementById('hen-xong').classList.add('hien');
     },600);
+  });
+})();
+
+(function(){
+  var z=document.getElementById('nut-zalo-sach'),bao=document.getElementById('da-chep');
+  if(!z)return;
+  var TIN='Em vừa chuyển khoản 99.000đ mua cuốn Hành trình trở thành cô dâu, nội dung HANHTRINH. Nhờ Dolinhanh gửi giúp em file sách và link làm thiệp cưới online ạ. Ảnh chuyển khoản em gửi kèm bên dưới.';
+  z.addEventListener('click',function(){
+    try{navigator.clipboard.writeText(TIN)}catch(e){}
+    if(bao)bao.hidden=false;
   });
 })();
 
