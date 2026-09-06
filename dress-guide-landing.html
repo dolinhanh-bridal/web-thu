@@ -44,7 +44,7 @@ b,strong{font-weight:600}
 .to{font-family:var(--serif);font-size:clamp(20px,3.6vw,25px);line-height:1.4;color:var(--muc)}
 
 /* bìa */
-.bia{background:var(--giay-am)}
+.bia{background:#fff}
 .bia-luoi{display:grid;max-width:1120px;margin:0 auto}
 .bia-anh img{width:100%;height:100%;min-height:330px;object-fit:cover;object-position:50% 20%}
 .bia-chu{padding:40px 20px 38px;display:flex;flex-direction:column;justify-content:center}
@@ -86,7 +86,9 @@ b,strong{font-weight:600}
 
 section{scroll-margin-top:52px}
 .phan{padding:54px 0}
-.phan.am{background:var(--giay-am)}
+.phan.am{background:#fff}
+body>section+section{border-top:1px solid var(--net)}
+body>section[style*="padding-top:0"]{border-top:0}
 .dau{margin-bottom:24px}
 .so-phan{font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--nhan);display:block;margin-bottom:10px}
 .dau h2{margin-bottom:10px}
@@ -125,7 +127,6 @@ section{scroll-margin-top:52px}
 
 /* hộp */
 .hop{background:var(--phan);padding:18px 20px;margin-top:24px;border-left:2px solid var(--phan-dam)}
-.phan.am .hop{background:#fff}
 .hop h3{font-family:var(--ui);font-size:15px;font-weight:600;margin-bottom:5px}
 .hop p{margin:0;font-size:15.5px;color:var(--muc-nhat)}
 
@@ -242,7 +243,7 @@ section{scroll-margin-top:52px}
 @media(min-width:820px){.cuon-ngang{display:grid;grid-template-columns:1fr 1fr;overflow:visible}.cuon-ngang img{flex:none;width:100%!important}}
 @media(max-width:819px){#p5 .luoi.hai{grid-template-columns:1fr;gap:14px}}
 /* sách 99k */
-.sach{background:#F7F1EE;padding:54px 0}
+.sach{background:#fff;padding:54px 0}
 .sach-luoi{display:grid;gap:26px;grid-template-columns:1fr;max-width:1000px;margin:0 auto;padding:0 20px}
 @media(min-width:820px){.sach-luoi{grid-template-columns:1fr 1fr;align-items:center}}
 .sach-anh{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
