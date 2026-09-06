@@ -124,7 +124,8 @@ src="https://www.facebook.com/tr?id=1358640082651240&ev=PageView&noscript=1"
   .hero{position:relative;height:100svh;min-height:560px;display:flex;align-items:flex-end;color:#fff;overflow:hidden;text-shadow:0 1px 26px rgba(0,0,0,.32)}
   .hero .bg{position:absolute;inset:0;background:#2B2724 var(--img) center center/cover no-repeat;transform:scale(1.04)}
   .hero .veil{position:absolute;inset:0;background:linear-gradient(180deg,rgba(18,16,14,.22) 0%,rgba(18,16,14,0) 26%,rgba(18,16,14,0) 52%,rgba(18,16,14,.42) 100%)}
-  .hero .inner{position:relative;width:100%;padding-block:clamp(44px,8vh,92px)}
+  .hero .inner{position:relative;width:100%;padding-block:clamp(44px,8vh,92px) clamp(34px,5vh,56px)}
+  .hero-qua .ct-ngan{display:none}
   .hero .h-xl{max-width:26ch}
   .hero .h-xl em{display:inline-block;margin-top:.12em}
   .hero .eyebrow{color:rgba(255,255,255,.94)}
@@ -636,7 +637,9 @@ src="https://www.facebook.com/tr?id=1358640082651240&ev=PageView&noscript=1"
 
   /* ── bố cục ảnh bìa trên điện thoại (V57: chị chê chưa hợp lý) ── */
   @media (max-width:700px){
-    .hero .inner{padding-block:30px 76px}
+    .hero .inner{padding-block:30px 40px}
+    .hero-qua .ct-dai{display:none}
+    .hero-qua .ct-ngan{display:block}
     .hero .h-xl + p{margin-top:16px !important;font-size:15.5px;line-height:1.55}
     .hero-ba{margin-top:16px;font-size:10.5px;letter-spacing:.2em;white-space:nowrap}
     .hero .nut{flex-direction:column;align-items:stretch;gap:10px;max-width:320px}
@@ -687,14 +690,14 @@ src="https://www.facebook.com/tr?id=1358640082651240&ev=PageView&noscript=1"
     <div class="veil"></div>
     <div class="wrap inner">
       <h1 class="h-xl">Quiet minimal luxury,<br><em>Crafted with Mother Love.</em></h1>
-      <p style="margin-top:24px;color:#fff;max-width:46ch" data-en="A dress is chosen not only because it is beautiful — but because it belongs to the one wearing it.">Một chiếc váy được chọn không chỉ vì nó đẹp — mà vì nó hợp với người mặc.</p>
+      <p style="margin-top:24px;color:#fff;max-width:46ch" data-en="Understated luxury, cared for with a mother’s love.">Vẻ đẹp tối giản mà sang trọng, được chăm chút bằng tình yêu của một người mẹ.</p>
       <p class="hero-ba" data-en="Wedding dresses &nbsp;·&nbsp; Photography &nbsp;·&nbsp; Film">Váy cưới &nbsp;·&nbsp; Chụp hình &nbsp;·&nbsp; Quay phim</p>
       <div class="nut">
         <a class="btn sang" href="gui-yeu-cau.html" data-en="Book a private fitting">Đặt lịch thử váy riêng</a>
       </div>
       <a class="hero-qua" href="#quatang" id="heroQua">
         <span class="nh" data-en="Gifts for the bride">Quà tặng cô dâu</span>
-        <span class="ct" data-en="Dress Guide ebook &amp; online wedding invitation — <strong>free</strong>">Ebook Dress Guide &amp; thiệp cưới online — <strong>miễn phí</strong></span>
+        <span class="ct ct-dai" data-en="Dress Guide ebook &amp; online wedding invitation — <strong>free</strong>">Ebook Dress Guide &amp; thiệp cưới online — <strong>miễn phí</strong></span><span class="ct ct-ngan" data-en="Ebook &amp; online invitation — <strong>free</strong>">Ebook &amp; thiệp cưới online — <strong>miễn phí</strong></span>
         <span class="mt" aria-hidden="true">↓</span>
       </a>
     </div>
