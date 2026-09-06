@@ -208,6 +208,10 @@ section{scroll-margin-top:52px}
 .gia-hang{display:flex;align-items:baseline;gap:9px;margin-bottom:7px}
 .gia-hang .g{font-family:var(--serif);font-size:27px;color:var(--muc)}
 .gia-hang .t{font-size:12.5px;color:var(--muc-nhat)}
+.mua-nut{display:flex;flex-wrap:wrap;gap:9px;margin-top:14px}
+.nut.zalo{background:#0068FF;border-color:#0068FF;color:#fff}
+.nut.zalo:hover{background:#0057D9;border-color:#0057D9}
+.mua-them{font-size:13px;color:var(--muc-nhat);margin:10px 0 0;line-height:1.5}
 
 /* kết */
 .ket{background:var(--phan);color:var(--muc);padding:56px 0 50px}
@@ -833,6 +837,10 @@ fbq('init','1358640082651240');fbq('track','PageView');
         <div>
           <div class="gia-hang"><span class="g">99.000đ</span><span class="t">80 trang · file điền được</span></div>
           <p class="ct" style="margin:0">Quét mã bên cạnh, mã đã điền sẵn số tiền. Nội dung chuyển khoản ghi <b>HANHTRINH</b> kèm số điện thoại của bạn, rồi nhắn Zalo <b>035 995 0588</b> để nhận file ngay trong ngày.<br><br>BIDV · <b>8868633669</b> · NGUYEN THI THANH TRANG</p>
+          <div class="mua-nut">
+            <a class="nut zalo" href="https://zalo.me/0359950588" target="_blank" rel="noopener" id="nut-zalo-sach">Chuyển khoản xong — nhắn Zalo nhận file</a>
+          </div>
+          <p class="mua-them">Chưa muốn chuyển khoản ngay cũng được — <a href="https://zalo.me/0359950588" target="_blank" rel="noopener" id="nut-zalo-hoi" style="color:var(--nhan);font-weight:600">nhắn Zalo hỏi Dolinhanh trước</a> nhé.</p>
         </div>
       </div>
     </div>
@@ -976,6 +984,8 @@ document.addEventListener('click',function(e){
   var a=e.target.closest&&e.target.closest('a[href*="zalo.me"]');
   if(!a||!window.fbq)return;
   if(a.id==='nut-dat')fbq('track','Schedule',{content_name:'landing-dress-guide'});
+  else if(a.id==='nut-zalo-sach')fbq('track','Lead',{content_name:'sach-hanh-trinh-99k',value:99000,currency:'VND'});
+  else if(a.id==='nut-zalo-hoi')fbq('track','Contact',{content_name:'hoi-sach-hanh-trinh'});
   else fbq('track','Contact',{content_name:'landing-dress-guide'});
 },true);
 </script>
