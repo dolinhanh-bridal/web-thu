@@ -109,7 +109,8 @@ body>section[style*="padding-top:0"]{border-top:0}
 .luoi.hai{grid-template-columns:1fr 1fr}
 .luoi.bon{grid-template-columns:repeat(2,1fr)}
 .luoi.nam{grid-template-columns:repeat(2,1fr)}
-@media(min-width:760px){.luoi.bon{grid-template-columns:repeat(4,1fr)}.luoi.nam{grid-template-columns:repeat(5,1fr)}}
+@media(min-width:760px){.luoi.nam{grid-template-columns:repeat(3,1fr)}}
+@media(min-width:1100px){.luoi.bon{grid-template-columns:repeat(4,1fr)}.luoi.nam{grid-template-columns:repeat(5,1fr)}}
 .the{display:flex;flex-direction:column;gap:7px}
 .the img{width:100%;aspect-ratio:3/4;object-fit:cover;background:var(--giay-am)}
 .the h3{font-size:17px}
@@ -133,7 +134,7 @@ body>section[style*="padding-top:0"]{border-top:0}
 /* nên / tránh */
 .doi{display:grid;gap:14px;grid-template-columns:1fr}
 @media(min-width:700px){.doi{grid-template-columns:1fr 1fr}}
-.cot-doi{background:#fff;border:1px solid var(--net);padding:18px 18px 20px}
+.cot-doi{background:var(--giay-am);border:1px solid var(--net);padding:18px 18px 20px}
 .cot-doi h3{font-family:var(--ui);font-size:12px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;margin-bottom:12px}
 .cot-doi.co h3{color:#5C7C5E}
 .cot-doi.khong h3{color:#B0564F}
@@ -173,7 +174,7 @@ body>section[style*="padding-top:0"]{border-top:0}
 .mau .o .t span{font-size:11.5px;color:var(--muc-nhat);line-height:1.4}
 
 /* trắc nghiệm */
-.tn{background:#fff;border:1px solid var(--net);padding:24px 20px}
+.tn{background:var(--giay-am);border:1px solid var(--net);padding:24px 20px}
 .tn-cau{margin-bottom:20px;display:none}
 .tn-cau.hien{display:block}
 .tn-truoc{background:none;border:0;color:var(--muc-nhat);font-size:13px;text-decoration:underline;text-underline-offset:3px;cursor:pointer;padding:6px 2px;margin-left:auto}
@@ -252,10 +253,10 @@ body>section[style*="padding-top:0"]{border-top:0}
 .chuong{list-style:none;padding:0;margin:16px 0 0;display:flex;flex-direction:column;gap:7px}
 .chuong li{display:grid;grid-template-columns:26px 1fr;gap:8px;font-size:15px;line-height:1.45}
 .chuong li i{font-family:var(--serif);font-style:normal;color:var(--nhan);font-size:13px}
-.moi-mua{background:#fff;border:1px solid #E6D9D3;padding:20px;margin-top:22px}
+.moi-mua{background:var(--giay-am);border:1px solid #E6D9D3;padding:20px;margin-top:22px}
 .moi-mua p{margin:0 0 14px;font-size:15.5px;color:var(--muc-nhat)}
 .moi-mua p b{color:var(--muc)}
-.mua{display:none;gap:16px;grid-template-columns:1fr;background:#fff;border:1px solid #E6D9D3;
+.mua{display:none;gap:16px;grid-template-columns:1fr;background:var(--giay-am);border:1px solid #E6D9D3;
   padding:18px;margin-top:14px;align-items:center}
 .mua.hien{display:grid}
 @media(min-width:520px){.mua.hien{grid-template-columns:140px 1fr}}
@@ -270,7 +271,7 @@ body>section[style*="padding-top:0"]{border-top:0}
 .nut.zalo:hover{background:#A83630;border-color:#A83630}
 .mua-them{font-size:13px;color:var(--muc-nhat);margin:10px 0 0;line-height:1.5}
 .da-chep{font-size:13px;color:#8A5B54;background:#FBF3F1;border:1px solid #F0DCD6;padding:8px 11px;margin:10px 0 0;line-height:1.5}
-.sau-ck{display:none;background:#fff;border:1px solid #E6D9D3;padding:20px;margin-top:14px}
+.sau-ck{display:none;background:var(--giay-am);border:1px solid #E6D9D3;padding:20px;margin-top:14px}
 .sau-ck.hien{display:block}
 .sau-ds{list-style:none;padding:0;margin:12px 0 0;display:flex;flex-direction:column;gap:11px}
 .sau-ds li{display:grid;grid-template-columns:28px 1fr;gap:10px;font-size:14.5px;line-height:1.55;color:var(--muc-nhat)}
@@ -281,7 +282,7 @@ body>section[style*="padding-top:0"]{border-top:0}
 .tai p{color:var(--muc-nhat);font-size:15.5px;max-width:34em;margin:0 auto .9em}
 .tai .nut-hang{justify-content:center;margin-top:16px}
 .tai .cd{font-size:12.5px;color:var(--muc-nhat);margin-top:12px}
-.hen{background:#fff;border:1px solid var(--phan-dam);padding:24px 22px;margin-top:22px;display:none}
+.hen{background:var(--giay-am);border:1px solid var(--phan-dam);padding:24px 22px;margin-top:22px;display:none}
 .hen.hien{display:block}
 .hen h3{font-size:21px;margin-bottom:6px}
 .hen>p{color:var(--muc-nhat);font-size:15.5px;margin-bottom:16px}
