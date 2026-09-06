@@ -229,6 +229,22 @@ section{scroll-margin-top:52px}
 .tai p{color:var(--muc-nhat);font-size:15.5px;max-width:34em;margin:0 auto .9em}
 .tai .nut-hang{justify-content:center;margin-top:16px}
 .tai .cd{font-size:12.5px;color:var(--muc-nhat);margin-top:12px}
+.hen{background:#fff;border:1px solid var(--phan-dam);padding:24px 22px;margin-top:22px;display:none}
+.hen.hien{display:block}
+.hen h3{font-size:21px;margin-bottom:6px}
+.hen>p{color:var(--muc-nhat);font-size:15.5px;margin-bottom:16px}
+.hen label{display:flex;flex-direction:column;gap:6px;font-size:13px;font-weight:500;
+  color:var(--muc-nhat);margin-bottom:12px}
+.hen label span.sao{color:#D6342C}
+.hen input,.hen select{font-family:var(--ui);font-size:16px;padding:11px 13px;
+  border:1px solid var(--phan-dam);background:#fff;color:var(--muc);border-radius:2px;width:100%}
+.hen-doi{display:grid;grid-template-columns:1fr;gap:0}
+@media(min-width:560px){.hen-doi{grid-template-columns:1fr 1fr;gap:12px}}
+.hen-tb{font-size:14px;margin:10px 0 0;min-height:1em}
+.hen-tb.loi{color:#C0362F}
+.hen-xong{display:none}
+.hen-xong.hien{display:block}
+.hen-xong p{font-size:15.5px}
 
 /* kết */
 .ket{background:var(--phan);color:var(--muc);padding:56px 0 50px}
@@ -889,8 +905,38 @@ fbq('init','1358640082651240');fbq('track','PageView');
     <p style="margin-top:13px">Bạn không cần chiếc váy khiến tất cả mọi người phải nói “wow, váy đẹp quá”. Bạn cần chiếc váy khiến chính bạn nhìn vào gương và nói đúng câu trên.</p>
     <p style="margin-bottom:0">Buổi thử riêng 1:1 khoảng 90 phút — một phòng thử, một chuyên viên đi cùng bạn suốt buổi, ảnh và video từng mẫu gửi lại cho bạn.</p>
     <div class="nut-hang">
-      <a class="nut" href="https://zalo.me/0359950588" target="_blank" rel="noopener" id="nut-dat">Đặt lịch thử váy riêng 1:1</a>
+      <button class="nut" type="button" id="nut-dat">Đặt lịch thử váy riêng 1:1</button>
       <a class="nut vien" href="bao-gia-v2.html" target="_blank" rel="noopener">Xem bảng giá thuê váy</a>
+    </div>
+    <div class="hen" id="hop-hen">
+      <h3>Đặt lịch thử váy riêng 1:1</h3>
+      <p>Điền giúp Dolinhanh mấy dòng dưới đây, bên mình gọi lại xác nhận lịch sớm nhất.</p>
+      <form id="fm-hen" novalidate>
+        <label>Tên cô dâu &amp; chú rể <span class="sao">*</span>
+          <input type="text" name="ten" required placeholder="Ví dụ: Thu Hà &amp; Minh Quân"></label>
+        <label>Số điện thoại <span class="sao">*</span>
+          <input type="tel" name="sdt" required inputmode="tel" placeholder="Để Dolinhanh gọi xác nhận lịch"></label>
+        <div class="hen-doi">
+          <label>Ngày tổ chức tiệc <input type="date" name="ngayTiec"></label>
+          <label>Địa điểm tổ chức tiệc <input type="text" name="noiTiec" placeholder="Trung tâm tiệc cưới, tỉnh thành"></label>
+        </div>
+        <div class="hen-doi">
+          <label>Ngày đặt hẹn <span class="sao">*</span><input type="date" name="ngayHen" required></label>
+          <label>Giờ đặt hẹn <span class="sao">*</span><input type="time" name="gioHen" required step="900"></label>
+        </div>
+        <label>Showroom
+          <select name="coSo">
+            <option value="HN - 75 Nguyễn Thị Định">Hà Nội · 75 Nguyễn Thị Định</option>
+            <option value="HCM - 2 Tân Canh, Q. Tân Bình">TP.HCM · 2 Tân Canh, Tân Bình</option>
+          </select></label>
+        <button class="nut" type="submit" id="btn-hen" style="width:100%;justify-content:center;margin-top:6px">Gửi thông tin đặt hẹn</button>
+        <p class="hen-tb" id="hen-tb"></p>
+      </form>
+      <div class="hen-xong" id="hen-xong">
+        <p style="font-weight:600">Dolinhanh đã nhận thông tin của bạn 🤍</p>
+        <p>Bên mình sẽ gọi lại xác nhận lịch sớm nhất. Bạn nhắn thêm qua Zalo để giữ chỗ nhanh hơn nhé — nội dung đã copy sẵn.</p>
+        <button class="nut zalo" type="button" id="nut-zalo-hen">Nhắn Zalo 035 995 0588</button>
+      </div>
     </div>
     <div class="co-so">
       <div><h3>Cơ sở Hà Nội</h3><p>75 Nguyễn Thị Định<br>Trung Hoà, Cầu Giấy</p></div>
@@ -1028,11 +1074,78 @@ fbq('init','1358640082651240');fbq('track','PageView');
   });
 })();
 
+(function(){
+  var FORM_ID='1FAIpQLSeF3dEz3mocx_O5PxRjuYsOy3SktzFlXvEd-EeQ07eijImlew';
+  var MAIL='https://script.google.com/macros/s/AKfycbwlmpyoY3b-iCmO9ZoVeUhm0wYJb4CrQ6I9ezsadk4UhDx1JS3qAEN7MWNOL_DGgkiV/exec';
+  var mo=document.getElementById('nut-dat'),hop=document.getElementById('hop-hen'),
+      fm=document.getElementById('fm-hen'),tb=document.getElementById('hen-tb');
+  if(!mo||!fm)return;
+  mo.addEventListener('click',function(){
+    hop.classList.add('hien');
+    try{var g=JSON.parse(localStorage.getItem('dla_lead_dressguide')||'null');
+      if(g){if(g.ten)fm.ten.value=g.ten;if(g.sdt)fm.sdt.value=g.sdt}}catch(e){}
+    hop.scrollIntoView({behavior:'smooth',block:'nearest'});
+    fm.ten.focus();
+  });
+  function ngayVN(v){if(!v)return'';var p=v.split('-');return p[2]+'/'+p[1]+'/'+p[0]}
+  fm.addEventListener('submit',function(ev){
+    ev.preventDefault();
+    var d={};new FormData(fm).forEach(function(v,k){d[k]=(v||'').trim()});
+    var sdt=(d.sdt||'').replace(/[.\s-]/g,'');
+    if(!d.ten||!sdt||!d.ngayHen||!d.gioHen){
+      tb.className='hen-tb loi';tb.textContent='Bạn điền giúp Dolinhanh các ô có dấu * nhé.';return}
+    if(!/^(0|\+?84)(3|5|7|8|9)[0-9]{8}$/.test(sdt)){
+      tb.className='hen-tb loi';tb.textContent='Số điện thoại chưa đúng.';return}
+    tb.className='hen-tb';tb.textContent='';
+    var btn=document.getElementById('btn-hen');btn.disabled=true;btn.textContent='Đang gửi…';
+    var ghiChu='Khách tự đặt qua landing Dress Guide.'
+      +(d.ngayTiec?' Ngày tổ chức tiệc: '+ngayVN(d.ngayTiec)+'.':'')
+      +(d.noiTiec?' Địa điểm tiệc: '+d.noiTiec+'.':'');
+    var f=new FormData();
+    f.append('entry.255122862','Đặt hẹn mới');
+    f.append('entry.1209740434',d.coSo);
+    f.append('entry.1170467141',d.ten);
+    f.append('entry.1115003557',sdt);
+    var n=d.ngayHen.split('-');
+    f.append('entry.1882557220_year',n[0]);
+    f.append('entry.1882557220_month',n[1]);
+    f.append('entry.1882557220_day',n[2]);
+    var g=d.gioHen.split(':');
+    f.append('entry.495927254_hour',g[0]);
+    f.append('entry.495927254_minute',g[1]);
+    f.append('entry.1839154254','1 tiếng (mặc định)');
+    f.append('entry.1191547382','Khách thường');
+    f.append('entry.283405907',ghiChu);
+    f.append('entry.828439224','Khách tự đặt (landing Dress Guide)');
+    fetch('https://docs.google.com/forms/d/e/'+FORM_ID+'/formResponse',
+      {method:'POST',mode:'no-cors',body:f}).catch(function(){});
+    var tin='KHÁCH ĐẶT LỊCH THỬ VÁY (landing Dress Guide)\n'
+      +'Cô dâu & chú rể: '+d.ten+'\nSĐT: '+sdt
+      +'\nNgày tổ chức tiệc: '+(ngayVN(d.ngayTiec)||'chưa điền')
+      +'\nĐịa điểm tổ chức tiệc: '+(d.noiTiec||'chưa điền')
+      +'\nNgày đặt hẹn: '+ngayVN(d.ngayHen)+'\nGiờ đặt hẹn: '+d.gioHen
+      +'\nShowroom: '+d.coSo;
+    fetch(MAIL+'?hoi='+encodeURIComponent(tin)+'&em='+encodeURIComponent(sdt),
+      {mode:'no-cors'}).catch(function(){});
+    try{navigator.clipboard.writeText(tin)}catch(e){}
+    if(window.fbq)fbq('track','Schedule',{content_name:'landing-dress-guide-dat-lich'});
+    var nz=document.getElementById('nut-zalo-hen');
+    if(nz)nz.onclick=function(){
+      try{navigator.clipboard.writeText(tin)}catch(e){}
+      if(window.fbq)fbq('track','Contact',{content_name:'landing-sau-dat-lich'});
+      window.open('https://zalo.me/0359950588','_blank','noopener');
+    };
+    setTimeout(function(){
+      fm.style.display='none';
+      document.getElementById('hen-xong').classList.add('hien');
+    },600);
+  });
+})();
+
 document.addEventListener('click',function(e){
   var a=e.target.closest&&e.target.closest('a[href*="zalo.me"]');
   if(!a||!window.fbq)return;
-  if(a.id==='nut-dat')fbq('track','Schedule',{content_name:'landing-dress-guide'});
-  else if(a.id==='nut-zalo-sach')fbq('track','Lead',{content_name:'sach-hanh-trinh-99k',value:99000,currency:'VND'});
+  if(a.id==='nut-zalo-sach')fbq('track','Lead',{content_name:'sach-hanh-trinh-99k',value:99000,currency:'VND'});
   else if(a.id==='nut-zalo-hoi')fbq('track','Contact',{content_name:'hoi-sach-hanh-trinh'});
   else fbq('track','Contact',{content_name:'landing-dress-guide'});
 },true);
