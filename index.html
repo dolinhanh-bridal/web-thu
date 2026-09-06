@@ -893,9 +893,9 @@
           <span></span><span></span><span></span>
         </button>
         <div class="lang" role="group" aria-label="Ngôn ngữ / Language">
-          <button type="button" data-lang="vi" aria-pressed="true">VI</button>
+          <button type="button" data-lang="vi" aria-pressed="false">VI</button>
           <span>/</span>
-          <button type="button" data-lang="en" aria-pressed="false">EN</button>
+          <button type="button" data-lang="en" aria-pressed="true">EN</button>
         </div>
       </div>
     </div>
@@ -1394,7 +1394,7 @@ const FORM_FIELDS  = {             // và điền mã entry.xxx tương ứng c�
 };
 
 /* ═══ Ngôn ngữ ═══ */
-let LANG = "vi";
+let LANG = "en";   // mặc định tiếng Anh (chị Linh chốt 06/09/2026); khách Việt tự bấm VI
 
 /* ═══ Thử phom váy — 9 câu hỏi rồi mới ra gợi ý ═══
    Sửa lời khuyên: xem bảng LOI_KHUYEN và MAU_GOI_Y bên dưới. */
@@ -1578,14 +1578,21 @@ function setLang(l){
     b.setAttribute("aria-pressed", b.dataset.lang === l);
   });
   if(typeof veChang === "function") veChang();
-  try{ localStorage.setItem("dla-lang", l); }catch(_){}
 }
 document.querySelectorAll(".lang button").forEach(b=>{
-  b.addEventListener("click", ()=>setLang(b.dataset.lang));
+  b.addEventListener("click", ()=>{
+    setLang(b.dataset.lang);
+    try{ localStorage.setItem("dla-lang-home", b.dataset.lang); }catch(_){}   // chỉ nhớ khi khách TỰ bấm
+  });
 });
-let saved = "vi";
-try{ saved = localStorage.getItem("dla-lang") || "vi"; }catch(_){}
-setLang(saved);
+/* Mặc định TIẾNG ANH. Thứ tự ưu tiên: ?lang=vi|en trên link → lựa chọn khách đã bấm → en.
+   Dùng khoá riêng "dla-lang-home" (khoá cũ "dla-lang" từng bị tự lưu "vi" mỗi lần mở trang). */
+let saved = "en";
+try{
+  const q = new URLSearchParams(location.search).get("lang");
+  saved = q || localStorage.getItem("dla-lang-home") || "en";
+}catch(_){}
+setLang(saved === "vi" ? "vi" : "en");
 
 /* ═══ Header: thu gọn khi cuộn, đánh dấu mục đang xem, menu điện thoại ═══
    Menu điện thoại hiện ĐỦ cả 8 mục như thanh trên, không lược bớt mục nào. */
