@@ -329,7 +329,7 @@ src="https://www.facebook.com/tr?id=1358640082651240&ev=PageView&noscript=1"
   .btn.sang:hover{background:#86594F;border-color:#86594F;color:#fff}
   .hero .nut{display:flex;gap:clamp(16px,2vw,28px);flex-wrap:wrap;align-items:center}
   .hero .nut .link{margin-top:34px;border-bottom-color:rgba(255,255,255,.6)}
-  .hero-qua + .nut .btn{margin-top:18px}
+  .hero-qua + .nut .link{margin-top:20px}
 
   .ba{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(22px,3.4vw,54px);
     margin-top:clamp(40px,5vw,72px)}
@@ -371,9 +371,9 @@ src="https://www.facebook.com/tr?id=1358640082651240&ev=PageView&noscript=1"
 
   /* ── hộp quà tặng trên ảnh bìa ── */
   .hero-qua{display:inline-flex;align-items:center;gap:12px;margin-top:22px;padding:11px 16px;
-    border:1px solid rgba(255,255,255,.55);background:rgba(20,18,16,.26);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
-    color:#fff;text-decoration:none;font-family:var(--sans);font-size:12px;line-height:1.5;transition:background .4s ease}
-  .hero-qua:hover{background:rgba(20,18,16,.46)}
+    border:1px solid #9B6B5F;background:#9B6B5F;
+    color:#fff;text-decoration:none;font-family:var(--sans);font-size:12px;line-height:1.5;text-shadow:none;transition:background .4s ease}
+  .hero-qua:hover{background:#86594F;border-color:#86594F}
   .hero-qua .nh{font-size:10px;letter-spacing:.26em;text-transform:uppercase;white-space:nowrap;
     padding-right:12px;border-right:1px solid rgba(255,255,255,.45)}
   .hero-qua strong{font-weight:600}
@@ -648,14 +648,12 @@ src="https://www.facebook.com/tr?id=1358640082651240&ev=PageView&noscript=1"
     .hero .nut .btn{margin-top:14px;text-align:center;padding:12px 18px;font-size:10.5px}
     .hero .nut .link{margin-top:0;justify-content:center;border:1px solid rgba(255,255,255,.7);
       padding:13px 20px 13px;font-size:11px;letter-spacing:.22em}
-    /* V58: chị chê khối chữ hộp quà quá to → bỏ khung, thành 2 dòng nhỏ có gạch dọc bên trái */
-    .hero-qua{display:flex;flex-direction:column;align-items:flex-start;gap:2px;max-width:300px;margin-top:16px;
-      padding:1px 0 1px 10px;border:0;border-left:1px solid rgba(255,255,255,.6);background:none;
-      backdrop-filter:none;-webkit-backdrop-filter:none;font-size:11px;line-height:1.45}
-    .hero-qua .ct strong{white-space:nowrap}
-    .hero-qua .nh{font-size:9px;letter-spacing:.22em;padding:0;border:0;opacity:.9}
-    .hero-qua .ct{opacity:.95}
-    .hero-qua .ct strong{font-weight:500;text-decoration:underline;text-underline-offset:3px;text-decoration-color:rgba(255,255,255,.6)}
+    /* V62: chị muốn ô quà tặng đặc hồng nâu, nút đặt lịch về kiểu viền như trước */
+    .hero-qua{display:flex;flex-direction:column;align-items:flex-start;gap:3px;max-width:300px;margin-top:16px;
+      padding:10px 14px;border:0;background:#9B6B5F;font-size:11.5px;line-height:1.45}
+    .hero-qua .ct strong{white-space:nowrap;font-weight:600}
+    .hero-qua .nh{font-size:9px;letter-spacing:.22em;padding:0;border:0;opacity:.92}
+    .hero-qua .ct{opacity:1}
     .hero-qua .mt{display:none}
   }
 </style>
@@ -700,7 +698,7 @@ src="https://www.facebook.com/tr?id=1358640082651240&ev=PageView&noscript=1"
         <span class="mt" aria-hidden="true">↓</span>
       </a>
       <div class="nut">
-        <a class="btn sang" href="gui-yeu-cau.html" data-en="Book a private fitting">Đặt lịch thử váy riêng</a>
+        <a class="link" href="gui-yeu-cau.html" data-en="Book a private fitting">Đặt lịch thử váy riêng</a>
       </div>
     </div>
   </section>
