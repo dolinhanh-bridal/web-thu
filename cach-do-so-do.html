@@ -1343,9 +1343,17 @@ src="https://www.facebook.com/tr?id=1358640082651240&ev=PageView&noscript=1"
     }catch(e){ return null; }
   }
 
+  /* chiến dịch quảng cáo dẫn khách vào — để cột Nguồn biết là chiến dịch nào (08/09/2026) */
+  var CHIEN_DICH = '';
+  try{
+    CHIEN_DICH = new URLSearchParams(location.search).get('utm_campaign') || '';
+    if(CHIEN_DICH) localStorage.setItem('dla_utm_campaign', CHIEN_DICH);
+    else CHIEN_DICH = localStorage.getItem('dla_utm_campaign') || '';
+  }catch(e){}
+
   /* gửi 1 lead: vào sheet lead (3 cột) + mail quản lý qua Apps Script */
   window.dlaGuiLead = function(d){
-    var nguon = 'Landing đo số đo · thử váy FREE · ' + (d.nguon || 'form') + (d.coso ? ' · ' + d.coso : '');
+    var nguon = 'Landing đo số đo · thử váy FREE · ' + (d.nguon || 'form') + (d.coso ? ' · ' + d.coso : '') + (CHIEN_DICH ? ' · ' + CHIEN_DICH : '');
     var f = new FormData();
     f.append('entry.1614276000', d.ten);
     f.append('entry.379034013', d.sdt);
