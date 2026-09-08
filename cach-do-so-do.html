@@ -149,6 +149,11 @@ src="https://www.facebook.com/tr?id=1358640082651240&ev=PageView&noscript=1"
   }
   .hero-anh{position:relative}
   .hero-anh img{width:100%;height:clamp(280px,42vw,460px);object-fit:cover;object-position:center 12%}
+  /* Điện thoại: ảnh dọc mà khung dẹt thì chỉ thấy mặt, mất váy — cho khung cao lên
+     và kéo khung xuống thấp hơn để hở phần thân váy (chị Linh 08/09/2026) */
+  @media (max-width:700px){
+    .hero-anh img{height:auto;aspect-ratio:1300/1511;object-position:center}
+  }
   .hero-anh .cap{
     font-family:var(--display);font-style:italic;font-size:1.15rem;color:var(--ink);margin-top:12px;line-height:1.3;
   }
