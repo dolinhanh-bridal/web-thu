@@ -1150,6 +1150,7 @@ fbq('init','1358640082651240');fbq('track','PageView');
 
 (function(){
   var FORM='https://docs.google.com/forms/d/e/1FAIpQLSchU7uUBZBNfiQZSiVYvHVcUfyEJiJA084SHRNWEcnZ_CyplA/formResponse';
+  var MAIL_LEAD='https://script.google.com/macros/s/AKfycbwlmpyoY3b-iCmO9ZoVeUhm0wYJb4CrQ6I9ezsadk4UhDx1JS3qAEN7MWNOL_DGgkiV/exec';
   var f=document.getElementById('lead-form');
   if(!f)return;
   var CD='';   // chiến dịch quảng cáo dẫn khách vào — để cột Nguồn phân biệt HCM / HN
@@ -1168,6 +1169,11 @@ fbq('init','1358640082651240');fbq('track','PageView');
            'entry.541722676':'Landing Dress Guide'+(CD?' · '+CD:'')+(gu?' · gu '+gu:'')};
     for(var k in d){var i=document.createElement('input');i.name=k;i.value=d[k];g.appendChild(i)}
     document.body.appendChild(g);g.submit();setTimeout(function(){g.remove()},2000);
+    /* báo mail quản lý ngay khi khách để lại số — chị Linh duyệt 08/09/2026 */
+    var tinLead='KHÁCH ĐỂ LẠI SỐ — LANDING DRESS GUIDE\nTên: '+ten+'\nSĐT: '+sdt
+      +'\nNguồn: '+d['entry.541722676'];
+    fetch(MAIL_LEAD+'?hoi='+encodeURIComponent(tinLead)+'&em='+encodeURIComponent(sdt),
+      {mode:'no-cors'}).catch(function(){});
     try{localStorage.setItem('dla_lead_dressguide',JSON.stringify({ten:ten,sdt:sdt}))}catch(err){}
     if(window.fbq)fbq('track','Lead',{content_name:'Dress Guide'});
     f.style.display='none';

@@ -1099,6 +1099,12 @@ src="https://www.facebook.com/tr?id=1358640082651240&ev=PageView&noscript=1"
           + (kieuTracNghiem ? ' | Kiểu quyết định: ' + kieuTracNghiem : '')
           + ' | ' + document.referrer);
         fetch('https://docs.google.com/forms/u/0/d/e/1FAIpQLSchU7uUBZBNfiQZSiVYvHVcUfyEJiJA084SHRNWEcnZ_CyplA/formResponse', {method:'POST', mode:'no-cors', body:fd});
+        /* báo mail quản lý ngay khi khách để lại số — chị Linh duyệt 08/09/2026 */
+        var tinLead = 'KHÁCH ĐỂ LẠI SỐ — Ô HỎI GIỮA EBOOK DRESS GUIDE (bản tiếng Anh)\nTên: ' + ten + '\nSĐT: ' + sdt
+          + (chienDich ? '\nChiến dịch: ' + chienDich : '')
+          + (guTracNghiem ? '\nGu: ' + guTracNghiem : '');
+        fetch('https://script.google.com/macros/s/AKfycbwlmpyoY3b-iCmO9ZoVeUhm0wYJb4CrQ6I9ezsadk4UhDx1JS3qAEN7MWNOL_DGgkiV/exec'
+          + '?hoi=' + encodeURIComponent(tinLead) + '&em=' + encodeURIComponent(sdt), {mode:'no-cors'}).catch(function(){});
       }catch(e){}
       try{ if (typeof fbq === 'function') fbq('track', 'Lead', {content_name:'Dress Guide'}); }catch(e){}
       try{ localStorage.setItem(KEY_GATE, JSON.stringify({ten:ten, sdt:sdt, ts:Date.now()})); }catch(e){}
