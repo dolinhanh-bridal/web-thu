@@ -1152,6 +1152,10 @@ fbq('init','1358640082651240');fbq('track','PageView');
   var FORM='https://docs.google.com/forms/d/e/1FAIpQLSchU7uUBZBNfiQZSiVYvHVcUfyEJiJA084SHRNWEcnZ_CyplA/formResponse';
   var f=document.getElementById('lead-form');
   if(!f)return;
+  var CD='';   // chiến dịch quảng cáo dẫn khách vào — để cột Nguồn phân biệt HCM / HN
+  try{CD=new URLSearchParams(location.search).get('utm_campaign')||'';
+      if(CD)localStorage.setItem('dg_utm_campaign',CD);
+      else CD=localStorage.getItem('dg_utm_campaign')||''}catch(err){}
   f.addEventListener('submit',function(e){
     e.preventDefault();
     var ten=document.getElementById('lead-ten').value.trim();
@@ -1161,7 +1165,7 @@ fbq('init','1358640082651240');fbq('track','PageView');
     var g=document.createElement('form');
     g.action=FORM;g.method='POST';g.target='gui-am';g.style.display='none';
     var d={'entry.1614276000':ten,'entry.379034013':sdt,
-           'entry.541722676':'Landing Dress Guide'+(gu?' · gu '+gu:'')};
+           'entry.541722676':'Landing Dress Guide'+(CD?' · '+CD:'')+(gu?' · gu '+gu:'')};
     for(var k in d){var i=document.createElement('input');i.name=k;i.value=d[k];g.appendChild(i)}
     document.body.appendChild(g);g.submit();setTimeout(function(){g.remove()},2000);
     try{localStorage.setItem('dla_lead_dressguide',JSON.stringify({ten:ten,sdt:sdt}))}catch(err){}
@@ -1187,7 +1191,9 @@ fbq('init','1358640082651240');fbq('track','PageView');
   });
   var lt=document.getElementById('nut-lam-thiep');
   if(lt)lt.addEventListener('click',function(){
-    if(window.fbq)fbq('track','Lead',{content_name:'Dress Guide'});
+    // Bấm nút này chỉ mở form thiệp ở tab khác, không rơi vào Sheet Dress Guide
+    // → không tính Lead nữa (sửa 08/09/2026)
+    if(window.fbq)fbq('track','ViewContent',{content_name:'Thiep cuoi online'});
   });
   var lat=document.getElementById('nut-sach-lat');
   if(lat)lat.addEventListener('click',function(){
@@ -1290,8 +1296,7 @@ fbq('init','1358640082651240');fbq('track','PageView');
 document.addEventListener('click',function(e){
   var a=e.target.closest&&e.target.closest('a[href*="zalo.me"]');
   if(!a||!window.fbq)return;
-  if(a.id==='nut-zalo-sach')fbq('track','Lead',{content_name:'Dress Guide',value:99000,currency:'VND'});
-  else if(a.id==='nut-zalo-hoi')fbq('track','Contact',{content_name:'Dress Guide'});
-  else fbq('track','Contact',{content_name:'Dress Guide'});
+  // Mọi nút Zalo đều là Contact. Lead chỉ dành cho form để lại tên + SĐT (sửa 08/09/2026)
+  fbq('track','Contact',{content_name:'Dress Guide'});
 },true);
 </script>
