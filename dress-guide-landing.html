@@ -1154,8 +1154,8 @@ fbq('init','1358640082651240');fbq('track','PageView');
   if(!f)return;
   var CD='';   // chiến dịch quảng cáo dẫn khách vào — để cột Nguồn phân biệt HCM / HN
   try{CD=new URLSearchParams(location.search).get('utm_campaign')||'';
-      if(CD)localStorage.setItem('dg_utm_campaign',CD);
-      else CD=localStorage.getItem('dg_utm_campaign')||''}catch(err){}
+      if(CD)localStorage.setItem('dla_utm_campaign',CD);
+      else CD=localStorage.getItem('dla_utm_campaign')||''}catch(err){}
   f.addEventListener('submit',function(e){
     e.preventDefault();
     var ten=document.getElementById('lead-ten').value.trim();

@@ -1084,12 +1084,17 @@ src="https://www.facebook.com/tr?id=1358640082651240&ev=PageView&noscript=1"
         var fd = new FormData();
         fd.append('entry.1614276000', ten);
         fd.append('entry.379034013', sdt);
-        var guTracNghiem = '', kieuTracNghiem = '';
+        var guTracNghiem = '', kieuTracNghiem = '', chienDich = '';
         try{
           guTracNghiem = localStorage.getItem('dla_dg_quiz_kq') || '';
           kieuTracNghiem = localStorage.getItem('dla_dg_quiz2_kq') || '';
+          /* chiến dịch quảng cáo: lấy từ URL, không có thì lấy cái landing đã nhớ (08/09/2026) */
+          chienDich = new URLSearchParams(location.search).get('utm_campaign') || '';
+          if (chienDich) localStorage.setItem('dla_utm_campaign', chienDich);
+          else chienDich = localStorage.getItem('dla_utm_campaign') || '';
         }catch(e){}
         fd.append('entry.541722676', 'popup-giua-sach-sau-doc-vi'
+          + (chienDich ? ' · ' + chienDich : '')
           + (guTracNghiem ? ' | Gu: ' + guTracNghiem : '')
           + (kieuTracNghiem ? ' | Kiểu quyết định: ' + kieuTracNghiem : '')
           + ' | ' + document.referrer);
