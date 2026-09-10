@@ -68,6 +68,16 @@ b,strong{font-weight:600}
 .qua-tang b{color:var(--nhan);font-weight:600}
 .qua-tang .ico{font-size:20px;flex:none}
 .qua-tang:hover{border-color:var(--nhan)}
+/* form nhận ebook ngay trên bìa — 10/09/2026 đổi từ tải thẳng sang để lại tên + số */
+.bia-form{margin-top:20px;padding:18px 18px 16px;background:var(--giay-am);
+  border:1px solid var(--net);border-radius:16px;max-width:34em}
+.bia-form .bf-moi{font-size:14.5px;line-height:1.45;margin:0}
+.bia-form .bf-moi b{color:var(--nhan);font-weight:600}
+.bia-form .o-nhap{margin-top:13px}
+.bia-form .rieng-tu{margin-top:9px}
+.sau-lead{display:none}
+.sau-lead.hien{display:block}
+.sau-lead .nut-hang{margin-top:13px}
 .tin-cay{display:flex;flex-wrap:wrap;gap:6px 14px;margin:14px 0 0;font-size:12.5px;color:var(--muc-nhat)}
 .tin-cay span{display:inline-flex;align-items:center;gap:6px}
 .tin-cay span::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--nhan);flex:none}
@@ -343,8 +353,26 @@ fbq('init','1358640082651240');fbq('track','PageView');
       <p class="tin-cay"><span>Dolinhanh Bridal since 2017</span><span>Nupakachi Photography, over 15 years</span><span>Showrooms in Hanoi &amp; HCMC</span></p>
       <div class="nut-hang">
         <a class="nut" href="#tomtat">See the 5-step chart</a>
-        <a class="lien-nho" href="the-brides-dress-guide-en.pdf" download="The-Brides-Dress-Guide-Dolinhanh.pdf" id="nut-tai-pdf-dau">Download the PDF</a>
+        <a class="lien-nho" href="#nhan-ebook" id="nut-tai-pdf-dau">Get the PDF</a>
         <a class="lien-nho" href="#dat-lich">Book a 1:1 fitting</a>
+      </div>
+      <div class="bia-form" id="nhan-ebook">
+        <p class="bf-moi"><b>The full PDF is yours</b> — leave your name and Zalo number and the download link appears just below.</p>
+        <form class="lead-form" novalidate>
+          <div class="o-nhap">
+            <input type="text" placeholder="Full name" autocomplete="name" data-ten required>
+            <input type="tel" placeholder="Phone / Zalo" autocomplete="tel" inputmode="tel" data-sdt required>
+            <button class="nut" type="submit">Get the ebook</button>
+          </div>
+        </form>
+        <p class="form-xong">We have it, thank you — your ebook is just below 🤍</p>
+        <div class="sau-lead">
+          <div class="nut-hang">
+            <a class="nut" href="the-brides-dress-guide-en.pdf" download="The-Brides-Dress-Guide-Dolinhanh.pdf">Download the PDF</a>
+            <a class="nut vien" href="dress-guide-en.html" target="_blank" rel="noopener">Open the flip-book</a>
+          </div>
+        </div>
+        <p class="rieng-tu">Used only to advise you on your dress. No spam.</p>
       </div>
       <a class="qua-tang" href="#thiep" id="nut-qua-dau"><span class="ico" aria-hidden="true">🎁</span><span><b>Free online wedding invitation</b> — you make it yourself in 5 minutes, tap to see</span></a>
     </div>
@@ -499,14 +527,20 @@ fbq('init','1358640082651240');fbq('track','PageView');
       <p class="nhan">Keep your result</p>
       <h3>Let Dolinhanh suggest dresses in your taste</h3>
       <p>Leave your name and Zalo number and Dolinhanh will send a few dresses in the taste you have just read, with the price list too — no need to ask back and forth.</p>
-      <form id="lead-form" novalidate>
+      <form id="lead-form" class="lead-form" novalidate>
         <div class="o-nhap">
-          <input type="text" id="lead-ten" placeholder="Full name" autocomplete="name" required>
-          <input type="tel" id="lead-sdt" placeholder="Phone / Zalo" autocomplete="tel" inputmode="tel" required>
+          <input type="text" id="lead-ten" placeholder="Full name" autocomplete="name" data-ten required>
+          <input type="tel" id="lead-sdt" placeholder="Phone / Zalo" autocomplete="tel" inputmode="tel" data-sdt required>
           <button class="nut" type="submit">Send to Dolinhanh</button>
         </div>
       </form>
       <p class="form-xong" id="lead-xong">We have it — Dolinhanh will message you on Zalo today 🤍</p>
+      <div class="sau-lead">
+        <div class="nut-hang">
+          <a class="nut" href="the-brides-dress-guide-en.pdf" download="The-Brides-Dress-Guide-Dolinhanh.pdf">Download the PDF</a>
+          <a class="nut vien" href="dress-guide-en.html" target="_blank" rel="noopener">Open the flip-book</a>
+        </div>
+      </div>
       <div class="hoi-thiep" id="hoi-thiep-lead">
         <p>While you are here — would you like a <b>free online wedding invitation</b> as well? Five minutes to fill in and you have your own invitation with a QR code to send guests.</p>
         <div class="nut-hang"><a class="nut" href="https://script.google.com/macros/s/AKfycbwVWHJMBZFw6XX7t2Haqs9AT1UTgPmdKUHLzm69Si_h7-ylKNd7HsfcwUQeI4AL-uiLVw/exec" target="_blank" rel="noopener" data-lam-thiep>Yes, let’s do it</a><button class="nut vien" type="button" data-de-sau>Maybe later</button></div>
@@ -999,7 +1033,7 @@ fbq('init','1358640082651240');fbq('track','PageView');
         <a class="nut" href="the-brides-dress-guide-en.pdf" download="The-Brides-Dress-Guide-Dolinhanh.pdf" id="nut-tai-pdf">Download the PDF</a>
         <a class="nut vien" href="dress-guide-en.html" target="_blank" rel="noopener" id="nut-sach-lat">Open the flip-book</a>
       </div>
-      <p class="cd">PDF 2.5 MB · free · nothing to fill in</p>
+      <p class="cd">PDF 2.5 MB · free · leave your name and Zalo number to download</p>
     </div>
   </div>
 </section>
@@ -1151,43 +1185,71 @@ fbq('init','1358640082651240');fbq('track','PageView');
 (function(){
   var FORM='https://docs.google.com/forms/d/e/1FAIpQLSchU7uUBZBNfiQZSiVYvHVcUfyEJiJA084SHRNWEcnZ_CyplA/formResponse';
   var MAIL_LEAD='https://script.google.com/macros/s/AKfycbwlmpyoY3b-iCmO9ZoVeUhm0wYJb4CrQ6I9ezsadk4UhDx1JS3qAEN7MWNOL_DGgkiV/exec';
-  var f=document.getElementById('lead-form');
-  if(!f)return;
+  var ds=document.querySelectorAll('form.lead-form');
+  if(!ds.length)return;
   var CD='';   // chiến dịch quảng cáo dẫn khách vào — để cột Nguồn phân biệt HCM / HN
   try{CD=new URLSearchParams(location.search).get('utm_campaign')||'';
       if(CD)localStorage.setItem('dla_utm_campaign',CD);
       else CD=localStorage.getItem('dla_utm_campaign')||''}catch(err){}
-  f.addEventListener('submit',function(e){
-    e.preventDefault();
-    var ten=document.getElementById('lead-ten').value.trim();
-    var sdt=document.getElementById('lead-sdt').value.trim();
-    if(!ten||sdt.replace(/\D/g,'').length<9){alert('Bạn điền giúp Dolinhanh họ tên và số điện thoại nhé.');return}
-    var gu='';try{gu=localStorage.getItem('dg_land_gu')||''}catch(err){}
-    var g=document.createElement('form');
-    g.action=FORM;g.method='POST';g.target='gui-am';g.style.display='none';
-    var d={'entry.1614276000':ten,'entry.379034013':sdt,
-           'entry.541722676':'Landing Dress Guide'+(CD?' · '+CD:'')+(gu?' · gu '+gu:'')};
-    for(var k in d){var i=document.createElement('input');i.name=k;i.value=d[k];g.appendChild(i)}
-    document.body.appendChild(g);g.submit();setTimeout(function(){g.remove()},2000);
-    /* báo mail quản lý ngay khi khách để lại số — chị Linh duyệt 08/09/2026 */
-    var tinLead='KHÁCH ĐỂ LẠI SỐ — LANDING DRESS GUIDE\nTên: '+ten+'\nSĐT: '+sdt
-      +'\nNguồn: '+d['entry.541722676'];
-    fetch(MAIL_LEAD+'?hoi='+encodeURIComponent(tinLead)+'&em='+encodeURIComponent(sdt),
-      {mode:'no-cors'}).catch(function(){});
-    try{localStorage.setItem('dla_lead_dressguide',JSON.stringify({ten:ten,sdt:sdt}))}catch(err){}
-    if(window.fbq)fbq('track','Lead',{content_name:'Dress Guide'});
-    f.style.display='none';
-    document.getElementById('lead-xong').classList.add('hien');
-    var ht=document.getElementById('hoi-thiep-lead');if(ht)ht.classList.add('hien');
+
+  /* đã để lại số rồi thì mọi nút tải mở thẳng, khỏi bắt điền lần hai */
+  function daCoSo(){try{return !!localStorage.getItem('dla_lead_dressguide')}catch(err){return false}}
+  window.dgDaCoSo=daCoSo;
+  function moKhoa(){
+    [].forEach.call(document.querySelectorAll('.sau-lead'),function(k){k.classList.add('hien')});
+  }
+  if(daCoSo())moKhoa();
+
+  [].forEach.call(ds,function(f){
+    f.addEventListener('submit',function(e){
+      e.preventDefault();
+      var oTen=f.querySelector('[data-ten]'),oSdt=f.querySelector('[data-sdt]');
+      var ten=oTen.value.trim(), sdt=oSdt.value.trim();
+      if(!ten||sdt.replace(/\D/g,'').length<9){alert('Bạn điền giúp Dolinhanh họ tên và số điện thoại nhé.');return}
+      var gu='';try{gu=localStorage.getItem('dg_land_gu')||''}catch(err){}
+      var g=document.createElement('form');
+      g.action=FORM;g.method='POST';g.target='gui-am';g.style.display='none';
+      var d={'entry.1614276000':ten,'entry.379034013':sdt,
+             'entry.541722676':'Landing Dress Guide'+(CD?' · '+CD:'')+(gu?' · gu '+gu:'')};
+      for(var k in d){var i=document.createElement('input');i.name=k;i.value=d[k];g.appendChild(i)}
+      document.body.appendChild(g);g.submit();setTimeout(function(){g.remove()},2000);
+      /* báo mail quản lý ngay khi khách để lại số — chị Linh duyệt 08/09/2026 */
+      var tinLead='KHÁCH ĐỂ LẠI SỐ — LANDING DRESS GUIDE\nTên: '+ten+'\nSĐT: '+sdt
+        +'\nNguồn: '+d['entry.541722676'];
+      fetch(MAIL_LEAD+'?hoi='+encodeURIComponent(tinLead)+'&em='+encodeURIComponent(sdt),
+        {mode:'no-cors'}).catch(function(){});
+      try{localStorage.setItem('dla_lead_dressguide',JSON.stringify({ten:ten,sdt:sdt}))}catch(err){}
+      if(window.fbq)fbq('track','Lead',{content_name:'Dress Guide'});
+      /* ẩn mọi form, hiện lời cảm ơn + nút tải ở đúng khối khách vừa điền */
+      [].forEach.call(ds,function(x){x.style.display='none'});
+      var hop=f.parentNode, xong=hop.querySelector('.form-xong');
+      if(xong)xong.classList.add('hien');
+      moKhoa();
+      var ht=document.getElementById('hoi-thiep-lead');if(ht)ht.classList.add('hien');
+      var nut=hop.querySelector('.sau-lead .nut');
+      if(nut)setTimeout(function(){nut.scrollIntoView({block:'center',behavior:'smooth'})},120);
+    });
   });
 })();
 
 (function(){
-  ['nut-tai-pdf','nut-tai-pdf-dau'].forEach(function(id){
-    var n=document.getElementById(id);
-    if(n)n.addEventListener('click',function(){
-      if(window.fbq)fbq('track','ViewContent',{content_name:'Dress Guide'});
-    });
+  function toiForm(){
+    var hop=document.getElementById('nhan-ebook');if(!hop)return;
+    hop.scrollIntoView({block:'center',behavior:'smooth'});
+    var o=hop.querySelector('[data-ten]');
+    if(o)setTimeout(function(){try{o.focus({preventScroll:true})}catch(err){o.focus()}},420);
+  }
+  /* nút trên bìa chỉ đưa xuống form ngay dưới nó */
+  var nd=document.getElementById('nut-tai-pdf-dau');
+  if(nd)nd.addEventListener('click',function(){
+    if(window.fbq)fbq('track','ViewContent',{content_name:'Dress Guide'});
+    toiForm();
+  });
+  /* nút cuối trang: chưa để lại số thì mời điền trước, đã có rồi thì tải thẳng */
+  var nc=document.getElementById('nut-tai-pdf');
+  if(nc)nc.addEventListener('click',function(e){
+    if(window.fbq)fbq('track','ViewContent',{content_name:'Dress Guide'});
+    if(window.dgDaCoSo&&!window.dgDaCoSo()){e.preventDefault();toiForm()}
   });
   document.querySelectorAll('[data-de-sau]').forEach(function(b){
     b.addEventListener('click',function(){var h=b.closest('.hoi-thiep');if(h)h.classList.remove('hien');});
