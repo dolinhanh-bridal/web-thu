@@ -22,6 +22,8 @@
 :root{
   --giay:#FFFFFF;--giay-am:#FBF7F5;--phan:#F4E7E2;--phan-dam:#E2C8C0;
   --muc:#231D1B;--muc-nhat:#6F5F59;--net:#EDE4E0;--nhan:#B07E72;
+  /* màu nút chính — 12/09/2026 đổi từ mocha #9B6B5F (4.5:1) sang đỏ rượu vang (9:1) cho nút tách khỏi nền */
+  --cta:#7A2638;--cta-dam:#611E2D;
   --serif:"Playfair Display",Georgia,serif;
   --ui:"Be Vietnam Pro","Helvetica Neue",Arial,sans-serif;
   --cot:640px;color-scheme:light;
@@ -60,10 +62,12 @@ b,strong{font-weight:600}
 }
 .nut{font-size:14px;font-weight:600;display:inline-flex;align-items:center;gap:7px;
   padding:13px 21px;border-radius:999px;text-decoration:none;border:1px solid var(--nhan);
-  background:#9B6B5F;border-color:#9B6B5F;color:#fff;cursor:pointer;transition:.18s}
-.nut:hover{background:#86594F;border-color:#86594F}
-.lien-nho{font-size:13.5px;font-weight:500;color:var(--nhan);text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:1px;padding:8px 2px}
-.lien-nho:hover{color:#86594F}
+  background:var(--cta);border-color:var(--cta);color:#fff;cursor:pointer;transition:.18s}
+.nut:hover{background:var(--cta-dam);border-color:var(--cta-dam)}
+.lien-nho{font-size:13.5px;font-weight:500;color:var(--muc-nhat);text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:1px;padding:8px 2px}
+.lien-nho:hover{color:var(--cta)}
+/* hàng nút bìa: link "Xem sơ đồ" xuống cuối hàng mà không đổi thứ tự DOM (bảng dịch EN khớp theo thứ tự) */
+.bia-chu .nut-hang .lien-nho{order:3}
 .qua-tang{display:inline-flex;align-items:center;gap:10px;margin-top:18px;padding:11px 16px;border:1px solid #E6CFC8;background:#FBF3F1;color:var(--muc);text-decoration:none;font-size:14.5px;line-height:1.4;border-radius:14px;max-width:100%}
 .qua-tang b{color:var(--nhan);font-weight:600}
 .qua-tang .ico{font-size:20px;flex:none}
@@ -81,7 +85,7 @@ b,strong{font-weight:600}
 .tin-cay{display:flex;flex-wrap:wrap;gap:6px 14px;margin:14px 0 0;font-size:12.5px;color:var(--muc-nhat)}
 .tin-cay span{display:inline-flex;align-items:center;gap:6px}
 .tin-cay span::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--nhan);flex:none}
-.nut.vien{background:transparent;color:var(--nhan);border-color:var(--phan-dam)}
+.nut.vien{background:transparent;color:var(--cta);border-color:var(--cta)}
 .nut.vien:hover{background:var(--phan)}
 
 /* thanh */
@@ -328,6 +332,11 @@ body>section[style*="padding-top:0"]{border-top:0}
   background:#BE3E37;color:#fff;text-decoration:none;font-size:14px;font-weight:600;
   padding:12px 17px;border-radius:999px;box-shadow:0 6px 20px rgba(180,40,32,.32)}
 .zl-noi:hover{background:#A83630}
+/* ẩn Zalo nổi khi form đang trên màn hình — trước 12/09/2026 nó che nút "Nhận ebook" trên điện thoại */
+.zl-noi{transition:opacity .2s,transform .2s}
+.zl-noi.an{opacity:0;transform:translateY(12px);pointer-events:none}
+/* dòng thương hiệu trên bìa bị nút EN/VI nổi đè trên điện thoại */
+@media(max-width:859px){.bia-hieu{display:block;padding-right:64px}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
 html{scroll-behavior:smooth}
 </style>
@@ -352,9 +361,9 @@ fbq('init','1358640082651240');fbq('track','PageView');
       <p class="bia-mo">And the greatest pity is realising it after the deposit is paid. This little book gathers 8 sections, all charts and photographs — ten minutes to read and you walk into the fitting room sure of yourself.</p>
       <p class="tin-cay"><span>Dolinhanh Bridal since 2017</span><span>Nupakachi Photography, over 15 years</span><span>Showrooms in Hanoi &amp; HCMC</span></p>
       <div class="nut-hang">
-        <a class="nut" href="#tomtat">See the 5-step chart</a>
-        <a class="lien-nho" href="#nhan-ebook" id="nut-tai-pdf-dau">Get the PDF</a>
-        <a class="lien-nho" href="#dat-lich">Book a 1:1 fitting</a>
+        <a class="lien-nho" href="#tomtat">See the 5-step chart</a>
+        <a class="nut" href="#nhan-ebook" id="nut-tai-pdf-dau">Get the PDF</a>
+        <a class="nut vien" href="#dat-lich">Book a 1:1 fitting</a>
       </div>
       <div class="bia-form" id="nhan-ebook">
         <p class="bf-moi"><b>The full PDF is yours</b> — leave your name and Zalo number and the download link appears just below.</p>
@@ -1367,4 +1376,17 @@ document.addEventListener('click',function(e){
   // Mọi nút Zalo đều là Contact. Lead chỉ dành cho form để lại tên + SĐT (sửa 08/09/2026)
   fbq('track','Contact',{content_name:'Dress Guide'});
 },true);
+
+/* Zalo nổi tạm ẩn khi có form trên màn hình, để không che nút gửi form (12/09/2026) */
+(function(){
+  var z=document.querySelector('.zl-noi');
+  var hop=document.querySelectorAll('.bia-form,.form-hop,#hop-hen');
+  if(!z||!hop.length||!('IntersectionObserver' in window))return;
+  var dang=new Set();
+  var io=new IntersectionObserver(function(ds){
+    ds.forEach(function(d){d.isIntersecting?dang.add(d.target):dang.delete(d.target)});
+    z.classList.toggle('an',dang.size>0);
+  });
+  hop.forEach(function(h){io.observe(h)});
+})();
 </script>
