@@ -44,6 +44,9 @@ src="https://www.facebook.com/tr?id=1358640082651240&ev=PageView&noscript=1"
     --phan-dam:#E6CFC7;
     --nhan:#B07E72;
     --nhan-dam:#9B6B5F;
+    /* nút chính 12/09/2026: đỏ rượu vang thay #B07E72 (chữ trắng trên nút cũ chỉ 3,46:1) */
+    --cta:#7A2638;
+    --cta-dam:#611E2D;
     --do:#D6342C;
     --do-dam:#B92A23;
     --shadow:0 1px 2px rgba(23,19,15,.04), 0 8px 30px rgba(23,19,15,.05);
@@ -74,6 +77,8 @@ src="https://www.facebook.com/tr?id=1358640082651240&ev=PageView&noscript=1"
       --champagne:#CDBBA2;
       --tan:#CDBBA2;
       --tan-soft:#211E1B;
+      --cta:#B5475C;
+      --cta-dam:#9C3B4F;
       --phan:#2A1F1C;
       --phan-dam:#3B2C28;
       --shadow:0 1px 2px rgba(0,0,0,.3), 0 8px 30px rgba(0,0,0,.35);
@@ -91,6 +96,8 @@ src="https://www.facebook.com/tr?id=1358640082651240&ev=PageView&noscript=1"
     --champagne:#CDBBA2;
     --tan:#CDBBA2;
     --tan-soft:#211E1B;
+      --cta:#B5475C;
+      --cta-dam:#9C3B4F;
     --phan:#2A1F1C;
     --phan-dam:#3B2C28;
     --shadow:0 1px 2px rgba(0,0,0,.3), 0 8px 30px rgba(0,0,0,.35);
@@ -321,10 +328,10 @@ src="https://www.facebook.com/tr?id=1358640082651240&ev=PageView&noscript=1"
   .sheet-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px;align-items:center}
   button{
     font-family:var(--sans);font-size:.72rem;font-weight:500;letter-spacing:.24em;text-transform:uppercase;
-    padding:.95em 1.7em;border:1px solid var(--nhan);background:var(--nhan);color:#fff;
+    padding:.95em 1.7em;border:1px solid var(--cta);background:var(--cta);color:#fff;
     cursor:pointer;transition:opacity .2s,background .2s;
   }
-  button:hover{background:var(--nhan-dam);border-color:var(--nhan-dam)}
+  button:hover{background:var(--cta-dam);border-color:var(--cta-dam)}
   button.ghost{background:transparent;color:var(--ink);border-color:var(--hair)}
   button.ghost:hover{border-color:var(--ink);background:transparent}
   .saved{font-size:.78rem;color:var(--grey-2)}
@@ -445,11 +452,11 @@ src="https://www.facebook.com/tr?id=1358640082651240&ev=PageView&noscript=1"
   @media (min-width:820px){.ud-giua .ud{grid-template-columns:1fr auto}}
   .ud-giua .ud p.mo{margin-bottom:0}
   .nut-ud{
-    display:inline-block;background:var(--nhan);color:#fff;border:1px solid var(--nhan);cursor:pointer;
+    display:inline-block;background:var(--cta);color:#fff;border:1px solid var(--cta);cursor:pointer;
     text-decoration:none;padding:1.05em 2em;font-family:var(--sans);font-size:.74rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;
     white-space:nowrap;transition:background .2s;
   }
-  .nut-ud:hover{background:var(--nhan-dam);border-color:var(--nhan-dam);color:#fff}
+  .nut-ud:hover{background:var(--cta-dam);border-color:var(--cta-dam);color:#fff}
   .cta .nut-ud{color:#fff}
   @media (max-width:640px){.ud-giua .nut-ud{width:100%;text-align:center;white-space:normal}}
 

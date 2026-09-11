@@ -34,6 +34,8 @@ src="https://www.facebook.com/tr?id=1358640082651240&ev=PageView&noscript=1"
     --nen:#FFFFFF; --giay:#FDF7F5; --da:#FBF0ED; --kem:#FCF4EA;
     --muc:#241B19; --muc-2:#4C3E3B; --ghi:#8B7B77; --hair:#F0DFDB;
     --hong:#F0BDB8; --hong-chu:#B05A55;
+    /* nút chính 12/09/2026: đỏ rượu vang thay hồng phấn (nút cũ chỉ đậm hơn nền 1,66 lần) */
+    --cta:#7A2638; --cta-dam:#611E2D; --cta-chu:#FFFFFF;
     --serif:"Playfair Display",Georgia,"Times New Roman",serif;
     --sans:"Be Vietnam Pro",-apple-system,"Helvetica Neue",Arial,sans-serif;
     --max:1060px; --le:clamp(20px,5vw,52px); --bo:16px;
@@ -42,13 +44,13 @@ src="https://www.facebook.com/tr?id=1358640082651240&ev=PageView&noscript=1"
     :root:not([data-theme="light"]){
       --nen:#151110;--giay:#1E1817;--da:#241C1B;--kem:#241C19;
       --muc:#F5EDEB;--muc-2:#DACDCA;--ghi:#A99A97;
-      --hair:rgba(255,255,255,.13);--hong:#C98D88;--hong-chu:#E7A9A3;
+      --hair:rgba(255,255,255,.13);--hong:#C98D88;--hong-chu:#E7A9A3;--cta:#B5475C;--cta-dam:#9C3B4F;--cta-chu:#FFFFFF;
     }
   }
   :root[data-theme="dark"]{
     --nen:#151110;--giay:#1E1817;--da:#241C1B;--kem:#241C19;
     --muc:#F5EDEB;--muc-2:#DACDCA;--ghi:#A99A97;
-    --hair:rgba(255,255,255,.13);--hong:#C98D88;--hong-chu:#E7A9A3;
+    --hair:rgba(255,255,255,.13);--hong:#C98D88;--hong-chu:#E7A9A3;--cta:#B5475C;--cta-dam:#9C3B4F;--cta-chu:#FFFFFF;
   }
   *{box-sizing:border-box}
   html{scroll-behavior:smooth}
@@ -63,8 +65,8 @@ src="https://www.facebook.com/tr?id=1358640082651240&ev=PageView&noscript=1"
         text-transform:uppercase;color:var(--hong-chu)}
   .nut{display:inline-flex;align-items:center;justify-content:center;gap:10px;font-family:var(--sans);
        font-size:.72rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;
-       padding:14px 28px;border-radius:999px;background:var(--hong);color:#241B19;transition:transform .2s}
-  .nut:hover{transform:translateY(-2px)}
+       padding:14px 28px;border-radius:999px;background:var(--cta);color:var(--cta-chu);transition:transform .2s,background .2s}
+  .nut:hover{transform:translateY(-2px);background:var(--cta-dam)}
 
   /* hero */
   .hero{padding-block:clamp(40px,6vw,72px) clamp(30px,4vw,48px)}
