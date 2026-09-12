@@ -1,0 +1,771 @@
+<!--
+  ══════════════════════════════════════════════════════════════
+  DOLINHANH BRIDAL — MAY ĐO RIÊNG
+  Mạch trang: ẢNH → STATEMENT → STORY → EXPERIENCE → CRAFT →
+              SKETCH → BRIDE → ENQUIRE
+  Ảnh dẫn dắt, chữ ít, khoảng trắng rộng.
+  Chữ: Playfair Display (tiêu đề) + Montserrat (nav, chữ nhỏ) —
+  cả hai đều có đủ dấu tiếng Việt.
+  ══════════════════════════════════════════════════════════════
+-->
+<meta charset="utf-8">
+<link rel="icon" href="../../favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Dolinhanh Bridal — váy cưới thuê, mua, may đo riêng tại Hà Nội & TP.HCM, cùng Nupakachi Photography chụp hình và quay phim ngày cưới.">
+<title>Dolinhanh Bridal — Váy cưới &amp; chụp hình quay phim ngày cưới</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Montserrat:wght@300;400;500&display=swap">
+<script>document.documentElement.classList.add("js");</script>
+
+<style>
+  :root{
+    --paper:#FFFFFF;
+    --ivory:#FBF9F6;
+    --champagne:#F5EFE7;
+    --sand:#EDE8E1;
+    --taupe:#B9AFA3;
+    --taupe-deep:#6E665C;
+    --ink:#1B1917;
+    --line:#E7E3DD;
+
+    --serif:"Playfair Display",Georgia,"Times New Roman",serif;
+    --sans:"Montserrat","Be Vietnam Pro","Avenir Next",Helvetica,Arial,sans-serif;
+
+    --gutter:clamp(20px,5vw,80px);
+    --air:clamp(62px,9vh,138px);      /* khoảng trắng giữa các mục */
+    --max:1500px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;background:var(--paper);color:var(--ink);
+    font-family:var(--sans);font-weight:400;
+    font-size:15.5px;line-height:1.8;letter-spacing:.004em;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit}
+  button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+  :focus-visible{outline:1px solid var(--ink);outline-offset:5px}
+  .wrap{max-width:var(--max);margin:0 auto;padding-inline:var(--gutter)}
+  .air{padding-block:var(--air)}
+
+  /* ── chữ ── */
+  .eyebrow{
+    font-family:var(--sans);font-size:11px;font-weight:400;letter-spacing:.32em;
+    text-transform:uppercase;color:var(--taupe-deep);display:block;
+  }
+  .h-xl{
+    font-family:var(--serif);font-weight:400;
+    font-size:clamp(1.8rem,2.9vw,2.55rem);line-height:1.26;letter-spacing:.008em;
+    margin:0;text-wrap:balance;
+  }
+  .h-lg{
+    font-family:var(--serif);font-weight:400;
+    font-size:clamp(1.42rem,2.15vw,1.95rem);line-height:1.32;letter-spacing:.008em;
+    margin:0;max-width:26ch;text-wrap:balance;
+  }
+  .h-md{
+    font-family:var(--serif);font-weight:400;
+    font-size:clamp(1.18rem,1.6vw,1.45rem);line-height:1.35;letter-spacing:.01em;margin:0;
+  }
+  .h-xl em,.h-lg em,.h-md em{font-style:italic}
+  p{margin:0;font-size:15.5px;line-height:1.7;color:#2B2825;max-width:44ch}
+  .say{
+    font-family:var(--serif);font-size:clamp(1.3rem,2vw,1.72rem);
+    line-height:1.45;letter-spacing:.008em;color:var(--ink);max-width:28ch;margin:0;
+  }
+
+  .link{
+    display:inline-flex;align-items:center;gap:12px;
+    font-family:var(--sans);font-size:11.5px;font-weight:400;letter-spacing:.28em;
+    text-transform:uppercase;text-decoration:none;
+    padding-bottom:8px;border-bottom:1px solid currentColor;
+    transition:gap .45s ease,opacity .45s ease;
+  }
+  .link::after{content:"\2192";letter-spacing:0}
+  .link:hover{gap:20px;opacity:.6}
+
+  /* ── header ── */
+  header{
+    position:fixed;inset:0 0 auto;z-index:60;color:#fff;
+    transition:background .6s ease,color .6s ease,border-color .6s;
+    border-bottom:1px solid transparent;
+  }
+  header.solid{background:var(--paper);color:var(--ink);border-bottom-color:var(--line)}
+  .bar{display:flex;align-items:center;justify-content:space-between;gap:24px;padding-block:24px}
+  .mark{font-family:var(--serif);font-size:clamp(1rem,1.5vw,1.22rem);letter-spacing:.26em;text-transform:uppercase;text-decoration:none}
+  .bar nav{display:flex;gap:clamp(16px,2.6vw,38px)}
+  .bar nav a{font-size:11px;font-weight:400;letter-spacing:.2em;text-transform:uppercase;text-decoration:none;opacity:.95}
+  .bar nav a:hover{opacity:1}
+  .lang{display:flex;gap:7px;font-size:11px;letter-spacing:.22em}
+  .lang button{opacity:.45}
+  .lang button[aria-pressed="true"]{opacity:1}
+
+  /* ── 01 hero ── */
+  .hero{position:relative;height:100svh;min-height:560px;display:flex;align-items:flex-end;color:#fff;overflow:hidden;text-shadow:0 1px 26px rgba(0,0,0,.32)}
+  .hero .bg{position:absolute;inset:0;background:#2B2724 var(--img) center center/cover no-repeat;transform:scale(1.04)}
+  .hero .veil{position:absolute;inset:0;background:linear-gradient(180deg,rgba(18,16,14,.46) 0%,rgba(18,16,14,.12) 34%,rgba(18,16,14,.68) 100%)}
+  .hero .inner{position:relative;width:100%;padding-block:clamp(44px,8vh,92px)}
+  .hero .h-xl{max-width:26ch}
+  .hero .h-xl em{display:inline-block;margin-top:.12em}
+  .hero .eyebrow{color:rgba(255,255,255,.94)}
+
+  /* ── 02 statement ── */
+  .stmt{max-width:26ch}
+  .stmt-note{margin-top:34px;max-width:42ch}
+
+  /* ── giới thiệu ── */
+  .about{display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);gap:clamp(26px,4.4vw,76px);align-items:center}
+  .about .pic{width:100%;aspect-ratio:4/5;background:var(--sand) var(--img) center/cover no-repeat}
+  .about .txt{max-width:44ch;display:grid;gap:18px}
+  .facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(18px,3vw,46px);margin-top:clamp(30px,4vw,54px);border-top:1px solid var(--line);padding-top:24px}
+  .facts .f .k{font-family:var(--serif);font-size:clamp(1.25rem,1.9vw,1.6rem);line-height:1.2;display:block}
+  .facts .f .v{font-family:var(--sans);font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--taupe-deep);display:block;margin-top:12px;line-height:1.7}
+  .pull-quote{max-width:44ch;margin-top:clamp(30px,4vw,56px);border-left:1px solid var(--taupe);padding-left:clamp(20px,3vw,34px)}
+  .pull-quote p{font-family:var(--serif);font-size:clamp(1.05rem,1.5vw,1.28rem);line-height:1.6;color:var(--ink);max-width:none}
+  .pull-quote cite{display:block;margin-top:16px;font-style:normal;font-family:var(--sans);font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:var(--taupe-deep)}
+
+  /* ── khối ảnh + chữ xen kẽ ── */
+  .duo{display:grid;grid-template-columns:minmax(0,1.12fr) minmax(0,.88fr);gap:clamp(26px,4.4vw,76px);align-items:center}
+  .duo.flip{grid-template-columns:minmax(0,.88fr) minmax(0,1.12fr)}
+  .duo.flip .pic{order:2}
+  .duo .pic{width:100%;aspect-ratio:4/5;background:var(--sand) var(--img) center/cover no-repeat}
+  .duo .txt{max-width:40ch}
+  .step-no{font-family:var(--sans);font-size:11px;letter-spacing:.3em;color:var(--taupe);display:block;margin-bottom:16px}
+  .step-sub{font-family:var(--serif);font-style:italic;font-size:1.1rem;color:var(--taupe-deep);margin:10px 0 18px}
+
+  /* ── ảnh tràn ngang ── */
+  .full{width:100%;aspect-ratio:21/9;background:var(--sand) var(--img) center/cover no-repeat}
+  .full.tallish{aspect-ratio:16/9}
+  .cap{margin-top:16px;font-family:var(--sans);font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--taupe-deep)}
+
+  /* ── sketch → dress ── */
+  .sketch{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(14px,2.2vw,34px);align-items:end}
+  .sketch .f{margin:0}
+  .sketch .im{width:100%;aspect-ratio:3/4;background:var(--sand) var(--img) center/cover no-repeat}
+  .sketch .im.paper{background:var(--champagne);display:grid;place-items:center;text-align:center;padding:24px}
+  .sketch .im.paper span{font-family:var(--sans);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--taupe-deep);line-height:1.8}
+  .sketch figcaption{padding-top:14px;font-family:var(--sans);font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--taupe-deep)}
+
+  /* ── the details ── */
+  .details{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(11px,1.5vw,20px);align-items:start}
+  .details figure{margin:0}
+  .details .im{width:100%;aspect-ratio:3/4;background:var(--sand) var(--img) center/cover no-repeat}
+  .details figcaption{padding-top:14px}
+  .details .t{font-family:var(--sans);font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--taupe-deep);display:block;margin-bottom:8px}
+  .details .d{font-family:var(--serif);font-size:clamp(.95rem,1.1vw,1.05rem);line-height:1.45;color:var(--ink)}
+
+  /* ── the bride ── */
+  .bride{margin-bottom:var(--air)}
+  .bride:last-of-type{margin-bottom:0}
+  .bride .im{width:100%;aspect-ratio:3/2;background:var(--sand) var(--img) center 20%/cover no-repeat}
+  .bride .im.portrait{aspect-ratio:4/5;max-width:900px;margin-inline:auto}
+  .bride .meta{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 30px;margin-top:18px}
+  .bride .meta span{font-family:var(--sans);font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--taupe-deep)}
+
+  /* ── enquire ── */
+  .invite{max-width:34ch}
+  .form-w{max-width:560px;margin-top:clamp(34px,5vw,60px);display:grid;gap:26px}
+  .row{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+  .field{display:grid;gap:8px}
+  label{font-family:var(--sans);font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:var(--taupe-deep)}
+  input,select{
+    font-family:var(--sans);font-weight:300;font-size:15.5px;color:var(--ink);
+    background:transparent;border:0;border-bottom:1px solid var(--line);padding:10px 0;border-radius:0;
+  }
+  input:focus,select:focus{outline:none;border-bottom-color:var(--ink)}
+  .note{font-size:12px;color:var(--taupe-deep);line-height:1.7;max-width:44ch}
+  .thanks{display:none}
+  form.sent{display:none}
+  .thanks.sent{display:block}
+
+  /* ── footer ── */
+  footer{border-top:1px solid var(--line);padding-block:clamp(50px,7vw,84px);text-align:center}
+  footer .mark{color:var(--ink)}
+  .foot-links{display:flex;flex-wrap:wrap;gap:clamp(18px,3vw,40px);justify-content:center;margin-top:26px;font-family:var(--sans);font-size:11px;letter-spacing:.24em;text-transform:uppercase}
+  .foot-links a{text-decoration:none;opacity:.75}
+  .foot-links a:hover{opacity:1}
+  .foot-say{margin:30px auto 0;font-family:var(--serif);font-style:italic;font-size:1.05rem;color:var(--taupe-deep)}
+
+  /* ── hiện dần, rất chậm ── */
+  .rise{opacity:0;transform:translateY(26px)}
+  .js .rise.in{opacity:1;transform:none;transition:opacity 1.4s cubic-bezier(.22,.7,.28,1),transform 1.4s cubic-bezier(.22,.7,.28,1)}
+  html:not(.js) .rise{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    *,*::before,*::after{animation:none!important;transition:none!important}
+    .rise{opacity:1!important;transform:none!important}
+  }
+
+  @media (max-width:1000px){
+    .duo,.duo.flip,.about{grid-template-columns:1fr;gap:28px}
+    .facts{grid-template-columns:1fr;gap:22px}
+    .duo.flip .pic{order:0}
+    .sketch{grid-template-columns:1fr}
+    .details{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+    .bar{flex-wrap:wrap;gap:14px}
+    .bar nav{order:3;width:100%;gap:18px;overflow-x:auto;padding-bottom:2px;-webkit-overflow-scrolling:touch}
+    .bar nav a{font-size:10px;letter-spacing:.2em;white-space:nowrap}
+    .idx .de{display:none}
+    .full{aspect-ratio:4/3}
+    .bride .im{aspect-ratio:4/5}
+  }
+  @media (max-width:560px){ .row{grid-template-columns:1fr} }
+
+  /* ── trang con (tách trang) ── */
+  .sub{padding-top:clamp(126px,15vh,190px)}
+  .sub-head{border-bottom:1px solid var(--line);padding-bottom:clamp(26px,4vw,46px);margin-bottom:clamp(46px,7vw,92px)}
+  .sub-head .h-lg{margin-top:18px;max-width:22ch}
+  .sub-head p{margin-top:22px}
+  .bar nav a.cur{opacity:1}
+  .bar nav a.cur::after{content:"";display:block;height:1px;background:currentColor;margin-top:5px}
+  .next{border-top:1px solid var(--line);margin-top:var(--air);padding-block:clamp(44px,6vw,78px);display:flex;justify-content:space-between;align-items:baseline;gap:20px;flex-wrap:wrap}
+  .next .lb{font-family:var(--sans);font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:var(--taupe-deep)}
+  .next .tt{font-family:var(--serif);font-size:clamp(1.15rem,1.7vw,1.5rem);text-decoration:none;display:inline-flex;align-items:center;gap:14px;transition:gap .45s ease}
+  .next .tt::after{content:"\2192";font-family:var(--sans);font-size:.7em}
+  .next .tt:hover{gap:22px}
+
+  /* ── chỉ mục trang chủ ── */
+  .idx{border-top:1px solid var(--line)}
+  .idx a{display:flex;align-items:baseline;gap:clamp(14px,3vw,40px);padding-block:clamp(20px,2.6vw,34px);
+    border-bottom:1px solid var(--line);text-decoration:none;transition:padding-inline .55s ease,background .55s ease}
+  .idx a:hover{padding-inline:14px;background:var(--ivory)}
+  .idx .no{font-family:var(--sans);font-size:11px;letter-spacing:.26em;color:var(--taupe-deep);min-width:3ch}
+  .idx .nm{font-family:var(--serif);font-size:clamp(1.15rem,1.7vw,1.5rem);flex:1;line-height:1.35}
+  .idx .de{font-family:var(--sans);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--taupe-deep);text-align:right}
+
+
+  /* ── khối ảnh + chữ kiểu halfpennylondon.com/bespoke ── */
+  .h-cap{
+    font-family:var(--sans);font-weight:500;
+    font-size:clamp(1.05rem,1.7vw,1.42rem);line-height:1.45;
+    letter-spacing:.16em;text-transform:uppercase;margin:0;
+  }
+  .hp{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+    gap:clamp(30px,5vw,88px);align-items:start}
+  .hp .im{width:100%;aspect-ratio:1/1;background:var(--sand) var(--img) center 30%/cover no-repeat}
+  .hp .tx{display:grid;gap:20px;padding-top:6px}
+  .hp .tx p{max-width:48ch}
+  .hp.flip .im{order:2}
+
+  .quote-mid{max-width:56ch;margin-inline:auto;text-align:center}
+  .quote-mid p{font-family:var(--serif);font-size:clamp(1.05rem,1.5vw,1.28rem);
+    line-height:1.65;color:var(--ink);max-width:none;margin:0}
+  .quote-mid cite{display:block;margin-top:18px;font-style:normal;
+    font-family:var(--sans);font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--taupe-deep)}
+
+  .cta-mid{max-width:56ch;margin-inline:auto;text-align:center}
+  .cta-mid p{margin-inline:auto;margin-top:20px}
+  .cta-mid .link{margin-top:30px}
+
+  @media (max-width:1000px){
+    .hp{grid-template-columns:1fr;gap:26px}
+    .hp.flip .im{order:0}
+  }
+
+  /* ── V5: bám sát halfpennylondon.com/bespoke (đo trên khung 1440px) ── */
+  .mid-blk{max-width:760px;margin-inline:auto;text-align:center}
+  .mid-blk p{line-height:1.62}
+  .mid-blk p{margin-inline:auto;max-width:none}
+  .h-cap.giua{text-align:center}
+
+  /* nút kiểu MAKE A BESPOKE ENQUIRY */
+  .btn{display:inline-block;margin-top:34px;border:1px solid var(--ink);
+    padding:15px 34px;font-family:var(--sans);font-weight:400;font-size:11px;
+    letter-spacing:.24em;text-transform:uppercase;text-decoration:none;
+    transition:background .55s ease,color .55s ease}
+  .btn:hover{background:var(--ink);color:#fff}
+
+  /* khối 2 cột: ảnh DỌC 3:4 trái, chữ phải cùng bề rộng, ảnh tụt xuống */
+  .hp{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,2.6vw,38px);
+    max-width:990px;margin-inline:auto}
+  .hp .im{aspect-ratio:3/4;margin-top:clamp(0px,5vw,84px)}
+  .hp .tx{gap:24px;padding-top:0}
+  .hp .tx p{max-width:none}
+
+  /* 2 ảnh ngang tràn mép, sát nhau */
+  .bleed{width:100vw;margin-left:calc(50% - 50vw)}
+  .wide2{display:grid;grid-template-columns:1fr 1fr;gap:11px}
+  .wide2 .im{width:100%;aspect-ratio:1.31/1;background:var(--sand) var(--img) center/cover no-repeat}
+
+  /* lưới cô dâu 4 ảnh + chú thích in hoa */
+  .brides{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:11px;
+    margin-top:clamp(34px,4vw,60px)}
+  .brides figure{margin:0}
+  .brides .im{width:100%;aspect-ratio:3/4;background:var(--sand) var(--img) center 15%/cover no-repeat}
+  .brides figcaption{margin-top:14px;font-family:var(--sans);font-size:10.5px;
+    letter-spacing:.16em;text-transform:uppercase;color:var(--taupe-deep);line-height:1.75}
+
+  @media (max-width:1000px){
+    .hp .im{margin-top:0}
+    .brides{grid-template-columns:repeat(2,minmax(0,1fr))}
+  }
+  @media (max-width:560px){
+    .wide2{grid-template-columns:1fr}
+  }
+
+  /* ── V6: định vị Thuê · Mua · May đo ── */
+  .btn.sang{border-color:rgba(255,255,255,.75);color:#fff}
+  .btn.sang:hover{background:#fff;color:var(--ink)}
+  .hero .nut{display:flex;gap:clamp(16px,2vw,28px);flex-wrap:wrap;align-items:center}
+  .hero .nut .link{margin-top:34px;border-bottom-color:rgba(255,255,255,.6)}
+
+  .ba{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(22px,3.4vw,54px);
+    margin-top:clamp(40px,5vw,72px)}
+  .ba .o{border-top:1px solid var(--ink);padding-top:20px}
+  .ba .o .n{font-family:var(--sans);font-size:11px;letter-spacing:.26em;color:var(--taupe-deep);display:block}
+  .ba .o h3{margin:14px 0 0;font-family:var(--sans);font-weight:400;font-size:clamp(.95rem,1.3vw,1.12rem);
+    letter-spacing:.18em;text-transform:uppercase}
+  .ba .o p{margin-top:12px;font-size:14.5px;max-width:34ch}
+
+  .coll{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(11px,1.5vw,20px);
+    margin-top:clamp(34px,4vw,58px)}
+  .coll figure{margin:0}
+  .coll .im{width:100%;aspect-ratio:3/4;background:var(--sand) var(--img) center 12%/cover no-repeat}
+  .coll figcaption{margin-top:12px;font-family:var(--sans);font-size:10.5px;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--taupe-deep)}
+
+  .buoc{display:grid;gap:clamp(22px,2.6vw,34px)}
+  .buoc .b{border-top:1px solid var(--line);padding-top:18px}
+  .buoc .b .n{font-family:var(--sans);font-size:11px;letter-spacing:.26em;color:var(--taupe-deep)}
+  .buoc .b h3{margin:10px 0 0;font-family:var(--sans);font-weight:400;
+    font-size:clamp(.92rem,1.2vw,1.05rem);letter-spacing:.18em;text-transform:uppercase}
+  .buoc .b p{margin-top:10px;font-size:14.5px;max-width:46ch}
+  .buoc .b .chon{margin-top:10px;font-family:var(--sans);font-size:11px;letter-spacing:.22em;
+    text-transform:uppercase;color:var(--ink)}
+
+  .triet{max-width:24ch;margin-inline:auto;text-align:center;font-family:var(--serif);
+    font-size:clamp(1.25rem,2vw,1.7rem);line-height:1.5}
+  .triet .b3{margin-top:26px;font-family:var(--sans);font-size:11px;letter-spacing:.26em;
+    text-transform:uppercase;color:var(--taupe-deep)}
+
+  .mayo-list{display:flex;flex-wrap:wrap;gap:10px 26px;justify-content:center;margin-top:24px;
+    font-family:var(--sans);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--taupe-deep)}
+
+  @media (max-width:1000px){ .coll{grid-template-columns:repeat(2,minmax(0,1fr))} }
+  @media (max-width:700px){ .ba{grid-template-columns:1fr} }
+
+  .hero-ba{margin-top:26px;font-family:var(--sans);font-size:11.5px;letter-spacing:.28em;
+    text-transform:uppercase;color:rgba(255,255,255,.96)}
+  .foot-say{font-style:italic}
+
+  /* ── khổ chữ trên điện thoại ── */
+  @media (max-width:700px){
+    body{font-size:16px;line-height:1.68}
+    p{font-size:16px;line-height:1.68}
+    .buoc .b p,.ba .o p,.hp .tx p{font-size:15.5px}
+    .note{font-size:13px}
+    .bar nav a{font-size:11px}
+    .idx .nm{font-size:1.15rem}
+  }
+
+  /* ── ép lại bố cục trên máy nhỏ (đặt cuối để không bị ghi đè) ── */
+  @media (max-width:1000px){
+    .hp{grid-template-columns:1fr;gap:24px;max-width:none}
+    .hp .im{margin-top:0;aspect-ratio:4/5}
+    .hp.flip .im{order:0}
+    .coll{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .brides{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .details{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+    .ba{grid-template-columns:repeat(2,minmax(0,1fr))}
+  }
+  @media (max-width:560px){
+    .wide2{grid-template-columns:1fr}
+    .coll{gap:10px}
+  }
+
+  /* ── lưới bộ sưu tập kiểu veliabridal.com/collections ── */
+  body.bst{background:var(--ivory)}
+  .vl-head{padding-top:clamp(96px,12vh,150px);padding-bottom:clamp(26px,3.4vw,44px)}
+  .vl-head .eyebrow{margin-bottom:14px}
+  .vl-head h1{font-family:var(--sans);font-weight:400;
+    font-size:clamp(1.6rem,3.3vw,3rem);letter-spacing:.16em;text-transform:uppercase;
+    line-height:1.2;margin:0}
+  .vl-head p{margin-top:18px;max-width:52ch}
+  .vl{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;
+    margin-top:clamp(20px,2.6vw,34px)}
+  .vl figure{margin:0}
+  .vl .im{width:100%;aspect-ratio:2/3;background:var(--sand) var(--img) center 12%/cover no-repeat}
+  .vl figcaption{padding:14px 0 26px 16px}
+  .vl .nm{display:block;font-family:var(--sans);font-size:10.5px;letter-spacing:.2em;
+    text-transform:uppercase;color:var(--ink)}
+  .vl .de{display:block;margin-top:7px;font-family:var(--sans);font-size:11px;
+    letter-spacing:.06em;color:var(--taupe-deep)}
+  .vl-page{display:flex;justify-content:center;gap:6px;margin-top:clamp(18px,2.4vw,30px)}
+  .vl-page button{width:34px;height:34px;font-family:var(--sans);font-size:12px;
+    color:var(--taupe-deep);border:1px solid transparent;border-radius:50%}
+  .vl-page button[aria-current="true"]{color:var(--ink);border-color:var(--line);background:#fff}
+  @media (max-width:1000px){ .vl{grid-template-columns:repeat(2,minmax(0,1fr))} }
+
+  .vl-loc{display:grid;gap:12px;padding-bottom:clamp(14px,2vw,22px);
+    border-bottom:1px solid var(--line)}
+  .vl-nhom{display:flex;flex-wrap:wrap;align-items:center;gap:8px 10px}
+  .vl-nhom .lb{font-family:var(--sans);font-size:10.5px;letter-spacing:.24em;
+    text-transform:uppercase;color:var(--taupe-deep);min-width:9ch}
+  .vl-nhom button{font-family:var(--sans);font-size:11px;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--taupe-deep);padding:7px 15px;
+    border:1px solid var(--line);border-radius:100px;background:transparent;
+    transition:color .4s ease,border-color .4s ease,background .4s ease}
+  .vl-nhom button:hover{color:var(--ink)}
+  .vl-nhom button[aria-current="true"]{color:var(--ink);border-color:var(--ink);background:#fff}
+  .vl-trong{max-width:56ch;margin:clamp(30px,4vw,52px) auto;text-align:center;color:var(--taupe-deep)}
+  .vl-trong[hidden]{display:none}
+  .vl figcaption .kind{display:block;font-family:var(--sans);font-size:9.5px;
+    letter-spacing:.22em;text-transform:uppercase;color:var(--taupe-deep);margin-bottom:6px}
+
+  /* ── chân trang nhiều cột ── */
+  footer{border-top:1px solid var(--line);padding-block:clamp(46px,6vw,80px);text-align:left;background:var(--paper)}
+  .ft-cot{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(24px,4vw,70px)}
+  .ft-h{display:block;font-family:var(--sans);font-size:10.5px;letter-spacing:.26em;
+    text-transform:uppercase;color:var(--ink);margin-bottom:18px}
+  .ft-d{margin:0 0 12px;font-size:14px;line-height:1.7;color:var(--taupe-deep);max-width:34ch}
+  .ft-d a{text-decoration:none}
+  .ft-d a:hover{color:var(--ink)}
+  .ft-duoi{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;
+    flex-wrap:wrap;margin-top:clamp(38px,5vw,70px)}
+  .ft-logo img{width:clamp(180px,22vw,300px);height:auto;display:block}
+  .ft-mxh{text-align:right}
+  .ft-mxh .ft-h{margin-bottom:12px}
+  .ft-icon{display:flex;gap:16px;justify-content:flex-end;color:var(--ink)}
+  .ft-icon a{display:inline-flex;opacity:.85}
+  .ft-icon a:hover{opacity:1}
+  .foot-say{margin:clamp(34px,4vw,56px) auto 0;max-width:none;text-align:center;font-family:var(--serif);
+    font-style:italic;font-size:1.05rem;color:var(--taupe-deep)}
+  .ft-cr{margin:16px auto 0;max-width:none;text-align:center;font-family:var(--sans);font-size:10.5px;
+    letter-spacing:.2em;text-transform:uppercase;color:var(--taupe-deep)}
+  @media (max-width:800px){
+    .ft-cot{grid-template-columns:1fr;gap:30px}
+    .ft-duoi{flex-direction:column;align-items:flex-start}
+    .ft-mxh{text-align:left}
+    .ft-icon{justify-content:flex-start}
+  }
+
+  /* ── chữ nằm TRONG ảnh (kiểu Vélia) ── */
+  .vl figure{position:relative;overflow:hidden}
+  .vl .im{position:relative}
+  .vl .im::after{content:"";position:absolute;inset:auto 0 0 0;height:52%;
+    background:linear-gradient(180deg,rgba(20,18,16,0) 0%,rgba(20,18,16,.46) 100%);
+    pointer-events:none}
+  .vl figcaption{position:absolute;left:16px;right:16px;bottom:14px;padding:0;
+    color:#fff;text-shadow:0 1px 12px rgba(0,0,0,.45)}
+  .vl figcaption .kind{display:block;font-family:var(--sans);font-size:9.5px;
+    letter-spacing:.24em;text-transform:uppercase;color:rgba(255,255,255,.88);margin-bottom:5px}
+  .vl .nm{display:block;font-family:var(--sans);font-size:11.5px;letter-spacing:.2em;
+    text-transform:uppercase;color:#fff}
+  .vl .de{display:block;margin-top:5px;font-family:var(--sans);font-size:10.5px;
+    letter-spacing:.1em;color:rgba(255,255,255,.85);text-transform:none}
+
+  .hp .tx strong{font-weight:600;color:var(--ink)}
+  .cham{margin-top:6px;font-family:var(--serif);font-size:clamp(1rem,1.4vw,1.22rem);
+    line-height:1.75;color:var(--ink)}
+
+  .mid-blk strong{font-weight:600;color:var(--ink)}
+  .mid-blk .cham{font-family:var(--serif);font-size:clamp(1.05rem,1.5vw,1.3rem);
+    line-height:1.75;color:var(--ink)}
+
+  /* ── thẻ dịch vụ (chữ trong ảnh) ── */
+  .dv{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(10px,1.4vw,18px);
+    margin-top:clamp(32px,4vw,56px)}
+  .dv figure{position:relative;margin:0;overflow:hidden}
+  .dv .im{width:100%;aspect-ratio:3/4;background:var(--sand) var(--img) center 12%/cover no-repeat}
+  .dv figure::after{content:"";position:absolute;inset:auto 0 0 0;height:62%;
+    background:linear-gradient(180deg,rgba(18,16,14,0) 0%,rgba(18,16,14,.62) 100%);pointer-events:none}
+  .dv figcaption{position:absolute;left:18px;right:18px;bottom:18px;z-index:2;
+    color:#fff;text-shadow:0 1px 14px rgba(0,0,0,.5)}
+  .dv .ten{display:block;font-family:var(--serif);font-style:italic;
+    font-size:clamp(1.15rem,1.7vw,1.5rem);line-height:1.25;margin-bottom:10px}
+  .dv .mo{display:block;font-family:var(--sans);font-size:12.5px;line-height:1.6;
+    color:rgba(255,255,255,.92)}
+  @media (max-width:1000px){ .dv{grid-template-columns:1fr} }
+
+  /* ── khối tinh thần kiểu editorial ── */
+  .tt{display:grid;grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);
+    gap:clamp(28px,5vw,90px);align-items:start}
+  .tt-lon{margin-top:22px;font-family:var(--serif);font-size:clamp(1.35rem,2.3vw,2rem);
+    line-height:1.45;color:var(--ink);max-width:none;letter-spacing:.005em}
+  .tt-phai p{max-width:46ch;margin-bottom:20px}
+  .tt-phai p:last-of-type{margin-bottom:0}
+  .tt-phai em{font-family:var(--serif);font-style:italic;font-size:1.08em;letter-spacing:.01em}
+  .tt-phai a{text-decoration:underline;text-underline-offset:3px}
+  .tt-so{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(16px,2.4vw,34px);
+    margin-top:clamp(30px,4vw,50px);border-top:1px solid var(--line);padding-top:24px}
+  .tt-so .k{display:block;font-family:var(--serif);font-size:clamp(1.2rem,1.8vw,1.55rem);line-height:1.2}
+  .tt-so .v{display:block;margin-top:8px;font-family:var(--sans);font-size:10.5px;
+    letter-spacing:.18em;text-transform:uppercase;color:var(--taupe-deep);line-height:1.7}
+  .quote-mid.hep{max-width:42ch}
+  @media (max-width:1000px){
+    .tt{grid-template-columns:1fr;gap:26px}
+    .tt-so{grid-template-columns:1fr;gap:16px}
+  }
+
+  .ket-phu{margin-top:26px;display:flex;flex-wrap:wrap;gap:8px 16px;justify-content:center;
+    font-family:var(--sans);font-size:11px;letter-spacing:.2em;text-transform:uppercase;
+    color:var(--taupe-deep);max-width:none}
+  .ket-phu a{text-decoration:none;border-bottom:1px solid var(--line);padding-bottom:3px}
+  .ket-phu a:hover{color:var(--ink);border-bottom-color:currentColor}
+</style>
+
+<header id="hd">
+  <div class="wrap">
+    <div class="bar">
+      <a class="mark" href="index.html">Dolinhanh</a>
+      <nav aria-label="Mục chính">
+        <a href="index.html" class="cur" data-en="Home">Trang chủ</a>
+        <a href="gioi-thieu.html" data-en="About">Giới thiệu</a>
+        <a href="hanh-trinh.html" data-en="The journey">Hành trình</a>
+        <a href="bo-suu-tap.html" data-en="Collection">Bộ sưu tập</a>
+        <a href="cam-nang.html" data-en="Handbook">Cẩm nang</a>
+        <a href="co-dau.html" data-en="The bride">Cô dâu</a>
+      </nav>
+      <div class="lang" role="group" aria-label="Ngôn ngữ">
+        <button type="button" data-lang="vi" aria-pressed="true">VI</button><span>/</span><button type="button" data-lang="en" aria-pressed="false">EN</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ══ 01 · ẢNH ══ -->
+  <section class="hero" id="hero" data-dark="1">
+    <div class="bg" id="heroBg" style="--img:url('../../anh/nc-24-hero.jpg')"></div>
+    <div class="veil"></div>
+    <div class="wrap inner">
+      <h1 class="h-xl">Quiet minimal luxury,<br><em>Crafted with Mother Love.</em></h1>
+      <p style="margin-top:24px;color:#fff;max-width:46ch" data-en="A dress is chosen not only because it is beautiful — but because it belongs to the one wearing it.">Một chiếc váy được chọn không chỉ vì nó đẹp — mà vì nó hợp với người mặc.</p>
+      <p class="hero-ba" data-en="Wedding dresses &nbsp;·&nbsp; Photography &nbsp;·&nbsp; Film">Váy cưới &nbsp;·&nbsp; Chụp hình &nbsp;·&nbsp; Quay phim</p>
+      <div class="nut">
+        <a class="btn sang" href="#bosuutap" data-en="Explore the collection">Khám phá bộ sưu tập</a>
+        <a class="link" href="gui-yeu-cau.html" data-en="Book a private fitting">Đặt lịch thử váy riêng</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ 02 · TINH THẦN DOLINHANH ══ -->
+  <section class="air" id="tinhthan">
+    <div class="wrap">
+      <div class="tt rise">
+        <div class="tt-trai">
+          <span class="eyebrow" data-en="The house">Tinh thần</span>
+          <p class="tt-lon" data-en="A dress for the wedding day.<br>An experience to remember.<br>A beauty that stays<br>through time.">Một chiếc váy cho ngày cưới.<br>Một trải nghiệm để nhớ.<br>Một vẻ đẹp ở lại<br>theo thời gian.</p>
+        </div>
+        <div class="tt-phai">
+          <p data-en="Founded in 2017, Dolinhanh Bridal is the bridal label within the Nupakachi wedding ecosystem — more than fifteen years of making the day memorable for brides.">Ra đời năm 2017, Dolinhanh Bridal là thương hiệu váy cưới thuộc hệ sinh thái cưới <a href="https://nupakachi.com" target="_blank" rel="noopener">Nupakachi</a> — hơn mười lăm năm tạo nên những trải nghiệm đáng nhớ cho cô dâu.</p>
+          <p data-en="A beautiful dress is not only about the design. It is the feeling of being listened to, understood and cared for, through the whole search for your dress.">Với Dolinhanh, một chiếc váy đẹp không chỉ nằm ở thiết kế. Đó là cảm giác được lắng nghe, được thấu hiểu và được chăm sóc, suốt hành trình tìm chiếc váy của mình.</p>
+          <p data-en="We pursue a <em>timeless</em> kind of beauty — designs that do not chase a passing trend, and still look right years later.">Dolinhanh theo đuổi vẻ đẹp <em>Timeless</em> — không chạy theo xu hướng nhất thời, vẫn đẹp khi được nhìn lại sau nhiều năm.</p>
+          <div class="tt-so">
+            <div><span class="k">2017</span><span class="v" data-en="The year Dolinhanh began">Năm Dolinhanh ra đời</span></div>
+            <div><span class="k">15+</span><span class="v" data-en="Years of weddings, with Nupakachi">Năm làm cưới, cùng Nupakachi</span></div>
+            <div><span class="k">02</span><span class="v" data-en="Showrooms · Hanoi &amp; Ho Chi Minh City">Showroom · Hà Nội &amp; TP.HCM</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ lời người sáng lập ══ -->
+  <section class="air" style="padding-top:0">
+    <div class="wrap">
+      <div class="quote-mid hep rise">
+        <p data-en="“Dolinhanh is the fierce drive that lets me weave the dream of a wedding dress. I hope this brand lives on alongside the growing up of the little girl I am raising — truly, this is the happy ambition I want to bring to young women.”">“Dolinhanh là nguồn động lực mãnh liệt để mình dệt nên ước mơ “váy cưới”. Mình mong thương hiệu này sẽ tồn tại mãi theo sự trưởng thành của cô gái nhỏ mình đang nuôi dạy. Để thực sự, đây sẽ là hoài bão hạnh phúc mình mang tới cho các cô gái trẻ.”</p>
+        <cite data-en="Dolinhanh Bridal — a wedding dress of happiness, woven from a parent’s love">Dolinhanh Bridal — váy cưới hạnh phúc dệt từ tình yêu của mẹ cha</cite>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ 03 · DỊCH VỤ ══ -->
+  <section class="air" style="padding-top:0" id="dichvu">
+    <div class="wrap">
+      <div class="mid-blk rise">
+        <h2 class="h-cap giua" data-en="Our services">Dịch vụ của Dolinhanh</h2>
+        <p style="margin-top:20px" data-en="Rented for a day or made for a lifetime, every Dolinhanh dress carries the same care for fabric and detail — and the day itself is kept in photographs and film.">Dù là chiếc váy thuê cho một ngày hay chiếc váy làm riêng để giữ lại, mọi chiếc váy của Dolinhanh đều được chăm chút như nhau từ chất liệu tới chi tiết — và ngày ấy còn được giữ lại bằng hình và phim.</p>
+      </div>
+
+      <div class="dv rise">
+        <figure>
+          <div class="im" style="--img:url('../../anh/nc-26.jpg')"></div>
+          <figcaption>
+            <span class="ten" data-en="Wedding dresses">Váy cưới</span>
+            <span class="mo" data-en="A collection ready for your day — to rent, or to buy and keep. Fitted and adjusted to you before the wedding.">Bộ sưu tập sẵn sàng cho ngày của bạn — để thuê, hoặc mua hẳn giữ lại. Chỉnh vừa người trước lễ cưới.</span>
+          </figcaption>
+        </figure>
+        <figure>
+          <div class="im" style="--img:url('../../anh/nc-30.jpg')"></div>
+          <figcaption>
+            <span class="ten" data-en="Made-to-measure">May đo riêng</span>
+            <span class="mo" data-en="Cut to your own measurements. A neckline, a sleeve, a silhouette changed — or a design drawn only for you.">Cắt theo đúng số đo của bạn. Đổi cổ váy, tay áo, dáng váy — hoặc dựng riêng một thiết kế chỉ của bạn.</span>
+          </figcaption>
+        </figure>
+        <figure>
+          <div class="im" style="--img:url('../../anh/nu-tryon.jpg')"></div>
+          <figcaption>
+            <span class="ten" data-en="Photography &amp; film">Chụp hình &amp; quay phim</span>
+            <span class="mo" data-en="Pre-wedding and wedding-day coverage with Nupakachi Photography, more than fifteen years behind the lens.">Chụp pre-wedding và phóng sự ngày cưới cùng Nupakachi Photography, hơn mười lăm năm sau ống kính.</span>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══ 04 · TRIẾT LÝ ══ -->
+  <section class="air" style="padding-top:0">
+    <div class="wrap">
+      <div class="rise">
+        <p class="triet" data-en="Not the most expensive dress. Not the dress everyone else is choosing. The dress that is right for you.">Không phải chiếc váy đắt nhất. Không phải chiếc váy đang được nhiều người chọn nhất. Mà là chiếc váy đúng với bạn nhất.</p>
+        <p class="triet b3" data-en="Rent it · Own it · Make it yours — and let us keep the day in photographs and film">Thuê nó · Sở hữu nó · Làm nó thành của riêng bạn — và giữ lại ngày ấy bằng hình và phim</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ 03 · BỘ SƯU TẬP ══ -->
+  <section class="air" id="bosuutap" style="padding-top:0">
+    <div class="wrap">
+      <div class="mid-blk rise">
+        <h2 class="h-cap giua" data-en="The Dolinhanh collection">Bộ sưu tập Dolinhanh</h2>
+        <p style="margin-top:22px" data-en="Every dress here can be rented or bought. Most can also be adjusted for you — a neckline, a sleeve, a silhouette.">Mọi chiếc váy ở đây đều có thể thuê hoặc mua. Phần lớn còn có thể chỉnh theo bạn — cổ váy, tay áo, dáng váy.</p>
+      </div>
+      <div class="coll rise">
+        <figure><div class="im" style="--img:url('../../anh/nc-23.jpg')"></div><figcaption data-en="Fitted silk with a slit, long lace gloves · Rent · Buy">Dáng ôm lụa xẻ tà, găng ren dài · Thuê · Mua</figcaption></figure>
+        <figure><div class="im" style="--img:url('../../anh/nc-26.jpg')"></div><figcaption data-en="Satin ball gown, sweetheart neckline · Rent · Buy · Custom">Ballgown satin, cổ tim · Thuê · Mua · May đo</figcaption></figure>
+        <figure><div class="im" style="--img:url('../../anh/nc-27.jpg')"></div><figcaption data-en="Raised lace all over, full skirt · Rent · Buy">Ren nổi toàn thân, tùng xoè · Thuê · Mua</figcaption></figure>
+        <figure><div class="im" style="--img:url('../../anh/nc-29.jpg')"></div><figcaption data-en="Large floral lace, off-shoulder · Rent · Buy · Custom">Ren hoa lớn, trễ vai · Thuê · Mua · May đo</figcaption></figure>
+        <figure><div class="im" style="--img:url('../../anh/nc-32.jpg')"></div><figcaption data-en="Draped satin with a slit, lace gloves · Rent · Buy">Satin xếp nếp, xẻ tà, găng ren · Thuê · Mua</figcaption></figure>
+        <figure><div class="im" style="--img:url('../../anh/nc-35.jpg')"></div><figcaption data-en="Beaded all over, grand skirt · Rent · Buy · Custom">Đính kết toàn thân, tùng lớn · Thuê · Mua · May đo</figcaption></figure>
+      </div>
+      <div class="mid-blk rise" style="margin-top:clamp(34px,4vw,58px)">
+        <a class="btn" href="gui-yeu-cau.html" style="margin-top:0" data-en="Book a private fitting">Đặt lịch thử váy riêng</a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══ 2 ảnh ngang tràn mép ══ -->
+  <section>
+    <div class="bleed rise">
+      <div class="wide2">
+        <div class="im" style="--img:url('../../anh/nc-30-wide.jpg')"></div>
+        <div class="im" style="--img:url('../../anh/nc-33-wide.jpg')"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ KẾT · TÌM CHIẾC VÁY CỦA BẠN ══ -->
+  <section class="air">
+    <div class="wrap">
+      <div class="mid-blk rise">
+        <h2 class="h-cap giua" data-en="Find your dress">Tìm chiếc váy của bạn</h2>
+        <p style="margin-top:22px" data-en="Tell us about your wedding day and we will help you find the dress that fits it — whether you rent it, buy it, or have it made to measure.">Kể cho Dolinhanh nghe về ngày cưới của bạn, Dolinhanh sẽ giúp bạn tìm chiếc váy phù hợp — dù bạn chọn thuê, mua hay may đo riêng.</p>
+        <a class="btn" href="gui-yeu-cau.html" data-en="Book a private fitting">Đặt lịch thử váy riêng</a>
+        <p class="ket-phu">
+          <a href="hanh-trinh.html" data-en="Made to measure">Tìm hiểu may đo riêng</a>
+          <span>·</span>
+          <a href="https://dolinhanhbridal.com/cach-do-so-do.html" target="_blank" rel="noopener" data-en="How to take your measurements">Cách tự lấy số đo</a>
+          <span>·</span>
+          <a href="cam-nang.html" data-en="The handbook">Cẩm nang cho cô dâu</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="ft-cot">
+      <div class="ft-c">
+        <span class="ft-h" data-en="Contact">Liên hệ</span>
+        <p class="ft-d" data-en="Hanoi · 75 Nguyễn Thị Định, Cầu Giấy">Hà Nội · 75 Nguyễn Thị Định, Cầu Giấy</p>
+        <p class="ft-d" data-en="Ho Chi Minh City · 2 Tân Canh, Tân Bình">TP.HCM · 2 Tân Canh, Tân Bình</p>
+        <p class="ft-d"><a href="tel:+84359950588">035 995 0588</a></p>
+        <p class="ft-d"><a href="https://zalo.me/0359950588" target="_blank" rel="noopener">Zalo</a> &nbsp;·&nbsp; <a href="https://m.me/Dolinhanhbridalhcm" target="_blank" rel="noopener">Messenger</a></p>
+      </div>
+      <div class="ft-c">
+        <span class="ft-h" data-en="Support">Hỗ trợ</span>
+        <p class="ft-d"><a href="gui-yeu-cau.html" data-en="Book a fitting">Đặt lịch thử váy</a></p>
+        <p class="ft-d"><a href="hanh-trinh.html" data-en="The journey">Hành trình</a></p>
+        <p class="ft-d"><a href="cam-nang.html" data-en="The handbook">Cẩm nang</a></p>
+        <p class="ft-d"><a href="gioi-thieu.html" data-en="About">Giới thiệu</a></p>
+      </div>
+      <div class="ft-c">
+        <span class="ft-h" data-en="Explore">Khám phá</span>
+        <p class="ft-d"><a href="bo-suu-tap.html" data-en="Collection">Bộ sưu tập</a></p>
+        <p class="ft-d"><a href="co-dau.html" data-en="Our brides">Cô dâu</a></p>
+        <p class="ft-d"><a href="https://nupakachi.com" target="_blank" rel="noopener">Nupakachi Photography</a></p>
+        <p class="ft-d"><a href="https://dolinhanhbridal.com/dress-guide.html" target="_blank" rel="noopener">The Bride’s Dress Guide</a></p>
+      </div>
+    </div>
+
+    <div class="ft-duoi">
+      <a class="ft-logo" href="index.html"><img src="../../logo-dolinhanh.png" alt="Dolinhanh Bridal"></a>
+      <div class="ft-mxh">
+        <span class="ft-h" data-en="Follow us">Theo dõi Dolinhanh</span>
+        <div class="ft-icon">
+          <a href="https://www.facebook.com/Dolinhanhbridalhcm/" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.4h-1.2c-1.2 0-1.6.8-1.6 1.6V12h2.7l-.4 2.9h-2.3v7A10 10 0 0 0 22 12Z"/></svg></a>
+          <a href="https://www.instagram.com/dolinhanh.bridal/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none"/></svg></a>
+          <a href="https://www.tiktok.com/@fitting.vay.cuoi" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M16.5 3c.3 2 1.5 3.4 3.5 3.6v2.6c-1.3.1-2.5-.2-3.6-.9v5.6c0 3.4-2.6 5.6-5.6 5.1-2.4-.4-4.2-2.4-4.3-4.8-.1-2.9 2.2-5.3 5.1-5.3.3 0 .5 0 .8.1v2.7c-.3-.1-.5-.1-.8-.1-1.4 0-2.5 1.2-2.4 2.6.1 1.2 1.1 2.2 2.3 2.3 1.4.1 2.6-1 2.6-2.4V3h2.4Z"/></svg></a>
+        </div>
+      </div>
+    </div>
+
+    <p class="foot-say" data-en="Quiet minimal luxury, crafted with Mother Love.">Quiet minimal luxury, crafted with Mother Love.</p>
+    <p class="ft-cr" data-en="© 2026 Dolinhanh Bridal. All rights reserved.">© 2026 Dolinhanh Bridal. Đã đăng ký bản quyền.</p>
+  </div>
+</footer>
+
+<script>
+/* ═══ NỐI FORM: dán link Google Form dạng .../formResponse vào đây ═══ */
+const FORM_ENDPOINT = "";
+const FORM_FIELDS = { ten:"", sdt:"", ngay:"", coso:"" };
+
+const $ = id => document.getElementById(id);
+let LANG = "vi";
+
+/* form (chỉ có ở trang Gửi yêu cầu) */
+const leadForm = $("leadForm");
+if(leadForm) leadForm.addEventListener("submit", async e=>{
+  e.preventDefault();
+  const form = e.target, sdt = form.sdt.value.replace(/\D/g,"");
+  if(!form.ten.value.trim() || sdt.length < 9){ form.sdt.focus(); return; }
+  if(FORM_ENDPOINT){
+    const fd = new FormData();
+    for(const k in FORM_FIELDS) if(FORM_FIELDS[k]) fd.append(FORM_FIELDS[k], form[k] ? form[k].value : "");
+    try{ await fetch(FORM_ENDPOINT,{method:"POST",mode:"no-cors",body:fd}); }catch(_){}
+  }
+  form.classList.add("sent");
+  $("thanks").classList.add("sent");
+});
+
+/* header đổi nền khi rời khỏi ảnh bìa — trang con luôn nền sáng */
+const hd = $("hd"), hero = $("hero");
+function onScroll(){
+  if(!hero){ hd.classList.add("solid"); return; }
+  hd.classList.toggle("solid", scrollY > 60);
+  const bg = $("heroBg");
+  if(bg && scrollY < innerHeight) bg.style.transform = "scale(1.04) translateY(" + (scrollY * 0.06) + "px)";
+}
+addEventListener("scroll", onScroll, {passive:true});
+onScroll();
+
+/* hiện dần, chậm */
+const io = new IntersectionObserver(es=>{
+  es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target); }});
+},{threshold:.08});
+document.querySelectorAll(".rise").forEach(el=>io.observe(el));
+
+/* VI / EN */
+document.querySelectorAll("[data-en]").forEach(e=>{ e.dataset.vi = e.innerHTML; });
+function setLang(l){
+  LANG = l;
+  document.documentElement.lang = l;
+  document.querySelectorAll("[data-en]").forEach(e=>{ e.innerHTML = l === "en" ? e.dataset.en : e.dataset.vi; });
+  document.querySelectorAll(".lang button").forEach(b=>b.setAttribute("aria-pressed", b.dataset.lang === l));
+  try{ localStorage.setItem("dla-lang", l); }catch(_){}
+}
+document.querySelectorAll(".lang button").forEach(b=>b.addEventListener("click", ()=>setLang(b.dataset.lang)));
+let saved = "vi";
+try{ saved = localStorage.getItem("dla-lang") || "vi"; }catch(_){}
+setLang(saved);
+</script>

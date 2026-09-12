@@ -1,0 +1,377 @@
+<!--
+  ══════════════════════════════════════════════════════════════
+  DOLINHANH BRIDAL — MAY ĐO RIÊNG
+  Mạch trang: ẢNH → STATEMENT → STORY → EXPERIENCE → CRAFT →
+              SKETCH → BRIDE → ENQUIRE
+  Ảnh dẫn dắt, chữ ít, khoảng trắng rộng.
+  Chữ: Playfair Display (tiêu đề) + Montserrat (nav, chữ nhỏ) —
+  cả hai đều có đủ dấu tiếng Việt.
+  ══════════════════════════════════════════════════════════════
+-->
+<meta charset="utf-8">
+<link rel="icon" href="../../favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Đặt lịch thử váy riêng tại Dolinhanh Bridal, Hà Nội và TP.HCM.">
+<title>Gửi yêu cầu — Dolinhanh Bridal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Montserrat:wght@300;400;500&display=swap">
+<script>document.documentElement.classList.add("js");</script>
+
+<style>
+  :root{
+    --paper:#FFFFFF;
+    --ivory:#FBF9F6;
+    --champagne:#F5EFE7;
+    --sand:#EDE8E1;
+    --taupe:#B9AFA3;
+    --taupe-deep:#847C73;
+    --ink:#1B1917;
+    --line:#E7E3DD;
+
+    --serif:"Playfair Display",Georgia,"Times New Roman",serif;
+    --sans:"Montserrat","Be Vietnam Pro","Avenir Next",Helvetica,Arial,sans-serif;
+
+    --gutter:clamp(20px,5vw,80px);
+    --air:clamp(90px,16vh,220px);      /* khoảng trắng giữa các mục */
+    --max:1500px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;background:var(--paper);color:var(--ink);
+    font-family:var(--sans);font-weight:300;
+    font-size:15.5px;line-height:1.85;letter-spacing:.005em;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit}
+  button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+  :focus-visible{outline:1px solid var(--ink);outline-offset:5px}
+  .wrap{max-width:var(--max);margin:0 auto;padding-inline:var(--gutter)}
+  .air{padding-block:var(--air)}
+
+  /* ── chữ ── */
+  .eyebrow{
+    font-family:var(--sans);font-size:11px;font-weight:400;letter-spacing:.32em;
+    text-transform:uppercase;color:var(--taupe-deep);display:block;
+  }
+  .h-xl{
+    font-family:var(--serif);font-weight:400;
+    font-size:clamp(1.8rem,2.9vw,2.55rem);line-height:1.26;letter-spacing:.008em;
+    margin:0;text-wrap:balance;
+  }
+  .h-lg{
+    font-family:var(--serif);font-weight:400;
+    font-size:clamp(1.42rem,2.15vw,1.95rem);line-height:1.32;letter-spacing:.008em;
+    margin:0;max-width:26ch;text-wrap:balance;
+  }
+  .h-md{
+    font-family:var(--serif);font-weight:400;
+    font-size:clamp(1.18rem,1.6vw,1.45rem);line-height:1.35;letter-spacing:.01em;margin:0;
+  }
+  .h-xl em,.h-lg em,.h-md em{font-style:italic}
+  p{margin:0;font-size:15.5px;line-height:1.85;color:#3A3733;max-width:44ch}
+  .say{
+    font-family:var(--serif);font-size:clamp(1.3rem,2vw,1.72rem);
+    line-height:1.45;letter-spacing:.008em;color:var(--ink);max-width:28ch;margin:0;
+  }
+
+  .link{
+    display:inline-flex;align-items:center;gap:12px;
+    font-family:var(--sans);font-size:11.5px;font-weight:400;letter-spacing:.28em;
+    text-transform:uppercase;text-decoration:none;
+    padding-bottom:8px;border-bottom:1px solid currentColor;
+    transition:gap .45s ease,opacity .45s ease;
+  }
+  .link::after{content:"\2192";letter-spacing:0}
+  .link:hover{gap:20px;opacity:.6}
+
+  /* ── header ── */
+  header{
+    position:fixed;inset:0 0 auto;z-index:60;color:#fff;
+    transition:background .6s ease,color .6s ease,border-color .6s;
+    border-bottom:1px solid transparent;
+  }
+  header.solid{background:var(--paper);color:var(--ink);border-bottom-color:var(--line)}
+  .bar{display:flex;align-items:center;justify-content:space-between;gap:24px;padding-block:24px}
+  .mark{font-family:var(--serif);font-size:clamp(1rem,1.5vw,1.22rem);letter-spacing:.26em;text-transform:uppercase;text-decoration:none}
+  .bar nav{display:flex;gap:clamp(16px,2.6vw,38px)}
+  .bar nav a{font-size:11px;letter-spacing:.24em;text-transform:uppercase;text-decoration:none;opacity:.85}
+  .bar nav a:hover{opacity:1}
+  .lang{display:flex;gap:7px;font-size:11px;letter-spacing:.22em}
+  .lang button{opacity:.45}
+  .lang button[aria-pressed="true"]{opacity:1}
+
+  /* ── 01 hero ── */
+  .hero{position:relative;height:100svh;min-height:560px;display:flex;align-items:flex-end;color:#fff;overflow:hidden}
+  .hero .bg{position:absolute;inset:0;background:#2B2724 var(--img) center 22%/cover no-repeat;transform:scale(1.04)}
+  .hero .veil{position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,18,16,.34) 0%,rgba(20,18,16,0) 38%,rgba(20,18,16,.52) 100%)}
+  .hero .inner{position:relative;width:100%;padding-block:clamp(44px,8vh,92px)}
+  .hero .h-xl{max-width:26ch}
+  .hero .h-xl em{display:inline-block;margin-top:.12em}
+  .hero .eyebrow{color:rgba(255,255,255,.75)}
+
+  /* ── 02 statement ── */
+  .stmt{max-width:26ch}
+  .stmt-note{margin-top:34px;max-width:42ch}
+
+  /* ── giới thiệu ── */
+  .about{display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);gap:clamp(28px,6vw,110px);align-items:center}
+  .about .pic{width:100%;aspect-ratio:4/5;background:var(--sand) var(--img) center/cover no-repeat}
+  .about .txt{max-width:44ch;display:grid;gap:18px}
+  .facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(18px,3vw,46px);margin-top:clamp(40px,6vw,80px);border-top:1px solid var(--line);padding-top:26px}
+  .facts .f .k{font-family:var(--serif);font-size:clamp(1.25rem,1.9vw,1.6rem);line-height:1.2;display:block}
+  .facts .f .v{font-family:var(--sans);font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--taupe-deep);display:block;margin-top:12px;line-height:1.7}
+  .pull-quote{max-width:44ch;margin-top:clamp(40px,6vw,80px);border-left:1px solid var(--taupe);padding-left:clamp(20px,3vw,34px)}
+  .pull-quote p{font-family:var(--serif);font-size:clamp(1.05rem,1.5vw,1.28rem);line-height:1.6;color:var(--ink);max-width:none}
+  .pull-quote cite{display:block;margin-top:16px;font-style:normal;font-family:var(--sans);font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:var(--taupe-deep)}
+
+  /* ── khối ảnh + chữ xen kẽ ── */
+  .duo{display:grid;grid-template-columns:minmax(0,1.12fr) minmax(0,.88fr);gap:clamp(28px,6vw,110px);align-items:center}
+  .duo.flip{grid-template-columns:minmax(0,.88fr) minmax(0,1.12fr)}
+  .duo.flip .pic{order:2}
+  .duo .pic{width:100%;aspect-ratio:4/5;background:var(--sand) var(--img) center/cover no-repeat}
+  .duo .txt{max-width:40ch}
+  .step-no{font-family:var(--sans);font-size:11px;letter-spacing:.3em;color:var(--taupe);display:block;margin-bottom:16px}
+  .step-sub{font-family:var(--serif);font-style:italic;font-size:1.1rem;color:var(--taupe-deep);margin:10px 0 18px}
+
+  /* ── ảnh tràn ngang ── */
+  .full{width:100%;aspect-ratio:21/9;background:var(--sand) var(--img) center/cover no-repeat}
+  .full.tallish{aspect-ratio:16/9}
+  .cap{margin-top:16px;font-family:var(--sans);font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--taupe-deep)}
+
+  /* ── sketch → dress ── */
+  .sketch{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(14px,2.2vw,34px);align-items:end}
+  .sketch .f{margin:0}
+  .sketch .im{width:100%;aspect-ratio:3/4;background:var(--sand) var(--img) center/cover no-repeat}
+  .sketch .im.paper{background:var(--champagne);display:grid;place-items:center;text-align:center;padding:24px}
+  .sketch .im.paper span{font-family:var(--sans);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--taupe-deep);line-height:1.8}
+  .sketch figcaption{padding-top:14px;font-family:var(--sans);font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--taupe-deep)}
+
+  /* ── the details ── */
+  .details{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(30px,5vw,90px)}
+  .details figure{margin:0}
+  .details figure:nth-child(2){margin-top:clamp(30px,7vw,120px)}
+  .details figure:nth-child(4){margin-top:clamp(30px,7vw,120px)}
+  .details .im{width:100%;aspect-ratio:4/5;background:var(--sand) var(--img) center/cover no-repeat}
+  .details figcaption{padding-top:18px}
+  .details .t{font-family:var(--sans);font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--taupe-deep);display:block;margin-bottom:8px}
+  .details .d{font-family:var(--serif);font-size:clamp(1rem,1.35vw,1.18rem);line-height:1.5;color:var(--ink)}
+
+  /* ── the bride ── */
+  .bride{margin-bottom:var(--air)}
+  .bride:last-of-type{margin-bottom:0}
+  .bride .im{width:100%;aspect-ratio:3/2;background:var(--sand) var(--img) center 20%/cover no-repeat}
+  .bride .im.portrait{aspect-ratio:4/5;max-width:900px;margin-inline:auto}
+  .bride .meta{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 30px;margin-top:18px}
+  .bride .meta span{font-family:var(--sans);font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--taupe-deep)}
+
+  /* ── enquire ── */
+  .invite{max-width:34ch}
+  .form-w{max-width:560px;margin-top:clamp(34px,5vw,60px);display:grid;gap:26px}
+  .row{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+  .field{display:grid;gap:8px}
+  label{font-family:var(--sans);font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:var(--taupe-deep)}
+  input,select{
+    font-family:var(--sans);font-weight:300;font-size:15.5px;color:var(--ink);
+    background:transparent;border:0;border-bottom:1px solid var(--line);padding:10px 0;border-radius:0;
+  }
+  input:focus,select:focus{outline:none;border-bottom-color:var(--ink)}
+  .note{font-size:12px;color:var(--taupe-deep);line-height:1.7;max-width:44ch}
+  .thanks{display:none}
+  form.sent{display:none}
+  .thanks.sent{display:block}
+
+  /* ── footer ── */
+  footer{border-top:1px solid var(--line);padding-block:clamp(50px,7vw,84px);text-align:center}
+  footer .mark{color:var(--ink)}
+  .foot-links{display:flex;flex-wrap:wrap;gap:clamp(18px,3vw,40px);justify-content:center;margin-top:26px;font-family:var(--sans);font-size:11px;letter-spacing:.24em;text-transform:uppercase}
+  .foot-links a{text-decoration:none;opacity:.75}
+  .foot-links a:hover{opacity:1}
+  .foot-say{margin:30px auto 0;font-family:var(--serif);font-style:italic;font-size:1.05rem;color:var(--taupe-deep)}
+
+  /* ── hiện dần, rất chậm ── */
+  .rise{opacity:0;transform:translateY(26px)}
+  .js .rise.in{opacity:1;transform:none;transition:opacity 1.4s cubic-bezier(.22,.7,.28,1),transform 1.4s cubic-bezier(.22,.7,.28,1)}
+  html:not(.js) .rise{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    *,*::before,*::after{animation:none!important;transition:none!important}
+    .rise{opacity:1!important;transform:none!important}
+  }
+
+  @media (max-width:1000px){
+    .duo,.duo.flip,.about{grid-template-columns:1fr;gap:28px}
+    .facts{grid-template-columns:1fr;gap:22px}
+    .duo.flip .pic{order:0}
+    .sketch{grid-template-columns:1fr}
+    .details{grid-template-columns:1fr;gap:44px}
+    .details figure:nth-child(2),.details figure:nth-child(4){margin-top:0}
+    .bar{flex-wrap:wrap;gap:14px}
+    .bar nav{order:3;width:100%;gap:18px;overflow-x:auto;padding-bottom:2px;-webkit-overflow-scrolling:touch}
+    .bar nav a{font-size:10px;letter-spacing:.2em;white-space:nowrap}
+    .idx .de{display:none}
+    .full{aspect-ratio:4/3}
+    .bride .im{aspect-ratio:4/5}
+  }
+  @media (max-width:560px){ .row{grid-template-columns:1fr} }
+
+  /* ── trang con (tách trang) ── */
+  .sub{padding-top:clamp(126px,15vh,190px)}
+  .sub-head{border-bottom:1px solid var(--line);padding-bottom:clamp(26px,4vw,46px);margin-bottom:clamp(46px,7vw,92px)}
+  .sub-head .h-lg{margin-top:18px;max-width:22ch}
+  .sub-head p{margin-top:22px}
+  .bar nav a.cur{opacity:1}
+  .bar nav a.cur::after{content:"";display:block;height:1px;background:currentColor;margin-top:5px}
+  .next{border-top:1px solid var(--line);margin-top:var(--air);padding-block:clamp(44px,6vw,78px);display:flex;justify-content:space-between;align-items:baseline;gap:20px;flex-wrap:wrap}
+  .next .lb{font-family:var(--sans);font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:var(--taupe-deep)}
+  .next .tt{font-family:var(--serif);font-size:clamp(1.15rem,1.7vw,1.5rem);text-decoration:none;display:inline-flex;align-items:center;gap:14px;transition:gap .45s ease}
+  .next .tt::after{content:"\2192";font-family:var(--sans);font-size:.7em}
+  .next .tt:hover{gap:22px}
+
+  /* ── chỉ mục trang chủ ── */
+  .idx{border-top:1px solid var(--line)}
+  .idx a{display:flex;align-items:baseline;gap:clamp(14px,3vw,40px);padding-block:clamp(20px,2.6vw,34px);
+    border-bottom:1px solid var(--line);text-decoration:none;transition:padding-inline .55s ease,background .55s ease}
+  .idx a:hover{padding-inline:14px;background:var(--ivory)}
+  .idx .no{font-family:var(--sans);font-size:11px;letter-spacing:.26em;color:var(--taupe-deep);min-width:3ch}
+  .idx .nm{font-family:var(--serif);font-size:clamp(1.15rem,1.7vw,1.5rem);flex:1;line-height:1.35}
+  .idx .de{font-family:var(--sans);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--taupe-deep);text-align:right}
+
+
+  .hero-ba{margin-top:26px;font-family:var(--sans);font-size:11px;letter-spacing:.28em;
+    text-transform:uppercase;color:rgba(255,255,255,.85)}
+  .foot-say{font-style:italic}
+</style>
+
+<header id="hd" class="solid">
+  <div class="wrap">
+    <div class="bar">
+      <a class="mark" href="index.html">Dolinhanh</a>
+      <nav aria-label="Mục chính">
+        <a href="index.html" data-en="Home">Trang chủ</a>
+        <a href="gioi-thieu.html" data-en="About">Giới thiệu</a>
+        <a href="hanh-trinh.html" data-en="The experience">Hành trình</a>
+        <a href="chi-tiet.html" data-en="The details">Chi tiết</a>
+        <a href="co-dau.html" data-en="The bride">Cô dâu</a>
+        <a href="gui-yeu-cau.html" class="cur" data-en="Enquire">Gửi yêu cầu</a>
+      </nav>
+      <div class="lang" role="group" aria-label="Ngôn ngữ">
+        <button type="button" data-lang="vi" aria-pressed="true">VI</button><span>/</span><button type="button" data-lang="en" aria-pressed="false">EN</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="wrap sub">
+    <div class="sub-head rise">
+      <span class="eyebrow" data-en="Enquire">Gửi yêu cầu</span>
+      <h1 class="h-lg" data-en="Leave us a few lines and we will keep a private fitting for you.">Để lại vài dòng, nhà giữ chỗ cho buổi thử riêng.</h1>
+      <p data-en="Hanoi &amp; Ho Chi Minh City &nbsp;·&nbsp; 035 995 0588">Hà Nội &amp; TP.HCM &nbsp;·&nbsp; 035 995 0588</p>
+    </div>
+  </section>
+  <!-- ══ 07 · ENQUIRE ══ -->
+  <section id="hen" style="padding-bottom:var(--air)">
+    <div class="wrap">
+      <div class="invite rise">
+        <span class="eyebrow" data-en="Let’s make your dress">Cùng dựng chiếc váy của bạn</span>
+        <h2 class="h-lg" style="margin-top:20px" data-en="We would like to hear about your day before we talk about the dress.">Nhà muốn nghe về ngày cưới của bạn trước khi nói về chiếc váy.</h2>
+      </div>
+      <form class="form-w rise" id="leadForm" novalidate>
+        <div class="row">
+          <div class="field"><label for="ten" data-en="Full name">Họ và tên</label><input id="ten" name="ten" type="text" required></div>
+          <div class="field"><label for="sdt" data-en="Phone number">Số điện thoại</label><input id="sdt" name="sdt" type="tel" inputmode="numeric" required></div>
+        </div>
+        <div class="row">
+          <div class="field"><label for="ngay" data-en="Wedding date">Ngày cưới dự kiến</label><input id="ngay" name="ngay" type="date"></div>
+          <div class="field"><label for="coso" data-en="Showroom">Cơ sở</label>
+            <select id="coso" name="coso"><option data-en="Hanoi">Hà Nội</option><option data-en="Ho Chi Minh City">TP. Hồ Chí Minh</option></select></div>
+        </div>
+        <button class="link" type="submit" style="justify-self:start;margin-top:6px" data-en="Begin the story">Bắt đầu câu chuyện</button>
+        <p class="note" data-en="A stylist replies within a day. No calls out of hours, and your number stays with us.">Stylist trả lời trong vòng một ngày. Không gọi ngoài giờ, không chia sẻ số cho bên thứ ba.</p>
+      </form>
+      <div class="thanks" id="thanks" role="status">
+        <p class="say" style="max-width:30ch" data-en="Thank you. We will be in touch within a day.">Cảm ơn bạn. Nhà sẽ liên hệ trong vòng một ngày.</p>
+      </div>
+    </div>
+  </section>
+  <div class="wrap">
+    <div class="next">
+      <span class="lb" data-en="Next">Tiếp theo</span>
+      <a class="tt" href="index.html" data-en="Back to home">Về trang chủ</a>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <a class="mark" href="index.html">Dolinhanh Bridal</a>
+    <div class="foot-links">
+      <span>Hà Nội &nbsp;·&nbsp; TP.HCM</span>
+      <a href="tel:+84359950588">035 995 0588</a>
+      <a href="https://www.instagram.com/dolinhanh.bridal/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.facebook.com/Dolinhanhbridalhcm/" target="_blank" rel="noopener">Facebook</a>
+      <a href="https://dolinhanhbridal.com/dress-guide.html" target="_blank" rel="noopener">The Bride’s Dress Guide</a>
+    </div>
+    <p class="foot-say" data-en="Quiet minimal luxury, crafted with Mother Love.">Quiet minimal luxury, crafted with Mother Love.</p>
+  </div>
+</footer>
+
+<script>
+/* ═══ NỐI FORM: dán link Google Form dạng .../formResponse vào đây ═══ */
+const FORM_ENDPOINT = "";
+const FORM_FIELDS = { ten:"", sdt:"", ngay:"", coso:"" };
+
+const $ = id => document.getElementById(id);
+let LANG = "vi";
+
+/* form (chỉ có ở trang Gửi yêu cầu) */
+const leadForm = $("leadForm");
+if(leadForm) leadForm.addEventListener("submit", async e=>{
+  e.preventDefault();
+  const form = e.target, sdt = form.sdt.value.replace(/\D/g,"");
+  if(!form.ten.value.trim() || sdt.length < 9){ form.sdt.focus(); return; }
+  if(FORM_ENDPOINT){
+    const fd = new FormData();
+    for(const k in FORM_FIELDS) if(FORM_FIELDS[k]) fd.append(FORM_FIELDS[k], form[k] ? form[k].value : "");
+    try{ await fetch(FORM_ENDPOINT,{method:"POST",mode:"no-cors",body:fd}); }catch(_){}
+  }
+  form.classList.add("sent");
+  $("thanks").classList.add("sent");
+});
+
+/* header đổi nền khi rời khỏi ảnh bìa — trang con luôn nền sáng */
+const hd = $("hd"), hero = $("hero");
+function onScroll(){
+  if(!hero){ hd.classList.add("solid"); return; }
+  hd.classList.toggle("solid", scrollY > hero.offsetHeight - 90);
+  const bg = $("heroBg");
+  if(bg && scrollY < innerHeight) bg.style.transform = "scale(1.04) translateY(" + (scrollY * 0.06) + "px)";
+}
+addEventListener("scroll", onScroll, {passive:true});
+onScroll();
+
+/* hiện dần, chậm */
+const io = new IntersectionObserver(es=>{
+  es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target); }});
+},{threshold:.08});
+document.querySelectorAll(".rise").forEach(el=>io.observe(el));
+
+/* VI / EN */
+document.querySelectorAll("[data-en]").forEach(e=>{ e.dataset.vi = e.innerHTML; });
+function setLang(l){
+  LANG = l;
+  document.documentElement.lang = l;
+  document.querySelectorAll("[data-en]").forEach(e=>{ e.innerHTML = l === "en" ? e.dataset.en : e.dataset.vi; });
+  document.querySelectorAll(".lang button").forEach(b=>b.setAttribute("aria-pressed", b.dataset.lang === l));
+  try{ localStorage.setItem("dla-lang", l); }catch(_){}
+}
+document.querySelectorAll(".lang button").forEach(b=>b.addEventListener("click", ()=>setLang(b.dataset.lang)));
+let saved = "vi";
+try{ saved = localStorage.getItem("dla-lang") || "vi"; }catch(_){}
+setLang(saved);
+</script>
