@@ -600,6 +600,42 @@ src="https://www.facebook.com/tr?id=1358640082651240&ev=PageView&noscript=1"
   .vl .sl-cham button[aria-current="true"]{background:#fff;transform:scale(1.25)}
   .vl figcaption{bottom:34px}
 
+  /* ── Phóng to ảnh váy: bấm ảnh → xem to cả màn hình (V79) ── */
+  .vl figure{cursor:zoom-in}
+  .pt{position:fixed;inset:0;z-index:250;display:flex;flex-direction:column;background:#12100E;
+    opacity:0;transition:opacity .3s ease;touch-action:none;color:#fff}
+  .pt[hidden]{display:none}
+  .pt.hien{opacity:1}
+  .pt button{color:#fff}
+  .pt-khung{position:relative;flex:1 1 auto;min-height:0;display:flex;align-items:center;justify-content:center;
+    overflow:hidden;padding:58px 76px 6px}
+  .pt-anh{display:block;max-width:100%;max-height:100%;width:auto;height:auto;cursor:zoom-in;user-select:none;
+    -webkit-user-drag:none;transition:transform .4s cubic-bezier(.22,.7,.28,1),opacity .25s ease}
+  .pt.zoom .pt-anh{transform:scale(2.2);cursor:zoom-out}
+  .pt-dem,.pt-dong,.pt-lui,.pt-toi{text-shadow:0 1px 8px rgba(0,0,0,.5)}
+  .pt-dem{position:absolute;top:calc(22px + env(safe-area-inset-top));left:24px;z-index:3;font-family:var(--sans);
+    font-size:10.5px;letter-spacing:.2em;color:rgba(255,255,255,.6)}
+  .pt-dong{position:absolute;top:calc(8px + env(safe-area-inset-top));right:12px;z-index:3;width:46px;height:46px;
+    font-size:32px;line-height:1;font-weight:300;opacity:.85}
+  .pt-lui,.pt-toi{position:absolute;top:50%;z-index:3;width:54px;height:54px;margin-top:-27px;display:grid;
+    place-items:center;opacity:.7;transition:opacity .2s ease;filter:drop-shadow(0 1px 6px rgba(0,0,0,.45))}
+  .pt-lui{left:10px} .pt-toi{right:10px}
+  .pt-lui:hover,.pt-toi:hover,.pt-dong:hover{opacity:1}
+  .pt.zoom .pt-lui,.pt.zoom .pt-toi{opacity:0;pointer-events:none}
+  .pt-chu{flex:none;display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:12px 28px;
+    padding:14px 20px calc(20px + env(safe-area-inset-bottom));text-align:center}
+  .pt-chu .nm{color:#fff;font-family:var(--sans);font-size:12px;letter-spacing:.22em;text-transform:uppercase}
+  .pt-chu .de{margin-left:14px;font-family:var(--sans);font-size:11px;letter-spacing:.06em;color:rgba(255,255,255,.72)}
+  .pt-dat{display:inline-block;background:#7A2638;color:#fff;text-decoration:none;padding:10px 18px;
+    font-family:var(--sans);font-size:10px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;transition:background .2s ease}
+  .pt-dat:hover{background:#611E2D;opacity:1}
+  @media (max-width:700px){
+    .pt-khung{padding:56px 0 4px}
+    .pt-lui,.pt-toi{width:44px;height:44px;margin-top:-22px}
+    .pt-lui{left:2px} .pt-toi{right:2px}
+    .pt-chu .de{display:block;margin:6px 0 0}
+  }
+
   /* ── Header điện thoại: menu 2 hàng, gọn hơn; đẩy nội dung xuống khỏi header ── */
   @media (max-width:1000px){
     .bar{gap:10px;padding-block:16px}
@@ -685,43 +721,43 @@ src="https://www.facebook.com/tr?id=1358640082651240&ev=PageView&noscript=1"
       <div class="vl" id="vlGrid">
         <figure data-dang="mermaid" data-mood="minimal" data-coso="hn">
           <div class="sl-khung">
-            <div class="sl" data-img="anh/vay/ms23/01.jpg"></div>
+            <div class="sl" data-img="anh/vay/ms23/01.jpg" data-lon="anh/vay/ms23/lon.jpg"></div>
           </div>
           <figcaption><span class="kind" data-en="Dolinhanh Bridal">Dolinhanh Bridal</span><span class="nm">MS 23</span><span class="de" data-en="Fitted silk, front slit">Dáng ôm lụa, xẻ tà</span></figcaption>
         </figure>
         <figure data-dang="mermaid" data-mood="romantic" data-coso="hn">
           <div class="sl-khung">
-            <div class="sl" data-img="anh/vay/ms24/01.jpg"></div>
+            <div class="sl" data-img="anh/vay/ms24/01.jpg" data-lon="anh/vay/ms24/lon.jpg"></div>
           </div>
           <figcaption><span class="kind" data-en="Dolinhanh Bridal">Dolinhanh Bridal</span><span class="nm">MS 24</span><span class="de" data-en="Raised lace, detachable tulle skirt">Ren nổi thân, tùng voan rời</span></figcaption>
         </figure>
         <figure data-dang="ballgown" data-mood="timeless" data-coso="hn">
           <div class="sl-khung">
-            <div class="sl" data-img="anh/vay/ms26/01.jpg"></div>
+            <div class="sl" data-img="anh/vay/ms26/01.jpg" data-lon="anh/vay/ms26/lon.jpg"></div>
           </div>
           <figcaption><span class="kind" data-en="Dolinhanh Bridal">Dolinhanh Bridal</span><span class="nm">MS 26</span><span class="de" data-en="Satin, sweetheart neckline">Satin cổ tim</span></figcaption>
         </figure>
         <figure data-dang="ballgown" data-mood="editorial" data-coso="hn">
           <div class="sl-khung">
-            <div class="sl" data-img="anh/vay/ms27/01.jpg"></div>
+            <div class="sl" data-img="anh/vay/ms27/01.jpg" data-lon="anh/vay/ms27/lon.jpg"></div>
           </div>
           <figcaption><span class="kind" data-en="Dolinhanh Bridal">Dolinhanh Bridal</span><span class="nm">MS 27</span><span class="de" data-en="Beaded all over">Đính kết toàn thân</span></figcaption>
         </figure>
         <figure data-dang="mermaid" data-mood="romantic" data-coso="hn">
           <div class="sl-khung">
-            <div class="sl" data-img="anh/vay/ms28/01.jpg"></div>
+            <div class="sl" data-img="anh/vay/ms28/01.jpg" data-lon="anh/vay/ms28/lon.jpg"></div>
           </div>
           <figcaption><span class="kind" data-en="Dolinhanh Bridal">Dolinhanh Bridal</span><span class="nm">MS 28</span><span class="de" data-en="Mermaid in soft tulle">Đuôi cá voan mờ</span></figcaption>
         </figure>
         <figure data-dang="a-line" data-mood="romantic" data-coso="hn">
           <div class="sl-khung">
-            <div class="sl" data-img="anh/vay/ms31/01.jpg"></div>
+            <div class="sl" data-img="anh/vay/ms31/01.jpg" data-lon="anh/vay/ms31/lon.jpg"></div>
           </div>
           <figcaption><span class="kind" data-en="Dolinhanh Bridal">Dolinhanh Bridal</span><span class="nm">MS 31</span><span class="de" data-en="Organza, fabric flowers by hand">Organza, hoa vải đính tay</span></figcaption>
         </figure>
         <figure data-dang="mermaid" data-mood="minimal" data-coso="hn">
           <div class="sl-khung">
-            <div class="sl" data-img="anh/vay/ms32/01.jpg"></div>
+            <div class="sl" data-img="anh/vay/ms32/01.jpg" data-lon="anh/vay/ms32/lon.jpg"></div>
           </div>
           <figcaption><span class="kind" data-en="Dolinhanh Bridal">Dolinhanh Bridal</span><span class="nm">MS 32</span><span class="de" data-en="Draped satin, front slit">Satin xếp nếp, xẻ tà</span></figcaption>
         </figure>
@@ -1375,7 +1411,7 @@ src="https://www.facebook.com/tr?id=1358640082651240&ev=PageView&noscript=1"
         </figure>
         <figure data-dang="ballgown" data-mood="timeless" data-coso="hcm">
           <div class="sl-khung">
-            <div class="sl" data-img="anh/vay/ms168/01.jpg"></div>
+            <div class="sl" data-img="anh/vay/ms168/01.jpg" data-lon="anh/vay/ms168/lon.jpg"></div>
           </div>
           <figcaption><span class="kind" data-en="Dolinhanh Bridal">Dolinhanh Bridal</span><span class="nm">MS 168</span><span class="de" data-en="Pleated tulle, long sleeves">Voan xếp ly, tay dài</span></figcaption>
         </figure>
@@ -1429,13 +1465,13 @@ src="https://www.facebook.com/tr?id=1358640082651240&ev=PageView&noscript=1"
         </figure>
         <figure data-dang="ballgown" data-mood="editorial" data-coso="hcm">
           <div class="sl-khung">
-            <div class="sl" data-img="anh/vay/ms179/01.jpg"></div>
+            <div class="sl" data-img="anh/vay/ms179/01.jpg" data-lon="anh/vay/ms179/lon.jpg"></div>
           </div>
           <figcaption><span class="kind" data-en="Dolinhanh Bridal">Dolinhanh Bridal</span><span class="nm">MS 179</span><span class="de" data-en="Glitter lace, grand skirt">Ren kim tuyến, tùng lớn</span></figcaption>
         </figure>
         <figure data-dang="ballgown" data-mood="timeless" data-coso="hcm">
           <div class="sl-khung">
-            <div class="sl" data-img="anh/vay/ms180/01.jpg"></div>
+            <div class="sl" data-img="anh/vay/ms180/01.jpg" data-lon="anh/vay/ms180/lon.jpg"></div>
           </div>
           <figcaption><span class="kind" data-en="Dolinhanh Bridal">Dolinhanh Bridal</span><span class="nm">MS 180</span><span class="de" data-en="Lace bodice, satin skirt">Thân ren, tùng satin</span></figcaption>
         </figure>
@@ -1459,7 +1495,7 @@ src="https://www.facebook.com/tr?id=1358640082651240&ev=PageView&noscript=1"
         </figure>
         <figure data-dang="ballgown" data-mood="editorial" data-coso="hcm">
           <div class="sl-khung">
-            <div class="sl" data-img="anh/vay/ms184/01.jpg"></div>
+            <div class="sl" data-img="anh/vay/ms184/01.jpg" data-lon="anh/vay/ms184/lon.jpg"></div>
           </div>
           <figcaption><span class="kind" data-en="Dolinhanh Bridal">Dolinhanh Bridal</span><span class="nm">MS 184</span><span class="de" data-en="Shimmer lace, full skirt">Kim tuyến, tùng xoè</span></figcaption>
         </figure>
@@ -1609,7 +1645,7 @@ src="https://www.facebook.com/tr?id=1358640082651240&ev=PageView&noscript=1"
         </figure>
         <figure data-dang="ballgown" data-mood="minimal" data-coso="hcm">
           <div class="sl-khung">
-            <div class="sl" data-img="anh/vay/ms210/01.jpg"></div>
+            <div class="sl" data-img="anh/vay/ms210/01.jpg" data-lon="anh/vay/ms210/lon.jpg"></div>
           </div>
           <figcaption><span class="kind" data-en="Dolinhanh Bridal">Dolinhanh Bridal</span><span class="nm">MS 210</span><span class="de" data-en="Plain tulle, fitted bodice">Voan trơn, thân ôm</span></figcaption>
         </figure>
@@ -1707,6 +1743,21 @@ src="https://www.facebook.com/tr?id=1358640082651240&ev=PageView&noscript=1"
     <p class="ft-cr" data-en="© 2026 Dolinhanh Bridal. All rights reserved.">© 2026 Dolinhanh Bridal. Đã đăng ký bản quyền.</p>
   </div>
 </footer>
+
+<!-- ══ PHÓNG TO ẢNH VÁY ══ -->
+<div class="pt" id="phongTo" hidden role="dialog" aria-modal="true" aria-label="Xem ảnh váy">
+  <span class="pt-dem" id="ptDem"></span>
+  <button type="button" class="pt-dong" id="ptDong" aria-label="Đóng">×</button>
+  <div class="pt-khung" id="ptKhung">
+    <img class="pt-anh" id="ptAnh" alt="" draggable="false">
+    <button type="button" class="pt-lui" id="ptLui" aria-label="Mẫu trước"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></button>
+    <button type="button" class="pt-toi" id="ptToi" aria-label="Mẫu sau"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg></button>
+  </div>
+  <div class="pt-chu">
+    <p><span class="nm" id="ptTen"></span><span class="de" id="ptMo"></span></p>
+    <a class="pt-dat" id="ptDat" href="gui-yeu-cau.html" data-en="Book a fitting for this dress">Đặt lịch thử mẫu này</a>
+  </div>
+</div>
 
 <a class="zl-noi" id="zl-noi" href="https://zalo.me/0359950588" target="_blank" rel="noopener" aria-label="Nhắn Zalo cho Dolinhanh Bridal">
   <span class="zl-icon" aria-hidden="true">
@@ -1836,17 +1887,91 @@ setLang(saved);
     function ve2(k){ i=(k+n)%n; track.style.transform="translateX("+(-i*100)+"%)";
       cham.forEach(function(b,j){ b.setAttribute("aria-current", j===i); }); }
     cham.forEach(function(b,j){ b.addEventListener("click",function(e){ e.stopPropagation(); ve2(j); }); });
-    o.addEventListener("click",function(e){
-      if(e.target.closest(".sl-cham")) return;
-      var r=o.getBoundingClientRect();
-      ve2(i + ((e.clientX-r.left) > r.width/2 ? 1 : -1));
-    });
     var x0=null;
     o.addEventListener("touchstart",function(e){ x0=e.touches[0].clientX; },{passive:true});
     o.addEventListener("touchend",function(e){ if(x0===null) return;
       var dx=e.changedTouches[0].clientX-x0; x0=null;
       if(Math.abs(dx)>40) ve2(i + (dx<0?1:-1)); },{passive:true});
   });
+
+  /* phóng to ảnh váy — lướt sang mẫu khác theo bộ lọc đang chọn */
+  G.querySelectorAll(".sl").forEach(function(s){ s.dataset.goc=s.getAttribute("data-img")||""; });  /* data-lon = bản nét cho ảnh phóng to (nếu có) */
+  const PT=document.getElementById("phongTo");
+  if(PT){
+    const A=document.getElementById("ptAnh"), K=document.getElementById("ptKhung"), DEM=document.getElementById("ptDem"),
+          TEN=document.getElementById("ptTen"), MO=document.getElementById("ptMo"), DAT=document.getElementById("ptDat");
+    let ds=[], k=0, dangMo=false, x0=null, y0=0, daKeo=false, ox0=50, oy0=50;
+    const kep=v=>Math.min(100,Math.max(0,v));
+    const zoom=()=>PT.classList.contains("zoom");
+    function boZoom(){ PT.classList.remove("zoom"); A.style.transformOrigin=""; }
+    function hien(j){
+      if(!ds.length) return;
+      k=(j+ds.length)%ds.length; const it=ds[k]; boZoom();
+      A.style.opacity="0"; A.onload=()=>{ A.style.opacity="1"; }; A.src=it.u; if(A.complete) A.style.opacity="1";
+      if(it.l){ const n=new Image(); n.onload=()=>{ if(dangMo && ds[k]===it){ A.onload=null; A.src=it.l; A.style.opacity="1"; } }; n.src=it.l; }
+      const nm=it.f.querySelector(".nm"), de=it.f.querySelector(".de");
+      TEN.innerHTML=nm?nm.innerHTML:""; MO.innerHTML=de?de.innerHTML:"";
+      A.alt=(nm?nm.textContent:"")+(de?" — "+de.textContent:"");
+      DAT.dataset.ms=nm?nm.textContent:"";
+      DEM.textContent=(k+1)+" / "+ds.length;
+      [k-1,k+1].forEach(t=>{ (new Image()).src=ds[(t+ds.length)%ds.length].u; });
+    }
+    function moRa(f,i){
+      ds=[]; F.filter(hop).forEach(x=>x.querySelectorAll(".sl").forEach(s=>{ if(s.dataset.goc) ds.push({f:x,u:s.dataset.goc,l:s.dataset.lon||""}); }));
+      const s=f.querySelectorAll(".sl")[i]||f.querySelector(".sl");
+      const j=ds.findIndex(x=>x.f===f && x.u===(s&&s.dataset.goc));
+      if(j<0) return;
+      PT.hidden=false; dangMo=true; document.body.style.overflow="hidden";
+      requestAnimationFrame(()=>PT.classList.add("hien"));
+      try{ history.pushState({pt:1},""); }catch(_){}
+      hien(j);
+    }
+    function anDi(){
+      if(!dangMo) return; dangMo=false; PT.classList.remove("hien"); boZoom();
+      const pn=document.getElementById("popNen"); if(!pn||pn.hidden) document.body.style.overflow="";
+      setTimeout(()=>{ if(!dangMo) PT.hidden=true; },300);
+    }
+    function dong(){ if(history.state && history.state.pt) history.back(); else anDi(); }
+    addEventListener("popstate", anDi);
+    G.addEventListener("click", function(e){
+      if(e.target.closest(".sl-cham")) return;
+      const f=e.target.closest("figure"); if(!f) return;
+      const tr=f.querySelector(".sl-khung"), m=/(\d+)%/.exec((tr&&tr.style.transform)||"");
+      moRa(f, m ? Math.round(+m[1]/100) : 0);
+    });
+    document.getElementById("ptDong").addEventListener("click", dong);
+    document.getElementById("ptLui").addEventListener("click", e=>{ e.stopPropagation(); hien(k-1); });
+    document.getElementById("ptToi").addEventListener("click", e=>{ e.stopPropagation(); hien(k+1); });
+    DAT.addEventListener("click", dong);
+    function datGoc(x,y){ const r=K.getBoundingClientRect(); A.style.transformOrigin=kep((x-r.left)/r.width*100)+"% "+kep((y-r.top)/r.height*100)+"%"; }
+    K.addEventListener("click", function(e){
+      if(e.target===A){ if(daKeo) return; if(zoom()) boZoom(); else { datGoc(e.clientX,e.clientY); PT.classList.add("zoom"); } }
+      else if(e.target===K) dong();
+    });
+    PT.addEventListener("click", e=>{ if(e.target===PT) dong(); });
+    K.addEventListener("mousemove", e=>{ if(zoom() && !x0) datGoc(e.clientX,e.clientY); });
+    K.addEventListener("touchstart", function(e){
+      if(e.touches.length>1){ x0=null; return; }
+      x0=e.touches[0].clientX; y0=e.touches[0].clientY; daKeo=false;
+      const o=(A.style.transformOrigin||"50% 50%").split(" "); ox0=parseFloat(o[0]); oy0=parseFloat(o[1]);
+    },{passive:true});
+    K.addEventListener("touchmove", function(e){
+      if(x0===null) return;
+      const dx=e.touches[0].clientX-x0, dy=e.touches[0].clientY-y0;
+      if(Math.abs(dx)+Math.abs(dy)>10) daKeo=true;
+      if(zoom()){ const r=K.getBoundingClientRect(); A.style.transformOrigin=kep(ox0-dx/r.width*130)+"% "+kep(oy0-dy/r.height*130)+"%"; }
+    },{passive:true});
+    K.addEventListener("touchend", function(e){
+      if(x0===null) return;
+      const dx=e.changedTouches[0].clientX-x0, dy=e.changedTouches[0].clientY-y0; x0=null;
+      if(!zoom() && Math.abs(dx)>50 && Math.abs(dx)>Math.abs(dy)) hien(k+(dx<0?1:-1));
+      setTimeout(()=>{ daKeo=false; },400);
+    },{passive:true});
+    document.addEventListener("keydown", function(e){
+      if(!dangMo) return;
+      if(e.key==="Escape") dong(); else if(e.key==="ArrowRight") hien(k+1); else if(e.key==="ArrowLeft") hien(k-1);
+    });
+  }
   ve();
 })();
 </script>
@@ -1918,7 +2043,7 @@ setLang(saved);
   function dong(){ nen.hidden=true; document.body.style.overflow=""; }
   document.addEventListener("click", function(e){
     var a=e.target.closest('a[href$="gui-yeu-cau.html"], a[href*="gui-yeu-cau.html#"]');
-    if(a){ mo(e); }
+    if(a){ nen.dataset.ms=a.dataset.ms||""; mo(e); }
   });
   document.getElementById("popDong").addEventListener("click", dong);
   nen.addEventListener("click", function(e){ if(e.target===nen) dong(); });
@@ -1934,6 +2059,7 @@ setLang(saved);
     tb.className="fm-tb"; tb.textContent="";
     var muonGia=document.getElementById("p-nhanGia").checked;
     var ghiChu="Khách tự đặt trên web Dolinhanh."
+      + (nen.dataset.ms ? " Mẫu váy quan tâm: "+nen.dataset.ms+"." : "")
       + (d.ngayTiec ? " Ngày tổ chức tiệc: "+ngayVN(d.ngayTiec)+"." : "")
       + (muonGia ? " KHÁCH MUỐN NHẬN BẢNG GIÁ." : "");
     var f=new FormData();
@@ -1954,7 +2080,8 @@ setLang(saved);
       + "Cô dâu & chú rể: "+d.ten+"\nSĐT: "+d.sdt+"\n"
       + "Ngày tổ chức tiệc: "+(ngayVN(d.ngayTiec)||"chưa điền")+"\n"
       + "Ngày đặt hẹn: "+ngayVN(d.ngayHen)+"\nGiờ đặt hẹn: "+d.gioHen+"\n"
-      + "Showroom: "+d.coSo+"\nMuốn nhận bảng giá: "+(muonGia?"CÓ":"không");
+      + "Showroom: "+d.coSo+"\nMuốn nhận bảng giá: "+(muonGia?"CÓ":"không")
+      + (nen.dataset.ms ? "\nMẫu váy quan tâm: "+nen.dataset.ms : "");
     fetch(MAIL_URL+"?hoi="+encodeURIComponent(tin)+"&em="+encodeURIComponent(d.sdt),{mode:"no-cors"}).catch(function(){});
     try{ navigator.clipboard.writeText(tin); }catch(e){}
     var ng=document.getElementById("p-gia");
