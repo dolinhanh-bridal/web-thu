@@ -198,6 +198,8 @@ src="https://www.facebook.com/tr?id=1358640082651240&ev=PageView&noscript=1"
   .hang .ten{font-family:var(--serif);font-size:24px;line-height:1.15;letter-spacing:.01em;color:var(--ink)}
   .hang .gia{font-family:var(--body);font-size:15px;color:var(--ink);margin-top:6px;font-variant-numeric:tabular-nums}
   .gia-cu{color:var(--grey-2);text-decoration:line-through;margin-right:8px;font-size:.6em}
+  a.gia-cu{cursor:pointer}
+  a.gia-cu:hover{color:var(--ink-2)}
   .gia-moi{color:var(--ink);font-weight:600}
   .hang .mo{color:var(--grey);margin:0 0 14px;max-width:38ch;font-size:15px;line-height:1.5}
   .hang .quyen{display:grid;gap:5px;font-size:15px;color:var(--ink-2)}
@@ -611,6 +613,7 @@ src="https://www.facebook.com/tr?id=1358640082651240&ev=PageView&noscript=1"
     <div class="exp-dau len">
       <h2>The dress.</h2>
       <div class="phu">Chosen for her — not for the trend.</div>
+      <a class="lien" href="wedding-dress-prices.html" style="margin-top:18px">Xem giá từng mẫu váy</a>
     </div>
 
     <!-- 01 Full -->
@@ -619,7 +622,7 @@ src="https://www.facebook.com/tr?id=1358640082651240&ev=PageView&noscript=1"
       <div>
         <div class="ten" data-ten="vay4"></div>
         <div class="gia" data-gia="vay4"></div>
-        <div class="cta"><a class="nut-goi" href="#fitting" data-cta>Đặt lịch thử gói này</a><a class="lien nho" href="#fitting" data-qr="vay4">Cọc giữ váy</a></div>
+        <div class="cta"><a class="lien nho" href="#" data-dk="1">Điều kiện áp dụng</a><a class="lien nho" href="wedding-dress-prices.html">Xem giá từng mẫu váy</a></div>
       </div>
       <div>
         <p class="mo">Ba chiếc váy, áo dài đôi và ba giờ take care cùng stylist — để trong ngày ấy, nàng chỉ cần là chính mình.</p>
@@ -634,7 +637,7 @@ src="https://www.facebook.com/tr?id=1358640082651240&ev=PageView&noscript=1"
       <div>
         <div class="ten">Two Dresses</div>
         <div class="gia" data-gia="vay3"></div>
-        <div class="cta"><a class="nut-goi" href="#fitting" data-cta>Đặt lịch thử gói này</a><a class="lien nho" href="#fitting" data-qr="vay3">Cọc giữ váy</a></div>
+        <div class="cta"><a class="lien nho" href="#" data-dk="1">Điều kiện áp dụng</a><a class="lien nho" href="wedding-dress-prices.html">Xem giá từng mẫu váy</a></div>
       </div>
       <div>
         <p class="mo">Hai chiếc váy cho hai khoảnh khắc trong ngày — và những chi tiết chỉ nàng mới có.</p>
@@ -650,7 +653,7 @@ src="https://www.facebook.com/tr?id=1358640082651240&ev=PageView&noscript=1"
       <div>
         <div class="ten">Pretty Dress</div>
         <div class="gia" data-gia="vay2"></div>
-        <div class="cta"><a class="nut-goi" href="#fitting" data-cta>Đặt lịch thử gói này</a><a class="lien nho" href="#fitting" data-qr="vay2">Cọc giữ váy</a></div>
+        <div class="cta"><a class="lien nho" href="#" data-dk="1">Điều kiện áp dụng</a><a class="lien nho" href="wedding-dress-prices.html">Xem giá từng mẫu váy</a></div>
       </div>
       <div>
         <p class="mo">Một chiếc váy chọn lọc, dành cho lần đầu nàng đến với Dolinhanh.</p>
@@ -666,7 +669,7 @@ src="https://www.facebook.com/tr?id=1358640082651240&ev=PageView&noscript=1"
       <div>
         <div class="ten">Bride Care</div>
         <div class="gia" data-gia="vay1"></div>
-        <div class="cta"><a class="nut-goi" href="#fitting" data-cta>Đặt lịch thử gói này</a><a class="lien nho" href="#fitting" data-qr="vay1">Cọc giữ váy</a></div>
+        <div class="cta"><a class="lien nho" href="#" data-dk="1">Điều kiện áp dụng</a><a class="lien nho" href="wedding-dress-prices.html">Xem giá từng mẫu váy</a></div>
       </div>
       <div>
         <p class="mo">Dù chiếc váy của nàng ở nơi khác, Dolinhanh vẫn muốn ngày cưới của nàng được chăm chút.</p>
@@ -917,6 +920,27 @@ src="https://www.facebook.com/tr?id=1358640082651240&ev=PageView&noscript=1"
   </div>
 </div>
 
+<!-- ══════════ HỘP GIÁ GỐC & ĐIỀU KIỆN ÁP DỤNG ══════════ -->
+<div class="qr-nen" id="dkNen" role="dialog" aria-modal="true">
+  <div class="qr-hop" style="text-align:left">
+    <button class="dong" id="dkDong" aria-label="Đóng">×</button>
+    <div class="nhan" style="text-align:center">Điều kiện áp dụng</div>
+    <div class="tk" style="margin-top:16px">
+      <b>Giá gốc</b> là giá niêm yết để anh/chị so sánh — giá hiển thị trên mỗi gói (không gạch ngang) là giá ưu đãi anh/chị thực trả.<br><br>
+      <b>Điều kiện áp dụng</b><br>
+      — Áp dụng cho cô dâu đặt lịch thử váy <b>lần đầu</b> và <b>cọc ngay tại shop</b>.<br>
+      — Được hỗ trợ đổi mẫu váy 1 lần trong năm 2026 nếu có nhu cầu.<br><br>
+      <b>Điều kiện áp dụng khác</b><br>
+      — Cọc giữ ưu đãi 1.000.000đ khi chốt mẫu.<br>
+      — Cọc thế chân 5.000.000đ/váy khi nhận váy, hoàn lại nếu trả đúng hạn và váy nguyên vẹn.<br>
+      — Thời gian thuê: 1 váy 3 ngày · 2 váy 5 ngày (nhận và trả buổi chiều).<br>
+      — Phí thử váy: 5 mẫu đầu miễn phí, từ mẫu thứ 6 phụ thu 100.000đ/mẫu.<br>
+      — Mỗi váy kèm 1 voan.
+    </div>
+    <a class="zalo" href="https://zalo.me/0359950588" target="_blank" rel="noopener" style="margin-top:16px">Nhắn Zalo hỏi thêm</a>
+  </div>
+</div>
+
 <script>
   /* ══════════════════════════════════════════════════════
      BANG_GIA — chỉ sửa trong ngoặc kép. Mọi số trên trang
@@ -959,7 +983,13 @@ src="https://www.facebook.com/tr?id=1358640082651240&ev=PageView&noscript=1"
       const g=BANG_GIA[o.dataset.gia]; if(!g) return;
       const moi = giaThat(g);
       const cu = giaCu(g);
-      o.innerHTML = (cu ? '<span class="gia-cu">'+cu+'</span>' : '') + '<span class="gia-moi">'+moi+'</span>';
+      /* "giá gốc" (gạch ngang) của gói váy (vay1-4) link sang trang giá từng mẫu để so sánh;
+         gói wedding experience (goi1-4, ảnh cưới) không liên quan tới giá thuê váy nên giữ nguyên, không link. */
+      const laVay = /^vay/.test(o.dataset.gia);
+      const cuHtml = cu ? (laVay
+        ? '<a class="gia-cu" href="wedding-dress-prices.html" title="Xem giá từng mẫu váy">'+cu+'</a>'
+        : '<span class="gia-cu">'+cu+'</span>') : '';
+      o.innerHTML = cuHtml + '<span class="gia-moi">'+moi+'</span>';
     });
     document.querySelectorAll("[data-gia-ngan]").forEach(o=>{
       const g=BANG_GIA[o.dataset.giaNgan]; if(!g) return;
@@ -1326,6 +1356,17 @@ src="https://www.facebook.com/tr?id=1358640082651240&ev=PageView&noscript=1"
     function dong(){ nen.classList.remove("hien"); document.body.style.overflow=""; }
     document.querySelectorAll("[data-qr]").forEach(function(a){ a.addEventListener("click",function(e){ e.preventDefault(); mo(a.getAttribute("data-qr")); }); });
     document.getElementById("qrDong").addEventListener("click",dong);
+    nen.addEventListener("click",function(e){ if(e.target===nen) dong(); });
+    document.addEventListener("keydown",function(e){ if(e.key==="Escape") dong(); });
+  })();
+
+  /* ══ GIÁ GỐC & ĐIỀU KIỆN ÁP DỤNG — hộp thông tin tĩnh ══ */
+  (function dieuKien(){
+    var nen=document.getElementById("dkNen"); if(!nen) return;
+    function mo(e){ e.preventDefault(); nen.classList.add("hien"); document.body.style.overflow="hidden"; }
+    function dong(){ nen.classList.remove("hien"); document.body.style.overflow=""; }
+    document.querySelectorAll("[data-dk]").forEach(function(a){ a.addEventListener("click",mo); });
+    document.getElementById("dkDong").addEventListener("click",dong);
     nen.addEventListener("click",function(e){ if(e.target===nen) dong(); });
     document.addEventListener("keydown",function(e){ if(e.key==="Escape") dong(); });
   })();

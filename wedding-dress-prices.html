@@ -1,0 +1,374 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Giá thuê gốc từng mẫu váy — Dolinhanh Bridal. Lọc theo cơ sở và dáng váy, để so sánh với các gói combo.">
+<title>Giá từng mẫu váy — Dolinhanh Bridal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+
+<!--
+  ══════════════════════════════════════════════════════════════
+  DOLINHANH BRIDAL — GIÁ TỪNG MẪU VÁY (thuê lẻ)
+  Ảnh: mỗi thẻ đã có sẵn tên mẫu / mã / dáng / chất liệu / giá
+  ngay trong ảnh (nguồn: Desktop/"CATALOGUE BST (chờ duyệt)",
+  188 mẫu, chị Linh cung cấp 26/09/2026) — resize còn ~640px,
+  lưu ở anh/gia-tung-vay/.
+  Dáng + cơ sở (data-dang/data-coso trên mỗi thẻ) lấy đối chiếu
+  từ ban-2/bo-suu-tap.html (trang BST bản 2) theo đúng mã váy —
+  2 mã không có entry riêng (MS 32, MS 214) dùng chung dáng/cơ sở
+  với mã đi kèm trong cùng 1 figure gốc (MS 23, MS 127).
+  Trang được link từ "giá gốc" (số gạch ngang) ở bao-gia-v2.html.
+  ══════════════════════════════════════════════════════════════
+-->
+
+<style>
+  :root{
+    --ivory:#FFFFFF; --paper:#FFFFFF;
+    --ink:#17130F; --ink-2:#37342F; --grey:#6F6C69;
+    --hair:#DAD7D2; --champagne:#B08D5F;
+    --serif:"Playfair Display",Georgia,"Times New Roman",serif;
+    --body:"Lora",Georgia,"Times New Roman",serif;
+    --sans:-apple-system,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    --gutter:clamp(20px,5vw,72px); --max:1320px;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--ivory);color:var(--ink-2);font-family:var(--body);font-size:1rem;line-height:1.5;-webkit-font-smoothing:antialiased}
+  a{color:inherit}
+  img{max-width:100%;display:block}
+  .wrap{max-width:var(--max);margin:0 auto;padding-inline:var(--gutter)}
+
+  .dau{padding:56px 0 30px;text-align:center}
+  .nhan{font-family:var(--sans);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--grey)}
+  h1{font-family:var(--serif);font-weight:400;font-size:clamp(1.8rem,4vw,2.6rem);color:var(--ink);margin:8px 0 10px}
+  .phu{font-family:var(--serif);font-style:italic;font-size:1rem;color:var(--ink-2);max-width:560px;margin:0 auto}
+  .quay-lai{display:inline-block;margin-top:22px;font-family:var(--sans);font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink);text-decoration:none;border-bottom:1px solid var(--ink);padding-bottom:3px}
+
+  .loc{max-width:var(--max);margin:0 auto;padding:0 var(--gutter) 30px;display:flex;flex-wrap:wrap;gap:22px 34px;border-top:1px solid var(--hair);border-bottom:1px solid var(--hair);padding-top:20px;padding-bottom:20px}
+  .loc-nhom{display:flex;flex-wrap:wrap;align-items:center;gap:8px 10px}
+  .loc-nhan{font-family:var(--sans);font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--grey);margin-right:2px}
+  .loc button{font-family:var(--sans);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--grey);background:none;border:1px solid var(--hair);border-radius:999px;padding:6px 14px;cursor:pointer;transition:.2s}
+  .loc button:hover{border-color:var(--champagne);color:var(--ink)}
+  .loc button[aria-current="true"]{background:var(--ink);border-color:var(--ink);color:#fff}
+  .dem{max-width:var(--max);margin:0 auto;padding:18px var(--gutter) 0;font-family:var(--sans);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--grey)}
+
+  .luoi{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(10px,1.4vw,18px);padding:16px var(--gutter) 40px;max-width:var(--max);margin:0 auto}
+  .the{display:block;background:var(--paper);border:1px solid var(--hair);overflow:hidden;transition:opacity .25s}
+  .the:hover{opacity:.85}
+  .the img{width:100%;height:auto}
+  .the.an{display:none}
+  @media(max-width:1000px){.luoi{grid-template-columns:repeat(3,minmax(0,1fr))}}
+  @media(max-width:700px){.luoi{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.loc{gap:16px 24px}}
+
+  .ghi{max-width:var(--max);margin:0 auto;padding:10px var(--gutter) 70px;font-size:.86rem;color:var(--grey);line-height:1.6}
+  .ghi b{color:var(--ink-2)}
+  .rong{display:none;max-width:var(--max);margin:0 auto;padding:10px var(--gutter) 50px;font-style:italic;font-family:var(--serif);color:var(--grey)}
+  .rong.hien{display:block}
+
+  .pt-nen{position:fixed;inset:0;background:rgba(23,19,15,.92);display:none;align-items:center;justify-content:center;z-index:90;padding:24px}
+  .pt-nen.hien{display:flex}
+  .pt-nen img{max-width:min(92vw,760px);max-height:88vh;width:auto;height:auto;box-shadow:0 20px 60px rgba(0,0,0,.4)}
+  .pt-dong{position:absolute;top:18px;right:22px;border:0;background:none;font:300 34px/1 var(--sans);color:#fff;cursor:pointer;opacity:.8}
+  .pt-dong:hover{opacity:1}
+  .pt-lui,.pt-toi{position:absolute;top:50%;margin-top:-24px;width:48px;height:48px;border:0;border-radius:50%;background:rgba(255,255,255,.12);color:#fff;font:300 26px/1 var(--sans);cursor:pointer;display:flex;align-items:center;justify-content:center}
+  .pt-lui:hover,.pt-toi:hover{background:rgba(255,255,255,.22)}
+  .pt-lui{left:18px}
+  .pt-toi{right:18px}
+  .pt-dem{position:absolute;bottom:20px;left:0;right:0;text-align:center;font-family:var(--sans);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.65)}
+  @media(max-width:700px){.pt-lui,.pt-toi{width:40px;height:40px;font-size:22px}.pt-lui{left:6px}.pt-toi{right:6px}}
+</style>
+
+<div class="dau">
+  <div class="nhan">Dolinhanh Bridal</div>
+  <h1>Giá thuê gốc từng mẫu váy</h1>
+  <div class="phu">Mỗi thiết kế, một câu chuyện riêng.</div>
+  <a class="quay-lai" href="bao-gia-v2.html">← Xem bảng giá combo</a>
+</div>
+
+<div class="loc">
+  <div class="loc-nhom" data-loai="coso">
+    <span class="loc-nhan">Cơ sở</span>
+    <button type="button" data-v="" aria-current="true">Tất cả</button>
+    <button type="button" data-v="hn">Hà Nội</button>
+    <button type="button" data-v="hcm">TP.HCM</button>
+  </div>
+  <div class="loc-nhom" data-loai="dang">
+    <span class="loc-nhan">Dáng váy</span>
+    <button type="button" data-v="" aria-current="true">Tất cả</button>
+    <button type="button" data-v="mermaid">Đuôi cá</button>
+    <button type="button" data-v="a-line">Chữ A</button>
+    <button type="button" data-v="ballgown">Xoè bồng</button>
+    <button type="button" data-v="mini">Ngắn</button>
+  </div>
+</div>
+<div class="dem" id="dem"></div>
+
+<div class="luoi" id="luoi">
+<a class="the" data-dang="mermaid" data-coso="hn" href="anh/gia-tung-vay/MS023.jpg"><img src="anh/gia-tung-vay/MS023.jpg" loading="lazy" alt="MS 23"></a>
+<a class="the" data-dang="mermaid" data-coso="hn" href="anh/gia-tung-vay/MS024.jpg"><img src="anh/gia-tung-vay/MS024.jpg" loading="lazy" alt="MS 24"></a>
+<a class="the" data-dang="mermaid" data-coso="hn" href="anh/gia-tung-vay/MS028.jpg"><img src="anh/gia-tung-vay/MS028.jpg" loading="lazy" alt="MS 28"></a>
+<a class="the" data-dang="mermaid" data-coso="hn" href="anh/gia-tung-vay/MS032.jpg"><img src="anh/gia-tung-vay/MS032.jpg" loading="lazy" alt="MS 32"></a>
+<a class="the" data-dang="mermaid" data-coso="hcm" href="anh/gia-tung-vay/MS056.jpg"><img src="anh/gia-tung-vay/MS056.jpg" loading="lazy" alt="MS 56"></a>
+<a class="the" data-dang="mermaid" data-coso="hcm" href="anh/gia-tung-vay/MS057.jpg"><img src="anh/gia-tung-vay/MS057.jpg" loading="lazy" alt="MS 57"></a>
+<a class="the" data-dang="mermaid" data-coso="hcm" href="anh/gia-tung-vay/MS058.jpg"><img src="anh/gia-tung-vay/MS058.jpg" loading="lazy" alt="MS 58"></a>
+<a class="the" data-dang="mermaid" data-coso="hcm" href="anh/gia-tung-vay/MS070.jpg"><img src="anh/gia-tung-vay/MS070.jpg" loading="lazy" alt="MS 70"></a>
+<a class="the" data-dang="mermaid" data-coso="hcm" href="anh/gia-tung-vay/MS076.jpg"><img src="anh/gia-tung-vay/MS076.jpg" loading="lazy" alt="MS 76"></a>
+<a class="the" data-dang="mermaid" data-coso="hcm" href="anh/gia-tung-vay/MS077.jpg"><img src="anh/gia-tung-vay/MS077.jpg" loading="lazy" alt="MS 77"></a>
+<a class="the" data-dang="mermaid" data-coso="hcm" href="anh/gia-tung-vay/MS078.jpg"><img src="anh/gia-tung-vay/MS078.jpg" loading="lazy" alt="MS 78"></a>
+<a class="the" data-dang="mermaid" data-coso="hcm" href="anh/gia-tung-vay/MS079.jpg"><img src="anh/gia-tung-vay/MS079.jpg" loading="lazy" alt="MS 79"></a>
+<a class="the" data-dang="mermaid" data-coso="hcm" href="anh/gia-tung-vay/MS080.jpg"><img src="anh/gia-tung-vay/MS080.jpg" loading="lazy" alt="MS 80"></a>
+<a class="the" data-dang="mermaid" data-coso="hcm" href="anh/gia-tung-vay/MS082.jpg"><img src="anh/gia-tung-vay/MS082.jpg" loading="lazy" alt="MS 82"></a>
+<a class="the" data-dang="mermaid" data-coso="hcm" href="anh/gia-tung-vay/MS083.jpg"><img src="anh/gia-tung-vay/MS083.jpg" loading="lazy" alt="MS 83"></a>
+<a class="the" data-dang="mermaid" data-coso="hcm" href="anh/gia-tung-vay/MS086.jpg"><img src="anh/gia-tung-vay/MS086.jpg" loading="lazy" alt="MS 86"></a>
+<a class="the" data-dang="mermaid" data-coso="hcm" href="anh/gia-tung-vay/MS089.jpg"><img src="anh/gia-tung-vay/MS089.jpg" loading="lazy" alt="MS 89"></a>
+<a class="the" data-dang="mermaid" data-coso="hcm" href="anh/gia-tung-vay/MS092.jpg"><img src="anh/gia-tung-vay/MS092.jpg" loading="lazy" alt="MS 92"></a>
+<a class="the" data-dang="mermaid" data-coso="hcm" href="anh/gia-tung-vay/MS093.jpg"><img src="anh/gia-tung-vay/MS093.jpg" loading="lazy" alt="MS 93"></a>
+<a class="the" data-dang="mermaid" data-coso="hcm" href="anh/gia-tung-vay/MS094.jpg"><img src="anh/gia-tung-vay/MS094.jpg" loading="lazy" alt="MS 94"></a>
+<a class="the" data-dang="mermaid" data-coso="hcm" href="anh/gia-tung-vay/MS095.jpg"><img src="anh/gia-tung-vay/MS095.jpg" loading="lazy" alt="MS 95"></a>
+<a class="the" data-dang="mermaid" data-coso="hcm" href="anh/gia-tung-vay/MS097.jpg"><img src="anh/gia-tung-vay/MS097.jpg" loading="lazy" alt="MS 97"></a>
+<a class="the" data-dang="mermaid" data-coso="hcm" href="anh/gia-tung-vay/MS099.jpg"><img src="anh/gia-tung-vay/MS099.jpg" loading="lazy" alt="MS 99"></a>
+<a class="the" data-dang="mermaid" data-coso="hcm" href="anh/gia-tung-vay/MS109.jpg"><img src="anh/gia-tung-vay/MS109.jpg" loading="lazy" alt="MS 109"></a>
+<a class="the" data-dang="mermaid" data-coso="hcm" href="anh/gia-tung-vay/MS110.jpg"><img src="anh/gia-tung-vay/MS110.jpg" loading="lazy" alt="MS 110"></a>
+<a class="the" data-dang="mermaid" data-coso="hcm" href="anh/gia-tung-vay/MS111.jpg"><img src="anh/gia-tung-vay/MS111.jpg" loading="lazy" alt="MS 111"></a>
+<a class="the" data-dang="mermaid" data-coso="hcm" href="anh/gia-tung-vay/MS112.jpg"><img src="anh/gia-tung-vay/MS112.jpg" loading="lazy" alt="MS 112"></a>
+<a class="the" data-dang="mermaid" data-coso="hcm" href="anh/gia-tung-vay/MS113.jpg"><img src="anh/gia-tung-vay/MS113.jpg" loading="lazy" alt="MS 113"></a>
+<a class="the" data-dang="mermaid" data-coso="hcm" href="anh/gia-tung-vay/MS114.jpg"><img src="anh/gia-tung-vay/MS114.jpg" loading="lazy" alt="MS 114"></a>
+<a class="the" data-dang="mermaid" data-coso="hcm" href="anh/gia-tung-vay/MS115.jpg"><img src="anh/gia-tung-vay/MS115.jpg" loading="lazy" alt="MS 115"></a>
+<a class="the" data-dang="mermaid" data-coso="hcm" href="anh/gia-tung-vay/MS116.jpg"><img src="anh/gia-tung-vay/MS116.jpg" loading="lazy" alt="MS 116"></a>
+<a class="the" data-dang="mermaid" data-coso="hcm" href="anh/gia-tung-vay/MS117.jpg"><img src="anh/gia-tung-vay/MS117.jpg" loading="lazy" alt="MS 117"></a>
+<a class="the" data-dang="mermaid" data-coso="hcm" href="anh/gia-tung-vay/MS123.jpg"><img src="anh/gia-tung-vay/MS123.jpg" loading="lazy" alt="MS 123"></a>
+<a class="the" data-dang="mermaid" data-coso="hcm" href="anh/gia-tung-vay/MS126.jpg"><img src="anh/gia-tung-vay/MS126.jpg" loading="lazy" alt="MS 126"></a>
+<a class="the" data-dang="mermaid" data-coso="hcm" href="anh/gia-tung-vay/MS129.jpg"><img src="anh/gia-tung-vay/MS129.jpg" loading="lazy" alt="MS 129"></a>
+<a class="the" data-dang="mermaid" data-coso="hcm" href="anh/gia-tung-vay/MS135.jpg"><img src="anh/gia-tung-vay/MS135.jpg" loading="lazy" alt="MS 135"></a>
+<a class="the" data-dang="mermaid" data-coso="hcm" href="anh/gia-tung-vay/MS153.jpg"><img src="anh/gia-tung-vay/MS153.jpg" loading="lazy" alt="MS 153"></a>
+<a class="the" data-dang="mermaid" data-coso="hcm" href="anh/gia-tung-vay/MS154.jpg"><img src="anh/gia-tung-vay/MS154.jpg" loading="lazy" alt="MS 154"></a>
+<a class="the" data-dang="mermaid" data-coso="hcm" href="anh/gia-tung-vay/MS172.jpg"><img src="anh/gia-tung-vay/MS172.jpg" loading="lazy" alt="MS 172"></a>
+<a class="the" data-dang="mermaid" data-coso="hcm" href="anh/gia-tung-vay/MS208.jpg"><img src="anh/gia-tung-vay/MS208.jpg" loading="lazy" alt="MS 208"></a>
+<a class="the" data-dang="mermaid" data-coso="hcm" href="anh/gia-tung-vay/MS212.jpg"><img src="anh/gia-tung-vay/MS212.jpg" loading="lazy" alt="MS 212"></a>
+<a class="the" data-dang="mermaid" data-coso="hcm" href="anh/gia-tung-vay/MS231.jpg"><img src="anh/gia-tung-vay/MS231.jpg" loading="lazy" alt="MS 231"></a>
+<a class="the" data-dang="mermaid" data-coso="hcm" href="anh/gia-tung-vay/MS232.jpg"><img src="anh/gia-tung-vay/MS232.jpg" loading="lazy" alt="MS 232"></a>
+<a class="the" data-dang="mermaid" data-coso="hcm" href="anh/gia-tung-vay/MS233.jpg"><img src="anh/gia-tung-vay/MS233.jpg" loading="lazy" alt="MS 233"></a>
+<a class="the" data-dang="mermaid" data-coso="hcm" href="anh/gia-tung-vay/MS234.jpg"><img src="anh/gia-tung-vay/MS234.jpg" loading="lazy" alt="MS 234"></a>
+<a class="the" data-dang="mermaid" data-coso="hcm" href="anh/gia-tung-vay/MS235.jpg"><img src="anh/gia-tung-vay/MS235.jpg" loading="lazy" alt="MS 235"></a>
+<a class="the" data-dang="mermaid" data-coso="hcm" href="anh/gia-tung-vay/MS236.jpg"><img src="anh/gia-tung-vay/MS236.jpg" loading="lazy" alt="MS 236"></a>
+<a class="the" data-dang="mermaid" data-coso="hcm" href="anh/gia-tung-vay/MS237.jpg"><img src="anh/gia-tung-vay/MS237.jpg" loading="lazy" alt="MS 237"></a>
+<a class="the" data-dang="mermaid" data-coso="hcm" href="anh/gia-tung-vay/MS238.jpg"><img src="anh/gia-tung-vay/MS238.jpg" loading="lazy" alt="MS 238"></a>
+<a class="the" data-dang="mermaid" data-coso="hcm" href="anh/gia-tung-vay/MS239.jpg"><img src="anh/gia-tung-vay/MS239.jpg" loading="lazy" alt="MS 239"></a>
+<a class="the" data-dang="mermaid" data-coso="hcm" href="anh/gia-tung-vay/MS240.jpg"><img src="anh/gia-tung-vay/MS240.jpg" loading="lazy" alt="MS 240"></a>
+<a class="the" data-dang="mermaid" data-coso="hcm" href="anh/gia-tung-vay/MS241.jpg"><img src="anh/gia-tung-vay/MS241.jpg" loading="lazy" alt="MS 241"></a>
+<a class="the" data-dang="mermaid" data-coso="hcm" href="anh/gia-tung-vay/MS242.jpg"><img src="anh/gia-tung-vay/MS242.jpg" loading="lazy" alt="MS 242"></a>
+<a class="the" data-dang="mermaid" data-coso="hcm" href="anh/gia-tung-vay/MS243.jpg"><img src="anh/gia-tung-vay/MS243.jpg" loading="lazy" alt="MS 243"></a>
+<a class="the" data-dang="mermaid" data-coso="hcm" href="anh/gia-tung-vay/MS244.jpg"><img src="anh/gia-tung-vay/MS244.jpg" loading="lazy" alt="MS 244"></a>
+<a class="the" data-dang="mermaid" data-coso="hcm" href="anh/gia-tung-vay/MS245.jpg"><img src="anh/gia-tung-vay/MS245.jpg" loading="lazy" alt="MS 245"></a>
+<a class="the" data-dang="mermaid" data-coso="hcm" href="anh/gia-tung-vay/MS246.jpg"><img src="anh/gia-tung-vay/MS246.jpg" loading="lazy" alt="MS 246"></a>
+<a class="the" data-dang="mermaid" data-coso="hcm" href="anh/gia-tung-vay/MS247.jpg"><img src="anh/gia-tung-vay/MS247.jpg" loading="lazy" alt="MS 247"></a>
+<a class="the" data-dang="a-line" data-coso="hn" href="anh/gia-tung-vay/MS031.jpg"><img src="anh/gia-tung-vay/MS031.jpg" loading="lazy" alt="MS 31"></a>
+<a class="the" data-dang="a-line" data-coso="hcm" href="anh/gia-tung-vay/MS059.jpg"><img src="anh/gia-tung-vay/MS059.jpg" loading="lazy" alt="MS 59"></a>
+<a class="the" data-dang="a-line" data-coso="hcm" href="anh/gia-tung-vay/MS060.jpg"><img src="anh/gia-tung-vay/MS060.jpg" loading="lazy" alt="MS 60"></a>
+<a class="the" data-dang="a-line" data-coso="hcm" href="anh/gia-tung-vay/MS061.jpg"><img src="anh/gia-tung-vay/MS061.jpg" loading="lazy" alt="MS 61"></a>
+<a class="the" data-dang="a-line" data-coso="hcm" href="anh/gia-tung-vay/MS062.jpg"><img src="anh/gia-tung-vay/MS062.jpg" loading="lazy" alt="MS 62"></a>
+<a class="the" data-dang="a-line" data-coso="hcm" href="anh/gia-tung-vay/MS071.jpg"><img src="anh/gia-tung-vay/MS071.jpg" loading="lazy" alt="MS 71"></a>
+<a class="the" data-dang="a-line" data-coso="hcm" href="anh/gia-tung-vay/MS073.jpg"><img src="anh/gia-tung-vay/MS073.jpg" loading="lazy" alt="MS 73"></a>
+<a class="the" data-dang="a-line" data-coso="hcm" href="anh/gia-tung-vay/MS075.jpg"><img src="anh/gia-tung-vay/MS075.jpg" loading="lazy" alt="MS 75"></a>
+<a class="the" data-dang="a-line" data-coso="hcm" href="anh/gia-tung-vay/MS081.jpg"><img src="anh/gia-tung-vay/MS081.jpg" loading="lazy" alt="MS 81"></a>
+<a class="the" data-dang="a-line" data-coso="hcm" href="anh/gia-tung-vay/MS084.jpg"><img src="anh/gia-tung-vay/MS084.jpg" loading="lazy" alt="MS 84"></a>
+<a class="the" data-dang="a-line" data-coso="hcm" href="anh/gia-tung-vay/MS090.jpg"><img src="anh/gia-tung-vay/MS090.jpg" loading="lazy" alt="MS 90"></a>
+<a class="the" data-dang="a-line" data-coso="hcm" href="anh/gia-tung-vay/MS091.jpg"><img src="anh/gia-tung-vay/MS091.jpg" loading="lazy" alt="MS 91"></a>
+<a class="the" data-dang="a-line" data-coso="hcm" href="anh/gia-tung-vay/MS100.jpg"><img src="anh/gia-tung-vay/MS100.jpg" loading="lazy" alt="MS 100"></a>
+<a class="the" data-dang="a-line" data-coso="hcm" href="anh/gia-tung-vay/MS101.jpg"><img src="anh/gia-tung-vay/MS101.jpg" loading="lazy" alt="MS 101"></a>
+<a class="the" data-dang="a-line" data-coso="hcm" href="anh/gia-tung-vay/MS104.jpg"><img src="anh/gia-tung-vay/MS104.jpg" loading="lazy" alt="MS 104"></a>
+<a class="the" data-dang="a-line" data-coso="hcm" href="anh/gia-tung-vay/MS105.jpg"><img src="anh/gia-tung-vay/MS105.jpg" loading="lazy" alt="MS 105"></a>
+<a class="the" data-dang="a-line" data-coso="hcm" href="anh/gia-tung-vay/MS124.jpg"><img src="anh/gia-tung-vay/MS124.jpg" loading="lazy" alt="MS 124"></a>
+<a class="the" data-dang="a-line" data-coso="hcm" href="anh/gia-tung-vay/MS128.jpg"><img src="anh/gia-tung-vay/MS128.jpg" loading="lazy" alt="MS 128"></a>
+<a class="the" data-dang="a-line" data-coso="hcm" href="anh/gia-tung-vay/MS130.jpg"><img src="anh/gia-tung-vay/MS130.jpg" loading="lazy" alt="MS 130"></a>
+<a class="the" data-dang="a-line" data-coso="hcm" href="anh/gia-tung-vay/MS132.jpg"><img src="anh/gia-tung-vay/MS132.jpg" loading="lazy" alt="MS 132"></a>
+<a class="the" data-dang="a-line" data-coso="hcm" href="anh/gia-tung-vay/MS137.jpg"><img src="anh/gia-tung-vay/MS137.jpg" loading="lazy" alt="MS 137"></a>
+<a class="the" data-dang="a-line" data-coso="hcm" href="anh/gia-tung-vay/MS138.jpg"><img src="anh/gia-tung-vay/MS138.jpg" loading="lazy" alt="MS 138"></a>
+<a class="the" data-dang="a-line" data-coso="hcm" href="anh/gia-tung-vay/MS139.jpg"><img src="anh/gia-tung-vay/MS139.jpg" loading="lazy" alt="MS 139"></a>
+<a class="the" data-dang="a-line" data-coso="hcm" href="anh/gia-tung-vay/MS140.jpg"><img src="anh/gia-tung-vay/MS140.jpg" loading="lazy" alt="MS 140"></a>
+<a class="the" data-dang="a-line" data-coso="hcm" href="anh/gia-tung-vay/MS141.jpg"><img src="anh/gia-tung-vay/MS141.jpg" loading="lazy" alt="MS 141"></a>
+<a class="the" data-dang="a-line" data-coso="hcm" href="anh/gia-tung-vay/MS143.jpg"><img src="anh/gia-tung-vay/MS143.jpg" loading="lazy" alt="MS 143"></a>
+<a class="the" data-dang="a-line" data-coso="hcm" href="anh/gia-tung-vay/MS144.jpg"><img src="anh/gia-tung-vay/MS144.jpg" loading="lazy" alt="MS 144"></a>
+<a class="the" data-dang="a-line" data-coso="hcm" href="anh/gia-tung-vay/MS146.jpg"><img src="anh/gia-tung-vay/MS146.jpg" loading="lazy" alt="MS 146"></a>
+<a class="the" data-dang="a-line" data-coso="hcm" href="anh/gia-tung-vay/MS151.jpg"><img src="anh/gia-tung-vay/MS151.jpg" loading="lazy" alt="MS 151"></a>
+<a class="the" data-dang="a-line" data-coso="hcm" href="anh/gia-tung-vay/MS152.jpg"><img src="anh/gia-tung-vay/MS152.jpg" loading="lazy" alt="MS 152"></a>
+<a class="the" data-dang="a-line" data-coso="hcm" href="anh/gia-tung-vay/MS156.jpg"><img src="anh/gia-tung-vay/MS156.jpg" loading="lazy" alt="MS 156"></a>
+<a class="the" data-dang="a-line" data-coso="hcm" href="anh/gia-tung-vay/MS158.jpg"><img src="anh/gia-tung-vay/MS158.jpg" loading="lazy" alt="MS 158"></a>
+<a class="the" data-dang="a-line" data-coso="hcm" href="anh/gia-tung-vay/MS159.jpg"><img src="anh/gia-tung-vay/MS159.jpg" loading="lazy" alt="MS 159"></a>
+<a class="the" data-dang="a-line" data-coso="hcm" href="anh/gia-tung-vay/MS162.jpg"><img src="anh/gia-tung-vay/MS162.jpg" loading="lazy" alt="MS 162"></a>
+<a class="the" data-dang="a-line" data-coso="hcm" href="anh/gia-tung-vay/MS164.jpg"><img src="anh/gia-tung-vay/MS164.jpg" loading="lazy" alt="MS 164"></a>
+<a class="the" data-dang="a-line" data-coso="hcm" href="anh/gia-tung-vay/MS173.jpg"><img src="anh/gia-tung-vay/MS173.jpg" loading="lazy" alt="MS 173"></a>
+<a class="the" data-dang="a-line" data-coso="hcm" href="anh/gia-tung-vay/MS213.jpg"><img src="anh/gia-tung-vay/MS213.jpg" loading="lazy" alt="MS 213"></a>
+<a class="the" data-dang="a-line" data-coso="hcm" href="anh/gia-tung-vay/MS218.jpg"><img src="anh/gia-tung-vay/MS218.jpg" loading="lazy" alt="MS 218"></a>
+<a class="the" data-dang="a-line" data-coso="hcm" href="anh/gia-tung-vay/MS219.jpg"><img src="anh/gia-tung-vay/MS219.jpg" loading="lazy" alt="MS 219"></a>
+<a class="the" data-dang="a-line" data-coso="hcm" href="anh/gia-tung-vay/MS220.jpg"><img src="anh/gia-tung-vay/MS220.jpg" loading="lazy" alt="MS 220"></a>
+<a class="the" data-dang="a-line" data-coso="hcm" href="anh/gia-tung-vay/MS221.jpg"><img src="anh/gia-tung-vay/MS221.jpg" loading="lazy" alt="MS 221"></a>
+<a class="the" data-dang="a-line" data-coso="hcm" href="anh/gia-tung-vay/MS222.jpg"><img src="anh/gia-tung-vay/MS222.jpg" loading="lazy" alt="MS 222"></a>
+<a class="the" data-dang="a-line" data-coso="hcm" href="anh/gia-tung-vay/MS223.jpg"><img src="anh/gia-tung-vay/MS223.jpg" loading="lazy" alt="MS 223"></a>
+<a class="the" data-dang="a-line" data-coso="hcm" href="anh/gia-tung-vay/MS225.jpg"><img src="anh/gia-tung-vay/MS225.jpg" loading="lazy" alt="MS 225"></a>
+<a class="the" data-dang="a-line" data-coso="hcm" href="anh/gia-tung-vay/MS226.jpg"><img src="anh/gia-tung-vay/MS226.jpg" loading="lazy" alt="MS 226"></a>
+<a class="the" data-dang="a-line" data-coso="hcm" href="anh/gia-tung-vay/MS227.jpg"><img src="anh/gia-tung-vay/MS227.jpg" loading="lazy" alt="MS 227"></a>
+<a class="the" data-dang="a-line" data-coso="hcm" href="anh/gia-tung-vay/MS228.jpg"><img src="anh/gia-tung-vay/MS228.jpg" loading="lazy" alt="MS 228"></a>
+<a class="the" data-dang="a-line" data-coso="hcm" href="anh/gia-tung-vay/MS229.jpg"><img src="anh/gia-tung-vay/MS229.jpg" loading="lazy" alt="MS 229"></a>
+<a class="the" data-dang="a-line" data-coso="hcm" href="anh/gia-tung-vay/MS230.jpg"><img src="anh/gia-tung-vay/MS230.jpg" loading="lazy" alt="MS 230"></a>
+<a class="the" data-dang="ballgown" data-coso="hn" href="anh/gia-tung-vay/MS026.jpg"><img src="anh/gia-tung-vay/MS026.jpg" loading="lazy" alt="MS 26"></a>
+<a class="the" data-dang="ballgown" data-coso="hn" href="anh/gia-tung-vay/MS027.jpg"><img src="anh/gia-tung-vay/MS027.jpg" loading="lazy" alt="MS 27"></a>
+<a class="the" data-dang="ballgown" data-coso="hcm" href="anh/gia-tung-vay/MS063.jpg"><img src="anh/gia-tung-vay/MS063.jpg" loading="lazy" alt="MS 63"></a>
+<a class="the" data-dang="ballgown" data-coso="hcm" href="anh/gia-tung-vay/MS064.jpg"><img src="anh/gia-tung-vay/MS064.jpg" loading="lazy" alt="MS 64"></a>
+<a class="the" data-dang="ballgown" data-coso="hcm" href="anh/gia-tung-vay/MS065.jpg"><img src="anh/gia-tung-vay/MS065.jpg" loading="lazy" alt="MS 65"></a>
+<a class="the" data-dang="ballgown" data-coso="hcm" href="anh/gia-tung-vay/MS066.jpg"><img src="anh/gia-tung-vay/MS066.jpg" loading="lazy" alt="MS 66"></a>
+<a class="the" data-dang="ballgown" data-coso="hcm" href="anh/gia-tung-vay/MS067.jpg"><img src="anh/gia-tung-vay/MS067.jpg" loading="lazy" alt="MS 67"></a>
+<a class="the" data-dang="ballgown" data-coso="hcm" href="anh/gia-tung-vay/MS068.jpg"><img src="anh/gia-tung-vay/MS068.jpg" loading="lazy" alt="MS 68"></a>
+<a class="the" data-dang="ballgown" data-coso="hcm" href="anh/gia-tung-vay/MS069.jpg"><img src="anh/gia-tung-vay/MS069.jpg" loading="lazy" alt="MS 69"></a>
+<a class="the" data-dang="ballgown" data-coso="hcm" href="anh/gia-tung-vay/MS072.jpg"><img src="anh/gia-tung-vay/MS072.jpg" loading="lazy" alt="MS 72"></a>
+<a class="the" data-dang="ballgown" data-coso="hcm" href="anh/gia-tung-vay/MS074.jpg"><img src="anh/gia-tung-vay/MS074.jpg" loading="lazy" alt="MS 74"></a>
+<a class="the" data-dang="ballgown" data-coso="hcm" href="anh/gia-tung-vay/MS085.jpg"><img src="anh/gia-tung-vay/MS085.jpg" loading="lazy" alt="MS 85"></a>
+<a class="the" data-dang="ballgown" data-coso="hcm" href="anh/gia-tung-vay/MS087.jpg"><img src="anh/gia-tung-vay/MS087.jpg" loading="lazy" alt="MS 87"></a>
+<a class="the" data-dang="ballgown" data-coso="hcm" href="anh/gia-tung-vay/MS088.jpg"><img src="anh/gia-tung-vay/MS088.jpg" loading="lazy" alt="MS 88"></a>
+<a class="the" data-dang="ballgown" data-coso="hcm" href="anh/gia-tung-vay/MS098.jpg"><img src="anh/gia-tung-vay/MS098.jpg" loading="lazy" alt="MS 98"></a>
+<a class="the" data-dang="ballgown" data-coso="hcm" href="anh/gia-tung-vay/MS102.jpg"><img src="anh/gia-tung-vay/MS102.jpg" loading="lazy" alt="MS 102"></a>
+<a class="the" data-dang="ballgown" data-coso="hcm" href="anh/gia-tung-vay/MS103.jpg"><img src="anh/gia-tung-vay/MS103.jpg" loading="lazy" alt="MS 103"></a>
+<a class="the" data-dang="ballgown" data-coso="hcm" href="anh/gia-tung-vay/MS106.jpg"><img src="anh/gia-tung-vay/MS106.jpg" loading="lazy" alt="MS 106"></a>
+<a class="the" data-dang="ballgown" data-coso="hcm" href="anh/gia-tung-vay/MS107.jpg"><img src="anh/gia-tung-vay/MS107.jpg" loading="lazy" alt="MS 107"></a>
+<a class="the" data-dang="ballgown" data-coso="hcm" href="anh/gia-tung-vay/MS108.jpg"><img src="anh/gia-tung-vay/MS108.jpg" loading="lazy" alt="MS 108"></a>
+<a class="the" data-dang="ballgown" data-coso="hcm" href="anh/gia-tung-vay/MS118.jpg"><img src="anh/gia-tung-vay/MS118.jpg" loading="lazy" alt="MS 118"></a>
+<a class="the" data-dang="ballgown" data-coso="hcm" href="anh/gia-tung-vay/MS119.jpg"><img src="anh/gia-tung-vay/MS119.jpg" loading="lazy" alt="MS 119"></a>
+<a class="the" data-dang="ballgown" data-coso="hcm" href="anh/gia-tung-vay/MS120.jpg"><img src="anh/gia-tung-vay/MS120.jpg" loading="lazy" alt="MS 120"></a>
+<a class="the" data-dang="ballgown" data-coso="hcm" href="anh/gia-tung-vay/MS121.jpg"><img src="anh/gia-tung-vay/MS121.jpg" loading="lazy" alt="MS 121"></a>
+<a class="the" data-dang="ballgown" data-coso="hcm" href="anh/gia-tung-vay/MS122.jpg"><img src="anh/gia-tung-vay/MS122.jpg" loading="lazy" alt="MS 122"></a>
+<a class="the" data-dang="ballgown" data-coso="hcm" href="anh/gia-tung-vay/MS127.jpg"><img src="anh/gia-tung-vay/MS127.jpg" loading="lazy" alt="MS 127"></a>
+<a class="the" data-dang="ballgown" data-coso="hcm" href="anh/gia-tung-vay/MS133.jpg"><img src="anh/gia-tung-vay/MS133.jpg" loading="lazy" alt="MS 133"></a>
+<a class="the" data-dang="ballgown" data-coso="hcm" href="anh/gia-tung-vay/MS136.jpg"><img src="anh/gia-tung-vay/MS136.jpg" loading="lazy" alt="MS 136"></a>
+<a class="the" data-dang="ballgown" data-coso="hcm" href="anh/gia-tung-vay/MS142.jpg"><img src="anh/gia-tung-vay/MS142.jpg" loading="lazy" alt="MS 142"></a>
+<a class="the" data-dang="ballgown" data-coso="hcm" href="anh/gia-tung-vay/MS145.jpg"><img src="anh/gia-tung-vay/MS145.jpg" loading="lazy" alt="MS 145"></a>
+<a class="the" data-dang="ballgown" data-coso="hcm" href="anh/gia-tung-vay/MS147.jpg"><img src="anh/gia-tung-vay/MS147.jpg" loading="lazy" alt="MS 147"></a>
+<a class="the" data-dang="ballgown" data-coso="hcm" href="anh/gia-tung-vay/MS148.jpg"><img src="anh/gia-tung-vay/MS148.jpg" loading="lazy" alt="MS 148"></a>
+<a class="the" data-dang="ballgown" data-coso="hcm" href="anh/gia-tung-vay/MS149.jpg"><img src="anh/gia-tung-vay/MS149.jpg" loading="lazy" alt="MS 149"></a>
+<a class="the" data-dang="ballgown" data-coso="hcm" href="anh/gia-tung-vay/MS150.jpg"><img src="anh/gia-tung-vay/MS150.jpg" loading="lazy" alt="MS 150"></a>
+<a class="the" data-dang="ballgown" data-coso="hcm" href="anh/gia-tung-vay/MS155.jpg"><img src="anh/gia-tung-vay/MS155.jpg" loading="lazy" alt="MS 155"></a>
+<a class="the" data-dang="ballgown" data-coso="hcm" href="anh/gia-tung-vay/MS157.jpg"><img src="anh/gia-tung-vay/MS157.jpg" loading="lazy" alt="MS 157"></a>
+<a class="the" data-dang="ballgown" data-coso="hcm" href="anh/gia-tung-vay/MS160.jpg"><img src="anh/gia-tung-vay/MS160.jpg" loading="lazy" alt="MS 160"></a>
+<a class="the" data-dang="ballgown" data-coso="hcm" href="anh/gia-tung-vay/MS161.jpg"><img src="anh/gia-tung-vay/MS161.jpg" loading="lazy" alt="MS 161"></a>
+<a class="the" data-dang="ballgown" data-coso="hcm" href="anh/gia-tung-vay/MS163.jpg"><img src="anh/gia-tung-vay/MS163.jpg" loading="lazy" alt="MS 163"></a>
+<a class="the" data-dang="ballgown" data-coso="hcm" href="anh/gia-tung-vay/MS165.jpg"><img src="anh/gia-tung-vay/MS165.jpg" loading="lazy" alt="MS 165"></a>
+<a class="the" data-dang="ballgown" data-coso="hcm" href="anh/gia-tung-vay/MS166.jpg"><img src="anh/gia-tung-vay/MS166.jpg" loading="lazy" alt="MS 166"></a>
+<a class="the" data-dang="ballgown" data-coso="hcm" href="anh/gia-tung-vay/MS167.jpg"><img src="anh/gia-tung-vay/MS167.jpg" loading="lazy" alt="MS 167"></a>
+<a class="the" data-dang="ballgown" data-coso="hcm" href="anh/gia-tung-vay/MS168.jpg"><img src="anh/gia-tung-vay/MS168.jpg" loading="lazy" alt="MS 168"></a>
+<a class="the" data-dang="ballgown" data-coso="hcm" href="anh/gia-tung-vay/MS169.jpg"><img src="anh/gia-tung-vay/MS169.jpg" loading="lazy" alt="MS 169"></a>
+<a class="the" data-dang="ballgown" data-coso="hcm" href="anh/gia-tung-vay/MS170.jpg"><img src="anh/gia-tung-vay/MS170.jpg" loading="lazy" alt="MS 170"></a>
+<a class="the" data-dang="ballgown" data-coso="hcm" href="anh/gia-tung-vay/MS171.jpg"><img src="anh/gia-tung-vay/MS171.jpg" loading="lazy" alt="MS 171"></a>
+<a class="the" data-dang="ballgown" data-coso="hcm" href="anh/gia-tung-vay/MS176.jpg"><img src="anh/gia-tung-vay/MS176.jpg" loading="lazy" alt="MS 176"></a>
+<a class="the" data-dang="ballgown" data-coso="hcm" href="anh/gia-tung-vay/MS177.jpg"><img src="anh/gia-tung-vay/MS177.jpg" loading="lazy" alt="MS 177"></a>
+<a class="the" data-dang="ballgown" data-coso="hcm" href="anh/gia-tung-vay/MS178.jpg"><img src="anh/gia-tung-vay/MS178.jpg" loading="lazy" alt="MS 178"></a>
+<a class="the" data-dang="ballgown" data-coso="hcm" href="anh/gia-tung-vay/MS179.jpg"><img src="anh/gia-tung-vay/MS179.jpg" loading="lazy" alt="MS 179"></a>
+<a class="the" data-dang="ballgown" data-coso="hcm" href="anh/gia-tung-vay/MS180.jpg"><img src="anh/gia-tung-vay/MS180.jpg" loading="lazy" alt="MS 180"></a>
+<a class="the" data-dang="ballgown" data-coso="hcm" href="anh/gia-tung-vay/MS181.jpg"><img src="anh/gia-tung-vay/MS181.jpg" loading="lazy" alt="MS 181"></a>
+<a class="the" data-dang="ballgown" data-coso="hcm" href="anh/gia-tung-vay/MS182.jpg"><img src="anh/gia-tung-vay/MS182.jpg" loading="lazy" alt="MS 182"></a>
+<a class="the" data-dang="ballgown" data-coso="hcm" href="anh/gia-tung-vay/MS183.jpg"><img src="anh/gia-tung-vay/MS183.jpg" loading="lazy" alt="MS 183"></a>
+<a class="the" data-dang="ballgown" data-coso="hcm" href="anh/gia-tung-vay/MS184.jpg"><img src="anh/gia-tung-vay/MS184.jpg" loading="lazy" alt="MS 184"></a>
+<a class="the" data-dang="ballgown" data-coso="hcm" href="anh/gia-tung-vay/MS185.jpg"><img src="anh/gia-tung-vay/MS185.jpg" loading="lazy" alt="MS 185"></a>
+<a class="the" data-dang="ballgown" data-coso="hcm" href="anh/gia-tung-vay/MS191.jpg"><img src="anh/gia-tung-vay/MS191.jpg" loading="lazy" alt="MS 191"></a>
+<a class="the" data-dang="ballgown" data-coso="hcm" href="anh/gia-tung-vay/MS192.jpg"><img src="anh/gia-tung-vay/MS192.jpg" loading="lazy" alt="MS 192"></a>
+<a class="the" data-dang="ballgown" data-coso="hcm" href="anh/gia-tung-vay/MS193.jpg"><img src="anh/gia-tung-vay/MS193.jpg" loading="lazy" alt="MS 193"></a>
+<a class="the" data-dang="ballgown" data-coso="hcm" href="anh/gia-tung-vay/MS194.jpg"><img src="anh/gia-tung-vay/MS194.jpg" loading="lazy" alt="MS 194"></a>
+<a class="the" data-dang="ballgown" data-coso="hcm" href="anh/gia-tung-vay/MS195.jpg"><img src="anh/gia-tung-vay/MS195.jpg" loading="lazy" alt="MS 195"></a>
+<a class="the" data-dang="ballgown" data-coso="hcm" href="anh/gia-tung-vay/MS196.jpg"><img src="anh/gia-tung-vay/MS196.jpg" loading="lazy" alt="MS 196"></a>
+<a class="the" data-dang="ballgown" data-coso="hcm" href="anh/gia-tung-vay/MS197.jpg"><img src="anh/gia-tung-vay/MS197.jpg" loading="lazy" alt="MS 197"></a>
+<a class="the" data-dang="ballgown" data-coso="hcm" href="anh/gia-tung-vay/MS198.jpg"><img src="anh/gia-tung-vay/MS198.jpg" loading="lazy" alt="MS 198"></a>
+<a class="the" data-dang="ballgown" data-coso="hcm" href="anh/gia-tung-vay/MS199.jpg"><img src="anh/gia-tung-vay/MS199.jpg" loading="lazy" alt="MS 199"></a>
+<a class="the" data-dang="ballgown" data-coso="hcm" href="anh/gia-tung-vay/MS200.jpg"><img src="anh/gia-tung-vay/MS200.jpg" loading="lazy" alt="MS 200"></a>
+<a class="the" data-dang="ballgown" data-coso="hcm" href="anh/gia-tung-vay/MS201.jpg"><img src="anh/gia-tung-vay/MS201.jpg" loading="lazy" alt="MS 201"></a>
+<a class="the" data-dang="ballgown" data-coso="hcm" href="anh/gia-tung-vay/MS202.jpg"><img src="anh/gia-tung-vay/MS202.jpg" loading="lazy" alt="MS 202"></a>
+<a class="the" data-dang="ballgown" data-coso="hcm" href="anh/gia-tung-vay/MS203.jpg"><img src="anh/gia-tung-vay/MS203.jpg" loading="lazy" alt="MS 203"></a>
+<a class="the" data-dang="ballgown" data-coso="hcm" href="anh/gia-tung-vay/MS205.jpg"><img src="anh/gia-tung-vay/MS205.jpg" loading="lazy" alt="MS 205"></a>
+<a class="the" data-dang="ballgown" data-coso="hcm" href="anh/gia-tung-vay/MS206.jpg"><img src="anh/gia-tung-vay/MS206.jpg" loading="lazy" alt="MS 206"></a>
+<a class="the" data-dang="ballgown" data-coso="hcm" href="anh/gia-tung-vay/MS207.jpg"><img src="anh/gia-tung-vay/MS207.jpg" loading="lazy" alt="MS 207"></a>
+<a class="the" data-dang="ballgown" data-coso="hcm" href="anh/gia-tung-vay/MS209.jpg"><img src="anh/gia-tung-vay/MS209.jpg" loading="lazy" alt="MS 209"></a>
+<a class="the" data-dang="ballgown" data-coso="hcm" href="anh/gia-tung-vay/MS210.jpg"><img src="anh/gia-tung-vay/MS210.jpg" loading="lazy" alt="MS 210"></a>
+<a class="the" data-dang="ballgown" data-coso="hcm" href="anh/gia-tung-vay/MS211.jpg"><img src="anh/gia-tung-vay/MS211.jpg" loading="lazy" alt="MS 211"></a>
+<a class="the" data-dang="ballgown" data-coso="hcm" href="anh/gia-tung-vay/MS214.jpg"><img src="anh/gia-tung-vay/MS214.jpg" loading="lazy" alt="MS 214"></a>
+<a class="the" data-dang="mini" data-coso="hcm" href="anh/gia-tung-vay/MS186.jpg"><img src="anh/gia-tung-vay/MS186.jpg" loading="lazy" alt="MS 186"></a>
+<a class="the" data-dang="mini" data-coso="hcm" href="anh/gia-tung-vay/MS187.jpg"><img src="anh/gia-tung-vay/MS187.jpg" loading="lazy" alt="MS 187"></a>
+<a class="the" data-dang="mini" data-coso="hcm" href="anh/gia-tung-vay/MS188.jpg"><img src="anh/gia-tung-vay/MS188.jpg" loading="lazy" alt="MS 188"></a>
+<a class="the" data-dang="mini" data-coso="hcm" href="anh/gia-tung-vay/MS189.jpg"><img src="anh/gia-tung-vay/MS189.jpg" loading="lazy" alt="MS 189"></a>
+<a class="the" data-dang="mini" data-coso="hcm" href="anh/gia-tung-vay/MS190.jpg"><img src="anh/gia-tung-vay/MS190.jpg" loading="lazy" alt="MS 190"></a>
+</div>
+<div class="rong" id="rong">Không có mẫu nào khớp bộ lọc — chị thử bỏ bớt điều kiện nhé.</div>
+
+<div class="ghi">
+  <b>Lưu ý:</b> đây là giá thuê gốc từng mẫu nếu thuê lẻ (chưa gồm ưu đãi combo). Các gói Signature Bride / Two Dresses / Pretty Dress gộp nhiều váy cùng dịch vụ đi kèm nên tổng giá thấp hơn nhiều so với cộng giá thuê lẻ từng mẫu ở trên. Mẫu cụ thể trong mỗi lần thử tuỳ theo lựa chọn thực tế tại showroom; cơ sở/dáng đối chiếu theo bộ sưu tập, có thể còn cập nhật.
+</div>
+
+<div class="pt-nen" id="ptNen" role="dialog" aria-modal="true">
+  <button class="pt-dong" id="ptDong" aria-label="Đóng">×</button>
+  <button class="pt-lui" id="ptLui" aria-label="Ảnh trước">‹</button>
+  <img id="ptAnh" src="" alt="">
+  <button class="pt-toi" id="ptToi" aria-label="Ảnh sau">›</button>
+  <div class="pt-dem" id="ptDem"></div>
+</div>
+
+<script>
+  (function(){
+    var bo = {coso:"", dang:""};
+    var the = Array.prototype.slice.call(document.querySelectorAll(".the"));
+    var dem = document.getElementById("dem");
+    var rong = document.getElementById("rong");
+    function ap(){
+      var hien = 0;
+      the.forEach(function(a){
+        var ok = (!bo.coso || a.dataset.coso === bo.coso) && (!bo.dang || a.dataset.dang === bo.dang);
+        a.classList.toggle("an", !ok);
+        if (ok) hien++;
+      });
+      dem.textContent = hien + " / " + the.length + " mẫu";
+      rong.classList.toggle("hien", hien === 0);
+    }
+    document.querySelectorAll(".loc-nhom").forEach(function(nhom){
+      var loai = nhom.dataset.loai;
+      nhom.querySelectorAll("button").forEach(function(btn){
+        btn.addEventListener("click", function(){
+          nhom.querySelectorAll("button").forEach(function(b){ b.setAttribute("aria-current", "false"); });
+          btn.setAttribute("aria-current", "true");
+          bo[loai] = btn.dataset.v;
+          ap();
+        });
+      });
+    });
+    ap();
+  })();
+
+  /* ══ PHÓNG TO ẢNH — lightbox, chuyển ảnh trong đúng danh sách đang lọc ══ */
+  (function lightbox(){
+    var nen=document.getElementById("ptNen"), anh=document.getElementById("ptAnh"), dem=document.getElementById("ptDem");
+    var i=0, ds=[];
+    function dsHienTai(){
+      return Array.prototype.slice.call(document.querySelectorAll(".the")).filter(function(a){ return !a.classList.contains("an"); });
+    }
+    function mo(a){
+      ds=dsHienTai();
+      i=ds.indexOf(a); if(i<0) i=0;
+      ve();
+      nen.classList.add("hien"); document.body.style.overflow="hidden";
+    }
+    function ve(){
+      var a=ds[i]; if(!a) return;
+      anh.src=a.getAttribute("href"); anh.alt=a.querySelector("img").alt;
+      dem.textContent=(i+1)+" / "+ds.length;
+    }
+    function dong(){ nen.classList.remove("hien"); document.body.style.overflow=""; }
+    function lui(){ i=(i-1+ds.length)%ds.length; ve(); }
+    function toi(){ i=(i+1)%ds.length; ve(); }
+    document.querySelectorAll(".the").forEach(function(a){
+      a.addEventListener("click", function(e){ e.preventDefault(); mo(a); });
+    });
+    document.getElementById("ptDong").addEventListener("click", dong);
+    document.getElementById("ptLui").addEventListener("click", lui);
+    document.getElementById("ptToi").addEventListener("click", toi);
+    nen.addEventListener("click", function(e){ if(e.target===nen) dong(); });
+    document.addEventListener("keydown", function(e){
+      if(!nen.classList.contains("hien")) return;
+      if(e.key==="Escape") dong();
+      if(e.key==="ArrowLeft") lui();
+      if(e.key==="ArrowRight") toi();
+    });
+  })();
+</script>
