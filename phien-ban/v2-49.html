@@ -1,24 +1,4 @@
-<!--
-  ══════════════════════════════════════════════════════════════
-  DOLINHANH BRIDAL — BÁO GIÁ V2 · "Digital Bridal Proposal"
-  Luxury Bridal Editorial × Korean Minimal · cảm hứng Showit "North"
-  ══════════════════════════════════════════════════════════════
 
-  GIÁ & QUYỀN LỢI nằm trong khối BANG_GIA ở CUỐI FILE — chỉ sửa
-  phần trong ngoặc kép. Không có gì trên trang là số bịa: mọi con
-  số đều lấy từ V1 (bản chị Linh đã duyệt 18/08/2026).
-
-  ⚠️ CHỖ CHỊ LINH CẦN CHỐT (khác nhau giữa V1 và brief V2):
-   - Wedding Signature: V1 = 38,8tr · brief V2 = 35,8tr  → đang để 38,8
-   - Bride Care: V1 = chăm sóc 1h · brief V2 = 1h30       → đang để 1h
-   - Pretty Dress: V1 = 6.888.000đ (+ vest) · brief = 5.888 → đang để 6.888
-   Sửa 1 dòng trong BANG_GIA là đổi khắp trang.
-
-  ẢNH: thư mục "anh" cạnh file. Mục "Real brides" đang dùng ảnh
-  bộ sưu tập (người mẫu) — thay bằng ảnh cô dâu thật khi có.
-  Bản V1 (bố cục Athena) giữ ở bao-gia-v1.html.
-  ══════════════════════════════════════════════════════════════
--->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="Dolinhanh Bridal Experience 2026 — quiet minimal luxury, crafted by Mother Love. Một trải nghiệm bridal riêng tư tại Hà Nội & TP.HCM.">
@@ -39,7 +19,6 @@
     --hair-dark:rgba(255,255,255,.18);
     --champagne:#CDBBA2;
 
-    /* bộ chữ V2 gốc (chị Linh chốt 18/08 khuya): Bodoni tiêu đề/số/giá, Helvetica thân + nhãn */
     --didone:"Bodoni 72","Bodoni MT",Didot,"Didot LT STD","Playfair Display",Georgia,"Times New Roman",serif;
     --serif:"Bodoni 72","Bodoni MT",Didot,"Didot LT STD",Baskerville,Georgia,"Times New Roman",serif;
     --body:Baskerville,"Libre Baskerville",Georgia,"Times New Roman",serif;
@@ -77,7 +56,6 @@
   .rule{border:0;border-top:1px solid var(--hair);margin:0}
   .rule.dark{border-color:var(--hair-dark)}
 
-  /* ── liên kết chữ có mũi tên (không nút to) ─────────── */
   .lien{
     display:inline-flex;align-items:center;gap:12px;
     font-family:var(--sans);font-size:.72rem;font-weight:500;letter-spacing:.24em;
@@ -88,7 +66,7 @@
   .lien:hover{gap:18px}
   .lien.sang{color:#fff;border-color:rgba(255,255,255,.7)}
   .lien.sang:hover{border-color:#fff}
-  /* nút viền mảnh — chỉ dùng ở CTA cuối */
+
   .nut{
     display:inline-block;font-family:var(--sans);font-size:.72rem;font-weight:500;letter-spacing:.26em;
     text-transform:uppercase;text-decoration:none;color:#fff;border:1px solid rgba(255,255,255,.75);
@@ -97,7 +75,6 @@
   .nut:hover{background:#fff;color:var(--ink)}
   a:focus-visible{outline:2px solid var(--champagne);outline-offset:4px}
 
-  /* ── nav ─────────────────────────────────────────────── */
   header{
     position:absolute;top:0;left:0;right:0;z-index:30;color:#fff;
   }
@@ -109,7 +86,6 @@
   @media(max-width:520px){.hd .dai-chu{display:none}.hd .lien.sang{font-size:.6rem;letter-spacing:.18em}.wordmark{letter-spacing:.22em}}
   .hd .lien.sang:hover{border-bottom-color:#fff}
 
-  /* ── hero ────────────────────────────────────────────── */
   .hero{
     position:relative;min-height:min(100svh,920px);color:#fff;
     background:var(--stone) url('../anh/up/cl-26-hero.jpg') center 30%/cover no-repeat;
@@ -120,11 +96,10 @@
   .hero .kicker .eyebrow{color:rgba(255,255,255,.8)}
   .hero h1{font-size:clamp(34px,5.6vw,64px);color:#fff;max-width:14ch;letter-spacing:.01em}
   .hero h1 em{font-style:italic;font-weight:400}
-  
+
   .hero .tag{font-family:var(--sans);font-size:clamp(.78rem,1.1vw,.92rem);letter-spacing:.3em;text-transform:uppercase;color:rgba(255,255,255,.82)}
   @media(max-width:700px){.hero{background-position:70% 20% !important;background-size:cover !important}}
 
-  /* ── mục chung ───────────────────────────────────────── */
   section{position:relative}
   .muc{padding-block:clamp(48px,7vw,96px)}
   .muc.sat{padding-block:clamp(48px,7vw,96px)}
@@ -132,12 +107,10 @@
   .h-vua{font-size:var(--t-h2);letter-spacing:-.01em}
   .dan{max-width:60ch;color:var(--grey);font-size:15px;line-height:1.5}
 
-  /* brand */
   .brand{text-align:center;background:var(--ivory)}
   .brand h2{font-size:clamp(30px,4.5vw,46px);text-transform:none;line-height:1.15}
   .brand p{margin:26px auto 0;max-width:52ch}
 
-  /* dải ảnh full-width có câu ngắn */
   .dai{
     position:relative;min-height:clamp(300px,46vh,480px);color:#fff;
     background-position:center 30%;background-size:cover;display:flex;align-items:center;justify-content:flex-start;text-align:left;
@@ -146,7 +119,6 @@
   .dai h2{color:#fff;font-size:clamp(30px,4.5vw,46px);font-style:italic}
   .dai .eyebrow{color:rgba(255,255,255,.75);margin-bottom:16px}
 
-  /* ── THE DOLINHANH EXPERIENCE: hàng editorial ─────────── */
   .exp-dau{display:grid;gap:14px;margin-bottom:clamp(22px,3.5vw,44px)}
   @media(min-width:900px){.exp-dau{grid-template-columns:1fr 1fr;align-items:end}}
   .exp-dau h2{font-size:clamp(30px,4.5vw,46px);text-transform:none;line-height:1.15}
@@ -175,7 +147,6 @@
   .hang .anh.trong{display:grid;place-items:center;text-align:center;font-family:var(--sans);font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--grey-2);border:1px dashed var(--hair);background:none}
   .hang .ghichu{font-size:.8rem;color:var(--grey-2);margin-top:12px;max-width:34ch}
 
-  /* ── YOUR WEDDING, YOUR WAY — tone kem ấm (chị Linh bỏ nền đen 18/08) ── */
   .toi{background:var(--stone);color:var(--ink-2)}
   .toi h2,.toi h3{color:var(--ink)}
   .toi .eyebrow{color:var(--grey)}
@@ -183,7 +154,7 @@
   @media(min-width:900px){.toi-luoi{grid-template-columns:1.2fr 1fr;align-items:end}}
   .toi h2{font-size:clamp(30px,4.5vw,46px);text-transform:none;line-height:1.15}
   .toi p{max-width:46ch;color:var(--ink-2);font-size:15px;line-height:1.5}
-  /* tiến trình giá kiểu bậc thang (chị Linh chọn 18/08): số to dần, vạch cao dần theo giá */
+
   .tien-trinh{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin-top:clamp(28px,4vw,48px);align-items:end}
   .tien-trinh > div{display:grid;gap:8px;min-width:0}
   .tien-trinh .bar{height:var(--h);width:1px;background:var(--hair);justify-self:start;margin-left:2px}
@@ -197,7 +168,6 @@
   @media(min-width:760px){.tien-trinh{gap:24px}.tien-trinh .n{font-size:.62rem;letter-spacing:.2em}}
   html,body{overflow-x:hidden}
 
-  /* ── CHƯƠNG (chapters) ───────────────────────────────── */
   .chuong{display:grid;gap:clamp(24px,4vw,64px);align-items:center;padding-block:clamp(32px,4.5vw,60px)}
   @media(min-width:900px){
     .chuong{grid-template-columns:1fr 1fr}
@@ -214,7 +184,7 @@
   .c-quyen li::before{content:"";flex:none;width:22px;height:1px;background:var(--ink);transform:translateY(-.35em)}
   .c-cta{margin-top:30px}
   .chuong.nen{background:var(--paper)}
-  /* chương 03: ảnh tràn ngang, chữ đè góc dưới */
+
   .chuong-band{
     position:relative;min-height:clamp(440px,64vh,620px);color:#fff;
     background:var(--stone) url('../anh/up/cl-34-wide.jpg') center 30%/cover no-repeat;display:flex;align-items:flex-end;
@@ -225,7 +195,7 @@
   .chuong-band .c-mo{color:rgba(255,255,255,.85)}
   .chuong-band .c-quyen li{color:#fff}
   .chuong-band .c-quyen li::before{background:#fff}
-  /* chương 04: signature — ảnh cao nhất, chữ giữa */
+
   .chuong-sig{
     position:relative;min-height:clamp(500px,74vh,680px);color:#fff;text-align:center;
     background:var(--stone) url('../anh/up/nu-signature-wide.jpg') center 50%/cover no-repeat;display:flex;align-items:center;justify-content:center;
@@ -241,7 +211,6 @@
   .chuong-sig .khep{margin-top:22px;font-family:var(--serif);font-style:italic;font-size:20px;color:rgba(255,255,255,.85)}
   .chuong-sig .c-cta{margin-top:26px}
 
-  /* ── UPGRADE ─────────────────────────────────────────── */
   .up{background:var(--stone)}
   .up-luoi{display:grid;gap:clamp(30px,5vw,80px)}
   @media(min-width:900px){.up-luoi{grid-template-columns:1fr 1fr;align-items:start}}
@@ -258,7 +227,6 @@
   .flow li:last-child .ten{color:var(--ink)}
   .up .chinh-sach{font-size:.85rem;color:var(--grey-2);margin-top:22px}
 
-  /* ── REAL BRIDES ─────────────────────────────────────── */
   .rb-dau{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:16px;margin-bottom:clamp(26px,4vw,48px)}
   .rb-dau h2{font-size:clamp(30px,4.5vw,46px);text-transform:none;line-height:1.15}
   .rb{display:grid;gap:clamp(10px,1.4vw,20px);grid-template-columns:repeat(2,1fr)}
@@ -276,7 +244,6 @@
   @media(max-width:759px){.rb a:nth-child(5){display:none}}
   .rb-chu{margin-top:14px;font-size:.78rem;color:var(--grey-2);letter-spacing:.08em}
 
-  /* ── CTA cuối ────────────────────────────────────────── */
   .cuoi{
     position:relative;min-height:clamp(440px,64vh,600px);color:#fff;text-align:center;
     background:var(--stone) url('../anh/up/nu-cuoi-wide.jpg') center 50%/cover no-repeat;display:flex;align-items:center;justify-content:center;
@@ -289,7 +256,6 @@
   .cuoi .lh{font-family:var(--sans);font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.75);margin-top:10px}
   .cuoi .lh a{text-decoration:none}
 
-  /* ── footer ──────────────────────────────────────────── */
   footer{background:var(--ivory);color:var(--ink-2);font-size:.95rem;line-height:1.45}
   .ft{display:grid;gap:26px;padding-block:clamp(40px,5vw,64px)}
   @media(min-width:820px){.ft{grid-template-columns:1.2fr 1fr 1fr 1fr}}
@@ -299,7 +265,6 @@
   .ft .wm{font-family:var(--didone);font-size:1.4rem;letter-spacing:.3em;text-transform:uppercase;color:var(--ink)}
   .ft-cuoi{padding-block:18px;border-top:1px solid var(--hair);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--grey-2);display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-between}
 
-  /* ── bổ sung cho bản copy mới ─────────────────────────── */
   .hero .tag{font-family:var(--body);text-transform:none;letter-spacing:0;font-size:clamp(1rem,1.3vw,1.1rem);max-width:44ch;line-height:1.5}
   .ht-luoi{display:grid;gap:0}
   @media(min-width:900px){
@@ -319,8 +284,6 @@
   .rb-cau{font-family:var(--serif);font-style:italic;font-size:20px;color:var(--ink);margin-top:-6px;max-width:34ch}
   .cuoi .quote{font-family:var(--serif);font-style:italic;font-size:20px;color:rgba(255,255,255,.88);line-height:1.5;max-width:30ch}
 
-
-  /* ── ẢNH GIỮ NGUYÊN MÀU GỐC (chị Linh: tuyệt đối không đổi màu ảnh) — không lớp phủ; chữ đè ảnh dùng màu mực ── */
   header{color:var(--ink)}
   .wordmark,.hd .lien.sang{color:var(--ink)}
   .hd .eyebrow{color:var(--grey)}
@@ -357,8 +320,6 @@
   .cuoi .nut.dac:hover{background:transparent;color:var(--ink)}
   .cuoi .lh{color:var(--grey)}
 
-
-  /* điện thoại: chương 03 & 04 xếp ảnh trên – chữ dưới cho rõ (chị Linh hỏi cách ổn hơn, 18/08) */
   @media(max-width:899px){
     .chuong-band,.chuong-sig{background-size:100% auto !important;background-position:top center !important;min-height:0;align-items:flex-start;text-align:left;justify-content:flex-start}
     .chuong-band .wrap,.chuong-sig .wrap{padding-top:calc(100vw * var(--r,1) + 22px);padding-bottom:40px;justify-items:start;margin:0;width:100%}
@@ -366,7 +327,6 @@
     .chuong-sig .c-quyen{margin-left:0;width:auto}
   }
 
-  /* ── hộp QR cọc (bấm "Begin here") ───────────────────── */
   .qr-nen{position:fixed;inset:0;background:rgba(23,19,15,.45);display:none;align-items:center;justify-content:center;z-index:90;padding:20px}
   .qr-nen.hien{display:flex}
   .qr-hop{background:#fff;width:min(100%,420px);padding:28px 26px 24px;position:relative;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,.18)}
@@ -381,7 +341,6 @@
   .qr-hop .chua{padding:26px 10px;color:var(--grey);font-size:14px;line-height:1.6}
   .qr-hop .zalo{display:inline-block;margin-top:14px;font-family:var(--sans);font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink);text-decoration:none;border-bottom:1px solid var(--ink);padding-bottom:4px}
 
-  /* ── reveal khi cuộn (rất nhẹ) ───────────────────────── */
   html.js .len{opacity:0;transform:translateY(18px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
   html.js .len.hien{opacity:1;transform:none}
   @media(prefers-reduced-motion:reduce){
@@ -389,7 +348,6 @@
     html{scroll-behavior:auto}
   }
 
-  /* ── dải 03 dùng ảnh lễ tối màu → chữ trắng cho đọc được (chỉ đổi MÀU CHỮ, không đụng ảnh) ── */
   .chuong-band.anh-toi{color:#fff}
   .chuong-band.anh-toi .wrap{text-shadow:0 1px 10px rgba(15,11,8,.55),0 0 2px rgba(15,11,8,.35)}
   .chuong-band.anh-toi .c-so,
@@ -401,12 +359,11 @@
   .chuong-band.anh-toi .c-quyen li::before{background:#fff}
   .chuong-band.anh-toi .lien.sang{color:#fff;border-color:rgba(255,255,255,.7)}
   .chuong-band.anh-toi .lien.sang:hover{border-color:#fff}
-  /* điện thoại: ảnh nằm trên – chữ nằm dưới, nên nền dải này phải tối để chữ trắng đọc được */
+
   @media(max-width:899px){ .chuong-band.anh-toi{background-color:#1F1A16} }
-  /* nhãn gói 04 nằm trên vùng giày sáng → dùng màu mực cho rõ (màu champagne bị chìm) */
+
   .chuong-sig .nhan-sig{color:var(--ink-2)}
 
-  /* ── dòng thành phố + chuyển thành phố (hero) ──────────── */
   .loc-hang{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 20px;margin-top:4px}
   .loc-hang .eyebrow{color:var(--grey)}
   .loc-doi{display:inline-flex;align-items:baseline;gap:9px;font-family:var(--sans);
@@ -433,7 +390,6 @@
   .ft .sr-khac a{border-bottom:1px solid var(--hair);padding-bottom:2px}
 </style>
 
-<!-- ══════════ NAV ══════════ -->
 <header>
   <div class="wrap hd">
     <a class="wordmark" href="#top">Dolinhanh</a>
@@ -445,7 +401,6 @@
   </div>
 </header>
 
-<!-- ══════════ HERO ══════════ -->
 <section class="hero" id="top" data-slot="hero" style="background-position:0% 100%;background-size:115%">
   <div class="wrap">
     <div class="kicker">
@@ -461,7 +416,6 @@
   </div>
 </section>
 
-<!-- ══════════ BRAND ══════════ -->
 <section class="brand">
   <div class="wrap muc len">
     <div class="eyebrow" style="margin-bottom:22px">Crafted by Mother Love</div>
@@ -470,7 +424,6 @@
   </div>
 </section>
 
-<!-- ══════════ DẢI ẢNH ══════════ -->
 <section class="dai len" data-slot="dai" style="background-image:url('../anh/up/cl-22.jpg');background-position:0% 0%;background-size:cover">
   <div class="wrap">
     <div class="eyebrow">Quiet minimal luxury</div>
@@ -478,7 +431,6 @@
   </div>
 </section>
 
-<!-- ══════════ EXPERIENCE — hành trình được chăm sóc ══════════ -->
 <section id="experience">
   <div class="wrap muc">
     <div class="exp-dau len">
@@ -511,7 +463,6 @@
   </div>
 </section>
 
-<!-- ══════════ THE DRESS — bốn cách bắt đầu ══════════ -->
 <section id="dress" style="background:var(--paper)">
   <div class="wrap muc">
     <div class="exp-dau len">
@@ -519,7 +470,6 @@
       <div class="phu">Chosen for her — not for the trend.</div>
     </div>
 
-    <!-- 01 Bride Care -->
     <div class="hang len">
       <div class="so">01</div>
       <div>
@@ -535,7 +485,6 @@
       <div class="anh" data-slot="vay1" style="background-image:url('../anh/sc/ballgown-wide.jpg');background-position:0% 100%;background-size:127%"></div>
     </div>
 
-    <!-- 02 Pretty Dress -->
     <div class="hang dao len">
       <div class="so">02</div>
       <div>
@@ -551,7 +500,6 @@
       <div class="anh" data-slot="vay2" style="background-image:url('../anh/up/cl-28.jpg');background-position:74% 27%;background-size:179%"></div>
     </div>
 
-    <!-- 03 Two Dresses -->
     <div class="hang len">
       <div class="so">03</div>
       <div>
@@ -567,7 +515,6 @@
       <div class="anh" data-slot="vay3" style="background-image:url('../anh/up/cl-29.jpg')"></div>
     </div>
 
-    <!-- 04 Full -->
     <div class="hang dao len">
       <div class="so">04</div>
       <div>
@@ -585,7 +532,6 @@
   </div>
 </section>
 
-<!-- ══════════ DARK: YOUR WEDDING, YOUR WAY ══════════ -->
 <section class="toi" id="wedding">
   <div class="wrap muc len">
     <div class="toi-luoi">
@@ -606,7 +552,6 @@
   </div>
 </section>
 
-<!-- ══════════ CHƯƠNG 01 — PRE WEDDING ══════════ -->
 <section class="chuong-wrap" style="background:var(--ivory)">
   <div class="wrap chuong len">
     <div class="c-anh" data-slot="goi1" style="background-image:url('../anh/up/nu-pre.jpg');background-position:center 50%"></div>
@@ -622,7 +567,6 @@
   </div>
 </section>
 
-<!-- ══════════ CHƯƠNG 02 — WEDDING DAY ══════════ -->
 <section class="chuong-wrap" style="background:var(--paper)">
   <div class="wrap chuong dao len">
     <div class="c-anh" data-slot="goi2" style="background-image:url('../anh/up/nu-wedday.jpg');background-position:center 50%"></div>
@@ -638,7 +582,6 @@
   </div>
 </section>
 
-<!-- ══════════ CHƯƠNG 03 — WEDDING STORY (ảnh tràn) ══════════ -->
 <section class="chuong-band anh-toi len" data-slot="goi3" style="background-image:url('../anh/up/nu-story-wide.jpg');background-position:center 50%;background-size:cover">
   <div class="wrap">
     <div>
@@ -655,7 +598,6 @@
   </div>
 </section>
 
-<!-- ══════════ CHƯƠNG 04 — WEDDING SIGNATURE ══════════ -->
 <section class="chuong-sig len" data-slot="goi4">
   <div class="wrap">
     <div class="nhan-sig">Most complete experience</div>
@@ -671,7 +613,6 @@
 
 <p class="eyebrow" style="text-align:center;padding:26px var(--gutter);background:var(--ivory);margin:0">Chụp và quay tỉnh khác, Dolinhanh trao đổi riêng · Chưa bao gồm phí di chuyển</p>
 
-<!-- ══════════ UPGRADE ══════════ -->
 <section class="up" id="upgrade">
   <div class="wrap muc len">
     <div class="up-luoi">
@@ -686,7 +627,6 @@
   </div>
 </section>
 
-<!-- ══════════ REAL BRIDES ══════════ -->
 <section id="brides" style="background:var(--paper)">
   <div class="wrap muc len">
     <div class="rb-dau">
@@ -697,7 +637,7 @@
       <a class="lien" href="https://www.instagram.com/dolinhanh.bridal/" target="_blank" rel="noopener">@dolinhanh.bridal</a>
     </div>
     <div class="rb">
-      <!-- ⚠️ đang là ảnh bộ sưu tập — thay bằng ảnh cô dâu thật khi có -->
+
       <a data-slot="gal1" href="https://www.instagram.com/dolinhanh.bridal/" target="_blank" rel="noopener" aria-label="Instagram Dolinhanh" style="background-image:url('../anh/up/cl-25.jpg')"></a>
       <a data-slot="gal2" href="https://www.instagram.com/dolinhanh.bridal/" target="_blank" rel="noopener" aria-label="Instagram Dolinhanh" style="background-image:url('../anh/up/cl-26.jpg')"></a>
       <a data-slot="gal3" href="https://www.instagram.com/dolinhanh.bridal/" target="_blank" rel="noopener" aria-label="Instagram Dolinhanh" style="background-image:url('../anh/up/cl-28.jpg')"></a>
@@ -708,7 +648,6 @@
   </div>
 </section>
 
-<!-- ══════════ CTA CUỐI ══════════ -->
 <section class="cuoi" id="fitting" data-slot="cuoi">
   <div class="wrap">
     <div class="eyebrow sang" data-loc="fitting">Private fitting · TP.HCM</div>
@@ -752,8 +691,6 @@
   </div>
 </footer>
 
-
-<!-- ══════════ HỘP QR CỌC ══════════ -->
 <div class="qr-nen" id="qrNen" role="dialog" aria-modal="true">
   <div class="qr-hop">
     <button class="dong" id="qrDong" aria-label="Đóng">×</button>
@@ -765,18 +702,14 @@
 </div>
 
 <script>
-  /* ══════════════════════════════════════════════════════
-     BANG_GIA — chỉ sửa trong ngoặc kép. Mọi số trên trang
-     lấy từ đây; phần chênh nâng gói tự tính.
-     ══════════════════════════════════════════════════════ */
+
   const BANG_GIA = {
-    /* A. Bridal experiences (giá V1 chị Linh duyệt 18/08/2026) */
+
     vay1: { gia:"1.888.000 VND",  quyen:["Take care 1h cùng stylist","Mannequin","Sketch váy","Thiệp cưới online"] },
     vay2: { gia:"6.888.000 VND",  quyen:["1 váy chọn lọc","Dành cho lần đặt lịch đầu tiên","1 vest","Thiệp cưới online"] },
     vay3: { gia:"14.888.000 VND", quyen:["2 váy","1 vest hoặc voan thêu tên / thêu quotes","Mannequin","Thiệp cưới online","Sketch váy"] },
     vay4: { ten:"Signature Bride", gia:"28.888.000 VND", quyen:["3 váy","Áo dài đôi","1 vest","Trang điểm cô dâu","Take care 3 tiếng","Mannequin","Thiệp cưới online","Sketch váy"] },
 
-    /* B. Wedding experience — số triệu để tính chênh */
     goi1: { ten:"Pre Wedding",       trieu:14.8, quyen:["Chụp pre-wedding studio","1 váy tiệc"] },
     goi2: { ten:"Wedding Day",       trieu:16.8, quyen:["1 máy chụp theo tiệc 2 lễ tại {TP}","2 váy tiệc"] },
     goi3: { ten:"Wedding Story",     trieu:25.8, quyen:["1 máy chụp + 1 máy quay (2 lễ tại {TP})","Take care 3 tiếng","2 váy tiệc"] },
@@ -800,7 +733,7 @@
       const g=BANG_GIA[o.dataset.quyen]; if(!g) return;
       o.innerHTML = g.quyen.map(q=>"<li>"+q.split("{TP}").join("HCM")+"</li>").join("");
     });
-    /* flow nâng gói */
+
     const keys=["goi1","goi2","goi3","goi4"], fl=document.getElementById("flow");
     let html="";
     keys.forEach((k,i)=>{
@@ -824,14 +757,6 @@
     setTimeout(()=>items.forEach(el=>el.classList.add("hien")),3000);
   })();
 
-
-  /* ══════════════════════════════════════════════════════
-     THÀNH PHỐ — 1 file dùng chung cho Hà Nội & TP.HCM
-     ?location=hn  → Hà Nội      ?location=hcm → TP.HCM
-     Không có / sai giá trị → mặc định TP.HCM (giữ link cũ chạy được).
-     Chỉ đổi CHỮ ở: hero · CTA đặt lịch · booking · showroom · title.
-     Giá, quyền lợi, gói và ảnh KHÔNG phụ thuộc thành phố.
-     ══════════════════════════════════════════════════════ */
   const CO_SO = {
     hn: {
       ma:"hn", city:"Hà Nội", en:"Hanoi",
@@ -851,10 +776,8 @@
     }
   };
 
-  /* Mỗi thành phố một bộ ảnh. goi4mob = ảnh riêng cho điện thoại (chữ nằm dưới ảnh
-     nên khung cắt được rộng hơn bản máy tính, nơi chữ đè lên ảnh). */
   const ANH = {
-    hn: {   /* ảnh studio bộ DLA New Collection 2025 + T5 — KHÔNG trùng tấm nào của TP.HCM */
+    hn: {
       hero:"anh/up/hn-hero.jpg",         heroMob:"anh/up/hn-hero-mob.jpg",
       heroPos:"center 50%", heroSize:"cover",
       dai:"anh/up/hn-dai.jpg",
@@ -867,7 +790,7 @@
       gal3:"anh/up/hn-gal3b.jpg",        gal4:"anh/up/hn-gal4b.jpg",
       gal5:"anh/up/hn-gal5.jpg",         cuoi:"anh/up/hn-cuoi-wide.jpg"
     },
-    hcm: {  /* ảnh cưới thật Nupakachi + bộ catalogue đang chạy */
+    hcm: {
       hero:"anh/up/cl-26-hero.jpg",      heroPos:"0% 100%", heroSize:"115%",
       dai:"anh/up/cl-22.jpg",
       vay1:"anh/sc/ballgown-wide.jpg",   vay2:"anh/up/cl-28.jpg",
@@ -895,10 +818,10 @@
     dat('.c-anh[data-slot="goi2"]', a.goi2);
     dat('.chuong-band[data-slot="goi3"]', a.goi3);
     dat('.chuong-sig', window.matchMedia("(max-width:899px)").matches ? a.goi4mob : a.goi4);
-    /* ảnh tối thì chữ trắng, ảnh sáng thì chữ mực */
+
     const band = document.querySelector('.chuong-band[data-slot="goi3"]');
     if (band) band.classList.toggle("anh-toi", !!a.goi3Toi);
-    if (window.__doAnh) window.__doAnh();   /* đo lại tỉ lệ ảnh cho bố cục điện thoại */
+    if (window.__doAnh) window.__doAnh();
   }
 
   function apCoSo(ma){
@@ -922,7 +845,7 @@
     document.querySelectorAll("[data-doi]").forEach(a => {
       a.classList.toggle("dang", a.dataset.doi === g.ma);
     });
-    /* dòng quyền lợi có "{TP}" (2 lễ tại HN / HCM) đổi theo thành phố */
+
     const tp = g.ma === "hn" ? "HN" : "HCM";
     document.querySelectorAll("[data-quyen]").forEach(o => {
       const b = BANG_GIA[o.dataset.quyen]; if (!b) return;
@@ -951,9 +874,8 @@
     });
   })();
 
-  /* ══ TỰ CHỈNH ẢNH & CHỮ — nhận cấu hình từ chinh-sua.html (postMessage), ?cfg= hoặc localStorage ══ */
   (function tuChinh(){
-    /* đánh số ổn định cho mọi phần tử có chữ (theo thứ tự trong trang) */
+
     var INLINE={BR:1,EM:1,B:1,STRONG:1,SMALL:1,SPAN:1,I:1};
     var n=0, goc={};
     function laChu(el){
@@ -998,7 +920,6 @@
     });
   })();
 
-  /* điện thoại: tự đo tỉ lệ ảnh chương 03/04 để chữ nằm dưới ảnh */
   (function doAnh(){
     function cap(){
       document.querySelectorAll(".chuong-band,.chuong-sig").forEach(function(el){
@@ -1010,10 +931,6 @@
     cap(); window.addEventListener("message",function(){ setTimeout(cap,50); });
   })();
 
-  /* ══ QR CỌC — điền thông tin tài khoản ở đây ══
-     bank: mã ngân hàng theo VietQR (vd "VCB","TCB","MB","ACB","BIDV","VPB","TPB","STB","VIB","MSB"…)
-     so: số tài khoản · ten: tên chủ TK (không dấu, viết hoa) · coc: số tiền cọc — để 0 = hiện toàn bộ giá gói,
-     hoặc số tiền cố định (vd 2000000), hoặc tỉ lệ (vd 0.3 = 30%) */
   const TAI_KHOAN = { bank:"", so:"", ten:"", coc:0 };
   (function qrCoc(){
     var nen=document.getElementById("qrNen"), than=document.getElementById("qrThan");
@@ -1024,7 +941,7 @@
       var tong=giaGoi(k); var tien=!TAI_KHOAN.coc?tong:(TAI_KHOAN.coc<1?tong*TAI_KHOAN.coc:TAI_KHOAN.coc);
       document.getElementById("qrTen").textContent=ten; document.getElementById("qrTien").textContent=vnd(tien);
       if(TAI_KHOAN.bank&&TAI_KHOAN.so){
-        var nd=encodeURIComponent("DLA "+ten.replace(/\s+/g," ")); 
+        var nd=encodeURIComponent("DLA "+ten.replace(/\s+/g," "));
         var url="https://img.vietqr.io/image/"+TAI_KHOAN.bank+"-"+TAI_KHOAN.so+"-compact2.png?amount="+Math.round(tien)+"&addInfo="+nd+"&accountName="+encodeURIComponent(TAI_KHOAN.ten);
         than.innerHTML='<img alt="QR chuyển khoản" src="'+url+'"><div class="tk"><b>'+TAI_KHOAN.ten+'</b><br>'+TAI_KHOAN.bank+' · '+TAI_KHOAN.so+'<br>Nội dung: DLA '+ten+'</div><div class="ghi">'+(TAI_KHOAN.coc?'Số tiền trên là cọc giữ chỗ; phần còn lại thanh toán theo hợp đồng.':'Quét mã để chuyển khoản đúng số tiền và nội dung.')+' Sau khi chuyển, nhắn Zalo để Dolinhanh xác nhận lịch.</div><a class="zalo" href="https://zalo.me/0359950588" target="_blank" rel="noopener">Nhắn Zalo xác nhận</a>';
       }else{
