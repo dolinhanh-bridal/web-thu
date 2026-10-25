@@ -521,6 +521,16 @@ src="https://www.facebook.com/tr?id=1358640082651240&ev=PageView&noscript=1"
   html:not([data-lang="en"]) .en{display:none!important}
   html[data-lang="en"] .vi{display:none!important}
 
+  /* Xem nhanh: clip + ảnh 14 số đo (25/10/2026) */
+  .xn{display:grid;gap:clamp(22px,3vw,40px);align-items:start;margin-top:clamp(8px,1.5vw,16px)}
+  .xn figure{margin:0}
+  .xn video{display:block;width:100%;height:auto;aspect-ratio:9/16;background:#FBF6F3;box-shadow:var(--shadow)}
+  .xn img{display:block;width:100%;height:auto;box-shadow:var(--shadow)}
+  .xn figcaption{font-family:var(--sans);font-size:.8rem;color:var(--grey);margin-top:12px;line-height:1.5}
+  .xn figcaption a{color:var(--cta);font-weight:500;text-underline-offset:3px}
+  @media (min-width:900px){.xn{grid-template-columns:minmax(0,.62fr) minmax(0,1fr)}}
+  @media (max-width:899px){.xn-clip{max-width:420px;margin-inline:auto;width:100%}}
+
   @media print{
     body{background:#fff;color:#000;font-size:11pt}
     .cta,nav.toc,.sheet-actions,.zl-noi,.lang,.hero-anh,.mindmap,.flat,.split>figure,.ud,.ud-giua,.ud-nen,.ud-thanh,.phieu-xong{display:none}
@@ -603,6 +613,24 @@ src="https://www.facebook.com/tr?id=1358640082651240&ev=PageView&noscript=1"
       <li><span class="vi">Vì sao áo lót có mút, quần gen, độ cao gót và tư thế đứng lại làm lệch nguyên một đường may trên váy.</span><span class="en">Why a padded bra, shapewear, heel height and posture each move a specific seam, dart or hemline on the finished gown.</span></li>
       <li><span class="vi">Đo từng số ở đâu trên người, ghi lại thế nào để hôm thử váy đỡ mất thời gian sửa tới sửa lui.</span><span class="en">Exactly where each measurement sits on the body, and how to record it so your fitting is quicker and calmer.</span></li>
     </ul>
+  </div>
+</section>
+
+<section id="xem-nhanh">
+  <div class="wrap">
+    <div class="sec-head"><h2><span class="vi">Xem nhanh trong 1 phút</span><span class="en">The one-minute version</span></h2></div>
+    <p class="col"><span class="vi">Clip đo lần lượt 14 số. Lưu ảnh về máy để vừa đo vừa xem.</span><span class="en">The clip walks through all 14 measurements. Save the chart to keep it open while you measure.</span></p>
+    <div class="xn">
+      <figure class="xn-clip">
+        <video class="vi" controls playsinline preload="none" poster="anh/do-so-do/clip-do-so-do-vi.jpg" width="720" height="1280"><source src="anh/do-so-do/clip-do-so-do-vi.mp4" type="video/mp4"></video>
+        <video class="en" controls playsinline preload="none" poster="anh/do-so-do/clip-do-so-do-en.jpg" width="720" height="1280"><source src="anh/do-so-do/clip-do-so-do-en.mp4" type="video/mp4"></video>
+      </figure>
+      <figure class="xn-anh">
+        <img class="vi" src="anh/do-so-do/bang-14-so-do-vi.jpg" alt="Cách đo 14 số đo may váy cưới: hình người đánh số 1–14 và 5 lời dặn khi đo" loading="lazy" width="2160" height="2700">
+        <img class="en" src="anh/do-so-do/bang-14-so-do-en.jpg" alt="How to take your 14 gown measurements: numbered body chart and 5 measuring tips" loading="lazy" width="2160" height="2700">
+        <figcaption><span class="vi"><a href="anh/do-so-do/bang-14-so-do-vi.jpg" download>Lưu ảnh về máy</a> · gửi số đo + 3 ảnh toàn thân qua <a href="https://zalo.me/0359950588" target="_blank" rel="noopener">Zalo 0359 950 588</a></span><span class="en"><a href="anh/do-so-do/bang-14-so-do-en.jpg" download>Save the chart</a> · send your numbers + 3 full-body photos on <a href="https://wa.me/84359950588" target="_blank" rel="noopener">WhatsApp +84 359 950 588</a></span></figcaption>
+      </figure>
+    </div>
   </div>
 </section>
 
@@ -1240,6 +1268,7 @@ src="https://www.facebook.com/tr?id=1358640082651240&ev=PageView&noscript=1"
     bVi.setAttribute("aria-pressed", l === "vi" ? "true" : "false");
     bEn.setAttribute("aria-pressed", l === "en" ? "true" : "false");
     try{ localStorage.setItem("dla-lang", l); }catch(e){}
+    document.querySelectorAll(".xn video").forEach(function(v){ v.pause(); });
   }
   var bVi = document.getElementById("btn-vi");
   var bEn = document.getElementById("btn-en");
@@ -1438,6 +1467,7 @@ src="https://www.facebook.com/tr?id=1358640082651240&ev=PageView&noscript=1"
   try{ daTuBat = sessionStorage.getItem('dla_ud_popup') === '1'; }catch(e){}
   function tuBat(){
     if(daTuBat || daBat || daCoLead()) return;
+    if(document.documentElement.getAttribute('data-lang') === 'en') return; // khách nước ngoài (bản EN): không tự bật popup thử váy (chị Linh 15/10/2026)
     if(document.activeElement && /INPUT|TEXTAREA/.test(document.activeElement.tagName)) return; // đang điền phiếu thì đừng chen
     daTuBat = true;
     moPopup('tu-bat');
