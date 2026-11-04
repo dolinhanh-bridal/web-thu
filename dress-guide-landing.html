@@ -1346,6 +1346,7 @@ fbq('init','1358640082651240');fbq('track','PageView');
       +'\nĐịa điểm tổ chức tiệc: '+(d.noiTiec||'chưa điền')
       +'\nNgày đặt hẹn: '+ngayVN(d.ngayHen)+'\nGiờ đặt hẹn: '+d.gioHen
       +'\nShowroom: '+d.coSo;
+    /* Zalo 04/11/2026: chỉ khách web DLA — báo về Zalo chị + tự mở Zalo shop */ if(/^(www\.)?dolinhanhbridal\.com$/.test(location.hostname)){try{var zb=new URLSearchParams();zb.append("loai","hen");zb.append("tin",tin);fetch("/dla-zalo-7k2q/bao.php",{method:"POST",body:zb}).catch(function(){});if((document.documentElement.lang||"vi").toLowerCase().indexOf("vi")===0){try{navigator.clipboard.writeText(tin)}catch(e){}window.open("https://zalo.me/0359950588","_blank");}}catch(e){}}
     fetch(MAIL+'?hoi='+encodeURIComponent(tin)+'&em='+encodeURIComponent(sdt),
       {mode:'no-cors'}).catch(function(){});
     try{navigator.clipboard.writeText(tin)}catch(e){}
