@@ -1,4 +1,4 @@
-/* GIỎ HÀNG — Dolinhanh Bridal (17/10/2026: "khách chọn váy, click váy đó và cho váy đó vào giỏ hàng")
+/* GIỎ HÀNG — Dolinhanh Bridal Atelier (17/10/2026: "khách chọn váy, click váy đó và cho váy đó vào giỏ hàng")
    Nạp ở cuối các trang có header .bar. Trang có lưới váy #vlGrid (Bộ sưu tập, Pre-wedding) thêm nút
    "Thêm vào giỏ" dưới mỗi thẻ váy + trong ảnh phóng to.
    · Khách nước ngoài (html.co-gia): Đặt mua qua WhatsApp; giá USD + tổng CHỈ ở vietnamweddinggown.com (html.vwg) — web dolinhanh không có giá (17/10/2026).
@@ -229,7 +229,7 @@
       phai.appendChild(el("b", "", tong ? "US$" + tong.toLocaleString("en-US") : t("lienHe")));
       if(tong && thieuGia) phai.appendChild(el("small", "", t("congLienHe")));
       dong.appendChild(trai); dong.appendChild(phai); CUOI.appendChild(dong); }
-      var tin = "Hi Dolinhanh Bridal, I'd like to order:\n"
+      var tin = "Hi Dolinhanh Bridal Atelier, I'd like to order:\n"
         + GIO.map(function(m){ return "• " + m.ms + (coGia ? " — " + (usd(m.gia) ? m.gia : "price on request") : ""); }).join("\n")
         + (coGia && tong ? "\nTotal: US$" + tong.toLocaleString("en-US") + (thieuGia ? " + price on request" : "") : "")
         + "\nAre they available?";
